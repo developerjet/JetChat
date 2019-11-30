@@ -2,7 +2,7 @@
  Swift5.0编写的简仿微信聊天应用，完美支持单聊、群聊、本地消息会话缓存。
 
  ### Examples
-![image](https://github.com/tanagile/JetChat/blob/master/FSFurnitureStore/ScreenShot/JetChat.gif)
+![image](https://github.com/tanagile/JetChat/blob/master//ScreenShot/JetChat.gif)
 
 ### 主要实现功能
 * 聊天室键盘控件封装处理，支持表情文字多行输入，支持iOS13

@@ -1,0 +1,17 @@
+/* 
+  InfoPlist.strings
+  FY-IMChat
+ 
+  美式英语
+ 
+  Created by iOS.Jet on 2019/3/4.
+  Copyright © 2019 development. All rights reserved.
+*/
+
+// App名称多语言化
+"CFBundleDisplayName" = "IMChat";
+
+
+NSCameraUsageDescription = "To scan the QR code, do you allow using the camera?";
+NSPhotoLibraryUsageDescription = "App requests your permission to access the photos in the gallery.";
+NSPhotoLibraryAddUsageDescription = "App requests your permission to access the photos in the gallery.";

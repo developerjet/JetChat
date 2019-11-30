@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>-100</key>
+	<string></string>
+	<key>-1001</key>
+	<string>Xin lỗi, chúng tôi hiện không thể xử lý yêu cầu của bạn. Vui lòng thử lại sau</string>
+	<key>100</key>
+	<string></string>
+	<key>10001</key>
+	<string>Tên người dùng không tồn tại</string>
+	<key>10002</key>
+	<string>Máy chủ đang bận, vui lòng thử lại sau giây lát</string>
+	<key>10003</key>
+	<string>Tìm không có khóa kết nối số điện thoại</string>
+	<key>10004</key>
+	<string>Không thể gửi mã xác thực</string>
+	<key>10005</key>
+	<string>Mã xác thực có hiệu lực trong 120 giây</string>
+	<key>10006</key>
+	<string>Không thể lấy mã xác thực</string>
+	<key>10007</key>
+	<string>Mã xác thực không thể xác thực</string>
+	<key>10008</key>
+	<string>Số dư không đủ</string>
+	<key>10009</key>
+	<string>Quy đổi nhanh không thành công, vui lòng liên hệ chăm sóc khách hàng</string>
+	<key>10010</key>
+	<string>Mật khẩu giao dịch vô hiệu</string>
+	<key>10011</key>
+	<string>Thao tác quy đổi nhanh vô hiệu</string>
+	<key>10012</key>
+	<string>Loại tiền này không thể thao tác quy đổi nhanh</string>
+	<key>10013</key>
+	<string>[SBlock1] không cho phép quy đổi nhanh đến [SBlock2]</string>
+	<key>10014</key>
+	<string>Không thể lấy tỷ giá loại tiền này</string>
+	<key>10015</key>
+	<string>Tên người dùng không thể đăng ký</string>
+	<key>10016</key>
+	<string>Số điện thoại của bạn đã vượt quá giới hạn đăng ký tài khoản.</string>
+	<key>10017</key>
+	<string>Tên người giới thiệu không thể để trống</string>
+	<key>10018</key>
+	<string>Đăng ký không thành công</string>
+	<key>10019</key>
+	<string>Tên người dùng không tồn tại</string>
+	<key>10020</key>
+	<string>Không thể tìm kiếm tên người dùng này</string>
+	<key>10021</key>
+	<string>Loại tiền không tồn tại</string>
+	<key>10023</key>
+	<string>Vui lòng chọn loại tiền</string>
+	<key>10024</key>
+	<string>Tìm không có ghi chép lượng hóa</string>
+	<key>10028</key>
+	<string>Số tiền quá ít, không thể chuyển ra</string>
+	<key>10029</key>
+	<string>Chuyển ra không thành công</string>
+	<key>1003</key>
+	<string>Thông tin đăng nhập đã quá hạn</string>
+	<key>10030</key>
+	<string>Tên người dùng không tồn tại</string>
+	<key>10031</key>
+	<string>Mật khẩu không chính xác</string>
+	<key>10032</key>
+	<string>Số tài khoản đã bị đóng băng, vui lòng liện hệ chăm sóc khách hàng</string>
+	<key>10033</key>
+	<string>Tìm không có loại tiền quy đổi nhanh</string>
+	<key>10034</key>
+	<string>Số tiền tối thiểu có thể quy đổi là $[SBlock]</string>
+	<key>10035</key>
+	<string>Vui lòng thực hiện xác thực danh tính trước</string>
+	<key>10036</key>
+	<string>Thao tác chuyển ra không cho phép, vui lòng liên hệ chăm sóc khách hàng</string>
+	<key>10037</key>
+	<string>Loại ví tiền vô hiệu</string>
+	<key>10038</key>
+	<string>Không thể lấy địa chỉ ví tiền</string>
+	<key>10039</key>
+	<string>Tải lên hình ảnh không thành công</string>
+	<key>10040</key>
+	<string>Loại phản hồi không tồn tại</string>
+	<key>10041</key>
+	<string>Không thể nộp phản hồi</string>
+	<key>10042</key>
+	<string>Không thể đón phản hồi</string>
+	<key>10043</key>
+	<string>Tìm không có ghi chép lượng hóa</string>
+	<key>10044</key>
+	<string>Không thể hủy lượng hóa</string>
+	<key>10045</key>
+	<string>Bạn đã khởi động lượng hóa giữa các vì sao  $[SBlock1], \n bạn còn có thể khởi động số tiền tối đa $[SBlock2]</string>
+	<key>10046</key>
+	<string>Xét duyệt thông qua</string>
+	<key>10047</key>
+	<string>Đang xét duyệt</string>
+	<key>10048</key>
+	<string>Xét duyệt không thông qua</string>
+	<key>10049</key>
+	<string>Tài khoản của bạn không thể thực hiện lượng hóa nữa</string>
+	<key>10050</key>
+	<string>Số lượng hóa phải là bội số của 10</string>
+	<key>10051</key>
+	<string>Số lượng hóa tối thiểu $10, tối đa $50,000</string>
+	<key>10052</key>
+	<string>Tên người dùng không tồn tại</string>
+	<key>10053</key>
+	<string>Người giới thiệu vô hiệu</string>
+	<key>10054</key>
+	<string>Cập nhật không thành công</string>
+	<key>10055</key>
+	<string>Vui lòng nhập tên người giới thiệu</string>
+	<key>10056</key>
+	<string>Không thể sửa đổi người giới thiệu</string>
+	<key>10057</key>
+	<string>Người giới thiệu không tồn tại</string>
+	<key>10058</key>
+	<string>Vui lòng hủy lượng hóa loại tiền khác, mới có thể hủy lượng hóa tiền L</string>
+	<key>10059</key>
+	<string>Vui lòng thử lại sau 5 phút</string>
+	<key>10060</key>
+	<string>Xác thực danh tính không thành công</string>
+	<key>10061</key>
+	<string>Bản thân không thể làm người giới thiệu</string>
+	<key>10062</key>
+	<string>Mật khẩu mới không thể giống với mật khẩu cũ</string>
+	<key>10063</key>
+	<string>Vui lòng điền vào trường bị thiếu</string>
+	<key>10064</key>
+	<string>Mật khẩu đăng nhập phải giống nhau</string>
+	<key>10065</key>
+	<string>Mật khẩu giao dịch phải giống nhau</string>
+	<key>10066</key>
+	<string>Tên người dùng vô hiệu</string>
+	<key>10067</key>
+	<string>Độ dài mật khẩu đăng nhập phải là 8-16 ký tự, hỗ trợ chữ cái in hoa in thường và chữ số</string>
+	<key>10068</key>
+	<string>Độ dài mật khẩu giao dịch phải là 8-16 ký tự, hỗ trợ chữ cái in hoa in thường và chữ số</string>
+	<key>10069</key>
+	<string>Vui lòng chọn loại tiền</string>
+	<key>10070</key>
+	<string>Máy chủ đang bận, vui lòng thử lại sau giây lát</string>
+	<key>10071</key>
+	<string>Lượng hóa này không thể hủy</string>
+	<key>10072</key>
+	<string>Lực hấp dẫn đang chiếu, vui lòng chời đợi năng lượng tăng lên</string>
+	<key>10073</key>
+	<string>Lượng hóa đã đạt mức trần</string>
+	<key>10074</key>
+	<string>email không phải là địa chỉ email hợp lệ</string>
+	<key>10076</key>
+	<string>Xác thực địa chỉ Không thành công hoặc không tồn tại, vui lòng thử lại sau.</string>
+	<key>10077</key>
+	<string>Đạt đến giới hạn tối đa hàng ngày, vui lòng quay lại sớm hơn vào ngày mai</string>
+	<key>10078</key>
+	<string>Không thể thay đổi mật khẩu</string>
+	<key>10081</key>
+	<string>Vượt quá giới hạn đã lưu</string>
+	<key>10082</key>
+	<string>Xóa thất bại</string>
+	<key>10085</key>
+	<string>Tài khoản của bạn đã bị khóa. Vui lòng cập nhật mật khẩu của bạn.</string>
+	<key>10086</key>
+	<string>Tên đăng nhập hoặc mật khẩu không chính xác</string>
+	<key>10087</key>
+	<string>Cập nhật phiên bản mới! Vui lòng xóa ứng dụng hiện có và cài đặt ứng dụng mới nếu bạn có thể thực hiện cập nhật.</string>
+	<key>10088</key>
+	<string>Cổ phần này đã bị hủy</string>
+	<key>101</key>
+	<string></string>
+	<key>102</key>
+	<string></string>
+	<key>103</key>
+	<string></string>
+	<key>104</key>
+	<string></string>
+	<key>105</key>
+	<string></string>
+	<key>106</key>
+	<string></string>
+	<key>107</key>
+	<string></string>
+	<key>204</key>
+	<string></string>
+	<key>205</key>
+	<string></string>
+	<key>206</key>
+	<string></string>
+	<key>207</key>
+	<string></string>
+	<key>500</key>
+	<string></string>
+	<key>501</key>
+	<string></string>
+	<key>502</key>
+	<string></string>
+	<key>503</key>
+	<string></string>
+	<key>504</key>
+	<string></string>
+	<key>505</key>
+	<string></string>
+	<key>600</key>
+	<string></string>
+	<key>601</key>
+	<string></string>
+	<key>602</key>
+	<string></string>
+	<key>700</key>
+	<string></string>
+	<key>800</key>
+	<string></string>
+	<key>801</key>
+	<string></string>
+</dict>
+</plist>

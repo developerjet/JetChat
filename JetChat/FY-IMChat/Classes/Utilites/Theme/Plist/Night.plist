@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>UIStatusBarStyle</key>
+	<string>LightContent</string>
+	<key>Global</key>
+	<dict>
+		<key>backgroundColor</key>
+		<string>#292b38</string>
+		<key>textColor</key>
+		<string>#FFFFFF</string>
+		<key>barTextColor</key>
+		<string>#FFFFFF</string>
+		<key>barTintColor</key>
+		<string>#01040D</string>
+		<key>navBarBgColor</key>
+		<string>#5C5C5C</string>
+		<key>navBarTitleColor</key>
+		<string>#FFFFFF</string>
+		<key>tabBarBgColor</key>
+		<string>#5C5C5C</string>
+		<key>tabBarTitleColor_n</key>
+		<string>#FFE4C4</string>
+		<key>tabBarTitleColor_s</key>
+		<string>#FFFFFF</string>
+		<key>lineColor</key>
+		<string>#FFFFFF</string>
+	</dict>
+</dict>
+</plist>

@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>-100</key>
+	<string>Not implemented</string>
+	<key>-1001</key>
+	<string>Sorry, we are currently not able to process your request. Please try again later</string>
+	<key>100</key>
+	<string>SMS verification code is invalid</string>
+	<key>10001</key>
+	<string>Username does not exist.</string>
+	<key>10002</key>
+	<string>System is currently busy, please try again later</string>
+	<key>10003</key>
+	<string>Phone number unfound</string>
+	<key>10004</key>
+	<string>Unable to send OTP</string>
+	<key>10005</key>
+	<string>Your last OTP request still active, OTP is active within 120 seconds.</string>
+	<key>10006</key>
+	<string>Unable to request OTP</string>
+	<key>10007</key>
+	<string>Unable to verify OTP</string>
+	<key>10008</key>
+	<string>Insufficient Balance</string>
+	<key>10009</key>
+	<string>Unsuccessful swap. Kindly contact administrator</string>
+	<key>10010</key>
+	<string>Invalid Trading Password</string>
+	<key>10011</key>
+	<string>Invalid swap</string>
+	<key>10012</key>
+	<string>Coin chosen is not available to swap</string>
+	<key>10013</key>
+	<string>[SBlock1] is not allowed to swap to [SBlock2]</string>
+	<key>10014</key>
+	<string>Failed to get coin rate</string>
+	<key>10015</key>
+	<string>Username is not available for registration.</string>
+	<key>10016</key>
+	<string>Your mobile number has exceed account register limits.</string>
+	<key>10017</key>
+	<string>Referral username is required</string>
+	<key>10018</key>
+	<string>Registration failed</string>
+	<key>10019</key>
+	<string>Username does not exist</string>
+	<key>10020</key>
+	<string>Unable to search the username</string>
+	<key>10021</key>
+	<string>Coin not found.</string>
+	<key>10023</key>
+	<string>No coin selected</string>
+	<key>10024</key>
+	<string>No staking record</string>
+	<key>10028</key>
+	<string>Amount is lower than minimum withdraw</string>
+	<key>10029</key>
+	<string>Withdrawal failed</string>
+	<key>1003</key>
+	<string>Login Expired</string>
+	<key>10030</key>
+	<string>Username does not exist</string>
+	<key>10031</key>
+	<string>Invalid Password</string>
+	<key>10032</key>
+	<string>Account blocked. Kindly contact administrator</string>
+	<key>10033</key>
+	<string>No swappable coin found</string>
+	<key>10034</key>
+	<string>Minimum Swap Amount is [SBlock] USD.</string>
+	<key>10035</key>
+	<string>Kindly complete KYC process to perform this transaction</string>
+	<key>10036</key>
+	<string>Withdrawal blocked. Kindly contact administrator</string>
+	<key>10037</key>
+	<string>Invalid Wallet Type</string>
+	<key>10038</key>
+	<string>Failed to get Wallet Address</string>
+	<key>10039</key>
+	<string>Failed to upload image</string>
+	<key>10040</key>
+	<string>Invalid Category type</string>
+	<key>10041</key>
+	<string>Failed to submit report</string>
+	<key>10042</key>
+	<string>Failed to close report</string>
+	<key>10043</key>
+	<string>No staking record found</string>
+	<key>10044</key>
+	<string>Unstake is not allowed</string>
+	<key>10045</key>
+	<string>You have staked $[SBlock1], \n and you can re-stake up to $[SBlock2]</string>
+	<key>10046</key>
+	<string>Verification approved</string>
+	<key>10047</key>
+	<string>Verification in process</string>
+	<key>10048</key>
+	<string>Verification rejected. Please verify again</string>
+	<key>10049</key>
+	<string>Your account is no longer available for staking</string>
+	<key>10050</key>
+	<string>Staking amount must be multiple of 10.</string>
+	<key>10051</key>
+	<string>Staking amount is minimum $10, maximum $50,000</string>
+	<key>10052</key>
+	<string>Username does not exist</string>
+	<key>10053</key>
+	<string>Referal is not valid</string>
+	<key>10054</key>
+	<string>Failed update</string>
+	<key>10055</key>
+	<string>Please enter referral username</string>
+	<key>10056</key>
+	<string>Changing referral is not allowed</string>
+	<key>10057</key>
+	<string>Invalid referral</string>
+	<key>10058</key>
+	<string>Please unstake other coins before unstake L coin.</string>
+	<key>10059</key>
+	<string>Your account has been temporarily locked due to multiple failed login attempts. Please try again after 5 minutes.</string>
+	<key>10060</key>
+	<string>Failed To Verify KYC</string>
+	<key>10061</key>
+	<string>Referral cannot be yourself</string>
+	<key>10062</key>
+	<string>New password cannot be the same as old password</string>
+	<key>10063</key>
+	<string>Please fill in missing field</string>
+	<key>10064</key>
+	<string>“New Password” and “Confirm New Password” does not match</string>
+	<key>10065</key>
+	<string>"New Trading Password" and "Confirm New Trading Password" does not match</string>
+	<key>10066</key>
+	<string>Username must be between 3-20 characters, accept alphanumeric.</string>
+	<key>10067</key>
+	<string>Login password must be 8-16 characters, supports upper-case and lower-case letters and numbers.</string>
+	<key>10068</key>
+	<string>Trading password must be 8-16 characters, supports upper-case and lower-case letters and numbers.</string>
+	<key>10069</key>
+	<string>Please select a coin</string>
+	<key>10070</key>
+	<string>System is curent busy, please try again later</string>
+	<key>10071</key>
+	<string>Unstaking is not allowed</string>
+	<key>10072</key>
+	<string>Interstellar Staking Revenue is generating, please come back later</string>
+	<key>10073</key>
+	<string>Staking has reached the limits</string>
+	<key>10074</key>
+	<string>Email is not a valid email address</string>
+	<key>10076</key>
+	<string>Address Validation Failed or Non Existed, Please Try Again Later.</string>
+	<key>10077</key>
+	<string>Daily staking maximum limit reached, please come back earlier tomorrow</string>
+	<key>10078</key>
+	<string>Password cannot be change.</string>
+	<key>10081</key>
+	<string>Exceeded saved limits</string>
+	<key>10082</key>
+	<string>Delete Failed</string>
+	<key>10085</key>
+	<string>Your account have been blocked. Please reset your password
+</string>
+	<key>10086</key>
+	<string>Username or password are invalid</string>
+	<key>10087</key>
+	<string>New version update! Please remove existing app and install new one if you can’t perform update.</string>
+	<key>10088</key>
+	<string>This stake have been cancelled</string>
+	<key>101</key>
+	<string>Invalid limit verification</string>
+	<key>102</key>
+	<string>Invalid payment password</string>
+	<key>103</key>
+	<string>Reset token is invalid</string>
+	<key>104</key>
+	<string>Graphic verification code is invalid</string>
+	<key>105</key>
+	<string>Graphic verification code has expired</string>
+	<key>106</key>
+	<string>PIN does not exist</string>
+	<key>107</key>
+	<string>PIN does not match</string>
+	<key>204</key>
+	<string>The phone number format is abnormal.</string>
+	<key>205</key>
+	<string>Invalid invitation code</string>
+	<key>206</key>
+	<string>Invalid mailbox</string>
+	<key>207</key>
+	<string>Corresponding user mailbox does not exist</string>
+	<key>500</key>
+	<string>Account helpless words</string>
+	<key>501</key>
+	<string>Address creation</string>
+	<key>502</key>
+	<string>Account has been imported mnemonic</string>
+	<key>503</key>
+	<string>Address already exists</string>
+	<key>504</key>
+	<string>Address creation failed</string>
+	<key>505</key>
+	<string>Mnemonic already exists</string>
+	<key>600</key>
+	<string>Insufficient balance</string>
+	<key>601</key>
+	<string>Insufficient balance when getting gas</string>
+	<key>602</key>
+	<string>Can't transfer money to yourself</string>
+	<key>700</key>
+	<string>No new version found</string>
+	<key>800</key>
+	<string>Unsupported currency</string>
+	<key>801</key>
+	<string>Invalid address</string>
+</dict>
+</plist>

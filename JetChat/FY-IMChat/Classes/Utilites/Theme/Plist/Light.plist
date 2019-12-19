@@ -15,9 +15,9 @@
 		<key>barTintColor</key>
 		<string>#01040D</string>
 		<key>navBarBgColor</key>
-		<string>#48D1CC</string>
+		<string>#5C5C5C</string>
 		<key>navBarTitleColor</key>
-		<string>#000000</string>
+		<string>#FFFFFF</string>
 		<key>tabBarBgColor</key>
 		<string>#FFFFFF</string>
 		<key>tabBarTitleColor_n</key>

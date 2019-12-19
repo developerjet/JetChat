@@ -12,10 +12,10 @@ import WCDBSwift
 extension AppDelegate {
     
     /// 创建数据库-表
-    func createWcdbTabel()
+    func createWcdbTable()
     {
-        WCDataBaseManager.shared.createTable(table: db.chat, of: FYMessageChatModel.self)
-        WCDataBaseManager.shared.createTable(table: db.message, of: FYMessageItem.self)
-        WCDataBaseManager.shared.createTable(table: db.session, of: FYMessageItem.self)
+        WCDataBaseManager.shared.createTable(table: kTABLE.chat, of: FYMessageChatModel.self)
+        WCDataBaseManager.shared.createTable(table: kTABLE.message, of: FYMessageItem.self)
+        WCDataBaseManager.shared.createTable(table: kTABLE.session, of: FYMessageItem.self)
     }
 }

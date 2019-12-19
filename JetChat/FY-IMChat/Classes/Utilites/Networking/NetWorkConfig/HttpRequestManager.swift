@@ -139,15 +139,9 @@ extension ObservableType where E == Response {
     
     /// 强制退出登入
     fileprivate func loginInvalid() {
-        // rest
-//        let startVC = LWUserNameLoginController()
-//        let nav = LWBaseNavigationController(rootViewController: startVC)
-//        AppDelegate.app.window?.rootViewController = nav
-//        AppDelegate.app.window?.makeKeyAndVisible()
         
-        // clear
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0) {
-            FYMMKVManager.manager.clearMMKV()
+            
             UserInfoManager.shared.clearChaches()
         }
     }

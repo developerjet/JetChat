@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias db = WCDataBaseTable
+typealias kTABLE = WCDataBaseTable
 
 class WCDataBaseTable: NSObject, Codable {
     

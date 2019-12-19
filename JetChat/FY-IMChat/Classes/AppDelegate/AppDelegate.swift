@@ -43,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // init rootViewController
         setupViewController()
         // create db table
-        createWcdbTabel()
+        createWcdbTable()
         // FPS
         setupFPSStatus()
         

@@ -34,7 +34,7 @@ class FYImageMessageCell: FYMessageBaseCell {
     func initSubview() {
         
         dateLabel.snp.remakeConstraints { (make) in
-            make.top.equalToSuperview().offset(15)
+            make.top.equalToSuperview().offset(17)
             make.centerX.equalToSuperview()
             make.height.equalTo(18)
         }
@@ -49,7 +49,7 @@ class FYImageMessageCell: FYMessageBaseCell {
         avatarView.snp.remakeConstraints { (make) in
             make.width.height.equalTo(40)
             make.left.equalToSuperview().offset(10)
-            make.top.equalTo(dateLabel.snp_bottom).offset(2)
+            make.top.equalTo(dateLabel.snp.bottom).offset(2)
         }
 
         nameLabel.snp.remakeConstraints { (make) in
@@ -61,7 +61,7 @@ class FYImageMessageCell: FYMessageBaseCell {
         pictureView.snp.remakeConstraints { (make) in
             make.top.equalTo(nameLabel.snp.bottom).offset(5)
             make.left.equalTo(avatarView.snp.right).offset(5)
-            make.bottom.equalTo(self.contentView).offset(-15)
+            make.bottom.equalTo(self.contentView).offset(-17)
             make.width.equalTo(80)
             make.height.equalTo(120)
         }
@@ -113,7 +113,7 @@ extension FYImageMessageCell {
             avatarView.snp.remakeConstraints { (make) in
                 make.width.height.equalTo(40)
                 make.right.equalToSuperview().offset(-10)
-                make.top.equalTo(dateLabel.snp_bottom).offset(3)
+                make.top.equalTo(dateLabel.snp.bottom).offset(3)
             }
 
             nameLabel.isHidden = true
@@ -126,7 +126,7 @@ extension FYImageMessageCell {
             pictureView.snp.remakeConstraints { (make) in
                 make.top.equalTo(nameLabel.snp.bottom).offset(5)
                 make.right.equalTo(avatarView.snp.left).offset(-5)
-                make.bottom.equalTo(self.contentView).offset(-15)
+                make.bottom.equalTo(self.contentView).offset(-17)
                 make.width.equalTo(80)
                 make.height.equalTo(120)
             }
@@ -135,7 +135,7 @@ extension FYImageMessageCell {
             avatarView.snp.remakeConstraints { (make) in
                 make.width.height.equalTo(40)
                 make.left.equalToSuperview().offset(10)
-                make.top.equalTo(dateLabel.snp_bottom).offset(3)
+                make.top.equalTo(dateLabel.snp.bottom).offset(3)
             }
 
             nameLabel.isHidden = false
@@ -147,7 +147,7 @@ extension FYImageMessageCell {
             pictureView.snp.remakeConstraints { (make) in
                 make.top.equalTo(nameLabel.snp.bottom).offset(5)
                 make.left.equalTo(avatarView.snp.right).offset(5)
-                make.bottom.equalTo(self.contentView).offset(-15)
+                make.bottom.equalTo(self.contentView).offset(-17)
                 make.width.equalTo(80)
                 make.height.equalTo(120)
             }

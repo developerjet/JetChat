@@ -17,7 +17,7 @@ class FYSesstionListViewController: FYBaseConfigViewController {
     lazy var clearButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setTitle("全部已读", for: .normal)
-        button.theme_setTitleColor("Global.textColor", forState: .normal)
+        button.theme_setTitleColor("Global.navBarTitleColor", forState: .normal)
         button.sizeToFit()
         button.rxTapClosure { [weak self] in
             self?.leftItemAction()
@@ -33,16 +33,6 @@ class FYSesstionListViewController: FYBaseConfigViewController {
             CommonMenuConfig(title: "扫一扫", image: "ic_tabbar04_selected", isShow: false)
         ]
         return items
-    }()
-    
-
-    lazy var leftBtn: UIButton = {
-        let button = UIButton(type: .custom)
-        button.theme_setTitleColor("Global.textColor", forState: .normal)
-        button.rxTapClosure { [weak self] in
-            //guard let self = self else { return }
-        };
-        return button
     }()
     
     // MARK:- Life cycle

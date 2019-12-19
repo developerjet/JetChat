@@ -28,8 +28,6 @@
 		271C025323929B030041617F /* FYFastGridListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271C023923929B030041617F /* FYFastGridListView.swift */; };
 		271C025423929B030041617F /* FYSesstionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271C023D23929B030041617F /* FYSesstionListViewController.swift */; };
 		271C025523929B030041617F /* FYConversationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271C024023929B030041617F /* FYConversationCell.swift */; };
-		271C02B823929B3A0041617F /* FYMMKVManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271C025823929B3A0041617F /* FYMMKVManager.swift */; };
-		271C02B923929B3A0041617F /* PrecisionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271C025923929B3A0041617F /* PrecisionManager.swift */; };
 		271C02BA23929B3A0041617F /* CustomEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271C025C23929B3A0041617F /* CustomEncoding.swift */; };
 		271C02BB23929B3A0041617F /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271C025D23929B3A0041617F /* ErrorResponse.swift */; };
 		271C02BC23929B3A0041617F /* HttpServiceApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271C025E23929B3A0041617F /* HttpServiceApi.swift */; };
@@ -168,6 +166,7 @@
 		27434034238D70D5004D5E3D /* SegmentSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27433F96238D70D4004D5E3D /* SegmentSlider.swift */; };
 		27434035238D70D5004D5E3D /* MBConfiguredHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27433F98238D70D4004D5E3D /* MBConfiguredHUD.swift */; };
 		27434036238D70D5004D5E3D /* HUDAssets.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 27433F99238D70D4004D5E3D /* HUDAssets.bundle */; };
+		277F8BFC23ABB732001FB030 /* FYMessageUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277F8BFB23ABB731001FB030 /* FYMessageUserModel.swift */; };
 		2B047CE12245D2610012125A /* importCode.py in Resources */ = {isa = PBXBuildFile; fileRef = 2B047CDF2245D2610012125A /* importCode.py */; };
 		2B047CE22245D2610012125A /* exportCode.py in Resources */ = {isa = PBXBuildFile; fileRef = 2B047CE02245D2610012125A /* exportCode.py */; };
 		2B047CE82245D6290012125A /* code.xls in Resources */ = {isa = PBXBuildFile; fileRef = 2B047CE72245D6290012125A /* code.xls */; };
@@ -189,8 +188,6 @@
 		2ECBFDC822269BF400871913 /* FY_IMChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECBFDC722269BF400871913 /* FY_IMChatTests.swift */; };
 		2ECBFDD322269BF400871913 /* FY_IMChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECBFDD222269BF400871913 /* FY_IMChatUITests.swift */; };
 		2EF014772230FC6D00681D4F /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EF014762230FC6D00681D4F /* WebKit.framework */; };
-		2EF7094722BA483200CFD872 /* beatIcon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EF7094522BA483200CFD872 /* beatIcon@3x.png */; };
-		2EF7094822BA483200CFD872 /* beatIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EF7094622BA483200CFD872 /* beatIcon@2x.png */; };
 		B8766C51931F201D9A764FC9 /* Pods_FY_IMChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E374D4E527160347F32F8B70 /* Pods_FY_IMChat.framework */; };
 /* End PBXBuildFile section */
 
@@ -233,8 +230,6 @@
 		271C023923929B030041617F /* FYFastGridListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYFastGridListView.swift; sourceTree = "<group>"; };
 		271C023D23929B030041617F /* FYSesstionListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYSesstionListViewController.swift; sourceTree = "<group>"; };
 		271C024023929B030041617F /* FYConversationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYConversationCell.swift; sourceTree = "<group>"; };
-		271C025823929B3A0041617F /* FYMMKVManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYMMKVManager.swift; sourceTree = "<group>"; };
-		271C025923929B3A0041617F /* PrecisionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrecisionManager.swift; sourceTree = "<group>"; };
 		271C025C23929B3A0041617F /* CustomEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomEncoding.swift; sourceTree = "<group>"; };
 		271C025D23929B3A0041617F /* ErrorResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		271C025E23929B3A0041617F /* HttpServiceApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpServiceApi.swift; sourceTree = "<group>"; };
@@ -379,6 +374,7 @@
 		27433F96238D70D4004D5E3D /* SegmentSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentSlider.swift; sourceTree = "<group>"; };
 		27433F98238D70D4004D5E3D /* MBConfiguredHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBConfiguredHUD.swift; sourceTree = "<group>"; };
 		27433F99238D70D4004D5E3D /* HUDAssets.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = HUDAssets.bundle; sourceTree = "<group>"; };
+		277F8BFB23ABB731001FB030 /* FYMessageUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYMessageUserModel.swift; sourceTree = "<group>"; };
 		2B047CDF2245D2610012125A /* importCode.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = importCode.py; sourceTree = "<group>"; };
 		2B047CE02245D2610012125A /* exportCode.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = exportCode.py; sourceTree = "<group>"; };
 		2B047CE72245D6290012125A /* code.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = code.xls; sourceTree = "<group>"; };
@@ -418,8 +414,6 @@
 		2ECBFDD422269BF400871913 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2EF014762230FC6D00681D4F /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		2EF014782230FC7200681D4F /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		2EF7094522BA483200CFD872 /* beatIcon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "beatIcon@3x.png"; sourceTree = "<group>"; };
-		2EF7094622BA483200CFD872 /* beatIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "beatIcon@2x.png"; sourceTree = "<group>"; };
 		364744E169D4E308255DC0E4 /* Pods-FY-IMChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FY-IMChat.release.xcconfig"; path = "Target Support Files/Pods-FY-IMChat/Pods-FY-IMChat.release.xcconfig"; sourceTree = "<group>"; };
 		657DF22843C032B55573E9C2 /* Pods-FY-IMChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FY-IMChat.debug.xcconfig"; path = "Target Support Files/Pods-FY-IMChat/Pods-FY-IMChat.debug.xcconfig"; sourceTree = "<group>"; };
 		E374D4E527160347F32F8B70 /* Pods_FY_IMChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FY_IMChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -659,7 +653,6 @@
 		271C025623929B3A0041617F /* Utilites */ = {
 			isa = PBXGroup;
 			children = (
-				271C025723929B3A0041617F /* MMKV */,
 				271C025A23929B3A0041617F /* Networking */,
 				271C026023929B3A0041617F /* KeyboardCore */,
 				271C02A123929B3A0041617F /* FPSLabel */,
@@ -668,15 +661,6 @@
 				271C02AE23929B3A0041617F /* Caches */,
 			);
 			path = Utilites;
-			sourceTree = "<group>";
-		};
-		271C025723929B3A0041617F /* MMKV */ = {
-			isa = PBXGroup;
-			children = (
-				271C025823929B3A0041617F /* FYMMKVManager.swift */,
-				271C025923929B3A0041617F /* PrecisionManager.swift */,
-			);
-			path = MMKV;
 			sourceTree = "<group>";
 		};
 		271C025A23929B3A0041617F /* Networking */ = {
@@ -885,6 +869,7 @@
 		271C02B023929B3A0041617F /* DBQuery */ = {
 			isa = PBXGroup;
 			children = (
+				277F8BFB23ABB731001FB030 /* FYMessageUserModel.swift */,
 				271C02B123929B3A0041617F /* FYDBQueryHelper.swift */,
 			);
 			path = DBQuery;
@@ -1376,20 +1361,10 @@
 		2ECBFDEC22269DBF00871913 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				2EE94837228057F40016448C /* AppIcon */,
 				2B047CDE2245D2370012125A /* code */,
 				2E59E746222CFEF4005BC4B7 /* Languages */,
 			);
 			path = Resource;
-			sourceTree = "<group>";
-		};
-		2EE94837228057F40016448C /* AppIcon */ = {
-			isa = PBXGroup;
-			children = (
-				2EF7094622BA483200CFD872 /* beatIcon@2x.png */,
-				2EF7094522BA483200CFD872 /* beatIcon@3x.png */,
-			);
-			path = AppIcon;
 			sourceTree = "<group>";
 		};
 		43D9F6DC76CE18F91305133D /* Pods */ = {
@@ -1573,7 +1548,6 @@
 				2B40D0A72264699C001495FC /* code_vi.plist in Resources */,
 				271C02D223929B3A0041617F /* ic_more_wallet@3x.png in Resources */,
 				271C02CF23929B3A0041617F /* ic_more_wallet@2x.png in Resources */,
-				2EF7094722BA483200CFD872 /* beatIcon@3x.png in Resources */,
 				271C02EB23929B3A0041617F /* TypeSelectorBtnHL_Black@2x.png in Resources */,
 				271C02F923929B3A0041617F /* Night.plist in Resources */,
 				271C02EC23929B3A0041617F /* TypeSelectorBtn_Black@3x.png in Resources */,
@@ -1585,7 +1559,6 @@
 				271C02D923929B3A0041617F /* ic_more_friendcard@2x.png in Resources */,
 				2B047CE22245D2610012125A /* exportCode.py in Resources */,
 				271C02CA23929B3A0041617F /* Emoticons.bundle in Resources */,
-				2EF7094822BA483200CFD872 /* beatIcon@2x.png in Resources */,
 				2B9E10F6222F752700638202 /* Localizable.strings in Resources */,
 				2BC1985F2254B61F00A9768F /* LauguageExcel.xls in Resources */,
 				271C02F823929B3A0041617F /* Light.plist in Resources */,
@@ -1716,7 +1689,6 @@
 				271C02FB23929B3A0041617F /* LanguageManager.swift in Sources */,
 				27433F9C238D70D4004D5E3D /* AppDelegate+Wcdb.swift in Sources */,
 				27433F9B238D70D4004D5E3D /* AppDelegate.swift in Sources */,
-				271C02B823929B3A0041617F /* FYMMKVManager.swift in Sources */,
 				27433F9E238D70D4004D5E3D /* SVGImage+Extensions.swift in Sources */,
 				2743401A238D70D5004D5E3D /* UINavigationController+Extensions.m in Sources */,
 				27434024238D70D5004D5E3D /* FYBaseConfigViewController.swift in Sources */,
@@ -1733,7 +1705,6 @@
 				271C024F23929B030041617F /* FYTextMessageCell.swift in Sources */,
 				27433FAA238D70D4004D5E3D /* UIAlert+Extension.swift in Sources */,
 				271C02FD23929B3A0041617F /* CountDownHandy.swift in Sources */,
-				271C02B923929B3A0041617F /* PrecisionManager.swift in Sources */,
 				271C02FC23929B3A0041617F /* AnalyticsHelper.swift in Sources */,
 				271C02FA23929B3A0041617F /* AppThemes.swift in Sources */,
 				27433F9F238D70D4004D5E3D /* UIImage+SVG.swift in Sources */,
@@ -1775,6 +1746,7 @@
 				271C02FE23929B3A0041617F /* FYDBQueryHelper.swift in Sources */,
 				27433FB1238D70D4004D5E3D /* UITableView+Extension.swift in Sources */,
 				27433FAC238D70D4004D5E3D /* UIButton+Extension.swift in Sources */,
+				277F8BFC23ABB732001FB030 /* FYMessageUserModel.swift in Sources */,
 				271C024A23929B030041617F /* FYChatRoomListViewController.swift in Sources */,
 				27434030238D70D5004D5E3D /* FYLaunchBrowseController.swift in Sources */,
 				27433FA6238D70D4004D5E3D /* JFButton+Rx.swift in Sources */,
@@ -2003,8 +1975,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z3CD857XLC;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "FY-IMChat/Info.plist";
@@ -2087,8 +2059,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z3CD857XLC;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "FY-IMChat/Info.plist";

@@ -150,23 +150,23 @@ class FYMessageBaseCell: UITableViewCell {
     
     /// 分享
     @objc open func menuShoreAction() {
-        if let nowModel = self.model {
-            delegate?.cell(self, didMenu: .shore, model: nowModel)
+        if let dataModel = self.model {
+            delegate?.cell(self, didMenu: .shore, model: dataModel)
         }
     }
     
     /// 复制
     @objc open func menuCopyAction() {
-        if let nowModel = self.model {
-            delegate?.cell(self, didMenu: .copy, model: nowModel)
+        if let dataModel = self.model {
+            delegate?.cell(self, didMenu: .copy, model: dataModel)
         }
     }
     
     
     /// 删除
     @objc open func menuDeleteAction() {
-        if let nowModel = self.model {
-            delegate?.cell(self, didMenu: .delete, model: nowModel)
+        if let dataModel = self.model {
+            delegate?.cell(self, didMenu: .delete, model: dataModel)
         }
     }
     

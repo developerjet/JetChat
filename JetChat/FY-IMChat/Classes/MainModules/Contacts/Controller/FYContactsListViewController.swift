@@ -19,7 +19,7 @@ class FYContactsListViewController: FYBaseConfigViewController {
     lazy var deleteButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setTitle("删除所有好友", for: .normal)
-        button.theme_setTitleColor("Global.textColor", forState: .normal)
+        button.theme_setTitleColor("Global.navBarTitleColor", forState: .normal)
         button.sizeToFit()
         button.isHidden = true
         button.rxTapClosure { [weak self] in

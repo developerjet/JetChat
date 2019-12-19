@@ -41,7 +41,7 @@ class FYChatBaseViewController: FYBaseConfigViewController {
     var chatModel: FYMessageChatModel? = FYMessageChatModel()
     
     var timer: Timer?
-    
+    var imageIndexs: [Int: Int] = [:]
     var dataSource: [FYMessageItem] = []
     
     lazy var keyboardView: ChatKeyboardView = {
@@ -76,13 +76,12 @@ class FYChatBaseViewController: FYBaseConfigViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.backgroundColor = .backGroundGrayColor()
         if chatModel?.nickName.isBlank == false {
             navigationItem.title = chatModel?.nickName
         }else {
             navigationItem.title = chatModel?.name
         }
-        view.backgroundColor = .backGroundGrayColor()
         
         makeUI()
         loadCacheData()
@@ -94,7 +93,7 @@ class FYChatBaseViewController: FYBaseConfigViewController {
         self.init()
         
         self.chatModel = chatModel
-        if let type = chatModel.chatType {
+        if let type = self.chatModel?.chatType {
             self.chatType = ChatType(rawValue: type)
         }
     }
@@ -130,8 +129,8 @@ class FYChatBaseViewController: FYBaseConfigViewController {
     }
     
     private func stopSendTimer() {
-        if let nowTimer = timer {
-            nowTimer.invalidate()
+        if isTimered {
+            timer?.invalidate()
         }
     }
     
@@ -143,7 +142,8 @@ class FYChatBaseViewController: FYBaseConfigViewController {
     /// 滚到底部
     private func scrollToBottom(_ animated: Bool = true) {
         if dataSource.count >= 1 {
-            plainTabView.scrollToRow(at: IndexPath(row: dataSource.count - 1, section: 0), at: .bottom, animated: animated)}
+            plainTabView.scrollToRow(at: IndexPath(row: dataSource.count - 1, section: 0), at: .bottom, animated: animated)
+        }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -452,7 +452,9 @@ extension FYChatBaseViewController: UITableViewDelegate, UIScrollViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let model = dataSource[safe: indexPath.row] {
             if model.msgType == 2 {
-                browserImage(loadAllPhotos(), index: 0)
+                if let images = loadAllChatImages(row: indexPath.row) {
+                    browserImage(images, index: indexPath.row)
+                }
             }
         }
     }
@@ -473,18 +475,23 @@ extension FYChatBaseViewController: UITableViewDelegate, UIScrollViewDelegate {
         }
     }
     
-    func loadAllPhotos() -> [SKPhoto] {
+    func loadAllChatImages(row: Int) -> [SKPhoto]? {
         var images: [SKPhoto] = []
         guard dataSource.count > 0 else {
             return images
         }
         
-        for model in dataSource {
+        var imageIndex = 0
+        for (index, model) in dataSource.enumerated() {
             if model.msgType == 2 {
                 let photo = SKPhoto.photoWithImageURL(model.image!)
                 photo.shouldCachePhotoURLImage = true // you can use image cache by true(NSCache)
                 images.append(photo)
+                
+                imageIndex += 1
             }
+            
+            imageIndexs[index] = imageIndex
         }
         
         return images
@@ -497,9 +504,11 @@ extension FYChatBaseViewController: UITableViewDelegate, UIScrollViewDelegate {
 extension FYChatBaseViewController {
     
     func browserImage(_ images: [SKPhoto], index: Int) {
-        let browser = SKPhotoBrowser(photos: images)
-        browser.initializePageIndex(index)
-        present(browser, animated: true, completion: {})
+        if let imageIndex = imageIndexs[index] {
+            let browser = SKPhotoBrowser(photos: images)
+            browser.initializePageIndex(imageIndex - 1)
+            present(browser, animated: true, completion: {})
+        }
     }
 }
 

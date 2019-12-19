@@ -113,7 +113,7 @@ extension UIColor {
     /// - Returns: 48D1CC
     class func appThemeHexColor() ->UIColor {
         
-        return colorWithHexStr("48D1CC")
+        return colorWithHexStr("1FB922")
     }
     
     /// 头 / 尾部刷新控件颜色
@@ -243,7 +243,7 @@ extension UIColor {
     // MARK:- tabBar标题已选中颜色
     class func tabBarTitleSelectColor() -> UIColor {
         
-        return colorWithHexStr("48D1CC")
+        return colorWithHexStr("1FB922")
     }
 }
 

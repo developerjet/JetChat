@@ -2,7 +2,7 @@
 //  UITableView+EmptyData.swift
 //  FY-IMChat
 //
-//  Created by fisker.zhang on 2019/6/12.
+//  Created by iOS.Jet on 2019/6/12.
 //  Copyright © 2019 development. All rights reserved.
 //
 
@@ -43,6 +43,23 @@ extension UITableView {
     }
 }
 
+public extension UITableView {
+    
+    func scrollToFirst(at scrollPosition: UITableView.ScrollPosition, animated: Bool) {
+        guard numberOfSections > 0 else { return }
+        guard numberOfRows(inSection: 0) > 0 else { return }
+        let indexPath = IndexPath(item: 0, section: 0)
+        scrollToRow(at: indexPath, at: scrollPosition, animated: animated)
+    }
+    
+    func scrollToLast(at scrollPosition: UITableView.ScrollPosition, animated: Bool) {
+        guard numberOfSections > 0 else { return }
+        let lastSection = numberOfSections - 1
+        guard numberOfRows(inSection: 0) > 0 else { return }
+        let lastIndexPath = IndexPath(item: numberOfRows(inSection: lastSection)-1, section: lastSection)
+        scrollToRow(at: lastIndexPath, at: scrollPosition, animated: animated)
+    }
+}
 
 public extension UITableView {
     
@@ -75,7 +92,7 @@ public extension UITableView {
      
      - returns: cell
      */
-    func ts_dequeueReusableCell<T: UITableViewCell>(_ aClass: T.Type) -> T! {
+    func fy_dequeueReusableCell<T: UITableViewCell>(_ aClass: T.Type) -> T! {
         let name = String(describing: aClass)
         guard let cell = dequeueReusableCell(withIdentifier: name) as? T else {
             fatalError("\(name) is not registed")
@@ -112,7 +129,7 @@ public extension UITableView {
      
      - returns: cell
      */
-    func ts_dequeueReusableHeaderFooter<T: UIView>(_ aClass: T.Type) -> T! {
+    func fy_dequeueReusableHeaderFooter<T: UIView>(_ aClass: T.Type) -> T! {
         let name = String(describing: aClass)
         guard let cell = dequeueReusableHeaderFooterView(withIdentifier: name) as? T else {
             fatalError("\(name) is not registed")

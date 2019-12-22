@@ -8,10 +8,6 @@
   Copyright © 2019 development. All rights reserved.
 */
 
-// App名称多语言化
-"CFBundleDisplayName" = "IMChat";
-
-
 NSCameraUsageDescription = "需要扫描二维码或拍照,是否允许打开相机?";
 NSPhotoLibraryUsageDescription = "App需要您的同意,才能访问相册保存图片";
 NSPhotoLibraryAddUsageDescription = "App需要您的同意,才能访问相册保存图片";

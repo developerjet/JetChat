@@ -167,6 +167,8 @@
 		27434035238D70D5004D5E3D /* MBConfiguredHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27433F98238D70D4004D5E3D /* MBConfiguredHUD.swift */; };
 		27434036238D70D5004D5E3D /* HUDAssets.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 27433F99238D70D4004D5E3D /* HUDAssets.bundle */; };
 		277F8BFC23ABB732001FB030 /* FYMessageUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277F8BFB23ABB731001FB030 /* FYMessageUserModel.swift */; };
+		27B954E323AFAA3100B94667 /* FYVideoMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B954E223AFAA3100B94667 /* FYVideoMessageCell.swift */; };
+		27B954E623AFAA5600B94667 /* localVideo0.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 27B954E523AFAA5600B94667 /* localVideo0.mp4 */; };
 		2B047CE12245D2610012125A /* importCode.py in Resources */ = {isa = PBXBuildFile; fileRef = 2B047CDF2245D2610012125A /* importCode.py */; };
 		2B047CE22245D2610012125A /* exportCode.py in Resources */ = {isa = PBXBuildFile; fileRef = 2B047CE02245D2610012125A /* exportCode.py */; };
 		2B047CE82245D6290012125A /* code.xls in Resources */ = {isa = PBXBuildFile; fileRef = 2B047CE72245D6290012125A /* code.xls */; };
@@ -375,6 +377,8 @@
 		27433F98238D70D4004D5E3D /* MBConfiguredHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBConfiguredHUD.swift; sourceTree = "<group>"; };
 		27433F99238D70D4004D5E3D /* HUDAssets.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = HUDAssets.bundle; sourceTree = "<group>"; };
 		277F8BFB23ABB731001FB030 /* FYMessageUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYMessageUserModel.swift; sourceTree = "<group>"; };
+		27B954E223AFAA3100B94667 /* FYVideoMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYVideoMessageCell.swift; sourceTree = "<group>"; };
+		27B954E523AFAA5600B94667 /* localVideo0.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = localVideo0.mp4; sourceTree = "<group>"; };
 		2B047CDF2245D2610012125A /* importCode.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = importCode.py; sourceTree = "<group>"; };
 		2B047CE02245D2610012125A /* exportCode.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = exportCode.py; sourceTree = "<group>"; };
 		2B047CE72245D6290012125A /* code.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = code.xls; sourceTree = "<group>"; };
@@ -560,6 +564,7 @@
 		271C022E23929B030041617F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				27B954E223AFAA3100B94667 /* FYVideoMessageCell.swift */,
 				271C022F23929B030041617F /* FYImageMessageCell.swift */,
 				271C023023929B030041617F /* FYTextMessageCell.swift */,
 				271C023123929B030041617F /* FYMessageBaseCell.swift */,
@@ -1252,6 +1257,14 @@
 			path = HUDProgress;
 			sourceTree = "<group>";
 		};
+		27B954E423AFAA5600B94667 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				27B954E523AFAA5600B94667 /* localVideo0.mp4 */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
 		2B047CDE2245D2370012125A /* code */ = {
 			isa = PBXGroup;
 			children = (
@@ -1361,6 +1374,7 @@
 		2ECBFDEC22269DBF00871913 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				27B954E423AFAA5600B94667 /* Video */,
 				2B047CDE2245D2370012125A /* code */,
 				2E59E746222CFEF4005BC4B7 /* Languages */,
 			);
@@ -1559,6 +1573,7 @@
 				271C02D923929B3A0041617F /* ic_more_friendcard@2x.png in Resources */,
 				2B047CE22245D2610012125A /* exportCode.py in Resources */,
 				271C02CA23929B3A0041617F /* Emoticons.bundle in Resources */,
+				27B954E623AFAA5600B94667 /* localVideo0.mp4 in Resources */,
 				2B9E10F6222F752700638202 /* Localizable.strings in Resources */,
 				2BC1985F2254B61F00A9768F /* LauguageExcel.xls in Resources */,
 				271C02F823929B3A0041617F /* Light.plist in Resources */,
@@ -1697,6 +1712,7 @@
 				27433FA7238D70D4004D5E3D /* Observable+Operators.swift in Sources */,
 				2743402C238D70D5004D5E3D /* LWNavStatusAlert.swift in Sources */,
 				27434032238D70D5004D5E3D /* FYNavDropListMenu.swift in Sources */,
+				27B954E323AFAA3100B94667 /* FYVideoMessageCell.swift in Sources */,
 				271C024223929B030041617F /* FYContactsInfoViewController.swift in Sources */,
 				27433FAD238D70D4004D5E3D /* UIImageView+Kingfisher.swift in Sources */,
 				2743402D238D70D5004D5E3D /* MessagesAlert.swift in Sources */,

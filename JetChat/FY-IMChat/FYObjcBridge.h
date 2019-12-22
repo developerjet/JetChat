@@ -21,7 +21,6 @@
 #import <SDCycleScrollView.h> ///<文字&图片轮播处理
 //#import <Bugly/Bugly.h> ///<运行错误日志统计
 #import <UIView_FDCollapsibleConstraints/UIView+FDCollapsibleConstraints.h>///<xib隐藏
-#import <MMKV/MMKV.h> ///<缓存
 #import "UINavigationController+FDFullscreenPopGesture.h" ///< 导航栏手势处理
 #import <UITableView+FDTemplateLayoutCell.h> ///< cell高度动态计算
 #import <SDCycleScrollView.h> ///<轮播器

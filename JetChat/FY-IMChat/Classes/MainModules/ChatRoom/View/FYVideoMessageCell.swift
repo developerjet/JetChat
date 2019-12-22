@@ -1,25 +1,31 @@
 //
-//  FYImageMessageCell.swift
+//  FYVideoMessageCell.swift
 //  FY-IMChat
 //
-//  Created by iOS.Jet on 2019/11/27.
+//  Created by fangyuan on 2019/12/22.
 //  Copyright © 2019 MacOsx. All rights reserved.
 //
 
 import UIKit
 
-class FYImageMessageCell: FYMessageBaseCell {
+class FYVideoMessageCell: FYMessageBaseCell {
 
     // MARK: - var lazy
     
-    lazy var pictureView: UIImageView = {
+    lazy var videoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .random
         return imageView
     }()
     
-    lazy var pictureTap: UITapGestureRecognizer = {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(pictureTapAction(_:)))
+    lazy var playImgView: UIImageView = {
+        let image = UIImage(named: "play_btn_normal")
+        let imageView = UIImageView(image: image)
+        return imageView
+    }()
+    
+    lazy var videoTap: UITapGestureRecognizer = {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(videoTapAction(_:)))
         return tap
     }()
     
@@ -34,7 +40,7 @@ class FYImageMessageCell: FYMessageBaseCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         initSubview()
-        setupLabelLongPressGes(cellType: .imageCell)
+        setupLabelLongPressGes(cellType: .viodeCell)
     }
     
     func initSubview() {
@@ -63,30 +69,37 @@ class FYImageMessageCell: FYMessageBaseCell {
             make.left.equalTo(avatarView.snp.right).offset(3)
         }
         
-        pictureView.isUserInteractionEnabled = true
-        pictureView.addGestureRecognizer(self.pictureTap)
-        contentView.addSubview(pictureView)
-        pictureView.snp.remakeConstraints { (make) in
+        videoImageView.isUserInteractionEnabled = true
+        videoImageView.addGestureRecognizer(self.videoTap)
+        contentView.addSubview(videoImageView)
+        videoImageView.snp.remakeConstraints { (make) in
             make.top.equalTo(nameLabel.snp.bottom).offset(5)
             make.left.equalTo(avatarView.snp.right).offset(5)
             make.bottom.equalTo(self.contentView).offset(-17)
-            make.width.equalTo(80)
-            make.height.equalTo(120)
+            make.width.equalTo(100)
+            make.height.equalTo(145)
+        }
+        
+        videoImageView.addSubview(playImgView)
+        videoImageView.bringSubviewToFront(playImgView)
+        playImgView.snp.makeConstraints { (make) in
+            make.center.equalToSuperview()
+            make.size.equalTo(CGSize(width: 40, height: 40))
         }
         
         dateLabel.setContentHuggingPriority(.required, for: .horizontal)
-        pictureView.setContentHuggingPriority(.required, for: .horizontal)
+        videoImageView.setContentHuggingPriority(.required, for: .horizontal)
     }
     
     override func refreshMessageCell() {
         super.refreshMessageCell()
-        guard let msgType = model?.msgType, msgType == 2 else {
+        guard let msgType = model?.msgType, msgType == 3 else {
             return
         }
         
         dateLabel.text = model?.date
         avatarView.setImageWithURL(model!.avatar!)
-        pictureView.setImageWithURL((model?.image!)!)
+        videoImageView.setImageWithURL((model?.image!)!)
         
         if model?.nickName.isBlank == false {
             nameLabel.text = model?.nickName
@@ -110,9 +123,9 @@ class FYImageMessageCell: FYMessageBaseCell {
     
     // MARK: - Action
     
-    @objc func pictureTapAction(_ tap: UITapGestureRecognizer) {
-        if let dataModel = self.model {
-            delegate?.cell(self, didTapPictureAt: dataModel)
+    @objc func videoTapAction(_ tap: UITapGestureRecognizer) {
+        if let videoModel = self.model {
+            delegate?.cell(self, didTapVideoAt: videoModel)
         }
     }
 
@@ -121,7 +134,7 @@ class FYImageMessageCell: FYMessageBaseCell {
 
 // MARK: - Layout
 
-extension FYImageMessageCell {
+extension FYVideoMessageCell {
     
     func setupCellLayout(sendType: Int) {
         
@@ -139,12 +152,12 @@ extension FYImageMessageCell {
                 make.height.equalTo(0)
             }
             
-            pictureView.snp.remakeConstraints { (make) in
+            videoImageView.snp.remakeConstraints { (make) in
                 make.top.equalTo(nameLabel.snp.bottom).offset(5)
                 make.right.equalTo(avatarView.snp.left).offset(-5)
                 make.bottom.equalTo(self.contentView).offset(-17)
-                make.width.equalTo(80)
-                make.height.equalTo(120)
+                make.width.equalTo(100)
+                make.height.equalTo(145)
             }
             
         }else {
@@ -160,12 +173,12 @@ extension FYImageMessageCell {
                 make.left.equalTo(avatarView.snp.right).offset(3)
             }
             
-            pictureView.snp.remakeConstraints { (make) in
+            videoImageView.snp.remakeConstraints { (make) in
                 make.top.equalTo(nameLabel.snp.bottom).offset(5)
                 make.left.equalTo(avatarView.snp.right).offset(5)
                 make.bottom.equalTo(self.contentView).offset(-17)
-                make.width.equalTo(80)
-                make.height.equalTo(120)
+                make.width.equalTo(100)
+                make.height.equalTo(145)
             }
         }
     }

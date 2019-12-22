@@ -27,6 +27,7 @@ class FYMessageItem: FYMessageBaseModel, TableCodable {
     var avatar: String? = nil
     var message: String? = nil
     var image: String? = nil
+    var video: String? = nil
     
     /// 消息发送时间
     var date: String? = nil
@@ -34,7 +35,7 @@ class FYMessageItem: FYMessageBaseModel, TableCodable {
     var msgType: Int? = nil
     /// 消息发送方式：0:我的；1:别人
     var sendType: Int? = nil
-    /// 聊天类型：1：单聊；2：群聊
+    /// 聊天类型：1：单聊；2：群聊；3：视频
     var chatType: Int? = nil
     /// 未读数
     var unReadCount: Int? = nil
@@ -53,6 +54,7 @@ class FYMessageItem: FYMessageBaseModel, TableCodable {
         case message
         case date
         case image
+        case video
         case sendType
         case msgType
         case chatType

@@ -34,11 +34,11 @@ target 'FY-IMChat' do
   pod 'UIView+FDCollapsibleConstraints'
   pod 'FDFullscreenPopGesture', '1.1'
   pod 'UITableView+FDTemplateLayoutCell'
-  pod 'MMKV'
 #pod 'TLPhotoPicker', '~> 1.8.3'
   pod 'SwiftMessages', '~> 7.0.0'
   pod 'SwiftTheme', '~> 0.4.5' #换肤处理
   pod 'SSZipArchive' #Zip解压
-  pod 'SKPhotoBrowser' #图片浏览器	
+  pod 'YBImageBrowser'
+  pod 'YBImageBrowser/Video'
   
 end

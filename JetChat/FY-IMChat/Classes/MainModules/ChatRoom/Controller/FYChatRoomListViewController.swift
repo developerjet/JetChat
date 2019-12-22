@@ -20,7 +20,7 @@ class FYChatRoomListViewController: FYBaseConfigViewController {
     lazy var deleteButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setTitle("删除所有群组", for: .normal)
-        button.theme_setTitleColor("Global.navBarTitleColor", forState: .normal)
+        button.theme_setTitleColor("Global.textColor", forState: .normal)
         button.sizeToFit()
         button.isHidden = true
         button.rxTapClosure { [weak self] in
@@ -62,8 +62,8 @@ class FYChatRoomListViewController: FYBaseConfigViewController {
     override func makeUI() {
         super.makeUI()
     
-        let leftButtonItem = UIBarButtonItem(customView: deleteButton)
-        navigationItem.leftBarButtonItem = leftButtonItem
+        let leftBarButtonItem = UIBarButtonItem(customView: deleteButton)
+        navigationItem.leftBarButtonItem = leftBarButtonItem
         
         let rightBarButtonItem = UIBarButtonItem(title: "加入群", style: .plain, target: self, action: #selector(addGroupData))
         navigationItem.rightBarButtonItem = rightBarButtonItem
@@ -126,12 +126,12 @@ class FYChatRoomListViewController: FYBaseConfigViewController {
             }
         }
     }
-    
+
     
     /// 滚到底部
     private func scrollToBottom(_ animated: Bool = true) {
-        if dataSource.count >= 1 {
-            plainTabView.scrollToRow(at: IndexPath(row: dataSource.count - 1, section: 0), at: .bottom, animated: animated)}
+        
+        plainTabView.scrollToLast(at: .bottom, animated: animated)
     }
 }
 

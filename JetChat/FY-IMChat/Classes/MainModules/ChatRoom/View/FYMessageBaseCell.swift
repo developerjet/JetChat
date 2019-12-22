@@ -8,6 +8,12 @@
 
 import UIKit
 
+enum RootCellType {
+    case textCell
+    case imageCell
+    case viodeCell
+}
+
 enum MenuShowStyle {
     case shore
     case copy
@@ -16,10 +22,16 @@ enum MenuShowStyle {
 
 protocol FYMessageBaseCellDelegate: class {
     func cell(_ cell: FYMessageBaseCell, didMenu style: MenuShowStyle, model: FYMessageItem)
+    func cell(_ cell: FYMessageBaseCell, didTapAvatarAt model: FYMessageItem)
+    func cell(_ cell: FYMessageBaseCell, didTapPictureAt model: FYMessageItem)
+    func cell(_ cell: FYMessageBaseCell, didTapVideoAt model: FYMessageItem)
 }
 
 extension FYMessageBaseCellDelegate {
     func cell(_ cell: FYMessageBaseCell, didMenu style: MenuShowStyle, model: FYMessageItem) {}
+    func cell(_ cell: FYMessageBaseCell, didTapAvatarAt model: FYMessageItem) {}
+    func cell(_ cell: FYMessageBaseCell, didTapPictureAt model: FYMessageItem) {}
+    func cell(_ cell: FYMessageBaseCell, didTapVideoAt model: FYMessageItem) {}
 }
 
 class FYMessageBaseCell: UITableViewCell {
@@ -39,10 +51,17 @@ class FYMessageBaseCell: UITableViewCell {
     
     weak var delegate: FYMessageBaseCellDelegate?
     
+    lazy var avatarTap: UITapGestureRecognizer = {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(avatarTapAction(_:)))
+        return tap
+    }()
+    
     lazy var avatarView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .random
         imageView.cornerRadius = 7
+        imageView.addGestureRecognizer(self.avatarTap)
+        imageView.isUserInteractionEnabled = true
         return imageView
     }()
     
@@ -90,12 +109,21 @@ class FYMessageBaseCell: UITableViewCell {
         contentView.addSubview(avatarView)
         contentView.addSubview(bubbleView)
         contentView.addSubview(nameLabel)
-        
-        setupLabelLongPressGes()
     }
     
-    func setupLabelLongPressGes(){
-        let longPressGes = UILongPressGestureRecognizer(target: self, action: #selector(showMenuController))
+    /// 提供子类调用
+    open func refreshMessageCell() { }
+    
+    /// 提供子类调用
+    /// - Parameter cellType: cell类型
+    open func setupLabelLongPressGes(cellType: RootCellType) {
+        var longPressGes = UILongPressGestureRecognizer.init()
+        if (cellType == .textCell) {
+            longPressGes = UILongPressGestureRecognizer(target: self, action: #selector(showMenu1Controller))
+        }else {
+            longPressGes = UILongPressGestureRecognizer(target: self, action: #selector(showMenu2Controller))
+        }
+            
         longPressGes.minimumPressDuration = 1
         //longPressGes.numberOfTapsRequired = 1
         longPressGes.numberOfTouchesRequired = 1
@@ -105,7 +133,7 @@ class FYMessageBaseCell: UITableViewCell {
         self.addGestureRecognizer(longPressGes)
     }
     
-    @objc func showMenuController() {
+    @objc func showMenu1Controller() {
         if (UIMenuController.shared.isMenuVisible){
             return
         }
@@ -130,10 +158,30 @@ class FYMessageBaseCell: UITableViewCell {
         menu.setMenuVisible(true, animated: true)
     }
     
+    @objc func showMenu2Controller() {
+        if (UIMenuController.shared.isMenuVisible){
+            return
+        }
+        
+        let sendType = model?.sendType
+        
+        self.becomeFirstResponder()
+        let menu = UIMenuController.shared
+        let item1 = UIMenuItem(title: "分享", action: #selector(menuShoreAction))
+        let item3 = UIMenuItem(title: "删除", action: #selector(menuDeleteAction))
+        menu.menuItems = [item1, item3]
+        // 设置箭头方向
+        menu.arrowDirection = .default
+        if sendType == 0 {
+            let rect = CGRect(x: 40, y: 40, width: self.width, height: self.height)
+            menu.setTargetRect(rect, in: self)
+        }else {
+            let rect = CGRect(x: -60, y: 60, width: self.width, height: self.height)
+            menu.setTargetRect(rect, in: self)
+        }
+        menu.setMenuVisible(true, animated: true)
+    }
 
-    /// 提供子类重写
-    
-    open func refreshMessageCell() { }
         
     
     required init?(coder: NSCoder) {
@@ -167,6 +215,14 @@ class FYMessageBaseCell: UITableViewCell {
     @objc open func menuDeleteAction() {
         if let dataModel = self.model {
             delegate?.cell(self, didMenu: .delete, model: dataModel)
+        }
+    }
+    
+    
+    /// 点击用户头像
+    @objc func avatarTapAction(_ tap: UIGestureRecognizer) {
+        if let dataModel = self.model {
+            delegate?.cell(self, didTapAvatarAt: dataModel)
         }
     }
     

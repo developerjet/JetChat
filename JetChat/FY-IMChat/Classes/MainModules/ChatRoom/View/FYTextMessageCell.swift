@@ -28,6 +28,7 @@ class FYTextMessageCell: FYMessageBaseCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         initSubview()
+        setupLabelLongPressGes(cellType: .textCell)
     }
     
     func initSubview() {

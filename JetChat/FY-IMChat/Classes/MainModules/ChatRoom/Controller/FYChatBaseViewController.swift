@@ -8,7 +8,7 @@
 
 import UIKit
 import IQKeyboardManagerSwift
-import SKPhotoBrowser
+import YBImageBrowser
 
 
 public enum ChatType: Int {
@@ -18,6 +18,7 @@ public enum ChatType: Int {
 
 private let kTextMessageCellIdentifier  = "kTextMessageCellIdentifier"
 private let kImageMessageCellIdentifier = "kImageMessageCellIdentifier"
+private let kVideoMessageCellIdentifier = "kVideoMessageCellIdentifier"
 
 class FYChatBaseViewController: FYBaseConfigViewController {
     
@@ -42,6 +43,7 @@ class FYChatBaseViewController: FYBaseConfigViewController {
     
     var timer: Timer?
     var imageIndexs: [Int: Int] = [:]
+    var videoIndexs: [Int: Int] = [:]
     var dataSource: [FYMessageItem] = []
     
     lazy var keyboardView: ChatKeyboardView = {
@@ -55,8 +57,8 @@ class FYChatBaseViewController: FYBaseConfigViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        IQKeyboardManager.shared.enableAutoToolbar = false
         IQKeyboardManager.shared.enable = false
+        IQKeyboardManager.shared.enableAutoToolbar = false
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -77,11 +79,7 @@ class FYChatBaseViewController: FYBaseConfigViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .backGroundGrayColor()
-        if chatModel?.nickName.isBlank == false {
-            navigationItem.title = chatModel?.nickName
-        }else {
-            navigationItem.title = chatModel?.name
-        }
+        setupNavBar()
         
         makeUI()
         loadCacheData()
@@ -98,13 +96,21 @@ class FYChatBaseViewController: FYBaseConfigViewController {
         }
     }
     
-    override func makeUI() {
-        super.makeUI()
+    func setupNavBar() {
+        if chatModel?.nickName.isBlank == false {
+            navigationItem.title = chatModel?.nickName
+        }else {
+            navigationItem.title = chatModel?.name
+        }
         
         if chatType == .groupedChat {
             let rightBarButtonItem = UIBarButtonItem(title: "退出群", style: .plain, target: self, action: #selector(exitGroupChat))
             navigationItem.rightBarButtonItem = rightBarButtonItem
         }
+    }
+    
+    override func makeUI() {
+        super.makeUI()
         
         let height = kScreenH - (kToolBarLastH + kSafeAreaBottom + kNavigaH)
         plainTabView.frame = CGRect(x: 0, y: 0, width: kScreenW, height: height)
@@ -114,7 +120,7 @@ class FYChatBaseViewController: FYBaseConfigViewController {
         plainTabView.estimatedRowHeight = 100
         plainTabView.tableFooterView = UIView()
         plainTabView.showsVerticalScrollIndicator = true
-        registerCellForTable(plainTabView)
+        registerChatCell(plainTabView)
         view.addSubview(plainTabView)
         // 添加聊天键盘
         view.addSubview(keyboardView)
@@ -134,16 +140,16 @@ class FYChatBaseViewController: FYBaseConfigViewController {
         }
     }
     
-    private func registerCellForTable(_ table: UITableView) {
-        table.register(FYTextMessageCell.self, forCellReuseIdentifier: kTextMessageCellIdentifier)
-        table.register(FYImageMessageCell.self, forCellReuseIdentifier: kImageMessageCellIdentifier)
+    private func registerChatCell(_ table: UITableView) {
+        plainTabView.register(FYTextMessageCell.self, forCellReuseIdentifier: kTextMessageCellIdentifier)
+        plainTabView.register(FYImageMessageCell.self, forCellReuseIdentifier: kImageMessageCellIdentifier)
+        plainTabView.register(FYVideoMessageCell.self, forCellReuseIdentifier: kVideoMessageCellIdentifier)
     }
     
     /// 滚到底部
     private func scrollToBottom(_ animated: Bool = true) {
-        if dataSource.count >= 1 {
-            plainTabView.scrollToRow(at: IndexPath(row: dataSource.count - 1, section: 0), at: .bottom, animated: animated)
-        }
+        
+        plainTabView.scrollToLast(at: .bottom, animated: animated)
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -193,9 +199,8 @@ extension FYChatBaseViewController: ChatKeyboardViewDelegate {
     }
     
     func keyboard(_ keyboard: ChatKeyboardView, DidMoreMenu type: ChatMoreMenuType) {
-        if (type == .album) {
-            openAlbum()
-        }
+        
+        openImagePicker(type)
     }
     
     func keyboard(_ keyboard: ChatKeyboardView, DidObserver offsetY: CGFloat) {
@@ -290,6 +295,40 @@ extension FYChatBaseViewController: ChatKeyboardViewDelegate {
         }
     }
     
+    private func makeVideoMessage(_ url: String = "") {
+        let random = arc4random() % 9
+        let msgItem = FYMessageItem()
+        msgItem.chatId = chatModel?.uid
+        
+        if chatModel?.chatType == 1 {
+            msgItem.sendType = random % 2 == 0 ? 1 : 0
+            if chatModel?.nickName.isBlank == false {
+                msgItem.name = random % 2 == 0 ? chatModel?.nickName : "逆流而上"
+                msgItem.nickName = random % 2 == 0 ? chatModel?.nickName : "逆流而上"
+            }else {
+                msgItem.name = random % 2 == 0 ? chatModel?.name : "逆流而上"
+            }
+            msgItem.avatar = random % 2 == 0 ? chatModel?.avatar : "https://img2.woyaogexing.com/2019/11/27/d1dddb1e1faf4b578f12b28a08b04174!400x400.jpeg"
+        }else {
+            msgItem.sendType = 0
+            msgItem.name = "逆流而上"
+            msgItem.avatar = "https://img2.woyaogexing.com/2019/11/27/d1dddb1e1faf4b578f12b28a08b04174!400x400.jpeg"
+        }
+        
+        msgItem.date = Date().string(withFormat: "yyyy-MM-dd HH:mm:ss")
+        msgItem.image = random % 2 == 0 ? "https://ss3.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2015696643,3638800543&fm=26&gp=0.jpg" : "https://i-3-qqxzb.qqxzb.com/2018/3/20/9b26bc6b-a037-4a93-b875-480e7253dd4c.jpg?imageView2/2/q/85"
+        msgItem.video = random % 2 == 0 ? "localVideo0.mp4" : "https://aweme.snssdk.com/aweme/v1/playwm/?video_id=v0200ff00000bdkpfpdd2r6fb5kf6m50&line=0.mp4"
+        msgItem.msgType = 3 //视频
+        msgItem.message = "【视频】"
+        msgItem.chatType = chatModel?.chatType
+        
+        reloadChatData(msgItem)
+        
+        if chatModel?.chatType == 2 && isTimered == false {
+            startSendTimer()
+        }
+    }
+    
     /// 模拟群组聊天自动发送消息
     @objc private func makeGroupAutoSend() {
         let random = arc4random() % 20
@@ -324,11 +363,15 @@ extension FYChatBaseViewController: ChatKeyboardViewDelegate {
 
 extension FYChatBaseViewController: TZImagePickerControllerDelegate {
     
-    private func openAlbum() {
+    private func openImagePicker(_ type: ChatMoreMenuType) {
         let imagePicker = TZImagePickerController(maxImagesCount: 1, columnNumber: 5, delegate: self)
         imagePicker?.didFinishPickingPhotosHandle = {(images: [UIImage]?, assets:[Any]?, isSelectOriginalPhoto: Bool) in
             printLog(images)
-            self.makeImageMessage()
+            if (type == .album) {
+                self.makeImageMessage()
+            }else if (type == .video) {
+                self.makeVideoMessage()
+            }
         }
         
         present(imagePicker!, animated: true, completion: nil)
@@ -352,15 +395,14 @@ extension FYChatBaseViewController {
         }
     }
     
-    func loadCacheData() {
+    func loadCacheData(_ toBottom: Bool = true) {
         if let chatId = chatModel?.uid {
             dataSource = FYDBQueryHelper.shared.qureyFromMessagesWithChatId(chatId)
         }
         
-        DispatchQueue.main.async {
-            self.plainTabView.reloadData {
-                self.scrollToBottom(false)
-            }
+        plainTabView.reloadData()
+        if (toBottom) {
+            scrollToBottom(true)
         }
     }
 }
@@ -381,11 +423,16 @@ extension FYChatBaseViewController: UITableViewDataSource {
                 textCell.delegate = self
                 configureCellModel(cell: textCell, at: indexPath)
                 return textCell
-            }else {
+            }else if model.msgType == 2 {
                 let imageCell = tableView.dequeueReusableCell(withIdentifier: kImageMessageCellIdentifier) as! FYImageMessageCell
                 configureCellModel(cell: imageCell, at: indexPath)
                 imageCell.delegate = self
                 return imageCell
+            }else if model.msgType == 3 {
+                let videoCell = tableView.dequeueReusableCell(withIdentifier: kVideoMessageCellIdentifier) as! FYVideoMessageCell
+                configureCellModel(cell: videoCell, at: indexPath)
+                videoCell.delegate = self
+                return videoCell
             }
         }
         
@@ -400,10 +447,16 @@ extension FYChatBaseViewController: UITableViewDataSource {
                         self?.configureCellModel(cell: textCell, at: indexPath)
                     }
                 }
-            }else {
+            }else if model.msgType == 2 {
                 return plainTabView.fd_heightForCell(withIdentifier: kImageMessageCellIdentifier, cacheBy: indexPath) { [weak self] (cell) in
-                    if let msgCell = cell as? FYImageMessageCell {
-                        self?.configureCellModel(cell: msgCell, at: indexPath)
+                    if let imageCell = cell as? FYImageMessageCell {
+                        self?.configureCellModel(cell: imageCell, at: indexPath)
+                    }
+                }
+            }else if model.msgType == 3 {
+                return plainTabView.fd_heightForCell(withIdentifier: kVideoMessageCellIdentifier, cacheBy: indexPath) { [weak self] (cell) in
+                    if let videoCell = cell as? FYVideoMessageCell {
+                        self?.configureCellModel(cell: videoCell, at: indexPath)
                     }
                 }
             }
@@ -418,6 +471,8 @@ extension FYChatBaseViewController: UITableViewDataSource {
             textCell.model = self.dataSource[safe: indexPath.row]
         }else if let imageCell = cell as? FYImageMessageCell {
             imageCell.model = self.dataSource[safe: indexPath.row]
+        }else if let viodeCell = cell as? FYVideoMessageCell {
+            viodeCell.model = self.dataSource[safe: indexPath.row]
         }
     }
 }
@@ -434,13 +489,41 @@ extension FYChatBaseViewController: FYMessageBaseCellDelegate {
                     FYDBQueryHelper.shared.deleteFromMessageId(messageId)
                 }
                 
-                loadCacheData()
+                loadCacheData(false)
                 // 通知刷新会话列表
                 NotificationCenter.default.post(name: .kNeedRefreshSesstionList, object: nil)
             }
         }else if style == .copy {
-            
-            model.message?.stringGeneral()
+            if let chatMessage = model.message, chatMessage.length > 0 {
+                chatMessage.stringGeneral()
+            }
+        }
+    }
+    
+    func cell(_ cell: FYMessageBaseCell, didTapAvatarAt model: FYMessageItem) {
+        let userModel = FYDBQueryHelper.shared.qureyFromChatId(model.chatId!)
+        let infoVC = FYContactsInfoViewController()
+        infoVC.chatModel = userModel
+        navigationController?.pushViewController(infoVC)
+    }
+    
+    func cell(_ cell: FYMessageBaseCell, didTapPictureAt model: FYMessageItem) {
+        if let row = plainTabView.indexPath(for: cell)?.item {
+            if model.msgType == 2 {
+                if let images = loadAllChatImages(row: row) {
+                    browserWithData(images, index: row)
+                }
+            }
+        }
+    }
+    
+    func cell(_ cell: FYMessageBaseCell, didTapVideoAt model: FYMessageItem) {
+        if let row = plainTabView.indexPath(for: cell)?.item {
+            if model.msgType == 3 {
+                if let videos = loadAllChatVideos(row: row) {
+                    browserWithData(videos, index: row)
+                }
+            }
         }
     }
 }
@@ -449,15 +532,7 @@ extension FYChatBaseViewController: FYMessageBaseCellDelegate {
 
 extension FYChatBaseViewController: UITableViewDelegate, UIScrollViewDelegate {
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let model = dataSource[safe: indexPath.row] {
-            if model.msgType == 2 {
-                if let images = loadAllChatImages(row: indexPath.row) {
-                    browserImage(images, index: indexPath.row)
-                }
-            }
-        }
-    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) { }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         if isSended {
@@ -475,8 +550,8 @@ extension FYChatBaseViewController: UITableViewDelegate, UIScrollViewDelegate {
         }
     }
     
-    func loadAllChatImages(row: Int) -> [SKPhoto]? {
-        var images: [SKPhoto] = []
+    func loadAllChatImages(row: Int) -> [YBIBImageData]? {
+        var images: [YBIBImageData] = []
         guard dataSource.count > 0 else {
             return images
         }
@@ -484,11 +559,11 @@ extension FYChatBaseViewController: UITableViewDelegate, UIScrollViewDelegate {
         var imageIndex = 0
         for (index, model) in dataSource.enumerated() {
             if model.msgType == 2 {
-                let photo = SKPhoto.photoWithImageURL(model.image!)
-                photo.shouldCachePhotoURLImage = true // you can use image cache by true(NSCache)
-                images.append(photo)
-                
-                imageIndex += 1
+                let data = YBIBImageData()
+                data.imageURL = URL(string: model.image!)
+                data.projectiveView = projectiveViewAtRow(row)
+                images.append(data)
+                imageIndex += 1 //图片索引
             }
             
             imageIndexs[index] = imageIndex
@@ -496,19 +571,67 @@ extension FYChatBaseViewController: UITableViewDelegate, UIScrollViewDelegate {
         
         return images
     }
+    
+    func loadAllChatVideos(row: Int) -> [YBIBVideoData]? {
+        var videos: [YBIBVideoData] = []
+        guard dataSource.count > 0 else {
+            return videos
+        }
+        
+        var browserIndex = 0
+        for (index, model) in dataSource.enumerated() {
+            if model.msgType == 3 {
+                if (model.video?.hasSuffix(".mp4"))! && (model.video?.hasPrefix("http"))! { //网络视频
+                    let data = YBIBVideoData()
+                    data.videoURL = URL(string: model.video!)
+                    data.projectiveView = projectiveViewAtRow(row)
+                    videos.append(data)
+                    browserIndex += 1 //图片索引
+                }else {
+                    if let path = Bundle.main.path(forResource: model.video?.deletingPathExtension, ofType:model.video?.pathExtension) {
+                        let data = YBIBVideoData()
+                        data.videoURL = URL(fileURLWithPath: path)
+                        data.projectiveView = projectiveViewAtRow(row)
+                        videos.append(data)
+                        browserIndex += 1 //图片索引
+                    }
+                }
+            }
+            
+            videoIndexs[index] = browserIndex
+        }
+        
+        return videos
+    }
+    
+    func projectiveViewAtRow(_ row: Int) -> UIView {
+        let indexPath = IndexPath(row: row, section: 0)
+        if let imageCell = plainTabView.cellForRow(at: indexPath) as? FYImageMessageCell {
+            return imageCell.pictureView
+        }else {
+            let videoCell = plainTabView.cellForRow(at: indexPath) as? FYVideoMessageCell
+            return videoCell!.videoImageView
+        }
+    }
 }
 
 
-// MARK: - SKPhotoBrowser
+// MARK: - Image && Video Browser
 
 extension FYChatBaseViewController {
     
-    func browserImage(_ images: [SKPhoto], index: Int) {
-        if let imageIndex = imageIndexs[index] {
-            let browser = SKPhotoBrowser(photos: images)
-            browser.initializePageIndex(imageIndex - 1)
-            present(browser, animated: true, completion: {})
+    func browserWithData(_ dataSource: [AnyObject], index: Int = 0) {
+        var browserIndex = 0
+        let browser = YBImageBrowser()
+        if ((dataSource as? [YBIBImageData]) != nil) {
+            browserIndex = imageIndexs[index]!
+            browser.dataSourceArray = (dataSource as? [YBIBImageData])!
+        }else {
+            browserIndex = videoIndexs[index]!
+            browser.dataSourceArray = (dataSource as? [YBIBVideoData])!
         }
+        browser.currentPage = browserIndex - 1
+        browser.show()
     }
 }
 

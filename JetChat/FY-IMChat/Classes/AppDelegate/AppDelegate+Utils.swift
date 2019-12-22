@@ -176,7 +176,6 @@ extension AppDelegate {
         setupAppTheme()
         
         startRegisterSDK()
-        MMKVLog()
         keyboardManager()
         checkCommonState()
         appearanceSetting()
@@ -197,9 +196,6 @@ extension AppDelegate {
         UIApplication.shared.theme_setStatusBarStyle("UIStatusBarStyle", animated: true)
     }
     
-    func MMKVLog() {
-        MMKV.setLogLevel(MMKVLogNone)
-    }
     
     /// 第三方SDK注册
     func startRegisterSDK() {

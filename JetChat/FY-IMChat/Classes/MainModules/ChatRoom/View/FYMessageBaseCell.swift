@@ -91,6 +91,12 @@ class FYMessageBaseCell: UITableViewCell {
         return view
     }()
     
+    lazy var activityIndicatorView: UIActivityIndicatorView = {
+        let activityView = UIActivityIndicatorView(style: .gray)
+        activityView.backgroundColor = .clear
+        activityView.isHidden = true
+        return activityView
+    }()
     
     // MARK: - life cycle
      
@@ -109,10 +115,31 @@ class FYMessageBaseCell: UITableViewCell {
         contentView.addSubview(avatarView)
         contentView.addSubview(bubbleView)
         contentView.addSubview(nameLabel)
+        contentView.addSubview(activityIndicatorView)
     }
     
     /// 提供子类调用
     open func refreshMessageCell() { }
+    
+    /// 执行加载动画
+    open func activityStartAnimating() {
+        guard let sendType = model?.sendType, sendType == 0 else {
+            return
+        }
+        guard let sendDate = model?.date else {
+            return
+        }
+        
+        let nowDate = Date().string(withFormat: "yyyy-MM-dd HH:mm:ss")
+        if ((nowDate.stringToTimeStamp().doubleValue - sendDate.stringToTimeStamp().doubleValue) <= 1) {
+            self.activityIndicatorView.isHidden = false
+            self.activityIndicatorView.startAnimating()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.25) {
+                self.activityIndicatorView.startAnimating()
+                self.activityIndicatorView.isHidden = true
+            }
+        }
+    }
     
     /// 提供子类调用
     /// - Parameter cellType: cell类型
@@ -142,7 +169,7 @@ class FYMessageBaseCell: UITableViewCell {
         
         self.becomeFirstResponder()
         let menu = UIMenuController.shared
-        let item1 = UIMenuItem(title: "分享", action: #selector(menuShoreAction))
+        let item1 = UIMenuItem(title: "转发", action: #selector(menuShoreAction))
         let item2 = UIMenuItem(title: "复制", action: #selector(menuCopyAction))
         let item3 = UIMenuItem(title: "删除", action: #selector(menuDeleteAction))
         menu.menuItems = [item1, item2, item3]
@@ -167,7 +194,7 @@ class FYMessageBaseCell: UITableViewCell {
         
         self.becomeFirstResponder()
         let menu = UIMenuController.shared
-        let item1 = UIMenuItem(title: "分享", action: #selector(menuShoreAction))
+        let item1 = UIMenuItem(title: "转发", action: #selector(menuShoreAction))
         let item3 = UIMenuItem(title: "删除", action: #selector(menuDeleteAction))
         menu.menuItems = [item1, item3]
         // 设置箭头方向

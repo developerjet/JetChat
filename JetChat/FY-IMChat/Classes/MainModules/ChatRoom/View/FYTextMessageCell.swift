@@ -10,7 +10,7 @@ import UIKit
 
 class FYTextMessageCell: FYMessageBaseCell {
     
-    private let kMessageW: Double = 230.0
+    private let kMaxWidth: Double = 230.0
     
     // MARK: - var lazy
 
@@ -62,7 +62,7 @@ class FYTextMessageCell: FYMessageBaseCell {
             make.top.equalTo(nameLabel.snp.bottom).offset(2)
             make.bottom.equalTo(contentLabel.snp.bottom).offset(2)
             make.left.equalTo(avatarView.snp.right)
-            make.width.width.equalTo(kMessageW)
+            make.width.width.equalTo(kMaxWidth)
             make.height.equalTo(contentLabel).offset(26)
         }
         
@@ -70,6 +70,12 @@ class FYTextMessageCell: FYMessageBaseCell {
             make.top.equalTo(bubbleView).offset(13);
             make.left.equalTo(bubbleView).offset(20);
             make.right.equalTo(bubbleView).offset(-15);
+        }
+        
+        activityIndicatorView.snp.remakeConstraints { (make) in
+            make.centerY.equalTo(bubbleView)
+            make.centerX.equalToSuperview()
+            make.width.height.equalTo(30)
         }
         
         dateLabel.setContentHuggingPriority(.required, for: .horizontal)
@@ -84,7 +90,10 @@ class FYTextMessageCell: FYMessageBaseCell {
         
         dateLabel.text = model?.date
         contentLabel.text = model?.message
-        avatarView.setImageWithURL(model!.avatar!, placeholder: "ic_avatar_placeholder")
+        
+        if let imageURL = model?.avatar {
+            avatarView.setImageWithURL(imageURL, placeholder: "ic_avatar_placeholder")
+        }
         
         if model?.nickName.isBlank == false {
             nameLabel.text = model?.nickName
@@ -93,8 +102,10 @@ class FYTextMessageCell: FYMessageBaseCell {
         }
         
         // 重新布局
-        let contentSize = contentLabel.sizeThatFits(CGSize(width: kMessageW, height: Double(Float.greatestFiniteMagnitude)))
-        setupCellLayout(sendType: (model?.sendType!)!, size: contentSize)
+        let contentSize = contentLabel.sizeThatFits(CGSize(width: kMaxWidth, height: Double(Float.greatestFiniteMagnitude)))
+        if let sendType = model?.sendType {
+            setupCellLayout(sendType: sendType, size: contentSize)
+        }
         
         // 设置泡泡
         let bubbleImage = model?.sendType == 0 ? #imageLiteral(resourceName: "message_sender_background_normal") : #imageLiteral(resourceName: "message_receiver_background_normal")
@@ -145,6 +156,15 @@ extension FYTextMessageCell {
                 make.width.equalTo(contentLabel).offset(30)
             }
             
+            activityIndicatorView.snp.remakeConstraints { (make) in
+                make.centerY.equalTo(bubbleView)
+                make.right.equalTo(bubbleView.snp.left).offset(-1)
+                make.width.height.equalTo(30)
+            }
+            
+            // start
+            activityStartAnimating()
+            
         }else {
             avatarView.snp.remakeConstraints { (make) in
                 make.width.height.equalTo(40)
@@ -175,7 +195,6 @@ extension FYTextMessageCell {
             }
         }
     }
-    
 }
 
    

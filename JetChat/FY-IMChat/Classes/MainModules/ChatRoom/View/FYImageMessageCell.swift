@@ -74,6 +74,12 @@ class FYImageMessageCell: FYMessageBaseCell {
             make.height.equalTo(120)
         }
         
+        activityIndicatorView.snp.remakeConstraints { (make) in
+            make.centerY.equalTo(pictureView)
+            make.centerX.equalToSuperview()
+            make.width.height.equalTo(30)
+        }
+        
         dateLabel.setContentHuggingPriority(.required, for: .horizontal)
         pictureView.setContentHuggingPriority(.required, for: .horizontal)
     }
@@ -85,8 +91,14 @@ class FYImageMessageCell: FYMessageBaseCell {
         }
         
         dateLabel.text = model?.date
-        avatarView.setImageWithURL(model!.avatar!)
-        pictureView.setImageWithURL((model?.image!)!)
+
+        if let avatarURL = model?.avatar {
+            avatarView.setImageWithURL(avatarURL)
+        }
+        
+        if let imageURL = model?.image {
+            pictureView.setImageWithURL(imageURL)
+        }
         
         if model?.nickName.isBlank == false {
             nameLabel.text = model?.nickName
@@ -95,7 +107,9 @@ class FYImageMessageCell: FYMessageBaseCell {
         }
         
         // 重新布局
-        setupCellLayout(sendType: model!.sendType!)
+        if let sendType = model?.sendType {
+            setupCellLayout(sendType: sendType)
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -146,6 +160,15 @@ extension FYImageMessageCell {
                 make.width.equalTo(80)
                 make.height.equalTo(120)
             }
+            
+            activityIndicatorView.snp.remakeConstraints { (make) in
+                make.centerY.equalTo(pictureView)
+                make.right.equalTo(pictureView.snp.left).offset(-1)
+                make.width.height.equalTo(30)
+            }
+            
+            // start
+            activityStartAnimating()
             
         }else {
             avatarView.snp.remakeConstraints { (make) in

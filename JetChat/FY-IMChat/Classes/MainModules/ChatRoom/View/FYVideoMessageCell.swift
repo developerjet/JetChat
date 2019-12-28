@@ -87,6 +87,12 @@ class FYVideoMessageCell: FYMessageBaseCell {
             make.size.equalTo(CGSize(width: 40, height: 40))
         }
         
+        activityIndicatorView.snp.remakeConstraints { (make) in
+            make.centerY.equalTo(videoImageView)
+            make.centerX.equalToSuperview()
+            make.width.height.equalTo(30)
+        }
+        
         dateLabel.setContentHuggingPriority(.required, for: .horizontal)
         videoImageView.setContentHuggingPriority(.required, for: .horizontal)
     }
@@ -98,8 +104,14 @@ class FYVideoMessageCell: FYMessageBaseCell {
         }
         
         dateLabel.text = model?.date
-        avatarView.setImageWithURL(model!.avatar!)
-        videoImageView.setImageWithURL((model?.image!)!)
+        
+        if let avatarURL = model?.avatar {
+            avatarView.setImageWithURL(avatarURL)
+        }
+        
+        if let imageURL = model?.image {
+            videoImageView.setImageWithURL(imageURL)
+        }
         
         if model?.nickName.isBlank == false {
             nameLabel.text = model?.nickName
@@ -108,7 +120,9 @@ class FYVideoMessageCell: FYMessageBaseCell {
         }
         
         // 重新布局
-        setupCellLayout(sendType: model!.sendType!)
+        if let sendType = model?.sendType {
+            setupCellLayout(sendType: sendType)
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -159,6 +173,14 @@ extension FYVideoMessageCell {
                 make.width.equalTo(100)
                 make.height.equalTo(145)
             }
+            
+            activityIndicatorView.snp.remakeConstraints { (make) in
+                make.centerY.equalTo(videoImageView)
+                make.right.equalTo(videoImageView.snp.left).offset(-1)
+                make.width.height.equalTo(30)
+            }
+            
+            activityStartAnimating()
             
         }else {
             avatarView.snp.remakeConstraints { (make) in

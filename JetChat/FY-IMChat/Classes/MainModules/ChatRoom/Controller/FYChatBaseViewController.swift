@@ -35,11 +35,18 @@ class FYChatBaseViewController: FYBaseConfigViewController {
     private var kToolBarLastY: CGFloat = 551
     private var lastMaxY: CGFloat = 0.0
     
+    private var recordCount: Int = 0
+    private var isTableViewBottom: Bool = false
+    
     // MARK: - var lazy
     
     /// 聊天类型（默认单聊）
     var chatType: ChatType? = .singleChat
     var chatModel: FYMessageChatModel? = FYMessageChatModel()
+    
+    /// 消息转发
+    var isForward: Bool = false
+    var forwardData: FYMessageItem?
     
     var timer: Timer?
     var imageIndexs: [Int: Int] = [:]
@@ -73,7 +80,7 @@ class FYChatBaseViewController: FYBaseConfigViewController {
         IQKeyboardManager.shared.enableAutoToolbar = true
         IQKeyboardManager.shared.enable = true
         // stop timer
-        stopSendTimer()
+        stopChatTimer()
     }
     
     override func viewDidLoad() {
@@ -83,14 +90,21 @@ class FYChatBaseViewController: FYBaseConfigViewController {
         
         makeUI()
         loadCacheData()
+        
+        if isForward {
+            if let messageItem = forwardData {
+                reloadChatData(messageItem)
+            }
+        }
     }
     
     /// 构造聊天会话
     /// - Parameter chatModel: 聊天实体（分单聊、群聊）
-    convenience init(chatModel: FYMessageChatModel) {
+    convenience init(chatModel: FYMessageChatModel, isForward: Bool = false) {
         self.init()
         
         self.chatModel = chatModel
+        self.isForward = isForward
         if let type = self.chatModel?.chatType {
             self.chatType = ChatType(rawValue: type)
         }
@@ -120,27 +134,27 @@ class FYChatBaseViewController: FYBaseConfigViewController {
         plainTabView.estimatedRowHeight = 100
         plainTabView.tableFooterView = UIView()
         plainTabView.showsVerticalScrollIndicator = true
-        registerChatCell(plainTabView)
+        registerChatCell()
         view.addSubview(plainTabView)
         // 添加聊天键盘
         view.addSubview(keyboardView)
     }
     
-    private func startSendTimer() {
-        timer = Timer(timeInterval: 20, target: self, selector: #selector(makeGroupAutoSend), userInfo: nil, repeats: true)
+    private func startChatTimer() {
+        timer = Timer(timeInterval: 10, target: self, selector: #selector(makeGroupAutoSend), userInfo: nil, repeats: true)
         RunLoop.main.add(timer!, forMode: .common)
         timer?.fire() // 启动定时器
         
         isTimered = true
     }
     
-    private func stopSendTimer() {
+    private func stopChatTimer() {
         if isTimered {
             timer?.invalidate()
         }
     }
     
-    private func registerChatCell(_ table: UITableView) {
+    private func registerChatCell() {
         plainTabView.register(FYTextMessageCell.self, forCellReuseIdentifier: kTextMessageCellIdentifier)
         plainTabView.register(FYImageMessageCell.self, forCellReuseIdentifier: kImageMessageCellIdentifier)
         plainTabView.register(FYVideoMessageCell.self, forCellReuseIdentifier: kVideoMessageCellIdentifier)
@@ -165,7 +179,7 @@ class FYChatBaseViewController: FYBaseConfigViewController {
     @objc private func exitGroupChat() {
         EasyAlertView.shared.customAlert(title: "确定退出当前群组吗？", message: "", confirm: "确定", cancel: "取消", vc: self, confirmBlock: {
             if let uid = self.chatModel?.uid {
-                self.stopSendTimer()
+                self.stopChatTimer()
                 FYDBQueryHelper.shared.deleteFromChatWithId(uid)
                 FYDBQueryHelper.shared.deleteFromMesssageWithId(uid)
                 // 退出群
@@ -180,7 +194,7 @@ class FYChatBaseViewController: FYBaseConfigViewController {
     }
     
     deinit {
-        stopSendTimer()
+        stopChatTimer()
     }
 }
 
@@ -190,6 +204,7 @@ class FYChatBaseViewController: FYBaseConfigViewController {
 extension FYChatBaseViewController: ChatKeyboardViewDelegate {
     
     func keyboard(_ keyboard: ChatKeyboardView, DidFinish content: String) {
+        
         makeTextMessage(content)
     }
     
@@ -258,7 +273,7 @@ extension FYChatBaseViewController: ChatKeyboardViewDelegate {
         reloadChatData(msgItem)
         
         if chatModel?.chatType == 2 && isTimered == false {
-            startSendTimer()
+            startChatTimer()
         }
     }
 
@@ -291,7 +306,7 @@ extension FYChatBaseViewController: ChatKeyboardViewDelegate {
         reloadChatData(msgItem)
         
         if chatModel?.chatType == 2 && isTimered == false {
-            startSendTimer()
+            startChatTimer()
         }
     }
     
@@ -325,7 +340,7 @@ extension FYChatBaseViewController: ChatKeyboardViewDelegate {
         reloadChatData(msgItem)
         
         if chatModel?.chatType == 2 && isTimered == false {
-            startSendTimer()
+            startChatTimer()
         }
     }
     
@@ -344,7 +359,6 @@ extension FYChatBaseViewController: ChatKeyboardViewDelegate {
         
         reloadChatData(msgItem)
     }
-    
     
     private func reloadChatData(_ msgItem: FYMessageItem) {
         isSended = true
@@ -374,7 +388,9 @@ extension FYChatBaseViewController: TZImagePickerControllerDelegate {
             }
         }
         
-        present(imagePicker!, animated: true, completion: nil)
+        if (type == .album || type == .video) {
+            present(imagePicker!, animated: true, completion: nil)
+        }
     }
 }
 
@@ -395,6 +411,7 @@ extension FYChatBaseViewController {
         }
     }
     
+    
     func loadCacheData(_ toBottom: Bool = true) {
         if let chatId = chatModel?.uid {
             dataSource = FYDBQueryHelper.shared.qureyFromMessagesWithChatId(chatId)
@@ -402,7 +419,7 @@ extension FYChatBaseViewController {
         
         plainTabView.reloadData()
         if (toBottom) {
-            scrollToBottom(true)
+            scrollToBottom(toBottom)
         }
     }
 }
@@ -497,10 +514,17 @@ extension FYChatBaseViewController: FYMessageBaseCellDelegate {
             if let chatMessage = model.message, chatMessage.length > 0 {
                 chatMessage.stringGeneral()
             }
+        }else if (style == .shore) {
+            
+            messageForward(model)
         }
     }
     
     func cell(_ cell: FYMessageBaseCell, didTapAvatarAt model: FYMessageItem) {
+        if model.sendType == 0 {
+            return
+        }
+        
         let userModel = FYDBQueryHelper.shared.qureyFromChatId(model.chatId!)
         let infoVC = FYContactsInfoViewController()
         infoVC.chatModel = userModel
@@ -526,13 +550,25 @@ extension FYChatBaseViewController: FYMessageBaseCellDelegate {
             }
         }
     }
+    
+    /// 消息转发
+    private func messageForward(_ message: FYMessageItem) {
+        if let chatType = message.chatType {
+            let forwardVC = FYMessageForwardViewController()
+            if chatType == 1 {
+                forwardVC.forwardStyle = .forwardFriend
+            }else {
+                forwardVC.forwardStyle = .forwardGroup
+            }
+            forwardVC.messageItem = message
+            self.navigationController?.pushViewController(forwardVC)
+        }
+    }
 }
 
 // MARK: - UITableViewDelegate
 
 extension FYChatBaseViewController: UITableViewDelegate, UIScrollViewDelegate {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) { }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         if isSended {
@@ -545,8 +581,11 @@ extension FYChatBaseViewController: UITableViewDelegate, UIScrollViewDelegate {
             return
         }
         
+
         if plainTabView.y <= 0 && isBecome {
-            NotificationCenter.default.post(name: .kChatTextKeyboardNeedHide, object: nil)
+            DispatchQueue.main.async {
+                NotificationCenter.default.post(name: .kChatTextKeyboardNeedHide, object: nil)
+            }
         }
     }
     

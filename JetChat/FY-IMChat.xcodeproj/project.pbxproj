@@ -169,6 +169,7 @@
 		277F8BFC23ABB732001FB030 /* FYMessageUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277F8BFB23ABB731001FB030 /* FYMessageUserModel.swift */; };
 		27B954E323AFAA3100B94667 /* FYVideoMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B954E223AFAA3100B94667 /* FYVideoMessageCell.swift */; };
 		27B954E623AFAA5600B94667 /* localVideo0.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 27B954E523AFAA5600B94667 /* localVideo0.mp4 */; };
+		27BE3AB423B77FF200161DA1 /* FYMessageForwardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BE3AB323B77FF200161DA1 /* FYMessageForwardViewController.swift */; };
 		2B047CE12245D2610012125A /* importCode.py in Resources */ = {isa = PBXBuildFile; fileRef = 2B047CDF2245D2610012125A /* importCode.py */; };
 		2B047CE22245D2610012125A /* exportCode.py in Resources */ = {isa = PBXBuildFile; fileRef = 2B047CE02245D2610012125A /* exportCode.py */; };
 		2B047CE82245D6290012125A /* code.xls in Resources */ = {isa = PBXBuildFile; fileRef = 2B047CE72245D6290012125A /* code.xls */; };
@@ -379,6 +380,7 @@
 		277F8BFB23ABB731001FB030 /* FYMessageUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYMessageUserModel.swift; sourceTree = "<group>"; };
 		27B954E223AFAA3100B94667 /* FYVideoMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYVideoMessageCell.swift; sourceTree = "<group>"; };
 		27B954E523AFAA5600B94667 /* localVideo0.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = localVideo0.mp4; sourceTree = "<group>"; };
+		27BE3AB323B77FF200161DA1 /* FYMessageForwardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYMessageForwardViewController.swift; sourceTree = "<group>"; };
 		2B047CDF2245D2610012125A /* importCode.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = importCode.py; sourceTree = "<group>"; };
 		2B047CE02245D2610012125A /* exportCode.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = exportCode.py; sourceTree = "<group>"; };
 		2B047CE72245D6290012125A /* code.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = code.xls; sourceTree = "<group>"; };
@@ -545,6 +547,7 @@
 		271C022723929B030041617F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				27BE3AB323B77FF200161DA1 /* FYMessageForwardViewController.swift */,
 				271C022823929B030041617F /* FYChatBaseViewController.swift */,
 				271C022923929B030041617F /* FYChatRoomListViewController.swift */,
 			);
@@ -1704,6 +1707,7 @@
 				271C02FB23929B3A0041617F /* LanguageManager.swift in Sources */,
 				27433F9C238D70D4004D5E3D /* AppDelegate+Wcdb.swift in Sources */,
 				27433F9B238D70D4004D5E3D /* AppDelegate.swift in Sources */,
+				27BE3AB423B77FF200161DA1 /* FYMessageForwardViewController.swift in Sources */,
 				27433F9E238D70D4004D5E3D /* SVGImage+Extensions.swift in Sources */,
 				2743401A238D70D5004D5E3D /* UINavigationController+Extensions.m in Sources */,
 				27434024238D70D5004D5E3D /* FYBaseConfigViewController.swift in Sources */,

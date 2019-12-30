@@ -1,4 +1,4 @@
-<div align=center><img src="ScreenShot/JetChatSmall.png" width="934" height="168" /></div>
+<div align=center><img src="ScreenShot/JetChatSmall.png" width="467" height="84" /></div>
 
 # JetChat
  Swift5.0编写的简仿微信聊天应用，完美支持表情键盘、单聊、群聊、本地消息会话缓存。<br>

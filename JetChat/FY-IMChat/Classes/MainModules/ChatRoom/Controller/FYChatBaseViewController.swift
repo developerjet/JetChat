@@ -9,6 +9,7 @@
 import UIKit
 import IQKeyboardManagerSwift
 import YBImageBrowser
+import RxSwift
 
 
 public enum ChatType: Int {
@@ -41,7 +42,6 @@ class FYChatBaseViewController: FYBaseConfigViewController {
     // MARK: - var lazy
     
     /// 聊天类型（默认单聊）
-    var chatType: ChatType? = .singleChat
     var chatModel: FYMessageChatModel? = FYMessageChatModel()
     
     /// 消息转发
@@ -52,6 +52,8 @@ class FYChatBaseViewController: FYBaseConfigViewController {
     var imageIndexs: [Int: Int] = [:]
     var videoIndexs: [Int: Int] = [:]
     var dataSource: [FYMessageItem] = []
+    
+    var viewModel: FYMessageViewModel?
     
     lazy var keyboardView: ChatKeyboardView = {
         let toolBarY = kScreenH - kNavigaH - kToolBarLastH - kSafeAreaBottom
@@ -77,8 +79,8 @@ class FYChatBaseViewController: FYBaseConfigViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        IQKeyboardManager.shared.enableAutoToolbar = true
         IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.enableAutoToolbar = true
         // stop timer
         stopChatTimer()
     }
@@ -90,12 +92,7 @@ class FYChatBaseViewController: FYBaseConfigViewController {
         
         makeUI()
         loadCacheData()
-        
-        if isForward {
-            if let messageItem = forwardData {
-                reloadChatData(messageItem)
-            }
-        }
+        bindViewModel()
     }
     
     /// 构造聊天会话
@@ -105,9 +102,7 @@ class FYChatBaseViewController: FYBaseConfigViewController {
         
         self.chatModel = chatModel
         self.isForward = isForward
-        if let type = self.chatModel?.chatType {
-            self.chatType = ChatType(rawValue: type)
-        }
+        self.viewModel = FYMessageViewModel(chatModel: chatModel)
     }
     
     func setupNavBar() {
@@ -117,7 +112,7 @@ class FYChatBaseViewController: FYBaseConfigViewController {
             navigationItem.title = chatModel?.name
         }
         
-        if chatType == .groupedChat {
+        if chatModel?.chatType == 2 {
             let rightBarButtonItem = UIBarButtonItem(title: "退出群", style: .plain, target: self, action: #selector(exitGroupChat))
             navigationItem.rightBarButtonItem = rightBarButtonItem
         }
@@ -140,12 +135,38 @@ class FYChatBaseViewController: FYBaseConfigViewController {
         view.addSubview(keyboardView)
     }
     
-    private func startChatTimer() {
-        timer = Timer(timeInterval: 10, target: self, selector: #selector(makeGroupAutoSend), userInfo: nil, repeats: true)
-        RunLoop.main.add(timer!, forMode: .common)
-        timer?.fire() // 启动定时器
+    override func bindViewModel() {
+        super.bindViewModel()
         
-        isTimered = true
+        let refresh = Observable.of(Observable.never(), headerRefreshTrigger).merge()
+        let input = FYMessageViewModel.Input(makeMessage: refresh)
+        let output = viewModel?.transform(input: input)
+        // message
+        output?.message.asDriver(onErrorJustReturn: FYMessageItem())
+            .drive(onNext: { [weak self] (msgItem) in
+                guard let self = self else { return }
+                guard let date = msgItem.date, !date.isEmpty else {
+                    return
+                }
+                self.reloadChatData(msgItem)
+            }).disposed(by: rx.disposeBag)
+        
+        // forward
+        if isForward {
+            if let messageItem = forwardData {
+                reloadChatData(messageItem)
+            }
+        }
+    }
+    
+    private func startChatTimer() {
+        if chatModel?.chatType == 2 && isTimered == false {
+            timer = Timer(timeInterval: 10, target: self, selector: #selector(makeGroupAutoSend), userInfo: nil, repeats: true)
+            RunLoop.main.add(timer!, forMode: .common)
+            timer?.fire() // 启动定时器
+            
+            isTimered = true
+        }
     }
     
     private func stopChatTimer() {
@@ -205,7 +226,7 @@ extension FYChatBaseViewController: ChatKeyboardViewDelegate {
     
     func keyboard(_ keyboard: ChatKeyboardView, DidFinish content: String) {
         
-        makeTextMessage(content)
+        makeChatMessage(.text, content: content)
     }
     
     func keyboard(_ keyboard: ChatKeyboardView, DidBecome isBecome: Bool) {
@@ -247,117 +268,20 @@ extension FYChatBaseViewController: ChatKeyboardViewDelegate {
         }
     }
     
-    private func makeTextMessage(_ content: String) {
-        let random = arc4random() % 9
-        let msgItem = FYMessageItem()
-        msgItem.message = content
-        msgItem.chatId = chatModel?.uid
-        if chatModel?.chatType == 1 {
-            msgItem.sendType = random % 2 == 0 ? 1 : 0
-            if chatModel?.nickName.isBlank == false {
-                msgItem.name = random % 2 == 0 ? chatModel?.nickName : "逆流而上"
-            }else {
-                msgItem.name = random % 2 == 0 ? chatModel?.name : "逆流而上"
-            }
-            msgItem.avatar = random % 2 == 0 ? chatModel?.avatar : "https://img2.woyaogexing.com/2019/11/27/d1dddb1e1faf4b578f12b28a08b04174!400x400.jpeg"
-        }else {
-            msgItem.sendType = 0
-            msgItem.name = "逆流而上"
-            msgItem.avatar = "https://img2.woyaogexing.com/2019/11/27/d1dddb1e1faf4b578f12b28a08b04174!400x400.jpeg"
+    private func makeChatMessage(_ tyep: ChatDataType, content: String = "") {
+        viewModel?.messageType.accept(tyep)
+        if tyep == .text {
+            viewModel?.content.accept(content)
         }
+        headerRefreshTrigger.onNext(())
         
-        msgItem.date = Date().string(withFormat: "yyyy-MM-dd HH:mm:ss")
-        msgItem.msgType = 1 //文字
-        msgItem.chatType = chatModel?.chatType
-        
-        reloadChatData(msgItem)
-        
-        if chatModel?.chatType == 2 && isTimered == false {
-            startChatTimer()
-        }
-    }
-
-    private func makeImageMessage(_ url: String = "") {
-        let random = arc4random() % 9
-        let msgItem = FYMessageItem()
-        msgItem.chatId = chatModel?.uid
-        
-        if chatModel?.chatType == 1 {
-            msgItem.sendType = random % 2 == 0 ? 1 : 0
-            if chatModel?.nickName.isBlank == false {
-                msgItem.name = random % 2 == 0 ? chatModel?.nickName : "逆流而上"
-                msgItem.nickName = random % 2 == 0 ? chatModel?.nickName : "逆流而上"
-            }else {
-                msgItem.name = random % 2 == 0 ? chatModel?.name : "逆流而上"
-            }
-            msgItem.avatar = random % 2 == 0 ? chatModel?.avatar : "https://img2.woyaogexing.com/2019/11/27/d1dddb1e1faf4b578f12b28a08b04174!400x400.jpeg"
-        }else {
-            msgItem.sendType = 0
-            msgItem.name = "逆流而上"
-            msgItem.avatar = "https://img2.woyaogexing.com/2019/11/27/d1dddb1e1faf4b578f12b28a08b04174!400x400.jpeg"
-        }
-        
-        msgItem.date = Date().string(withFormat: "yyyy-MM-dd HH:mm:ss")
-        msgItem.image = random % 2 == 0 ? "http://attachments.gfan.com/forum/attachments2/day_120501/1205012009f594464a3d69a145.jpg" : "http://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/aec379310a55b31905caba3b43a98226cffc1748.jpg"
-        msgItem.msgType = 2 //图片
-        msgItem.message = "【图片】"
-        msgItem.chatType = chatModel?.chatType
-        
-        reloadChatData(msgItem)
-        
-        if chatModel?.chatType == 2 && isTimered == false {
-            startChatTimer()
-        }
-    }
-    
-    private func makeVideoMessage(_ url: String = "") {
-        let random = arc4random() % 9
-        let msgItem = FYMessageItem()
-        msgItem.chatId = chatModel?.uid
-        
-        if chatModel?.chatType == 1 {
-            msgItem.sendType = random % 2 == 0 ? 1 : 0
-            if chatModel?.nickName.isBlank == false {
-                msgItem.name = random % 2 == 0 ? chatModel?.nickName : "逆流而上"
-                msgItem.nickName = random % 2 == 0 ? chatModel?.nickName : "逆流而上"
-            }else {
-                msgItem.name = random % 2 == 0 ? chatModel?.name : "逆流而上"
-            }
-            msgItem.avatar = random % 2 == 0 ? chatModel?.avatar : "https://img2.woyaogexing.com/2019/11/27/d1dddb1e1faf4b578f12b28a08b04174!400x400.jpeg"
-        }else {
-            msgItem.sendType = 0
-            msgItem.name = "逆流而上"
-            msgItem.avatar = "https://img2.woyaogexing.com/2019/11/27/d1dddb1e1faf4b578f12b28a08b04174!400x400.jpeg"
-        }
-        
-        msgItem.date = Date().string(withFormat: "yyyy-MM-dd HH:mm:ss")
-        msgItem.image = random % 2 == 0 ? "https://ss3.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2015696643,3638800543&fm=26&gp=0.jpg" : "https://i-3-qqxzb.qqxzb.com/2018/3/20/9b26bc6b-a037-4a93-b875-480e7253dd4c.jpg?imageView2/2/q/85"
-        msgItem.video = random % 2 == 0 ? "localVideo0.mp4" : "https://aweme.snssdk.com/aweme/v1/playwm/?video_id=v0200ff00000bdkpfpdd2r6fb5kf6m50&line=0.mp4"
-        msgItem.msgType = 3 //视频
-        msgItem.message = "【视频】"
-        msgItem.chatType = chatModel?.chatType
-        
-        reloadChatData(msgItem)
-        
-        if chatModel?.chatType == 2 && isTimered == false {
-            startChatTimer()
-        }
+        startChatTimer()
     }
     
     /// 模拟群组聊天自动发送消息
     @objc private func makeGroupAutoSend() {
-        let random = arc4random() % 20
-        let msgItem = FYMessageItem()
-        msgItem.message = random % 2 == 0 ? "😬😬😬😬😬😬你觉得今天天气如何呢？" : "周末一起去郊游吧😸😸😸😸😸"
-        msgItem.chatId = chatModel?.uid
-        msgItem.sendType = 1
-        msgItem.name = random % 2 == 0 ? "彩虹天堂🌈" : "惊鸿一面🍎"
-        msgItem.avatar = random % 2 == 0 ? "https://img2.woyaogexing.com/2019/11/23/593796f9c01c43ca8c44b6501a45db90!400x400.jpeg" : "https://img2.woyaogexing.com/2019/11/11/4f3352cc750c4648a1c7e320cf045fbc!400x400.jpeg"
-        msgItem.date = Date().string(withFormat: "yyyy-MM-dd HH:mm:ss")
-        msgItem.msgType = 1 //文字
-        msgItem.chatType = chatModel?.chatType
-        
-        reloadChatData(msgItem)
+        viewModel?.messageType.accept(.autoSend)
+        headerRefreshTrigger.onNext(())
     }
     
     private func reloadChatData(_ msgItem: FYMessageItem) {
@@ -382,9 +306,9 @@ extension FYChatBaseViewController: TZImagePickerControllerDelegate {
         imagePicker?.didFinishPickingPhotosHandle = {(images: [UIImage]?, assets:[Any]?, isSelectOriginalPhoto: Bool) in
             printLog(images)
             if (type == .album) {
-                self.makeImageMessage()
+                self.makeChatMessage(.image)
             }else if (type == .video) {
-                self.makeVideoMessage()
+                self.makeChatMessage(.video)
             }
         }
         
@@ -556,9 +480,9 @@ extension FYChatBaseViewController: FYMessageBaseCellDelegate {
         if let chatType = message.chatType {
             let forwardVC = FYMessageForwardViewController()
             if chatType == 1 {
-                forwardVC.forwardStyle = .forwardFriend
+                forwardVC.forwardStyle = .friend
             }else {
-                forwardVC.forwardStyle = .forwardGroup
+                forwardVC.forwardStyle = .grouped
             }
             forwardVC.messageItem = message
             self.navigationController?.pushViewController(forwardVC)
@@ -622,6 +546,15 @@ extension FYChatBaseViewController: UITableViewDelegate, UIScrollViewDelegate {
             if model.msgType == 3 {
                 if (model.video?.hasSuffix(".mp4"))! && (model.video?.hasPrefix("http"))! { //网络视频
                     let data = YBIBVideoData()
+                    UIImageView().downloadImageWithURL(model.image!, callback: { (result) in
+                        printLog("thumbImage\(result)")
+                        switch result {
+                        case .success(let value):
+                            data.thumbImage = value
+                        case .failure(let error):
+                            printLog("Job failed: \(error)")
+                        }
+                    })
                     data.videoURL = URL(string: model.video!)
                     data.projectiveView = projectiveViewAtRow(row)
                     videos.append(data)
@@ -629,6 +562,15 @@ extension FYChatBaseViewController: UITableViewDelegate, UIScrollViewDelegate {
                 }else {
                     if let path = Bundle.main.path(forResource: model.video?.deletingPathExtension, ofType:model.video?.pathExtension) {
                         let data = YBIBVideoData()
+                        UIImageView().downloadImageWithURL(model.image!, callback: { (result) in
+                            printLog("thumbImage\(result)")
+                            switch result {
+                            case .success(let value):
+                                data.thumbImage = value
+                            case .failure(let error):
+                                printLog("Job failed: \(error)")
+                            }
+                        })
                         data.videoURL = URL(fileURLWithPath: path)
                         data.projectiveView = projectiveViewAtRow(row)
                         videos.append(data)

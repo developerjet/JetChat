@@ -7,18 +7,21 @@
 //
 
 import UIKit
+import YYText
 
 class FYTextMessageCell: FYMessageBaseCell {
     
-    private let kMaxWidth: Double = 230.0
+    private let kMaxWidth: CGFloat = kScreenW * 0.55
     
     // MARK: - var lazy
 
-    lazy var contentLabel: UILabel = {
-        let label = UILabel()
+    lazy var contentLabel: YYLabel = {
+        let label = YYLabel()
         label.numberOfLines = 0
-        label.textAlignment = .left
+        label.displaysAsynchronously = true;
+        label.clearContentsBeforeAsynchronouslyDisplay = false;
         label.font = UIFont.systemFont(ofSize: 15)
+        label.textColor = UIColor.colorWithHexStr("000000")
         return label
     }()
     
@@ -50,7 +53,7 @@ class FYTextMessageCell: FYMessageBaseCell {
         avatarView.snp.remakeConstraints { (make) in
             make.width.height.equalTo(40)
             make.left.equalToSuperview().offset(10)
-            make.top.equalTo(dateLabel.snp.bottom).offset(2)
+            make.top.equalTo(dateGroudView.snp.bottom).offset(5)
         }
 
         nameLabel.snp.remakeConstraints { (make) in
@@ -102,7 +105,7 @@ class FYTextMessageCell: FYMessageBaseCell {
         }
         
         // 重新布局
-        let contentSize = contentLabel.sizeThatFits(CGSize(width: kMaxWidth, height: Double(Float.greatestFiniteMagnitude)))
+        let contentSize = contentLabel.sizeThatFits(CGSize(width: kMaxWidth, height: CGFloat(Float.greatestFiniteMagnitude)))
         if let sendType = model?.sendType {
             setupCellLayout(sendType: sendType, size: contentSize)
         }
@@ -125,11 +128,13 @@ extension FYTextMessageCell {
         let sizeWidth  = size.width + 12
         let sizeHeight = size.height + 8
         
+        contentLabel.preferredMaxLayoutWidth = size.width
+        
         if sendType == 0 { //我发送的
             avatarView.snp.remakeConstraints { (make) in
                 make.width.height.equalTo(40)
                 make.right.equalToSuperview().offset(-10)
-                make.top.equalTo(dateLabel.snp.bottom).offset(3)
+                make.top.equalTo(dateGroudView.snp.bottom).offset(5)
             }
 
             nameLabel.isHidden = true
@@ -140,7 +145,7 @@ extension FYTextMessageCell {
             }
             
             contentLabel.snp.remakeConstraints { (make) in
-                make.top.equalTo(nameLabel.snp.bottom).offset(10)
+                make.top.equalTo(nameLabel.snp.bottom).offset(8)
                 make.bottom.equalToSuperview().offset(-15)
                 make.right.equalTo(avatarView.snp.left).offset(-14)
                 make.width.equalTo(sizeWidth)
@@ -158,7 +163,7 @@ extension FYTextMessageCell {
             
             activityIndicatorView.snp.remakeConstraints { (make) in
                 make.centerY.equalTo(bubbleView)
-                make.right.equalTo(bubbleView.snp.left).offset(-1)
+                make.right.equalTo(bubbleView.snp.left)
                 make.width.height.equalTo(30)
             }
             
@@ -169,7 +174,7 @@ extension FYTextMessageCell {
             avatarView.snp.remakeConstraints { (make) in
                 make.width.height.equalTo(40)
                 make.left.equalToSuperview().offset(10)
-                make.top.equalTo(dateLabel.snp.bottom).offset(3)
+                make.top.equalTo(dateGroudView.snp.bottom).offset(5)
             }
 
             nameLabel.isHidden = false
@@ -180,7 +185,7 @@ extension FYTextMessageCell {
             
             contentLabel.snp.remakeConstraints { (make) in
                 make.top.equalTo(nameLabel.snp.bottom).offset(10)
-                make.left.equalTo(avatarView.snp.right).offset(18)
+                make.left.equalTo(avatarView.snp.right).offset(21)
                 make.bottom.equalToSuperview().offset(-15)
                 make.width.equalTo(sizeWidth)
             }

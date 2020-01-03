@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class FYEditChatInfoViewController: FYBaseConfigViewController {
     
@@ -16,9 +17,10 @@ class FYEditChatInfoViewController: FYBaseConfigViewController {
                 return
             }
             
-            if let nickName = model.nickName, nickName.length > 0 {
-                myTextField.text = nickName
-                saveButton.isHidden = false
+            if let nickName = model.nickName {
+                if !nickName.isBlank {
+                    myTextField.text = nickName
+                }
             }
         }
     }
@@ -69,9 +71,14 @@ class FYEditChatInfoViewController: FYBaseConfigViewController {
     }
     
     func setupSubview() {
-        
         let rightBarButtonItem = UIBarButtonItem(customView: saveButton)
         navigationItem.rightBarButtonItem = rightBarButtonItem
+        
+        myTextField.rx.text.orEmpty
+        .map { $0.count == 0 }
+        .share(replay: 1)
+        .bind(to: saveButton.rx.isHidden)
+        .disposed(by: rx.disposeBag)
         
         view.addSubview(myTextField)
         myTextField.snp.makeConstraints { (make) in
@@ -90,7 +97,6 @@ extension FYEditChatInfoViewController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        saveButton.isHidden = string.count > 0 ? false : true
         if (range.length == 1 && string.count == 0)
         {
             return true
@@ -99,7 +105,7 @@ extension FYEditChatInfoViewController: UITextFieldDelegate {
         {
             return false
         }
-        
+                
         return true
     }
     

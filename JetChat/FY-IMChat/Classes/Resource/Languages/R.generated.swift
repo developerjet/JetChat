@@ -607,7 +607,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 57 images.
+  /// This `R.image` struct is generated, and contains static references to 59 images.
   struct image {
     /// Image `LaunchImage`.
     static let launchImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "LaunchImage")
@@ -659,6 +659,10 @@ struct R: Rswift.Validatable {
     static let ic_more_voice = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_more_voice")
     /// Image `ic_more_wallet`.
     static let ic_more_wallet = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_more_wallet")
+    /// Image `ic_msg_forward_n`.
+    static let ic_msg_forward_n = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_msg_forward_n")
+    /// Image `ic_msg_forward_s`.
+    static let ic_msg_forward_s = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_msg_forward_s")
     /// Image `ic_tabbar01_normal`.
     static let ic_tabbar01_normal = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_tabbar01_normal")
     /// Image `ic_tabbar01_selected`.
@@ -900,6 +904,20 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "ic_msg_forward_n", bundle: ..., traitCollection: ...)`
+    static func ic_msg_forward_n(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_msg_forward_n, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "ic_msg_forward_s", bundle: ..., traitCollection: ...)`
+    static func ic_msg_forward_s(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_msg_forward_s, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "ic_tabbar01_normal", bundle: ..., traitCollection: ...)`
     static func ic_tabbar01_normal(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.ic_tabbar01_normal, compatibleWith: traitCollection)
@@ -1128,7 +1146,7 @@ struct R: Rswift.Validatable {
 
   /// This `R.string` struct is generated, and contains static references to 2 localization tables.
   struct string {
-    /// This `R.string.infoPlist` struct is generated, and contains static references to 4 localization keys.
+    /// This `R.string.infoPlist` struct is generated, and contains static references to 3 localization keys.
     struct infoPlist {
       /// en translation: App requests your permission to access the photos in the gallery.
       ///
@@ -1138,10 +1156,6 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, zh-Hans, ko, vi, de, ja
       static let nsPhotoLibraryUsageDescription = Rswift.StringResource(key: "NSPhotoLibraryUsageDescription", tableName: "InfoPlist", bundle: R.hostingBundle, locales: ["en", "zh-Hans", "ko", "vi", "de", "ja"], comment: nil)
-      /// en translation: IMChat
-      ///
-      /// Locales: en, zh-Hans, ko, vi, de, ja
-      static let cfBundleDisplayName = Rswift.StringResource(key: "CFBundleDisplayName", tableName: "InfoPlist", bundle: R.hostingBundle, locales: ["en", "zh-Hans", "ko", "vi", "de", "ja"], comment: nil)
       /// en translation: To scan the QR code, do you allow using the camera?
       ///
       /// Locales: en, zh-Hans, ko, vi, de, ja
@@ -1175,21 +1189,6 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("NSPhotoLibraryUsageDescription", tableName: "InfoPlist", bundle: bundle, comment: "")
-      }
-
-      /// en translation: IMChat
-      ///
-      /// Locales: en, zh-Hans, ko, vi, de, ja
-      static func cfBundleDisplayName(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("CFBundleDisplayName", tableName: "InfoPlist", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "InfoPlist", preferredLanguages: preferredLanguages) else {
-          return "CFBundleDisplayName"
-        }
-
-        return NSLocalizedString("CFBundleDisplayName", tableName: "InfoPlist", bundle: bundle, comment: "")
       }
 
       /// en translation: To scan the QR code, do you allow using the camera?

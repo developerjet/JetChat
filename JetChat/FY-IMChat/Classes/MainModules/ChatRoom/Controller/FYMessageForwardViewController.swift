@@ -9,8 +9,8 @@
 import UIKit
 
 enum ForwardStyle {
-    case forwardFriend
-    case forwardGroup
+    case friend
+    case grouped
 }
 
 
@@ -19,13 +19,13 @@ class FYMessageForwardViewController: FYBaseConfigViewController {
     // MARK: - var lazy
     
     /// 转发方式
-    var forwardStyle = ForwardStyle.forwardFriend
+    var forwardStyle = ForwardStyle.friend
     
     var dataSource: [FYMessageChatModel] = []
     
     var messageItem: FYMessageItem?
     
-    var selectedChats: [FYMessageChatModel] = []
+    private var selectedModel: FYMessageChatModel?
  
     lazy var forwardBtn: UIButton = {
         let button = UIButton(type: .custom)
@@ -69,7 +69,7 @@ class FYMessageForwardViewController: FYBaseConfigViewController {
     }
     
     private func loadChatBodyData(_ style: ForwardStyle) {
-        if (style == .forwardFriend) {
+        if (style == .friend) {
             dataSource = FYDBQueryHelper.shared.qureyFromChatsWithType(1)
         }else {
             dataSource = FYDBQueryHelper.shared.qureyFromChatsWithType(2)
@@ -80,7 +80,7 @@ class FYMessageForwardViewController: FYBaseConfigViewController {
     
     // 开始转发
     private func forwardAction() {
-        if let model = self.selectedChats.first {
+        if let model = selectedModel {
             MBHUD.showStatus("正在发送...")
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                 if let message = self.messageItem {
@@ -104,8 +104,10 @@ class FYMessageForwardViewController: FYBaseConfigViewController {
                     let chat = FYDBQueryHelper.shared.qureyFromChatId(model.uid!)
                     let chatVC = FYChatBaseViewController(chatModel: chat, isForward: true)
                     chatVC.forwardData = msgItem
+                    
+                    MBHUD.showSuccess("转发成功")
                     self.navigationController?.pushViewController(chatVC, completion: {
-                        MBHUD.showSuccess("转发成功")
+                        self.navigationController?.remove(withName: "FYMessageForwardViewController")
                     })
                 }
             }
@@ -123,6 +125,7 @@ extension FYMessageForwardViewController: UITableViewDataSource, UITableViewDele
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withClass: FYContactsTableViewCell.self, for: indexPath)
+        cell.selectedView.isHidden = false
         if let model = dataSource[safe: indexPath.row] {
             cell.model = model
         }
@@ -131,18 +134,9 @@ extension FYMessageForwardViewController: UITableViewDataSource, UITableViewDele
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let model = dataSource[safe: indexPath.row] {
-            let cell = tableView.cellForRow(at: indexPath)
-            cell?.accessoryType = .checkmark
-            selectedChats.append(model)
-            self.forwardBtn.isHidden = false
+            selectedModel = model
+            forwardBtn.isHidden = false
         }
-    }
-    
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath)
-        cell?.accessoryType = .none
-        selectedChats.removeAll()
-        self.forwardBtn.isHidden = true
     }
         
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

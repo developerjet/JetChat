@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		271A8EA323BF6AF800A81BEB /* FYMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271A8EA223BF6AF800A81BEB /* FYMessageViewModel.swift */; };
 		271C024123929B030041617F /* FYEditChatInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271C021923929B030041617F /* FYEditChatInfoViewController.swift */; };
 		271C024223929B030041617F /* FYContactsInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271C021A23929B030041617F /* FYContactsInfoViewController.swift */; };
 		271C024323929B030041617F /* FYContactsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271C021B23929B030041617F /* FYContactsListViewController.swift */; };
@@ -212,6 +213,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		271A8EA223BF6AF800A81BEB /* FYMessageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYMessageViewModel.swift; sourceTree = "<group>"; };
 		271C021923929B030041617F /* FYEditChatInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYEditChatInfoViewController.swift; sourceTree = "<group>"; };
 		271C021A23929B030041617F /* FYContactsInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYContactsInfoViewController.swift; sourceTree = "<group>"; };
 		271C021B23929B030041617F /* FYContactsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYContactsListViewController.swift; sourceTree = "<group>"; };
@@ -540,6 +542,7 @@
 		271C022623929B030041617F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				271A8EA223BF6AF800A81BEB /* FYMessageViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1770,6 +1773,7 @@
 				271C024A23929B030041617F /* FYChatRoomListViewController.swift in Sources */,
 				27434030238D70D5004D5E3D /* FYLaunchBrowseController.swift in Sources */,
 				27433FA6238D70D4004D5E3D /* JFButton+Rx.swift in Sources */,
+				271A8EA323BF6AF800A81BEB /* FYMessageViewModel.swift in Sources */,
 				2743401C238D70D5004D5E3D /* SPayPassWordView.swift in Sources */,
 				271C024923929B030041617F /* FYChatBaseViewController.swift in Sources */,
 				271C02FF23929B3A0041617F /* WCDataBaseManager.swift in Sources */,

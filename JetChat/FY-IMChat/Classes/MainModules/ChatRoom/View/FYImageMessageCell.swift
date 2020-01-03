@@ -55,7 +55,7 @@ class FYImageMessageCell: FYMessageBaseCell {
         avatarView.snp.remakeConstraints { (make) in
             make.width.height.equalTo(40)
             make.left.equalToSuperview().offset(10)
-            make.top.equalTo(dateLabel.snp.bottom).offset(2)
+            make.top.equalTo(dateGroudView.snp.bottom).offset(5)
         }
 
         nameLabel.snp.remakeConstraints { (make) in
@@ -122,6 +122,7 @@ class FYImageMessageCell: FYMessageBaseCell {
         // Configure the view for the selected state
     }
     
+    
     // MARK: - Action
     
     @objc func pictureTapAction(_ tap: UITapGestureRecognizer) {
@@ -143,7 +144,7 @@ extension FYImageMessageCell {
             avatarView.snp.remakeConstraints { (make) in
                 make.width.height.equalTo(40)
                 make.right.equalToSuperview().offset(-10)
-                make.top.equalTo(dateLabel.snp.bottom).offset(3)
+                make.top.equalTo(dateGroudView.snp.bottom).offset(5)
             }
 
             nameLabel.isHidden = true
@@ -154,7 +155,7 @@ extension FYImageMessageCell {
             }
             
             pictureView.snp.remakeConstraints { (make) in
-                make.top.equalTo(nameLabel.snp.bottom).offset(5)
+                make.top.equalTo(nameLabel)
                 make.right.equalTo(avatarView.snp.left).offset(-5)
                 make.bottom.equalTo(self.contentView).offset(-17)
                 make.width.equalTo(80)
@@ -163,7 +164,7 @@ extension FYImageMessageCell {
             
             activityIndicatorView.snp.remakeConstraints { (make) in
                 make.centerY.equalTo(pictureView)
-                make.right.equalTo(pictureView.snp.left).offset(-1)
+                make.right.equalTo(pictureView.snp.left)
                 make.width.height.equalTo(30)
             }
             
@@ -174,7 +175,7 @@ extension FYImageMessageCell {
             avatarView.snp.remakeConstraints { (make) in
                 make.width.height.equalTo(40)
                 make.left.equalToSuperview().offset(10)
-                make.top.equalTo(dateLabel.snp.bottom).offset(3)
+                make.top.equalTo(dateGroudView.snp.bottom).offset(5)
             }
 
             nameLabel.isHidden = false

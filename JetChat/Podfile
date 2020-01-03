@@ -40,5 +40,6 @@ target 'FY-IMChat' do
   pod 'SSZipArchive' #Zip解压
   pod 'YBImageBrowser'
   pod 'YBImageBrowser/Video'
+  pod 'YYText'
   
 end

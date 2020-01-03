@@ -58,6 +58,12 @@ class FYContactsTableViewCell: UITableViewCell {
         return label
     }()
     
+    lazy var selectedView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.isHidden = true
+        return imageView
+    }()
+    
     
     // MARK: - life cycle
     
@@ -84,6 +90,7 @@ class FYContactsTableViewCell: UITableViewCell {
         contentView.addSubview(avatarView)
         contentView.addSubview(nameLabel)
         contentView.addSubview(uidLabel)
+        contentView.addSubview(selectedView)
         
         avatarView.snp.makeConstraints { (make) in
             make.left.equalToSuperview().offset(14)
@@ -102,12 +109,21 @@ class FYContactsTableViewCell: UITableViewCell {
             make.top.equalTo(nameLabel.snp.bottom).offset(20)
             make.right.equalToSuperview().offset(-14)
         }
+        
+        selectedView.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview()
+            make.right.equalToSuperview().offset(-14)
+        }
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+        if selected {
+            selectedView.image = UIImage(named: "ic_msg_forward_s")
+        }else {
+            selectedView.image = UIImage(named: "ic_msg_forward_n")
+        }
     }
 
     // MARK: - Action

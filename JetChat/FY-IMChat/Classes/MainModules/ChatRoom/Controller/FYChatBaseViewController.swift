@@ -36,8 +36,6 @@ class FYChatBaseViewController: FYBaseConfigViewController {
     private var kToolBarLastY: CGFloat = 551
     private var lastMaxY: CGFloat = 0.0
     
-    private var recordCount: Int = 0
-    private var isTableViewBottom: Bool = false
     
     // MARK: - var lazy
     
@@ -49,11 +47,9 @@ class FYChatBaseViewController: FYBaseConfigViewController {
     var forwardData: FYMessageItem?
     
     var timer: Timer?
-    var imageIndexs: [Int: Int] = [:]
-    var videoIndexs: [Int: Int] = [:]
-    var dataSource: [FYMessageItem] = []
-    
     var viewModel: FYMessageViewModel?
+    
+    var dataSource: [FYMessageItem] = []
     
     lazy var keyboardView: ChatKeyboardView = {
         let toolBarY = kScreenH - kNavigaH - kToolBarLastH - kSafeAreaBottom
@@ -97,6 +93,7 @@ class FYChatBaseViewController: FYBaseConfigViewController {
     
     /// 构造聊天会话
     /// - Parameter chatModel: 聊天实体（分单聊、群聊）
+    /// - Parameter isForward: 是否转发消息
     convenience init(chatModel: FYMessageChatModel, isForward: Bool = false) {
         self.init()
         
@@ -133,23 +130,34 @@ class FYChatBaseViewController: FYBaseConfigViewController {
         view.addSubview(plainTabView)
         // 添加聊天键盘
         view.addSubview(keyboardView)
+        
+        viewModel?.tableView = plainTabView
     }
     
     override func bindViewModel() {
         super.bindViewModel()
         
-        let refresh = Observable.of(Observable.never(), headerRefreshTrigger).merge()
-        let input = FYMessageViewModel.Input(makeMessage: refresh)
+        let refresh = Observable.of(Observable.never(), loadingTrigger).merge()
+        let input = FYMessageViewModel.Input(makeMessage: refresh, makeBrowser: refresh)
         let output = viewModel?.transform(input: input)
         // message
         output?.message.asDriver(onErrorJustReturn: FYMessageItem())
             .drive(onNext: { [weak self] (msgItem) in
                 guard let self = self else { return }
-                guard let date = msgItem.date, !date.isEmpty else {
+                guard msgItem.msgType != nil else {
                     return
                 }
                 self.reloadChatData(msgItem)
             }).disposed(by: rx.disposeBag)
+        // browser
+        output?.browser.asDriver(onErrorJustReturn: [])
+            .drive(onNext: { [weak self] (objects) in
+                guard let self = self else { return }
+                guard objects.count > 0 else {
+                    return
+                }
+                self.browserWithData(objects, index: (self.viewModel?.imageIndex.value)!)
+        }).disposed(by: rx.disposeBag)
         
         // forward
         if isForward {
@@ -268,25 +276,28 @@ extension FYChatBaseViewController: ChatKeyboardViewDelegate {
         }
     }
     
-    private func makeChatMessage(_ tyep: ChatDataType, content: String = "") {
-        viewModel?.messageType.accept(tyep)
-        if tyep == .text {
+    private func makeChatMessage(_ type: ChatDataType, content: String = "") {
+        viewModel?.browserType.accept(.none)
+        viewModel?.messageType.accept(type)
+        if type == .text {
             viewModel?.content.accept(content)
         }
-        headerRefreshTrigger.onNext(())
+        loadingTrigger.onNext(())
         
         startChatTimer()
     }
     
     /// 模拟群组聊天自动发送消息
     @objc private func makeGroupAutoSend() {
+        viewModel?.browserType.accept(.none)
         viewModel?.messageType.accept(.autoSend)
-        headerRefreshTrigger.onNext(())
+        loadingTrigger.onNext(())
     }
     
     private func reloadChatData(_ msgItem: FYMessageItem) {
         isSended = true
         dataSource.append(msgItem)
+        viewModel?.dataSource.accept(dataSource)
         DispatchQueue.main.async {
             self.plainTabView.reloadData {
                 self.scrollToBottom()
@@ -339,6 +350,7 @@ extension FYChatBaseViewController {
     func loadCacheData(_ toBottom: Bool = true) {
         if let chatId = chatModel?.uid {
             dataSource = FYDBQueryHelper.shared.qureyFromMessagesWithChatId(chatId)
+            viewModel?.dataSource.accept(dataSource)
         }
         
         plainTabView.reloadData()
@@ -435,8 +447,8 @@ extension FYChatBaseViewController: FYMessageBaseCellDelegate {
                 NotificationCenter.default.post(name: .kNeedRefreshSesstionList, object: nil)
             }
         }else if style == .copy {
-            if let chatMessage = model.message, chatMessage.length > 0 {
-                chatMessage.stringGeneral()
+            if let message = model.message, message.length > 0 {
+                message.stringGeneral()
             }
         }else if (style == .shore) {
             
@@ -458,9 +470,10 @@ extension FYChatBaseViewController: FYMessageBaseCellDelegate {
     func cell(_ cell: FYMessageBaseCell, didTapPictureAt model: FYMessageItem) {
         if let row = plainTabView.indexPath(for: cell)?.item {
             if model.msgType == 2 {
-                if let images = loadAllChatImages(row: row) {
-                    browserWithData(images, index: row)
-                }
+                viewModel?.messageType.accept(.none)
+                viewModel?.imageIndex.accept(row)
+                viewModel?.browserType.accept(.image)
+                loadingTrigger.onNext(())
             }
         }
     }
@@ -468,9 +481,10 @@ extension FYChatBaseViewController: FYMessageBaseCellDelegate {
     func cell(_ cell: FYMessageBaseCell, didTapVideoAt model: FYMessageItem) {
         if let row = plainTabView.indexPath(for: cell)?.item {
             if model.msgType == 3 {
-                if let videos = loadAllChatVideos(row: row) {
-                    browserWithData(videos, index: row)
-                }
+                viewModel?.messageType.accept(.none)
+                viewModel?.imageIndex.accept(row)
+                viewModel?.browserType.accept(.video)
+                loadingTrigger.onNext(())
             }
         }
     }
@@ -504,94 +518,11 @@ extension FYChatBaseViewController: UITableViewDelegate, UIScrollViewDelegate {
         if isSended {
             return
         }
-        
-
+    
         if plainTabView.y <= 0 && isBecome {
             DispatchQueue.main.async {
                 NotificationCenter.default.post(name: .kChatTextKeyboardNeedHide, object: nil)
             }
-        }
-    }
-    
-    func loadAllChatImages(row: Int) -> [YBIBImageData]? {
-        var images: [YBIBImageData] = []
-        guard dataSource.count > 0 else {
-            return images
-        }
-        
-        var imageIndex = 0
-        for (index, model) in dataSource.enumerated() {
-            if model.msgType == 2 {
-                let data = YBIBImageData()
-                data.imageURL = URL(string: model.image!)
-                data.projectiveView = projectiveViewAtRow(row)
-                images.append(data)
-                imageIndex += 1 //图片索引
-            }
-            
-            imageIndexs[index] = imageIndex
-        }
-        
-        return images
-    }
-    
-    func loadAllChatVideos(row: Int) -> [YBIBVideoData]? {
-        var videos: [YBIBVideoData] = []
-        guard dataSource.count > 0 else {
-            return videos
-        }
-        
-        var browserIndex = 0
-        for (index, model) in dataSource.enumerated() {
-            if model.msgType == 3 {
-                if (model.video?.hasSuffix(".mp4"))! && (model.video?.hasPrefix("http"))! { //网络视频
-                    let data = YBIBVideoData()
-                    UIImageView().downloadImageWithURL(model.image!, callback: { (result) in
-                        printLog("thumbImage\(result)")
-                        switch result {
-                        case .success(let value):
-                            data.thumbImage = value
-                        case .failure(let error):
-                            printLog("Job failed: \(error)")
-                        }
-                    })
-                    data.videoURL = URL(string: model.video!)
-                    data.projectiveView = projectiveViewAtRow(row)
-                    videos.append(data)
-                    browserIndex += 1 //图片索引
-                }else {
-                    if let path = Bundle.main.path(forResource: model.video?.deletingPathExtension, ofType:model.video?.pathExtension) {
-                        let data = YBIBVideoData()
-                        UIImageView().downloadImageWithURL(model.image!, callback: { (result) in
-                            printLog("thumbImage\(result)")
-                            switch result {
-                            case .success(let value):
-                                data.thumbImage = value
-                            case .failure(let error):
-                                printLog("Job failed: \(error)")
-                            }
-                        })
-                        data.videoURL = URL(fileURLWithPath: path)
-                        data.projectiveView = projectiveViewAtRow(row)
-                        videos.append(data)
-                        browserIndex += 1 //图片索引
-                    }
-                }
-            }
-            
-            videoIndexs[index] = browserIndex
-        }
-        
-        return videos
-    }
-    
-    func projectiveViewAtRow(_ row: Int) -> UIView {
-        let indexPath = IndexPath(row: row, section: 0)
-        if let imageCell = plainTabView.cellForRow(at: indexPath) as? FYImageMessageCell {
-            return imageCell.pictureView
-        }else {
-            let videoCell = plainTabView.cellForRow(at: indexPath) as? FYVideoMessageCell
-            return videoCell!.videoImageView
         }
     }
 }
@@ -601,15 +532,15 @@ extension FYChatBaseViewController: UITableViewDelegate, UIScrollViewDelegate {
 
 extension FYChatBaseViewController {
     
-    func browserWithData(_ dataSource: [AnyObject], index: Int = 0) {
+    func browserWithData(_ dataSource: [AnyObject]?, index: Int = 0) {
         var browserIndex = 0
         let browser = YBImageBrowser()
-        if ((dataSource as? [YBIBImageData]) != nil) {
-            browserIndex = imageIndexs[index]!
-            browser.dataSourceArray = (dataSource as? [YBIBImageData])!
-        }else {
-            browserIndex = videoIndexs[index]!
-            browser.dataSourceArray = (dataSource as? [YBIBVideoData])!
+        if let imageData = dataSource as? [YBIBImageData] {
+            browserIndex = (viewModel?.browserIndexs.value[index] ?? index)
+            browser.dataSourceArray = imageData
+        }else if let videoData = dataSource as? [YBIBVideoData] {
+            browserIndex = (viewModel?.browserIndexs.value[index] ?? index)
+            browser.dataSourceArray = videoData
         }
         browser.currentPage = browserIndex - 1
         browser.show()

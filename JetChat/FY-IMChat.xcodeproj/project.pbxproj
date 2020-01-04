@@ -550,9 +550,9 @@
 		271C022723929B030041617F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				27BE3AB323B77FF200161DA1 /* FYMessageForwardViewController.swift */,
 				271C022823929B030041617F /* FYChatBaseViewController.swift */,
 				271C022923929B030041617F /* FYChatRoomListViewController.swift */,
+				27BE3AB323B77FF200161DA1 /* FYMessageForwardViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

@@ -10,6 +10,13 @@
  ### Examples
 ![image](https://github.com/tanagile/JetChat/blob/master/ScreenShot/JetChat.gif)
 
+### 主要技术运用
+- 聊天功能采用RxSwift+MVVM响应式架构设计，通过ViewModel合理过渡处理消息数据，减轻Controller层业务计算
+- UITableView+FDTemplateLayoutCell实现cell高度自适应计算和缓存，提高列表滑动顺滑
+- wcdb实现所有会话消息快速缓存
+- SnapKit纯代码自动布局
+- 后续开发完善中.....
+
 ### 主要实现功能
 - 聊天室键盘控件封装处理，支持表情文字多行输入，支持iOS13
 - 用户：添加好友，添加群，用户备注名称修改，本地实时同步

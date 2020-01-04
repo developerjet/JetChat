@@ -11,50 +11,73 @@ import RxSwift
 import RxCocoa
 import SwiftyJSON
 import HandyJSON
+import YBImageBrowser
 
 public enum ChatDataType {
+    case none
     case text
     case image
     case video
     case autoSend
 }
 
+public enum BrowserTypeData {
+    case none
+    case image
+    case video
+}
+
 class FYMessageViewModel: BaseViewModel, ViewModelType {
     
     /// 消息类型
-    var messageType = BehaviorRelay<ChatDataType>(value: .text)
+    var messageType = BehaviorRelay<ChatDataType>(value: .none)
+    /// 浏览图片&视频类型
+    var browserType = BehaviorRelay<BrowserTypeData>(value: .none)
+    
     /// 文本
     var content = BehaviorRelay<String>(value: "")
+    /// 图片索引
+    var imageIndex = BehaviorRelay<Int>(value: 0)
     
+    var tableView: UITableView?
     var chatModel: FYMessageChatModel?
     
+    /// 图片视频浏览
+    var dataSource = BehaviorRelay<[FYMessageItem]>.init(value: [])
+    var browserIndexs = BehaviorRelay<[Int: Int]>.init(value: [:])
     
-    // MARK: - Handler
+    // MARK: - Transform
     
     struct Input {
         let makeMessage: Observable<Void>
+        let makeBrowser: Observable<Void>
     }
     
     struct Output {
         let message: BehaviorRelay<FYMessageItem>
+        let browser: BehaviorRelay<[AnyObject]>
     }
     
     func transform(input: FYMessageViewModel.Input) -> FYMessageViewModel.Output {
         let outMessage = BehaviorRelay<FYMessageItem>(value: FYMessageItem())
+        let outBrowser = BehaviorRelay<[AnyObject]>(value: [])
         
+        // 发送消息
         input.makeMessage.flatMapLatest ({ [weak self]() -> Single<FYMessageItem> in
             guard let self = self else {
-                return Single.just(FYMessageItem())
+                return Single.never()
             }
         
             if (self.messageType.value == .text) {
-                return self.makeChatTextMessage().trackActivity(self.headerLoading).asSingle()
+                return self.makeChatTextMessage().trackActivity(self.loading).asSingle()
             }else if (self.messageType.value == .image) {
-                return self.makeChatImageMessage().trackActivity(self.headerLoading).asSingle()
+                return self.makeChatImageMessage().trackActivity(self.loading).asSingle()
             }else if (self.messageType.value == .video) {
-                return self.makeChatVideoMessage().trackActivity(self.headerLoading).asSingle()
+                return self.makeChatVideoMessage().trackActivity(self.loading).asSingle()
+            }else if (self.messageType.value == .autoSend) {
+                return self.makeChatGroupAutoSend().trackActivity(self.loading).asSingle()
             }else {
-                return self.makeChatGroupAutoSend().trackActivity(self.headerLoading).asSingle()
+                return Single.never()
             }
         })
             .asObservable()
@@ -62,7 +85,26 @@ class FYMessageViewModel: BaseViewModel, ViewModelType {
                 outMessage.accept(data)
             }).disposed(by: rx.disposeBag)
         
-        return Output(message: outMessage)
+        // 浏览图片
+        input.makeBrowser.flatMapLatest ({ [weak self]() -> Single<[AnyObject]> in
+            guard let self = self else {
+                return Single.never()
+            }
+            
+            if (self.browserType.value == .image) {
+                return self.makeBrowserImagesData().trackActivity(self.loading).asSingle()
+            }else if (self.browserType.value == .video) {
+                return self.makeBrowserVideosData().trackActivity(self.loading).asSingle()
+            }else {
+                return Single.never()
+            }
+        })
+            .asObservable()
+            .subscribe(onNext: { (objects) in
+                outBrowser.accept(objects)
+            }).disposed(by: rx.disposeBag)
+        
+        return Output(message: outMessage, browser: outBrowser)
     }
     
     // MARK: - init
@@ -74,7 +116,7 @@ class FYMessageViewModel: BaseViewModel, ViewModelType {
     }
 }
 
-// MARK: - Configuration message
+// MARK: - Configuration Message
 
 extension FYMessageViewModel {
     
@@ -137,7 +179,6 @@ extension FYMessageViewModel {
             msgItem.message = "【图片】"
             msgItem.chatType = self.chatModel?.chatType
             
-            
             single(.success(msgItem))
             return Disposables.create()
         }
@@ -194,8 +235,108 @@ extension FYMessageViewModel {
             msgItem.msgType = 1 //文字
             msgItem.chatType = self.chatModel?.chatType
             
+            
             single(.success(msgItem))
             return Disposables.create()
+        }
+    }
+}
+
+
+// MARK: - Configuration ImageData
+
+extension FYMessageViewModel {
+    
+    func makeBrowserImagesData() -> Single<[AnyObject]> {
+        return Single<[AnyObject]>.create { single in
+            var indexs: [Int: Int] = [:]
+            var images: [YBIBImageData] = []
+            
+            var imageIndex = 0
+            for (index, model) in self.dataSource.value.enumerated() {
+                if model.msgType == 2 {
+                    let data = YBIBImageData()
+                    data.imageURL = URL(string: model.image!)
+                    data.projectiveView = self.projectiveViewAtRow(self.imageIndex.value)
+                    images.append(data)
+                    imageIndex += 1 //图片索引
+                }
+                
+                indexs[index] = imageIndex
+            }
+            
+            self.browserIndexs.accept(indexs)
+            
+            single(.success(images))
+            return Disposables.create()
+        }
+    }
+    
+    func makeBrowserVideosData() -> Single<[AnyObject]> {
+        return Single<[AnyObject]>.create { single in
+            var videos: [YBIBVideoData] = []
+            var indexs: [Int: Int] = [:]
+            
+            var videoIndex = 0
+            for (index, model) in self.dataSource.value.enumerated() {
+                if model.msgType == 3 {
+                    if (model.video?.hasSuffix(".mp4"))! && (model.video?.hasPrefix("http"))! { //网络视频
+                        let data = YBIBVideoData()
+                        UIImageView().downloadImageWithURL(model.image!, callback: { (result) in
+                            printLog("thumbImage\(result)")
+                            switch result {
+                            case .success(let value):
+                                data.thumbImage = value
+                            case .failure(let error):
+                                printLog("Job failed: \(error)")
+                            }
+                        })
+                        data.videoURL = URL(string: model.video!)
+                        data.projectiveView = self.projectiveViewAtRow(self.imageIndex.value)
+                        videos.append(data)
+                        videoIndex += 1 //图片索引
+                    }else {
+                        if let path = Bundle.main.path(forResource: model.video?.deletingPathExtension, ofType:model.video?.pathExtension) {
+                            let data = YBIBVideoData()
+                            UIImageView().downloadImageWithURL(model.image!, callback: { (result) in
+                                printLog("thumbImage\(result)")
+                                switch result {
+                                case .success(let value):
+                                    data.thumbImage = value
+                                case .failure(let error):
+                                    printLog("Job failed: \(error)")
+                                }
+                            })
+                            data.videoURL = URL(fileURLWithPath: path)
+                            data.projectiveView = self.projectiveViewAtRow(self.imageIndex.value)
+                            videos.append(data)
+                            videoIndex += 1 //图片索引
+                        }
+                    }
+                }
+                
+                indexs[index] = videoIndex
+            }
+            
+            self.browserIndexs.accept(indexs)
+            
+            single(.success(videos))
+            return Disposables.create()
+        }
+    }
+    
+    
+    private func projectiveViewAtRow(_ row: Int) -> UIView {
+        guard let table = tableView else {
+            return UIView()
+        }
+        
+        let indexPath = IndexPath(row: row, section: 0)
+        if let imageCell = table.cellForRow(at: indexPath) as? FYImageMessageCell {
+            return imageCell.pictureView
+        }else {
+            let videoCell = table.cellForRow(at: indexPath) as? FYVideoMessageCell
+            return videoCell?.videoImageView ?? UIView()
         }
     }
 }

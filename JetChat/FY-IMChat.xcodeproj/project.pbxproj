@@ -1035,10 +1035,10 @@
 			isa = PBXGroup;
 			children = (
 				27433F59238D70D4004D5E3D /* PrecisionMethod.h */,
-				27433F5A238D70D4004D5E3D /* NSString+ShowRoundNumber.h */,
-				27433F5B238D70D4004D5E3D /* NSDecimalNumber+RoundNumber.h */,
 				27433F5C238D70D4004D5E3D /* PrecisionMethod.m */,
+				27433F5A238D70D4004D5E3D /* NSString+ShowRoundNumber.h */,
 				27433F5D238D70D4004D5E3D /* NSString+ShowRoundNumber.m */,
+				27433F5B238D70D4004D5E3D /* NSDecimalNumber+RoundNumber.h */,
 				27433F5E238D70D4004D5E3D /* NSDecimalNumber+RoundNumber.m */,
 			);
 			path = PrecisionHandy;
@@ -2000,7 +2000,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Z3CD857XLC;
+				DEVELOPMENT_TEAM = D8C2J98PYR;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "FY-IMChat/Info.plist";
@@ -2084,7 +2084,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Z3CD857XLC;
+				DEVELOPMENT_TEAM = D8C2J98PYR;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "FY-IMChat/Info.plist";

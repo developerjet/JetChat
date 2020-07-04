@@ -11,9 +11,13 @@ import SwiftTheme
 
 class FYBaseTabBarController: UITabBarController {
     
+    // MARK:- life cycle
+    
+    private var indexFlag: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
         initializes()
         setupChildVC()
     }
@@ -54,37 +58,6 @@ class FYBaseTabBarController: UITabBarController {
             tabBarItem.setTitleTextAttributes(normalAttr, for: .normal)
             tabBarItem.setTitleTextAttributes(selectedAttr, for: .selected)
         }
-        
-        
-//        DispatchQueue.main.async {
-//           // normal
-//            self.tabBarItem.theme_setTitleTextAttributes(ThemeStringAttributesPicker(keyPath: "Global.tabBarTitleColor_n") { value -> [NSAttributedString.Key : AnyObject]? in
-//               guard let rgba = value as? String else {
-//                   return nil
-//               }
-//
-//               let color = UIColor(rgba: rgba)
-//               let titleTextAttributes = [
-//                   NSAttributedString.Key.foregroundColor: color,
-//                   NSAttributedString.Key.font: UIFont.PingFangMedium(11),
-//               ]
-//               return titleTextAttributes
-//           }, forState: .normal)
-//
-//           // selected
-//            self.tabBarItem.theme_setTitleTextAttributes(ThemeStringAttributesPicker(keyPath: "Global.tabBarTitleColor_s") { value -> [NSAttributedString.Key : AnyObject]? in
-//               guard let rgba = value as? String else {
-//                   return nil
-//               }
-//
-//               let color = UIColor(rgba: rgba)
-//               let titleTextAttributes = [
-//                   NSAttributedString.Key.foregroundColor: color,
-//                   NSAttributedString.Key.font: UIFont.PingFangMedium(11),
-//               ]
-//               return titleTextAttributes
-//           }, forState: .selected)
-//       }
     }
     
     private func setupChildVC() {
@@ -114,6 +87,21 @@ class FYBaseTabBarController: UITabBarController {
                               selectedImage: R.image.ic_tabbar04_selected())
     }
     
+    /// 为tababr点击添加动画
+    /// - Parameters:
+    ///   - tabbar: tabbar
+    ///   - item: tabbar菜单
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        
+        if let index = tabBar.items?.firstIndex(of: item) {
+            
+            if indexFlag != index {
+                
+                animateWithIndex(index: index)
+            }
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -123,13 +111,13 @@ class FYBaseTabBarController: UITabBarController {
 
 extension FYBaseTabBarController {
 
-    func createChildController(_ vc: UIViewController?,
+    private func createChildController(_ vc: UIViewController?,
                                title: String,
                                image: UIImage? = UIImage(),
                                selectedImage: UIImage? = UIImage()) {
         
         if let rootVC = vc {
-            // config
+            // configure
             rootVC.title = title
             rootVC.tabBarItem.image = UIImage.imageWithRenderingMode(image)
             rootVC.tabBarItem.selectedImage = UIImage.imageWithRenderingMode(selectedImage)
@@ -138,4 +126,28 @@ extension FYBaseTabBarController {
             addChild(nav)
         }
     }
+    
+    
+    /// 实现点击选中缩放动画
+    private func animateWithIndex(index: Int) {
+        var buttons = [UIView]()
+        for view in tabBar.subviews {
+            if view.isKind(of: NSClassFromString("UITabBarButton")!) {
+                buttons.append(view)
+            }
+        }
+        
+        // 缩放动画
+        let pulse = CABasicAnimation(keyPath: "transform.scale")
+        pulse.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        pulse.duration = 0.15
+        pulse.repeatCount = 1
+        pulse.autoreverses = true
+        pulse.fromValue = NSNumber(value: 0.7)
+        pulse.toValue = NSNumber(value: 1.1)
+        buttons[index].layer.add(pulse, forKey: nil)
+        
+        indexFlag = index
+    }
 }
+

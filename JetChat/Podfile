@@ -1,8 +1,11 @@
 # Uncomment the next line to define a global platform for your project
   platform :ios, '10.0'
   inhibit_all_warnings!
+
+  source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
+  source 'https://github.com/rylink/wallet-ios-specs.git'
+
 target 'FY-IMChat' do
-  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
 	pod 'SwiftyJSON'

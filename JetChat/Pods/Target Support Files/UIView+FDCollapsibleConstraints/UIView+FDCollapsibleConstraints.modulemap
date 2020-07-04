@@ -1,0 +1,6 @@
+framework module UIView_FDCollapsibleConstraints {
+  umbrella header "UIView+FDCollapsibleConstraints-umbrella.h"
+
+  export *
+  module * { export * }
+}

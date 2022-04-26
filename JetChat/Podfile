@@ -1,48 +1,54 @@
 # Uncomment the next line to define a global platform for your project
-  platform :ios, '10.0'
-  inhibit_all_warnings!
-
-  source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
-  source 'https://github.com/rylink/wallet-ios-specs.git'
+# platform :ios, '9.0'
 
 target 'FY-IMChat' do
+  # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-	pod 'SwiftyJSON'
-	pod 'Alamofire', '~> 4.7.2'
-	pod 'SnapKit', '~> 4.2.0'
-	pod 'RxSwift', '~> 4.4.1'
-	pod 'RxCocoa', '~> 4.4.1'
-	pod 'Moya/RxSwift', '~> 12.0'
-	pod 'HandyJSON', '~> 5.0.0'
-	pod 'ReachabilitySwift', '~> 4.3.0'
-	pod 'TZImagePickerController'
-	pod 'IQKeyboardManagerSwift', '~> 6.2.0'
-	pod 'SDCycleScrollView', '~> 1.75'
-	pod 'KafkaRefresh', '~> 1.3.0'
-	pod 'DZNEmptyDataSet', '~> 1.8.1'
-	pod 'MBProgressHUD', '~> 1.1.0'
-	pod 'MJRefresh', '~> 3.2.0'
-	pod 'JXSegmentedView'
-	pod 'CryptoSwift'
+  # *********************************************** Swift ***********************************************
+
+  pod 'SwiftyJSON'
+	pod 'SnapKit'
+	pod 'RxSwift'
+	pod 'RxCocoa'
+	pod 'Moya/RxSwift'
+	pod 'HandyJSON'
+	pod 'ReachabilitySwift'
+  pod 'Localize-Swift'
 	pod 'Kingfisher'
 	pod 'R.swift'
-	pod 'Localize-Swift', '~> 2.0'  # https://github.com/marmelroy/Localize-Swift
 	pod 'WCDB.swift' #本地数据库缓存
-  pod 'NSObject+Rx', '~> 4.0'  # https://github.com/RxSwiftCommunity/NSObject-Rx
-  pod 'SwifterSwift', '~> 4.6.0'  # https://github.com/SwifterSwift/SwifterSwift
-  pod 'SwiftDate'
-  pod 'CleanJSON'
-#pod 'Bugly' #运行错误分析统计
+	pod 'SwifterSwift'
+	pod 'SwiftDate'
+  pod 'NSObject+Rx'
+
+
+  # *********************************************** Objective-C ***********************************************
+
   pod 'UIView+FDCollapsibleConstraints'
-  pod 'FDFullscreenPopGesture', '1.1'
-  pod 'UITableView+FDTemplateLayoutCell'
-#pod 'TLPhotoPicker', '~> 1.8.3'
-  pod 'SwiftMessages', '~> 7.0.0'
-  pod 'SwiftTheme', '~> 0.4.5' #换肤处理
-  pod 'SSZipArchive' #Zip解压
+	pod 'FDFullscreenPopGesture', '1.1'
+	pod 'UITableView+FDTemplateLayoutCell'
+	pod 'TZImagePickerController'
+	pod 'IQKeyboardManagerSwift'
+	pod 'MBProgressHUD'
+	pod 'MJRefresh'
   pod 'YBImageBrowser'
-  pod 'YBImageBrowser/Video'
-  pod 'YYText'
-  
+	pod 'YBImageBrowser/Video'
+ 	pod 'YYText'
+     
 end
+
+
+
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['DEBUG_INFORMATION_FORMAT'] = 'dwarf'
+        end
+    end
+end
+
+
+install! 'cocoapods',
+          disable_input_output_paths: true,
+          generate_multiple_pod_projects: true

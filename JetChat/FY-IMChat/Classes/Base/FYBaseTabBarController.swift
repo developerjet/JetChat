@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwiftTheme
 
 class FYBaseTabBarController: UITabBarController {
     
@@ -18,19 +17,15 @@ class FYBaseTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        initializes()
-        setupChildVC()
+        didInitialize()
+        createChildVc()
     }
     
     // MARK:- initialize
     
-    private func initializes() {
+    private func didInitialize() {
         let tabBar = UITabBar.appearance()
         tabBar.isTranslucent = false
-        
-        //tabBar.theme_tintColor = "Global.barTextColor"
-        tabBar.theme_barTintColor = "Global.tabBarBgColor"
-        tabBar.theme_backgroundColor = "Global.tabBarBgColor"
         
         if #available(iOS 13, *) {
             let normalAttr = [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 10),
@@ -60,29 +55,28 @@ class FYBaseTabBarController: UITabBarController {
         }
     }
     
-    private func setupChildVC() {
+    private func createChildVc() {
         
         let vc1 = FYSesstionListViewController()
-        let vc2 = FYChatRoomListViewController()
-        let vc3 = FYContactsListViewController()
-        let vc4 = FYMineViewController()
-        
-        createChildController(vc1,
+        addChildViewController(vc1,
                               title: "会话",
                               image: R.image.ic_tabbar01_normal(),
                               selectedImage: R.image.ic_tabbar01_selected())
         
-        createChildController(vc2,
+        let vc2 = FYChatRoomListViewController()
+        addChildViewController(vc2,
                               title: "群组",
                               image: R.image.ic_tabbar02_normal(),
                               selectedImage: R.image.ic_tabbar02_selected())
         
-        createChildController(vc3,
+        let vc3 = FYContactsListViewController()
+        addChildViewController(vc3,
                               title: "好友",
                               image: R.image.ic_tabbar03_normal(),
                               selectedImage: R.image.ic_tabbar03_selected())
         
-        createChildController(vc4, title: "我",
+        let vc4 = FYMineViewController()
+        addChildViewController(vc4, title: "我",
                               image: R.image.ic_tabbar04_normal(),
                               selectedImage: R.image.ic_tabbar04_selected())
     }
@@ -94,9 +88,7 @@ class FYBaseTabBarController: UITabBarController {
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         
         if let index = tabBar.items?.firstIndex(of: item) {
-            
             if indexFlag != index {
-                
                 animateWithIndex(index: index)
             }
         }
@@ -111,10 +103,10 @@ class FYBaseTabBarController: UITabBarController {
 
 extension FYBaseTabBarController {
 
-    private func createChildController(_ vc: UIViewController?,
-                               title: String,
-                               image: UIImage? = UIImage(),
-                               selectedImage: UIImage? = UIImage()) {
+    private func addChildViewController(_ vc: UIViewController?,
+                                        title: String,
+                                        image: UIImage? = UIImage(),
+                                        selectedImage: UIImage? = UIImage()) {
         
         if let rootVC = vc {
             // configure

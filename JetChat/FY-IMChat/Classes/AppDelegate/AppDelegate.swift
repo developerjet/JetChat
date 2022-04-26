@@ -10,22 +10,13 @@ import UIKit
 import Reachability
 import WCDBSwift
 
-public protocol SelfAware: class {
-    static func awake()
-}
-
-enum AppLogInOutType {
-    case logIn
-    case logOut
-}
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     /// 单利
     static let app: AppDelegate = (UIApplication.shared.delegate as? AppDelegate)!
     
-    let reachability = Reachability()!
+    let reachability = try! Reachability.init()
     
     var window: UIWindow?
     

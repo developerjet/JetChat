@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import SwiftTheme
-
 
 /// 声明代理方法
 protocol FYPopListMenuDelegate : Any {
@@ -135,7 +133,7 @@ class FYNavDropListMenu: UIView {
         if triangleView == nil {
             triangleView = UIView()
             triangleView?.alpha = 0.0
-            triangleView?.theme_backgroundColor = "Global.backgroundColor"
+            triangleView?.backgroundColor = .white
             contentView.addSubview(triangleView!)
         }
         

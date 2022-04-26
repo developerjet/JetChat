@@ -2,6 +2,7 @@
 "OK"                      = "DE ACUERDO";
 "Back"                    = "Espalda";
 "Done"                    = "Hecho";
+"Edit"                    = "επεξεργασία";
 "Sorry"                   = "Lo siento";
 "Cancel"                  = "Cancelar";
 "Setting"                 = "Ajuste";
@@ -12,6 +13,7 @@
 "Processing..."           = "Tratamiento...";
 "No Photos or Videos"     = "No hay fotos o videos";
 "Synchronizing photos from iCloud" = "Sincronizando fotos desde iCloud";
+"iCloud sync failed"    = "la sincronización falló";
 "Can not use camera"      = "No puedo usar la camara";
 "Can not choose both video and photo" = "No se puede elegir tanto el video como la foto.";
 "Can not choose both photo and GIF" = "No se puede elegir tanto foto como GIF";
@@ -21,3 +23,4 @@
 "Select a minimum of %zd photos" = "Seleccione al menos %zd fotografías";
 "Allow %@ to access your album in \"Settings -> Privacy -> Photos\"" = "Permita que %@ acceda a su galería en \"Ajustes > Privacidad > Fotografías\"";
 "Please allow %@ to access your camera in \"Settings -> Privacy -> Camera\"" = "Permita que %@ acceda a su cámara en \"Ajustes > Privacidad > Cámara\"";
+"Selected for %ld seconds" = "Seleccionado para %ld segundos";

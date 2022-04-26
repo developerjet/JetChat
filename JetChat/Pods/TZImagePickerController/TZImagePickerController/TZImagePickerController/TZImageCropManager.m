@@ -7,7 +7,7 @@
 //
 
 #import "TZImageCropManager.h"
-#import "UIView+Layout.h"
+#import "UIView+TZLayout.h"
 #import <ImageIO/ImageIO.h>
 #import "TZImageManager.h"
 #import "TZImagePickerController.h"
@@ -19,7 +19,7 @@
     UIBezierPath *path= [UIBezierPath bezierPathWithRect:[UIScreen mainScreen].bounds];
     CAShapeLayer *layer = [CAShapeLayer layer];
     if (needCircleCrop) { // 圆形裁剪框
-        [path appendPath:[UIBezierPath bezierPathWithArcCenter:containerView.center radius:cropRect.size.width / 2 startAngle:0 endAngle: 2 * M_PI clockwise:NO]];
+        [path appendPath:[UIBezierPath bezierPathWithRoundedRect:cropRect cornerRadius:cropRect.size.width / 2]];
     } else { // 矩形裁剪框
         [path appendPath:[UIBezierPath bezierPathWithRect:cropRect]];
     }

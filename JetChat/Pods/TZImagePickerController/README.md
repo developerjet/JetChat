@@ -6,11 +6,11 @@
  A clone of UIImagePickerController, support picking multiple photos、original photo、video, also allow preview photo and video, support iOS6+.   
  一个支持多选、选原图和视频的图片选择器，同时有预览功能，支持iOS6+。
  
- ## 重要提示1：提issue前，请先对照Demo、常见问题自查！Demo正常说明你可以升级下新版试试。          
-   
- ## 重要提示2：1.9.0版本后移除了"prefs:root="的调用，这个API已经被列为私有API，请大家尽快升级。
+## 重要提示1：提issue前，请先对照Demo、常见问题自查！Demo正常说明你可以升级下新版试试。          
  
- ## 重要提示3：3.0.7版本适配了iPhoneXR、XS、XS Max，建议大家尽快更新            
+## 重要提示2：3.7.5版本修复了iOS15.2下初次授权相册权限时的长时间卡顿&白屏问题，强烈建议尽快更新   
+     关于iOS14模拟器的问题
+ PHAuthorizationStatusLimited授权模式下，iOS14模拟器有bug，未授权照片无法显示，真机正常，暂可忽略：https://github.com/banchichen/TZImagePickerController/issues/1347 
  
      关于升级iOS10和Xcdoe8的提示:    
  在Xcode8环境下将项目运行在iOS10的设备/模拟器中，访问相册和相机需要额外配置info.plist文件。分别是Privacy - Photo Library Usage Description和Privacy - Camera Usage Description字段，详见Demo中info.plist中的设置。
@@ -54,18 +54,17 @@
    TZImagePickerController uses Camera、Location、Microphone、Photo Library，you need add these properties to info.plist like Demo：       
    TZImagePickerController使用了相机、定位、麦克风、相册，请参考Demo添加下列属性到info.plist文件：        
    	`Privacy - Camera Usage Description`     
-        `Privacy - Location Usage Description`
+    `Privacy - Location Usage Description`    
 	`Privacy - Location When In Use Usage Description`    
  	`Privacy - Microphone Usage Description`   
  	`Privacy - Photo Library Usage Description`   
+    `Prevent limited photos access alert`    
    
 ## 四. More 更多 
 
   If you find a bug, please create a issue.  
-  Welcome to pull requests.  
   More information please view code.  
   如果你发现了bug，请提一个issue。 
-  欢迎给我提pull requests。  
   更多信息详见代码，也可查看我的博客: [我的博客](http://www.jianshu.com/p/1975411a31bb "半尺尘 - 简书")
   
       关于issue: 
@@ -89,7 +88,8 @@ A：请参考 https://github.com/banchichen/TZImagePickerController/issues/443 �
 A：3.0.1版本已支持，需新接一个库：[TZImagePreviewController](https://github.com/banchichen/TZImagePreviewController)，请参考里面的Demo使用。       
 
 **Q：设置可选视频的最大/最小时长？照片的最小/最大尺寸？不符合要求的不显示**       
-A：可以的，参照Demo的isAssetCanSelect方法实现。我会返回asset出来，显示与否你来决定，注意这个是一个同步方法，对于需要根据asset去异步获取的信息如视频的大小、视频是否存在iCloud里来过滤的，无法做到。如果真要这样做，相册打开速度会变慢，你需要改我源码。
+A：可以的，参照Demo的isAssetCanBeDisplayed方法实现。我会返回asset出来，显示与否你来决定，注意这个是一个同步方法，对于需要根据asset去异步获取的信息如视频的大小、视频是否存在iCloud里来过滤的，无法做到。如果真要这样做，相册打开速度会变慢，你需要改我源码。       
+如果需要显示，选择时才提醒用户不可选，则实现isAssetCanBeSelected，用户选择时会调用它        
 
 **Q：预览页面出现了导航栏？**        
 A：https://github.com/banchichen/TZImagePickerController/issues/652         
@@ -97,14 +97,17 @@ A：https://github.com/banchichen/TZImagePickerController/issues/652
 **Q：可否增加微信编辑图片的功能？**           
 A：考虑下，优先级低  
 
-**Q：是否有QQ/微信群？**            
-A：有QQ群：778723997        
+**Q：是否有QQ/微信群/钉钉群？**            
+A：有「钉钉群：33192786」和「QQ群：859033147」，推荐加钉钉群，答疑响应更快         
 
-**Q：想提交一个PR？**           
-A：请先加QQ群和我确认下，避免同时改动同一处内容。**一个PR请只修复1个问题，变动内容越少越好**。                 
+**Q：想提交一个Pull Request？**           
+A：请先加钉钉群(33192786)说下方案，和我确认下，避免同时改动同一处内容。**一个PR请只修复1个问题，变动内容越少越好**。     
 
 **Q：demo在真机上跑不起来？**             
 A：1、team选你自己的；2、bundleId也改成你自己的或改成一个不会和别人重复的。可参考[简书的这篇博客](https://www.jianshu.com/p/cbe59138fca6)             
+
+**Q：3.6.4以上版本设置导航栏颜色无效？**            
+A：参考Demo里的代码，加上imagePickerVc.navigationBar.standardAppearance的相关设置                     
 
 **Q：设置导航栏颜色无效？导航栏颜色总是白色？**            
 A：是否有集成WRNavigationBar？如有，参考其readme调一下它的wr_setBlackList，把TZImagePickerController相关的控制器放到黑名单里，使得不受WRNavigationBar的影响。如果没有集成，可在issues列表里搜一下看看类似的issue参考下，如实在没头绪，可加群提供个能复现该问题的demo，0~2天给你解决。最近发现WRNavigationBar的黑名单会有不生效的情况，临时解决方案大家可参考：[https://github.com/wangrui460/WRNavigationBar/issues/145](https://github.com/wangrui460/WRNavigationBar/issues/145)                          
@@ -125,14 +128,22 @@ A：不要去拿PHImageFileURLKey，没用的，只有通过Photos框架才能�
 
 ## 六. Release Notes 最近更新     
 
-3.3.1 适配iOS13，若干问题修复                 
+**3.8.1 iOS14下可添加访问更多照片，详见PR内的评论** [#1526](https://github.com/banchichen/TZImagePickerController/pull/1526)               
+**3.7.6 修复iOS15.2下初次授权相册权限时的长时间卡顿&白屏问题** [#1547](https://github.com/banchichen/TZImagePickerController/issues/1547)               
+**3.6.7 修复Xcode13&iOS15下导航栏颜色异常问题**        
+3.6.2 新增allowEditVideo，单选视频时支持裁剪        
+3.6.0 修复iOS14下iCloud视频导出失败问题        
+**3.5.2 适配iPhone12系列设备**        
+3.4.4 支持Dark Mode      
+3.4.2 适配iOS14，若干问题修复                  
+3.3.2 适配iOS13，若干问题修复                 
 3.2.1 新增裁剪用scaleAspectFillCrop属性，设置为YES后，照片尺寸小于裁剪框时会自动放大撑满                
 3.2.0 加入用NSOperationQueue控制获取原图并发数降低内存的示例          
 3.1.8 批量获取图片时加入队列控制，尝试优化大批量选择图片时CPU和内存占用过高的问题（仍然危险，maxImagesCount谨慎设置过大...）             
 3.1.5 相册内无照片时给出提示，修复快速滑动时内存一直增加的问题           
 3.1.3 适配阿拉伯等语言下从右往左布局的特性         
 3.0.8 新增gifImagePlayBlock允许使用FLAnimatedImage等替换内部的GIF播放方案         
-**3.0.7 适配iPhoneXR、XS、XS Max，建议大家尽快更新**           
+3.0.7 适配iPhoneXR、XS、XS Max           
 3.0.6 优化保存照片、视频的方法        
 3.0.1 新增对[TZImagePreviewController](https://github.com/banchichen/TZImagePreviewController)库的支持，允许预览UIImage、NSURL、PHAsset对象       
 **3.0.0 去除iOS6和7的适配代码，更轻量，最低支持iOS8**      
@@ -147,7 +158,6 @@ A：不要去拿PHImageFileURLKey，没用的，只有通过Photos框架才能�
 2.0.0.2 新增繁体语言，可设置首选语言，国际化支持更强大；优化一些细节     
 1.9.8  支持Carthage，优化一些细节    
 1.9.6  优化视频预览和gif预览页toolbar在iPhoneX上的样式      
-1.9.0  移除"prefs:root="的调用，这个API已经被列为私有API，请大家尽快升级     
 ...   
 1.8.4  加入横竖屏适配；支持视频/gif多选；支持视频和照片一起选    
 1.8.1  新增2个代理方法，支持由上层来决定相册/照片的显示与否     

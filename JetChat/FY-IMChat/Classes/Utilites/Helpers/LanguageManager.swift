@@ -15,12 +15,8 @@ public enum kLanguageType: String {
     
     case kEnglish = "en"
     case kChinese = "zh-Hans"
-    case kKorean = "ko"
-    case kJapanse = "ja"
-    case kVietnamese = "vi"
-    case kGerman = "de"
     
-    static let allLanguages = [kEnglish, kChinese, kKorean, kJapanse, kVietnamese, kGerman]
+    static let allLanguages = [kEnglish, kChinese]
     static let alllocalizedStr = allLanguages.map { (type) -> String in
         return type.rawValue
     }
@@ -29,16 +25,8 @@ public enum kLanguageType: String {
         switch self {
         case .kEnglish:
             return "en"
-        case .kChinese:
-            return "zh"
-        case .kKorean:
-            return "ko"
-        case .kJapanse:
-            return "ja"
-        case .kVietnamese:
-            return "vi"
         default:
-            return "de"
+            return "zh"
         }
     }
     
@@ -46,16 +34,8 @@ public enum kLanguageType: String {
         switch self {
         case .kEnglish:
             return "en"
-        case .kChinese:
-            return "cn"
-        case .kKorean:
-            return "ko"
-        case .kJapanse:
-            return "ja"
-        case .kVietnamese:
-            return "vi"
         default:
-            return "de"
+            return "cn"
         }
     }
     
@@ -67,16 +47,8 @@ public enum kLanguageType: String {
         switch self {
         case .kEnglish:
             return "English"
-        case .kChinese:
-            return "简体中文"
-        case .kKorean:
-            return "한국어"
-        case .kVietnamese:
-            return "Tiếng Việt"
-        case .kJapanse:
-            return "日本語"
         default:
-            return "Deutsch"
+            return "简体中文"
         }
     }
 }
@@ -131,18 +103,7 @@ class LanguageManager: NSObject {
     
     // 切换根控制器
     func restRootController() {
-        // 如果用户token存在
-        if ((UserInfoManager.shared.userInfo?.token.length)! > 0) {
-            let tabBarVC = FYBaseTabBarController()
-            UIApplication.shared.keyWindow?.rootViewController = tabBarVC
-            UIApplication.shared.keyWindow?.makeKeyAndVisible()
-            tabBarVC.selectedIndex = 3
-        }else {
-            let startVC = FYBaseTabBarController()
-            let nav = FYBaseNavigationController(rootViewController: startVC)
-            UIApplication.shared.keyWindow?.rootViewController = nav
-            UIApplication.shared.keyWindow?.makeKeyAndVisible()
-        }
+        
     }
 }
 

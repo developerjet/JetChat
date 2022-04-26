@@ -7,41 +7,6 @@
 //
 
 import Foundation
-import KafkaRefresh
-
-
-extension UITableView : DZNEmptyDataSetSource, DZNEmptyDataSetDelegate{
-    
-    /// 设置空页面时机，在第一个加载的时候
-    func reloadDataBySetEmpty(vc: UIViewController) {
-        if self.emptyDataSetSource == nil {
-            self.emptyDataSetDelegate = vc as? DZNEmptyDataSetDelegate
-            self.emptyDataSetSource = vc as? DZNEmptyDataSetSource
-            self.reloadEmptyDataSet()
-        }
-    }
-}
-
-// MARK: - KafkaRefreshControl
-
-extension UITableView {
-    
-    func bindHeaderRefreshHandler(_ beginRefresh: Bool = false, callback:(@escaping() -> ())) {
-        self.bindHeadRefreshHandler({
-            callback()
-        }, themeColor: .scrollRefreshColor(), refreshStyle: .replicatorCircle)
-        
-        if beginRefresh {
-            self.headRefreshControl.beginRefreshing()
-        }
-    }
-    
-    func bindFooterRefreshHandler(_ callback:(@escaping() -> ())) {
-        self.bindFootRefreshHandler({
-            callback()
-        }, themeColor: .scrollRefreshColor(), refreshStyle: .native)
-    }
-}
 
 public extension UITableView {
     

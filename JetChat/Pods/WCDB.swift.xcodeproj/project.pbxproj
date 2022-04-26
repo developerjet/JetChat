@@ -1,0 +1,842 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		013C49983F0EECA1D8A34DA533D54FDA /* SQLite-Bridging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E08A31B9944C20AF702BFF31487B26 /* SQLite-Bridging.swift */; };
+		027FBB30386906CB7D666487E2FF4A66 /* SteadyClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF09C4684DAF5C53F651A12665E712EE /* SteadyClock.swift */; };
+		03E2C5F1955ECD1EF15D82E5EC9B8FD9 /* Lock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B686C32813C936FDE11A3DB35EE1223C /* Lock.swift */; };
+		057F01C39FB58FF22E03AFFBB607460B /* StatementDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB30B2758A6A3EB1B0440F07A1AAFE53 /* StatementDelete.swift */; };
+		09B5305126B6501FA25712E8B70A9B21 /* LiteralValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9957C59BB8278AA543EED9EE7B3F717 /* LiteralValue.swift */; };
+		0A44240895C20253A1BEDB25406F0D24 /* ConcurrentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4100FB1572B4FFF9BC0823334E46D0A /* ConcurrentList.swift */; };
+		0A735124CB220FF49D59A2839E279005 /* WCDB-Bridging.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CE2457E3A785CCC1F1BBAF4D3BFC797 /* WCDB-Bridging.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0CE6D870E82E92DAC1D268BD09384182 /* StatementUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEA07CFC06457A8A467D0342B82B515 /* StatementUpdate.swift */; };
+		108CEB813AC77900FA27318731EAB7E7 /* StatementCreateVirtualTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA94E73A6AA7AFADBF222AD631C2EA3 /* StatementCreateVirtualTable.swift */; };
+		1158B3A7F7B13FE1B18B20E798F9C037 /* StatementDetach.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9858E8604AF48747AACB12A457C85A9 /* StatementDetach.swift */; };
+		164FC431C2C050C58EE8D3FE13AD3B7C /* CommonStatement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFDC83A079F013EC393EDEA5311AC1F /* CommonStatement.swift */; };
+		1A5AE75CB325FDE0AC2ED71CF101DCD3 /* Delete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8F2029D1DA6D5161B42F08326743A4 /* Delete.swift */; };
+		1A9F71623EE8C0788EACB8EC3BCC0B51 /* ForeignKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3E48F9A5461DD463EE0C3EEF332E81 /* ForeignKey.swift */; };
+		1F99EF46B98800CDB68AF68EA1E262EB /* Tagged.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EF7DE89F073C5CF0E2E2EF1EDF8403 /* Tagged.swift */; };
+		25F87752AFB1F3692DC3352F345F061A /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2022CF10542329DC8936CACA73E04998 /* Property.swift */; };
+		27285EA438ACA4C7C3FA010768CC874A /* Conflict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8885D350E8A42497761E274A992B9B73 /* Conflict.swift */; };
+		2742E413003BFBFFE684E5C8AFF9A033 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA215A4BDE4A8A073E0A73804A039E6D /* Transaction.swift */; };
+		27542F22338E7E2D0A2F52B7F98267BF /* HandleStatement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F25A282B00D6F61100BA139521AD44 /* HandleStatement.swift */; };
+		2D733EC011ADC52E59FC1B434469A9C4 /* StatementPragma.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAABB3B3ABC33ECEAF478AB029E1D1AA /* StatementPragma.swift */; };
+		2FB28D118E2AA9CCD57C014FABFDC43B /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C5BA46911778FF62662D3A5426C702 /* File.swift */; };
+		3081896F89A0CEAF2A6DFA5D27A71D30 /* StatementReindex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FDDEB9BF881C859C978B9701954B7B /* StatementReindex.swift */; };
+		3507771F850452E52FD00F0240FB87CC /* TableBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0389C7B7CFECA4C3920EF57E7776FA /* TableBinding.swift */; };
+		35AE817FAAD12574525181BD78289CD4 /* WCDBTokenize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B616A9C7C145026160A1AFE77E1A3EC /* WCDBTokenize.swift */; };
+		36C85945DDAA28C3540DD5203E864757 /* Column.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5711A41F0174277AA69BFCDEFE72C2 /* Column.swift */; };
+		41057DCF05FEA8754E5BBEC9D03D2C9D /* SQLite-Bridging.c in Sources */ = {isa = PBXBuildFile; fileRef = BF6ED89BF4002C56CBA2CE19D641F86C /* SQLite-Bridging.c */; };
+		411540B926330F2B4C0CD1A0B73C7970 /* StatementAlterTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F18E2A59564F802783ED4470309818 /* StatementAlterTable.swift */; };
+		4170027AF8D5B066446C5E63991E8CE4 /* WCDB.swift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 852712D12B3C1B1496D1441A3DA7E0D1 /* WCDB.swift-dummy.m */; };
+		420C83E705B190C9651D39CC25183A98 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = A072A85577232D3602D67420D247B29A /* Database.swift */; };
+		4226345D7B0904E0CDCBCBF8BDBAA85B /* StatementCreateTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3A6B036B3DC3E9662CB7451A13D9AB /* StatementCreateTable.swift */; };
+		44A50DDDF23FF7261487BFBE84FBCC6F /* CodableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F0B9AB8B06849F407E79FAE05BA4B1 /* CodableType.swift */; };
+		45E6F826C2A1EB894323A3AB835DDF74 /* Tracer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA7959A7E09FF6A1C90096FCE5917D7 /* Tracer.swift */; };
+		460B13220E63BB29C50B9A81C920E55C /* TableInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2724EBAEEDA40E053BC7D2972D82C75 /* TableInterface.swift */; };
+		4BC70847EDB20C944B7C2A351C4C835B /* TimedQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F512DEA5FEBAED06568F9441A7A750 /* TimedQueue.swift */; };
+		4C04341C03D6210505D3AAF473E60C2C /* Atomic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69293118695D0B2F47F645F7DDC212B /* Atomic.swift */; };
+		4D8872457636DC7DE18B1EDD8FF1F68D /* StatementTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E79C7E6D850BF720AA67DB4A260627 /* StatementTransaction.swift */; };
+		4E35F048A60D684A1AF3A39C65E8627D /* ColumnIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556DEB63AD1B01D869D33C066F258EDF /* ColumnIndex.swift */; };
+		4E45EB2AA7EE071B3AF29273757A5A20 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB932391AEBE2A3A9E779CDC6BC8105 /* Table.swift */; };
+		4EE9AD3E9910A15E43E19B4953EB086E /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30DD9370A1DCF87A4E790AE0049A6D2 /* Expression.swift */; };
+		51D5C837D9DE34211B0C02FC784A16EC /* Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8150A573BDC1D3AC81059AC513F9191 /* Interface.swift */; };
+		5253A5A13AD9217F4A6D962982016F24 /* Recyclable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41556C5905EFD8DE76843D36C798E080 /* Recyclable.swift */; };
+		541ABFAD60FE4CCF0E04C294742060A0 /* Redirectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6069FE906D31FAAA5A5A51C9268B322E /* Redirectable.swift */; };
+		58AFD8D688AF2FAB15C5BC32E1D931B2 /* WCDB.swift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D4CFA836F2E528CC0D78A38E5F733BE /* WCDB.swift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		590F28AADEDE7D779CE69EFF2FE4B5FA /* Operable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0A19A0B8631B858C9A51608BD63E32 /* Operable.swift */; };
+		597FA03029BCE471C1A35587575D5739 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A97867C652EC26F33DC49DD65FB7EEF /* Error.swift */; };
+		5C9B13F548604463AA2A1CBB33B81AF6 /* Pragma.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6C26E33616678A12E1A7C495FBED9A /* Pragma.swift */; };
+		5D31B58AA8971222E6E3F4ADA955A3C2 /* ColumnResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CA9C2304C25B3020B2BF7019736E2A /* ColumnResult.swift */; };
+		60E18F9137E555849F436FB0E538EAAC /* SQLite-Bridging.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BFD9ABD3192FB6F0CFC111E4BEE8691 /* SQLite-Bridging.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		61982D488EA71F7E4D918CD9FA8DDA6C /* OrderTerm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D22AC97B70A4F6FB69CC0A286A0C8AF /* OrderTerm.swift */; };
+		62123155EAC9628D827282EE79E3ADA8 /* ColumnTypeDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF3E73D5B06E0DC15057AEAA3572EB8 /* ColumnTypeDecoder.swift */; };
+		636D6CB65315F5F70587FC6CA12A1859 /* Describable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C69153D11363A2714DF4C7CAB842058 /* Describable.swift */; };
+		64F8386A2A23D68CFDA0779FA1187AFB /* Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B1D4127B880F134D921AD7117AA9A4 /* Convenience.swift */; };
+		66C797FDA5E6AEF8F5D9166A0D52DDAD /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FF5DAF62E9CF36950C3CA905AFEC47 /* Order.swift */; };
+		73EE699088AAFF42A92738A03ECE1800 /* ThreadLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C187450BC6F810CB23539C1FA17CB4C5 /* ThreadLocal.swift */; };
+		75948F0B5BECFD01391CE7784BEAADD7 /* TableConstraintBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB0C43C9618877FC8828D1CAD186D17 /* TableConstraintBinding.swift */; };
+		7B06E90A86A20EC975331C2185E7163C /* CodingTableKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8B4A394B4DAE41E5094878EB41D450 /* CodingTableKey.swift */; };
+		7BFBAC1D28016BB288D7814B65E53FBF /* ColumnConstraintBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AED83AF31225358668C4DEAADE0EF75 /* ColumnConstraintBinding.swift */; };
+		7BFEC7A885716EF738132187F3D6E8B4 /* RecyclableCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF55B1E1B831714705F639D14C78EEB /* RecyclableCore.swift */; };
+		7D0CAF33CD81F1786DBD53A1780F046F /* VirtualTableBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C543EC9361C34A1EE9316FE21535A3AA /* VirtualTableBinding.swift */; };
+		84863242E71D9D5EBD62788E0E2463F1 /* StatementCreateIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23A8F76EA2BE173F73C4C243450DB7C /* StatementCreateIndex.swift */; };
+		8502E94D8CA6CE7A531262889EF319BF /* ColumnDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8636DEAD76BFB246F040D3DC6B8E163 /* ColumnDef.swift */; };
+		8A53B7A24C3E4361FB14031B0F8A1458 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DAE773118685440F8C119A1D0F5E73 /* Config.swift */; };
+		8ADD29697D81A1508C5A436306F5404A /* StatementDropTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FA1277FA83A71E00D492B1C940A833 /* StatementDropTable.swift */; };
+		8B674C42B8B88408B148FB437BA872A3 /* Handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850CFA069C42499D5C735AE5C455A6C2 /* Handle.swift */; };
+		8C8E09AD9884DC975A09D7ADFF1EDFC5 /* Insert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61D7A41AF5364A0019326AC4C36B881 /* Insert.swift */; };
+		8DD2A2F22AC74D04A0F3310C0B4477CA /* RWLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250C4BEF407076E8FFF7BE2AA61C4E5A /* RWLock.swift */; };
+		935B19477DBCFD792B7DA59BAB5E5987 /* StatementExplain.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2136B4CB345E0F5522D6E38BE472E8E /* StatementExplain.swift */; };
+		96F2516496AB35A6D00D6469FE37A7E8 /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8237AE1F54F9AD9FF023E544033D4B5D /* Optional.swift */; };
+		9894E474B1A3C23EDBF953CCF7C09721 /* StatementRollback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D798F17EF5348E08DF758B97F35FC1 /* StatementRollback.swift */; };
+		9A1BEFAE555EFECAD64F6E650FB39065 /* JoinClause.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCF72CEBC9D21F967DB7060D7659E0E /* JoinClause.swift */; };
+		9A326BB36F84A0970CDD0B04EED7FD90 /* Update.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E3F113A1A6BBDC6BDA3640C627C7CE /* Update.swift */; };
+		A0A39F09D5F414426870C6D45919F9CE /* CoreStatement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C91CD175DA1BB88A2027B09CF48974C /* CoreStatement.swift */; };
+		A18E768F7DCBA92E7300EBA7786BE7B5 /* Master.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1549E3CE4C7AF651944E5C6CB02D98 /* Master.swift */; };
+		AE37BAF478BDC3ECE38CA8E7CBEBBC80 /* Selectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73B5C1E80F9096A63A4754C85DA2F25 /* Selectable.swift */; };
+		B1F017764DE4DE2493F9EFBB133B1F61 /* TableCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D14197B2368AB82106A039E2A064446 /* TableCodable.swift */; };
+		B641AC664B036BDFA8B4D32FC40C3038 /* StatementInsert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACB56B5CEC68AD9F5E791E9BDCE8DBA /* StatementInsert.swift */; };
+		B75738C42FF3E2B1ADD4C093DEA4FA36 /* FundamentalValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E7628E7138CED02695F2EDE6C209E /* FundamentalValue.swift */; };
+		B7DAADF119C813387EE275612F979CC9 /* RowSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E20AA21F95F75B43DE81757EADCB33 /* RowSelect.swift */; };
+		B975DD5356F7614B19AEBA695F49B60F /* ChainCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF8021882798D76E0B02F4A5481B4E5 /* ChainCall.swift */; };
+		B992BD920F062A98DB76CAA57CC65016 /* Select.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FAF1EE7E0958C5A0D4CF010C31215A /* Select.swift */; };
+		BB45D150EA5D8F723BE7B917E33CDA40 /* StatementAttach.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876E5371414417DDF4BEA602518CFA3A /* StatementAttach.swift */; };
+		C0B88E4E8E5C37FDCD5FD19FF1D310E2 /* TableDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2ED18B51A4C7DD87CCE7295981261F /* TableDecoder.swift */; };
+		C0E494FF213635338AEC64E3A2F2902B /* StatementRelease.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F57086D5E003E32ABBFA302D1DD71A /* StatementRelease.swift */; };
+		C2E0636249C902EAA944FD025C99F6D6 /* TableConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091CDD59C8ED5A90B7B4852772AD98B0 /* TableConstraint.swift */; };
+		C569E19DB5C136C106A9980145994EC6 /* StatementSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD960FB3ADAA50C308AABB9D8CDECD3 /* StatementSelect.swift */; };
+		C5D519944ACDC263510487399B391475 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F7325B2767832D11A0011B90C35553B /* Foundation.framework */; };
+		CABCF14E49BA41994954081BF8ABE15C /* StatementVacuum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA0FEBB911E31FCB4314040A892CB75 /* StatementVacuum.swift */; };
+		CD6E19C7279B89860B5B9C5087DB94A8 /* HandlePool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35632D7059C7C3D63BFDAE3C2950F99B /* HandlePool.swift */; };
+		D4373ABC40D7F0C67A742963EE8FF6EB /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76099F2136F86EB5DD070AEB13864A2 /* Core.swift */; };
+		D631F583C2EA5472A16E5F7AB962CF91 /* Subquery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0973A02C166F02D2B2BB547B0783968 /* Subquery.swift */; };
+		D9A7050E1F3203213F4E34AEAAAE44E4 /* IndexBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F37419A6C8B2273C4C381E263B15D9A /* IndexBinding.swift */; };
+		DA582DC413045D8D18A139F7A390F858 /* TableEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65594E69A47D5B4D128588D57936C5E5 /* TableEncoder.swift */; };
+		E77E7B2339FF313F9E403D38E13AC970 /* Statement.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE14A0D584C0DFDF40A5F5FA4D9097D2 /* Statement.swift */; };
+		E8147E0DEDC9530280573CCD81E3683A /* MultiSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1515A54E06ADA4740E6FE41C28AF8E0A /* MultiSelect.swift */; };
+		EB8C24F2A6056F99304A7F19E4F9A6D3 /* Convertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289B4713A044588BE0671E1371F51F4C /* Convertible.swift */; };
+		EBE779F57B5DB9845B4231091950A55B /* Tokenize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780D868999536DD6588F13D551D87EE5 /* Tokenize.swift */; };
+		EC3A07095422AFD616641F8B09AB759D /* StatementDropIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B03A3018E6B6D4746F18BF0CCC1CCF2 /* StatementDropIndex.swift */; };
+		EDF37404F21B1CA75000D2FD87315797 /* StatementSavepoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2677580CE29ECC98DFE7AE0128AF9D /* StatementSavepoint.swift */; };
+		FAEC088031C3391ED364D1AC2D5BE42C /* ColumnCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE229B49576F2A4BC0D0D023C1A6CC22 /* ColumnCodable.swift */; };
+		FCA55725F335187FD21571F95AD07D24 /* ModuleArgument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CDB6F01644F8DCC4AACD6BA8B3D033 /* ModuleArgument.swift */; };
+		FDE71B5195873F497F5A43A841A88485 /* Declare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5707A207867E6D67EBA1B96EA4485C /* Declare.swift */; };
+		FFF528C305E19A5ECE6C9A1BFFED7C09 /* ColumnType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3299F12080A3B1EFA7669D7E3FFE6D5 /* ColumnType.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B53AE04AAEE7B23EFE228ED0AFD8249C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3BC5694ADA3E5F70C591744B5EFCC9C /* WCDBOptimizedSQLCipher.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8820E4661B26990965C45655F51ED18B;
+			remoteInfo = WCDBOptimizedSQLCipher;
+		};
+		F27637A61560590496E5791936F3AD3F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 27D1A72264D8220BAED8CE47CC9BA36F /* SQLiteRepairKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 1A6A317D19224BA6C654767A5DA5460D;
+			remoteInfo = SQLiteRepairKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		08E08A31B9944C20AF702BFF31487B26 /* SQLite-Bridging.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SQLite-Bridging.swift"; path = "swift/source/util/SQLite-Bridging.swift"; sourceTree = "<group>"; };
+		091CDD59C8ED5A90B7B4852772AD98B0 /* TableConstraint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TableConstraint.swift; path = swift/source/abstract/TableConstraint.swift; sourceTree = "<group>"; };
+		0A5707A207867E6D67EBA1B96EA4485C /* Declare.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Declare.swift; path = swift/source/core/interface/Declare.swift; sourceTree = "<group>"; };
+		0A97867C652EC26F33DC49DD65FB7EEF /* Error.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Error.swift; path = swift/source/util/Error.swift; sourceTree = "<group>"; };
+		0ACB56B5CEC68AD9F5E791E9BDCE8DBA /* StatementInsert.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StatementInsert.swift; path = swift/source/abstract/StatementInsert.swift; sourceTree = "<group>"; };
+		0B5711A41F0174277AA69BFCDEFE72C2 /* Column.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Column.swift; path = swift/source/abstract/Column.swift; sourceTree = "<group>"; };
+		0BFDC83A079F013EC393EDEA5311AC1F /* CommonStatement.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CommonStatement.swift; path = swift/source/builtin/CommonStatement.swift; sourceTree = "<group>"; };
+		0C0389C7B7CFECA4C3920EF57E7776FA /* TableBinding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TableBinding.swift; path = swift/source/core/binding/TableBinding.swift; sourceTree = "<group>"; };
+		0D4CFA836F2E528CC0D78A38E5F733BE /* WCDB.swift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WCDB.swift-umbrella.h"; sourceTree = "<group>"; };
+		11F25A282B00D6F61100BA139521AD44 /* HandleStatement.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HandleStatement.swift; path = swift/source/abstract/HandleStatement.swift; sourceTree = "<group>"; };
+		1515A54E06ADA4740E6FE41C28AF8E0A /* MultiSelect.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultiSelect.swift; path = swift/source/core/interface/MultiSelect.swift; sourceTree = "<group>"; };
+		1F0A19A0B8631B858C9A51608BD63E32 /* Operable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Operable.swift; path = swift/source/abstract/Operable.swift; sourceTree = "<group>"; };
+		2022CF10542329DC8936CACA73E04998 /* Property.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Property.swift; path = swift/source/core/binding/Property.swift; sourceTree = "<group>"; };
+		250C4BEF407076E8FFF7BE2AA61C4E5A /* RWLock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RWLock.swift; path = swift/source/util/RWLock.swift; sourceTree = "<group>"; };
+		25AB8830D14FEBB1F527B331B408FD4D /* WCDB.swift */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = WCDB.swift; path = WCDBSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		25CDB6F01644F8DCC4AACD6BA8B3D033 /* ModuleArgument.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ModuleArgument.swift; path = swift/source/abstract/ModuleArgument.swift; sourceTree = "<group>"; };
+		27D1A72264D8220BAED8CE47CC9BA36F /* SQLiteRepairKit */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLiteRepairKit; path = SQLiteRepairKit.xcodeproj; sourceTree = "<group>"; };
+		289B4713A044588BE0671E1371F51F4C /* Convertible.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Convertible.swift; path = swift/source/abstract/Convertible.swift; sourceTree = "<group>"; };
+		28E20AA21F95F75B43DE81757EADCB33 /* RowSelect.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RowSelect.swift; path = swift/source/core/interface/RowSelect.swift; sourceTree = "<group>"; };
+		28F18E2A59564F802783ED4470309818 /* StatementAlterTable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StatementAlterTable.swift; path = swift/source/abstract/StatementAlterTable.swift; sourceTree = "<group>"; };
+		2B1549E3CE4C7AF651944E5C6CB02D98 /* Master.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Master.swift; path = swift/source/builtin/Master.swift; sourceTree = "<group>"; };
+		2C91CD175DA1BB88A2027B09CF48974C /* CoreStatement.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoreStatement.swift; path = swift/source/core/base/CoreStatement.swift; sourceTree = "<group>"; };
+		2D14197B2368AB82106A039E2A064446 /* TableCodable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TableCodable.swift; path = swift/source/core/codable/TableCodable.swift; sourceTree = "<group>"; };
+		2FCF72CEBC9D21F967DB7060D7659E0E /* JoinClause.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JoinClause.swift; path = swift/source/abstract/JoinClause.swift; sourceTree = "<group>"; };
+		31FF5DAF62E9CF36950C3CA905AFEC47 /* Order.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Order.swift; path = swift/source/abstract/Order.swift; sourceTree = "<group>"; };
+		35632D7059C7C3D63BFDAE3C2950F99B /* HandlePool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HandlePool.swift; path = swift/source/core/base/HandlePool.swift; sourceTree = "<group>"; };
+		35F0B9AB8B06849F407E79FAE05BA4B1 /* CodableType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CodableType.swift; path = swift/source/builtin/CodableType.swift; sourceTree = "<group>"; };
+		3E8F2029D1DA6D5161B42F08326743A4 /* Delete.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Delete.swift; path = swift/source/core/interface/Delete.swift; sourceTree = "<group>"; };
+		3F37419A6C8B2273C4C381E263B15D9A /* IndexBinding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IndexBinding.swift; path = swift/source/core/binding/IndexBinding.swift; sourceTree = "<group>"; };
+		40CA9C2304C25B3020B2BF7019736E2A /* ColumnResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ColumnResult.swift; path = swift/source/abstract/ColumnResult.swift; sourceTree = "<group>"; };
+		41556C5905EFD8DE76843D36C798E080 /* Recyclable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Recyclable.swift; path = swift/source/util/Recyclable.swift; sourceTree = "<group>"; };
+		4B6C26E33616678A12E1A7C495FBED9A /* Pragma.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Pragma.swift; path = swift/source/abstract/Pragma.swift; sourceTree = "<group>"; };
+		4BA0FEBB911E31FCB4314040A892CB75 /* StatementVacuum.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StatementVacuum.swift; path = swift/source/abstract/StatementVacuum.swift; sourceTree = "<group>"; };
+		4BFD9ABD3192FB6F0CFC111E4BEE8691 /* SQLite-Bridging.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SQLite-Bridging.h"; path = "swift/source/util/SQLite-Bridging.h"; sourceTree = "<group>"; };
+		4CE2457E3A785CCC1F1BBAF4D3BFC797 /* WCDB-Bridging.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "WCDB-Bridging.h"; path = "swift/source/util/WCDB-Bridging.h"; sourceTree = "<group>"; };
+		4F8B4A394B4DAE41E5094878EB41D450 /* CodingTableKey.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CodingTableKey.swift; path = swift/source/core/codable/CodingTableKey.swift; sourceTree = "<group>"; };
+		556DEB63AD1B01D869D33C066F258EDF /* ColumnIndex.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ColumnIndex.swift; path = swift/source/abstract/ColumnIndex.swift; sourceTree = "<group>"; };
+		56B1D4127B880F134D921AD7117AA9A4 /* Convenience.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Convenience.swift; path = swift/source/util/Convenience.swift; sourceTree = "<group>"; };
+		5F3A6B036B3DC3E9662CB7451A13D9AB /* StatementCreateTable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StatementCreateTable.swift; path = swift/source/abstract/StatementCreateTable.swift; sourceTree = "<group>"; };
+		6069FE906D31FAAA5A5A51C9268B322E /* Redirectable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Redirectable.swift; path = swift/source/core/binding/Redirectable.swift; sourceTree = "<group>"; };
+		61F512DEA5FEBAED06568F9441A7A750 /* TimedQueue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TimedQueue.swift; path = swift/source/util/TimedQueue.swift; sourceTree = "<group>"; };
+		62D798F17EF5348E08DF758B97F35FC1 /* StatementRollback.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StatementRollback.swift; path = swift/source/abstract/StatementRollback.swift; sourceTree = "<group>"; };
+		65594E69A47D5B4D128588D57936C5E5 /* TableEncoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TableEncoder.swift; path = swift/source/core/codable/TableEncoder.swift; sourceTree = "<group>"; };
+		6AF3E73D5B06E0DC15057AEAA3572EB8 /* ColumnTypeDecoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ColumnTypeDecoder.swift; path = swift/source/core/codable/ColumnTypeDecoder.swift; sourceTree = "<group>"; };
+		6BB0C43C9618877FC8828D1CAD186D17 /* TableConstraintBinding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TableConstraintBinding.swift; path = swift/source/core/binding/TableConstraintBinding.swift; sourceTree = "<group>"; };
+		6C69153D11363A2714DF4C7CAB842058 /* Describable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Describable.swift; path = swift/source/abstract/Describable.swift; sourceTree = "<group>"; };
+		6D3E48F9A5461DD463EE0C3EEF332E81 /* ForeignKey.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ForeignKey.swift; path = swift/source/abstract/ForeignKey.swift; sourceTree = "<group>"; };
+		6D794FD8E0619A9A29319C0E5C081F2D /* WCDB.swift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WCDB.swift-prefix.pch"; sourceTree = "<group>"; };
+		72FDDEB9BF881C859C978B9701954B7B /* StatementReindex.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StatementReindex.swift; path = swift/source/abstract/StatementReindex.swift; sourceTree = "<group>"; };
+		74F57086D5E003E32ABBFA302D1DD71A /* StatementRelease.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StatementRelease.swift; path = swift/source/abstract/StatementRelease.swift; sourceTree = "<group>"; };
+		780D868999536DD6588F13D551D87EE5 /* Tokenize.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Tokenize.swift; path = swift/source/abstract/Tokenize.swift; sourceTree = "<group>"; };
+		7AED83AF31225358668C4DEAADE0EF75 /* ColumnConstraintBinding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ColumnConstraintBinding.swift; path = swift/source/core/binding/ColumnConstraintBinding.swift; sourceTree = "<group>"; };
+		7B03A3018E6B6D4746F18BF0CCC1CCF2 /* StatementDropIndex.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StatementDropIndex.swift; path = swift/source/abstract/StatementDropIndex.swift; sourceTree = "<group>"; };
+		7F7325B2767832D11A0011B90C35553B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		7F76470DDEFC667342A99BB50D821A2C /* WCDB.swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = WCDB.swift.debug.xcconfig; sourceTree = "<group>"; };
+		818E7628E7138CED02695F2EDE6C209E /* FundamentalValue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FundamentalValue.swift; path = swift/source/abstract/FundamentalValue.swift; sourceTree = "<group>"; };
+		8237AE1F54F9AD9FF023E544033D4B5D /* Optional.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Optional.swift; path = swift/source/util/Optional.swift; sourceTree = "<group>"; };
+		850CFA069C42499D5C735AE5C455A6C2 /* Handle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Handle.swift; path = swift/source/abstract/Handle.swift; sourceTree = "<group>"; };
+		852712D12B3C1B1496D1441A3DA7E0D1 /* WCDB.swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "WCDB.swift-dummy.m"; sourceTree = "<group>"; };
+		876E5371414417DDF4BEA602518CFA3A /* StatementAttach.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StatementAttach.swift; path = swift/source/abstract/StatementAttach.swift; sourceTree = "<group>"; };
+		87EF7DE89F073C5CF0E2E2EF1EDF8403 /* Tagged.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Tagged.swift; path = swift/source/util/Tagged.swift; sourceTree = "<group>"; };
+		8885D350E8A42497761E274A992B9B73 /* Conflict.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Conflict.swift; path = swift/source/abstract/Conflict.swift; sourceTree = "<group>"; };
+		8B2677580CE29ECC98DFE7AE0128AF9D /* StatementSavepoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StatementSavepoint.swift; path = swift/source/abstract/StatementSavepoint.swift; sourceTree = "<group>"; };
+		8B616A9C7C145026160A1AFE77E1A3EC /* WCDBTokenize.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WCDBTokenize.swift; path = swift/source/core/fts/WCDBTokenize.swift; sourceTree = "<group>"; };
+		8BEA07CFC06457A8A467D0342B82B515 /* StatementUpdate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StatementUpdate.swift; path = swift/source/abstract/StatementUpdate.swift; sourceTree = "<group>"; };
+		8D22AC97B70A4F6FB69CC0A286A0C8AF /* OrderTerm.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OrderTerm.swift; path = swift/source/abstract/OrderTerm.swift; sourceTree = "<group>"; };
+		927502B7DA546FD969269DE71CE79192 /* WCDB.swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = WCDB.swift.release.xcconfig; sourceTree = "<group>"; };
+		9308F505A163D227DD4D7E7BA7577B2F /* WCDB.swift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "WCDB.swift-Info.plist"; sourceTree = "<group>"; };
+		97C5BA46911778FF62662D3A5426C702 /* File.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = File.swift; path = swift/source/util/File.swift; sourceTree = "<group>"; };
+		98E79C7E6D850BF720AA67DB4A260627 /* StatementTransaction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StatementTransaction.swift; path = swift/source/abstract/StatementTransaction.swift; sourceTree = "<group>"; };
+		9BA94E73A6AA7AFADBF222AD631C2EA3 /* StatementCreateVirtualTable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StatementCreateVirtualTable.swift; path = swift/source/abstract/StatementCreateVirtualTable.swift; sourceTree = "<group>"; };
+		9BD960FB3ADAA50C308AABB9D8CDECD3 /* StatementSelect.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StatementSelect.swift; path = swift/source/abstract/StatementSelect.swift; sourceTree = "<group>"; };
+		9C2ED18B51A4C7DD87CCE7295981261F /* TableDecoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TableDecoder.swift; path = swift/source/core/codable/TableDecoder.swift; sourceTree = "<group>"; };
+		A072A85577232D3602D67420D247B29A /* Database.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Database.swift; path = swift/source/core/base/Database.swift; sourceTree = "<group>"; };
+		A30DD9370A1DCF87A4E790AE0049A6D2 /* Expression.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Expression.swift; path = swift/source/abstract/Expression.swift; sourceTree = "<group>"; };
+		A3BC5694ADA3E5F70C591744B5EFCC9C /* WCDBOptimizedSQLCipher */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = WCDBOptimizedSQLCipher; path = WCDBOptimizedSQLCipher.xcodeproj; sourceTree = "<group>"; };
+		AA215A4BDE4A8A073E0A73804A039E6D /* Transaction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Transaction.swift; path = swift/source/core/base/Transaction.swift; sourceTree = "<group>"; };
+		ADB932391AEBE2A3A9E779CDC6BC8105 /* Table.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Table.swift; path = swift/source/core/interface/Table.swift; sourceTree = "<group>"; };
+		B0973A02C166F02D2B2BB547B0783968 /* Subquery.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Subquery.swift; path = swift/source/abstract/Subquery.swift; sourceTree = "<group>"; };
+		B2136B4CB345E0F5522D6E38BE472E8E /* StatementExplain.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StatementExplain.swift; path = swift/source/abstract/StatementExplain.swift; sourceTree = "<group>"; };
+		B686C32813C936FDE11A3DB35EE1223C /* Lock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Lock.swift; path = swift/source/util/Lock.swift; sourceTree = "<group>"; };
+		B8E3F113A1A6BBDC6BDA3640C627C7CE /* Update.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Update.swift; path = swift/source/core/interface/Update.swift; sourceTree = "<group>"; };
+		B9858E8604AF48747AACB12A457C85A9 /* StatementDetach.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StatementDetach.swift; path = swift/source/abstract/StatementDetach.swift; sourceTree = "<group>"; };
+		BF6ED89BF4002C56CBA2CE19D641F86C /* SQLite-Bridging.c */ = {isa = PBXFileReference; includeInIndex = 1; name = "SQLite-Bridging.c"; path = "swift/source/util/SQLite-Bridging.c"; sourceTree = "<group>"; };
+		BFF55B1E1B831714705F639D14C78EEB /* RecyclableCore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RecyclableCore.swift; path = swift/source/core/base/RecyclableCore.swift; sourceTree = "<group>"; };
+		C187450BC6F810CB23539C1FA17CB4C5 /* ThreadLocal.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ThreadLocal.swift; path = swift/source/util/ThreadLocal.swift; sourceTree = "<group>"; };
+		C23A8F76EA2BE173F73C4C243450DB7C /* StatementCreateIndex.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StatementCreateIndex.swift; path = swift/source/abstract/StatementCreateIndex.swift; sourceTree = "<group>"; };
+		C3299F12080A3B1EFA7669D7E3FFE6D5 /* ColumnType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ColumnType.swift; path = swift/source/abstract/ColumnType.swift; sourceTree = "<group>"; };
+		C543EC9361C34A1EE9316FE21535A3AA /* VirtualTableBinding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VirtualTableBinding.swift; path = swift/source/core/binding/VirtualTableBinding.swift; sourceTree = "<group>"; };
+		C69293118695D0B2F47F645F7DDC212B /* Atomic.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Atomic.swift; path = swift/source/util/Atomic.swift; sourceTree = "<group>"; };
+		C9957C59BB8278AA543EED9EE7B3F717 /* LiteralValue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LiteralValue.swift; path = swift/source/abstract/LiteralValue.swift; sourceTree = "<group>"; };
+		D8636DEAD76BFB246F040D3DC6B8E163 /* ColumnDef.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ColumnDef.swift; path = swift/source/abstract/ColumnDef.swift; sourceTree = "<group>"; };
+		E4100FB1572B4FFF9BC0823334E46D0A /* ConcurrentList.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConcurrentList.swift; path = swift/source/util/ConcurrentList.swift; sourceTree = "<group>"; };
+		E61D7A41AF5364A0019326AC4C36B881 /* Insert.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Insert.swift; path = swift/source/core/interface/Insert.swift; sourceTree = "<group>"; };
+		E8150A573BDC1D3AC81059AC513F9191 /* Interface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Interface.swift; path = swift/source/core/interface/Interface.swift; sourceTree = "<group>"; };
+		EAABB3B3ABC33ECEAF478AB029E1D1AA /* StatementPragma.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StatementPragma.swift; path = swift/source/abstract/StatementPragma.swift; sourceTree = "<group>"; };
+		EB02F4F74A4565C0F92FB153D2E560EA /* WCDB.swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = WCDB.swift.modulemap; sourceTree = "<group>"; };
+		EBF8021882798D76E0B02F4A5481B4E5 /* ChainCall.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChainCall.swift; path = swift/source/core/interface/ChainCall.swift; sourceTree = "<group>"; };
+		EF09C4684DAF5C53F651A12665E712EE /* SteadyClock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SteadyClock.swift; path = swift/source/util/SteadyClock.swift; sourceTree = "<group>"; };
+		EFA7959A7E09FF6A1C90096FCE5917D7 /* Tracer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Tracer.swift; path = swift/source/abstract/Tracer.swift; sourceTree = "<group>"; };
+		F2724EBAEEDA40E053BC7D2972D82C75 /* TableInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TableInterface.swift; path = swift/source/core/interface/TableInterface.swift; sourceTree = "<group>"; };
+		F5FA1277FA83A71E00D492B1C940A833 /* StatementDropTable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StatementDropTable.swift; path = swift/source/abstract/StatementDropTable.swift; sourceTree = "<group>"; };
+		F6DAE773118685440F8C119A1D0F5E73 /* Config.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Config.swift; path = swift/source/core/base/Config.swift; sourceTree = "<group>"; };
+		F6FAF1EE7E0958C5A0D4CF010C31215A /* Select.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Select.swift; path = swift/source/core/interface/Select.swift; sourceTree = "<group>"; };
+		F73B5C1E80F9096A63A4754C85DA2F25 /* Selectable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Selectable.swift; path = swift/source/core/interface/Selectable.swift; sourceTree = "<group>"; };
+		F76099F2136F86EB5DD070AEB13864A2 /* Core.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Core.swift; path = swift/source/core/base/Core.swift; sourceTree = "<group>"; };
+		FB30B2758A6A3EB1B0440F07A1AAFE53 /* StatementDelete.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StatementDelete.swift; path = swift/source/abstract/StatementDelete.swift; sourceTree = "<group>"; };
+		FE14A0D584C0DFDF40A5F5FA4D9097D2 /* Statement.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Statement.swift; path = swift/source/abstract/Statement.swift; sourceTree = "<group>"; };
+		FE229B49576F2A4BC0D0D023C1A6CC22 /* ColumnCodable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ColumnCodable.swift; path = swift/source/core/codable/ColumnCodable.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6FF27EFBD6A895986DFB940400F9F7EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5D519944ACDC263510487399B391475 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1BAD409412479B7BF8677027E209C837 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				27D1A72264D8220BAED8CE47CC9BA36F /* SQLiteRepairKit */,
+				A3BC5694ADA3E5F70C591744B5EFCC9C /* WCDBOptimizedSQLCipher */,
+			);
+			name = Dependencies;
+			sourceTree = "<group>";
+		};
+		350D81E6D2082728231D701E9FC01667 = {
+			isa = PBXGroup;
+			children = (
+				1BAD409412479B7BF8677027E209C837 /* Dependencies */,
+				4DFED91E7A67EAC77DDCFE364BE72B3C /* Frameworks */,
+				82A12F9016C64B4B732571E309CA7DB2 /* Products */,
+				D7978CBB9612827C3929E5734BD85C7D /* WCDB.swift */,
+			);
+			sourceTree = "<group>";
+		};
+		4DFED91E7A67EAC77DDCFE364BE72B3C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				69246AF91BAF43213DBF8AE72F9DD7F2 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		66D35A177A3E35081E3B2CDFF9178B60 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				EB02F4F74A4565C0F92FB153D2E560EA /* WCDB.swift.modulemap */,
+				852712D12B3C1B1496D1441A3DA7E0D1 /* WCDB.swift-dummy.m */,
+				9308F505A163D227DD4D7E7BA7577B2F /* WCDB.swift-Info.plist */,
+				6D794FD8E0619A9A29319C0E5C081F2D /* WCDB.swift-prefix.pch */,
+				0D4CFA836F2E528CC0D78A38E5F733BE /* WCDB.swift-umbrella.h */,
+				7F76470DDEFC667342A99BB50D821A2C /* WCDB.swift.debug.xcconfig */,
+				927502B7DA546FD969269DE71CE79192 /* WCDB.swift.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/WCDB.swift";
+			sourceTree = "<group>";
+		};
+		69246AF91BAF43213DBF8AE72F9DD7F2 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				7F7325B2767832D11A0011B90C35553B /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		82A12F9016C64B4B732571E309CA7DB2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				25AB8830D14FEBB1F527B331B408FD4D /* WCDB.swift */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D7978CBB9612827C3929E5734BD85C7D /* WCDB.swift */ = {
+			isa = PBXGroup;
+			children = (
+				C69293118695D0B2F47F645F7DDC212B /* Atomic.swift */,
+				EBF8021882798D76E0B02F4A5481B4E5 /* ChainCall.swift */,
+				35F0B9AB8B06849F407E79FAE05BA4B1 /* CodableType.swift */,
+				4F8B4A394B4DAE41E5094878EB41D450 /* CodingTableKey.swift */,
+				0B5711A41F0174277AA69BFCDEFE72C2 /* Column.swift */,
+				FE229B49576F2A4BC0D0D023C1A6CC22 /* ColumnCodable.swift */,
+				7AED83AF31225358668C4DEAADE0EF75 /* ColumnConstraintBinding.swift */,
+				D8636DEAD76BFB246F040D3DC6B8E163 /* ColumnDef.swift */,
+				556DEB63AD1B01D869D33C066F258EDF /* ColumnIndex.swift */,
+				40CA9C2304C25B3020B2BF7019736E2A /* ColumnResult.swift */,
+				C3299F12080A3B1EFA7669D7E3FFE6D5 /* ColumnType.swift */,
+				6AF3E73D5B06E0DC15057AEAA3572EB8 /* ColumnTypeDecoder.swift */,
+				0BFDC83A079F013EC393EDEA5311AC1F /* CommonStatement.swift */,
+				E4100FB1572B4FFF9BC0823334E46D0A /* ConcurrentList.swift */,
+				F6DAE773118685440F8C119A1D0F5E73 /* Config.swift */,
+				8885D350E8A42497761E274A992B9B73 /* Conflict.swift */,
+				56B1D4127B880F134D921AD7117AA9A4 /* Convenience.swift */,
+				289B4713A044588BE0671E1371F51F4C /* Convertible.swift */,
+				F76099F2136F86EB5DD070AEB13864A2 /* Core.swift */,
+				2C91CD175DA1BB88A2027B09CF48974C /* CoreStatement.swift */,
+				A072A85577232D3602D67420D247B29A /* Database.swift */,
+				0A5707A207867E6D67EBA1B96EA4485C /* Declare.swift */,
+				3E8F2029D1DA6D5161B42F08326743A4 /* Delete.swift */,
+				6C69153D11363A2714DF4C7CAB842058 /* Describable.swift */,
+				0A97867C652EC26F33DC49DD65FB7EEF /* Error.swift */,
+				A30DD9370A1DCF87A4E790AE0049A6D2 /* Expression.swift */,
+				97C5BA46911778FF62662D3A5426C702 /* File.swift */,
+				6D3E48F9A5461DD463EE0C3EEF332E81 /* ForeignKey.swift */,
+				818E7628E7138CED02695F2EDE6C209E /* FundamentalValue.swift */,
+				850CFA069C42499D5C735AE5C455A6C2 /* Handle.swift */,
+				35632D7059C7C3D63BFDAE3C2950F99B /* HandlePool.swift */,
+				11F25A282B00D6F61100BA139521AD44 /* HandleStatement.swift */,
+				3F37419A6C8B2273C4C381E263B15D9A /* IndexBinding.swift */,
+				E61D7A41AF5364A0019326AC4C36B881 /* Insert.swift */,
+				E8150A573BDC1D3AC81059AC513F9191 /* Interface.swift */,
+				2FCF72CEBC9D21F967DB7060D7659E0E /* JoinClause.swift */,
+				C9957C59BB8278AA543EED9EE7B3F717 /* LiteralValue.swift */,
+				B686C32813C936FDE11A3DB35EE1223C /* Lock.swift */,
+				2B1549E3CE4C7AF651944E5C6CB02D98 /* Master.swift */,
+				25CDB6F01644F8DCC4AACD6BA8B3D033 /* ModuleArgument.swift */,
+				1515A54E06ADA4740E6FE41C28AF8E0A /* MultiSelect.swift */,
+				1F0A19A0B8631B858C9A51608BD63E32 /* Operable.swift */,
+				8237AE1F54F9AD9FF023E544033D4B5D /* Optional.swift */,
+				31FF5DAF62E9CF36950C3CA905AFEC47 /* Order.swift */,
+				8D22AC97B70A4F6FB69CC0A286A0C8AF /* OrderTerm.swift */,
+				4B6C26E33616678A12E1A7C495FBED9A /* Pragma.swift */,
+				2022CF10542329DC8936CACA73E04998 /* Property.swift */,
+				41556C5905EFD8DE76843D36C798E080 /* Recyclable.swift */,
+				BFF55B1E1B831714705F639D14C78EEB /* RecyclableCore.swift */,
+				6069FE906D31FAAA5A5A51C9268B322E /* Redirectable.swift */,
+				28E20AA21F95F75B43DE81757EADCB33 /* RowSelect.swift */,
+				250C4BEF407076E8FFF7BE2AA61C4E5A /* RWLock.swift */,
+				F6FAF1EE7E0958C5A0D4CF010C31215A /* Select.swift */,
+				F73B5C1E80F9096A63A4754C85DA2F25 /* Selectable.swift */,
+				BF6ED89BF4002C56CBA2CE19D641F86C /* SQLite-Bridging.c */,
+				4BFD9ABD3192FB6F0CFC111E4BEE8691 /* SQLite-Bridging.h */,
+				08E08A31B9944C20AF702BFF31487B26 /* SQLite-Bridging.swift */,
+				FE14A0D584C0DFDF40A5F5FA4D9097D2 /* Statement.swift */,
+				28F18E2A59564F802783ED4470309818 /* StatementAlterTable.swift */,
+				876E5371414417DDF4BEA602518CFA3A /* StatementAttach.swift */,
+				C23A8F76EA2BE173F73C4C243450DB7C /* StatementCreateIndex.swift */,
+				5F3A6B036B3DC3E9662CB7451A13D9AB /* StatementCreateTable.swift */,
+				9BA94E73A6AA7AFADBF222AD631C2EA3 /* StatementCreateVirtualTable.swift */,
+				FB30B2758A6A3EB1B0440F07A1AAFE53 /* StatementDelete.swift */,
+				B9858E8604AF48747AACB12A457C85A9 /* StatementDetach.swift */,
+				7B03A3018E6B6D4746F18BF0CCC1CCF2 /* StatementDropIndex.swift */,
+				F5FA1277FA83A71E00D492B1C940A833 /* StatementDropTable.swift */,
+				B2136B4CB345E0F5522D6E38BE472E8E /* StatementExplain.swift */,
+				0ACB56B5CEC68AD9F5E791E9BDCE8DBA /* StatementInsert.swift */,
+				EAABB3B3ABC33ECEAF478AB029E1D1AA /* StatementPragma.swift */,
+				72FDDEB9BF881C859C978B9701954B7B /* StatementReindex.swift */,
+				74F57086D5E003E32ABBFA302D1DD71A /* StatementRelease.swift */,
+				62D798F17EF5348E08DF758B97F35FC1 /* StatementRollback.swift */,
+				8B2677580CE29ECC98DFE7AE0128AF9D /* StatementSavepoint.swift */,
+				9BD960FB3ADAA50C308AABB9D8CDECD3 /* StatementSelect.swift */,
+				98E79C7E6D850BF720AA67DB4A260627 /* StatementTransaction.swift */,
+				8BEA07CFC06457A8A467D0342B82B515 /* StatementUpdate.swift */,
+				4BA0FEBB911E31FCB4314040A892CB75 /* StatementVacuum.swift */,
+				EF09C4684DAF5C53F651A12665E712EE /* SteadyClock.swift */,
+				B0973A02C166F02D2B2BB547B0783968 /* Subquery.swift */,
+				ADB932391AEBE2A3A9E779CDC6BC8105 /* Table.swift */,
+				0C0389C7B7CFECA4C3920EF57E7776FA /* TableBinding.swift */,
+				2D14197B2368AB82106A039E2A064446 /* TableCodable.swift */,
+				091CDD59C8ED5A90B7B4852772AD98B0 /* TableConstraint.swift */,
+				6BB0C43C9618877FC8828D1CAD186D17 /* TableConstraintBinding.swift */,
+				9C2ED18B51A4C7DD87CCE7295981261F /* TableDecoder.swift */,
+				65594E69A47D5B4D128588D57936C5E5 /* TableEncoder.swift */,
+				F2724EBAEEDA40E053BC7D2972D82C75 /* TableInterface.swift */,
+				87EF7DE89F073C5CF0E2E2EF1EDF8403 /* Tagged.swift */,
+				C187450BC6F810CB23539C1FA17CB4C5 /* ThreadLocal.swift */,
+				61F512DEA5FEBAED06568F9441A7A750 /* TimedQueue.swift */,
+				780D868999536DD6588F13D551D87EE5 /* Tokenize.swift */,
+				EFA7959A7E09FF6A1C90096FCE5917D7 /* Tracer.swift */,
+				AA215A4BDE4A8A073E0A73804A039E6D /* Transaction.swift */,
+				B8E3F113A1A6BBDC6BDA3640C627C7CE /* Update.swift */,
+				C543EC9361C34A1EE9316FE21535A3AA /* VirtualTableBinding.swift */,
+				4CE2457E3A785CCC1F1BBAF4D3BFC797 /* WCDB-Bridging.h */,
+				8B616A9C7C145026160A1AFE77E1A3EC /* WCDBTokenize.swift */,
+				66D35A177A3E35081E3B2CDFF9178B60 /* Support Files */,
+			);
+			name = WCDB.swift;
+			path = WCDB.swift;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		3E778AAF43692530078774B231566A67 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60E18F9137E555849F436FB0E538EAAC /* SQLite-Bridging.h in Headers */,
+				0A735124CB220FF49D59A2839E279005 /* WCDB-Bridging.h in Headers */,
+				58AFD8D688AF2FAB15C5BC32E1D931B2 /* WCDB.swift-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		4EAAAD4A9736C05D0B4707614E368B84 /* WCDB.swift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9B4A5017CADBE63A13DE5E2EE1227B13 /* Build configuration list for PBXNativeTarget "WCDB.swift" */;
+			buildPhases = (
+				3E778AAF43692530078774B231566A67 /* Headers */,
+				570AFC623D0FC42F102168AF4E718AA2 /* Sources */,
+				6FF27EFBD6A895986DFB940400F9F7EF /* Frameworks */,
+				C30CB7672BFD79662B0E8ECAC97D4795 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F884DD8FAC8AF6846C56A11D92EFBCAD /* PBXTargetDependency */,
+				85159E469D47CE874338B22DAF9B1816 /* PBXTargetDependency */,
+			);
+			name = WCDB.swift;
+			productName = WCDBSwift;
+			productReference = 25AB8830D14FEBB1F527B331B408FD4D /* WCDB.swift */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F986FBAAA2DD46A809EA6A4C46AFACEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+			};
+			buildConfigurationList = F2635CC716BC28B2A821061573912CA4 /* Build configuration list for PBXProject "WCDB.swift" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 350D81E6D2082728231D701E9FC01667;
+			productRefGroup = 82A12F9016C64B4B732571E309CA7DB2 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProjectRef = A3BC5694ADA3E5F70C591744B5EFCC9C /* WCDBOptimizedSQLCipher */;
+				},
+				{
+					ProjectRef = 27D1A72264D8220BAED8CE47CC9BA36F /* SQLiteRepairKit */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				4EAAAD4A9736C05D0B4707614E368B84 /* WCDB.swift */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C30CB7672BFD79662B0E8ECAC97D4795 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		570AFC623D0FC42F102168AF4E718AA2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C04341C03D6210505D3AAF473E60C2C /* Atomic.swift in Sources */,
+				B975DD5356F7614B19AEBA695F49B60F /* ChainCall.swift in Sources */,
+				44A50DDDF23FF7261487BFBE84FBCC6F /* CodableType.swift in Sources */,
+				7B06E90A86A20EC975331C2185E7163C /* CodingTableKey.swift in Sources */,
+				36C85945DDAA28C3540DD5203E864757 /* Column.swift in Sources */,
+				FAEC088031C3391ED364D1AC2D5BE42C /* ColumnCodable.swift in Sources */,
+				7BFBAC1D28016BB288D7814B65E53FBF /* ColumnConstraintBinding.swift in Sources */,
+				8502E94D8CA6CE7A531262889EF319BF /* ColumnDef.swift in Sources */,
+				4E35F048A60D684A1AF3A39C65E8627D /* ColumnIndex.swift in Sources */,
+				5D31B58AA8971222E6E3F4ADA955A3C2 /* ColumnResult.swift in Sources */,
+				FFF528C305E19A5ECE6C9A1BFFED7C09 /* ColumnType.swift in Sources */,
+				62123155EAC9628D827282EE79E3ADA8 /* ColumnTypeDecoder.swift in Sources */,
+				164FC431C2C050C58EE8D3FE13AD3B7C /* CommonStatement.swift in Sources */,
+				0A44240895C20253A1BEDB25406F0D24 /* ConcurrentList.swift in Sources */,
+				8A53B7A24C3E4361FB14031B0F8A1458 /* Config.swift in Sources */,
+				27285EA438ACA4C7C3FA010768CC874A /* Conflict.swift in Sources */,
+				64F8386A2A23D68CFDA0779FA1187AFB /* Convenience.swift in Sources */,
+				EB8C24F2A6056F99304A7F19E4F9A6D3 /* Convertible.swift in Sources */,
+				D4373ABC40D7F0C67A742963EE8FF6EB /* Core.swift in Sources */,
+				A0A39F09D5F414426870C6D45919F9CE /* CoreStatement.swift in Sources */,
+				420C83E705B190C9651D39CC25183A98 /* Database.swift in Sources */,
+				FDE71B5195873F497F5A43A841A88485 /* Declare.swift in Sources */,
+				1A5AE75CB325FDE0AC2ED71CF101DCD3 /* Delete.swift in Sources */,
+				636D6CB65315F5F70587FC6CA12A1859 /* Describable.swift in Sources */,
+				597FA03029BCE471C1A35587575D5739 /* Error.swift in Sources */,
+				4EE9AD3E9910A15E43E19B4953EB086E /* Expression.swift in Sources */,
+				2FB28D118E2AA9CCD57C014FABFDC43B /* File.swift in Sources */,
+				1A9F71623EE8C0788EACB8EC3BCC0B51 /* ForeignKey.swift in Sources */,
+				B75738C42FF3E2B1ADD4C093DEA4FA36 /* FundamentalValue.swift in Sources */,
+				8B674C42B8B88408B148FB437BA872A3 /* Handle.swift in Sources */,
+				CD6E19C7279B89860B5B9C5087DB94A8 /* HandlePool.swift in Sources */,
+				27542F22338E7E2D0A2F52B7F98267BF /* HandleStatement.swift in Sources */,
+				D9A7050E1F3203213F4E34AEAAAE44E4 /* IndexBinding.swift in Sources */,
+				8C8E09AD9884DC975A09D7ADFF1EDFC5 /* Insert.swift in Sources */,
+				51D5C837D9DE34211B0C02FC784A16EC /* Interface.swift in Sources */,
+				9A1BEFAE555EFECAD64F6E650FB39065 /* JoinClause.swift in Sources */,
+				09B5305126B6501FA25712E8B70A9B21 /* LiteralValue.swift in Sources */,
+				03E2C5F1955ECD1EF15D82E5EC9B8FD9 /* Lock.swift in Sources */,
+				A18E768F7DCBA92E7300EBA7786BE7B5 /* Master.swift in Sources */,
+				FCA55725F335187FD21571F95AD07D24 /* ModuleArgument.swift in Sources */,
+				E8147E0DEDC9530280573CCD81E3683A /* MultiSelect.swift in Sources */,
+				590F28AADEDE7D779CE69EFF2FE4B5FA /* Operable.swift in Sources */,
+				96F2516496AB35A6D00D6469FE37A7E8 /* Optional.swift in Sources */,
+				66C797FDA5E6AEF8F5D9166A0D52DDAD /* Order.swift in Sources */,
+				61982D488EA71F7E4D918CD9FA8DDA6C /* OrderTerm.swift in Sources */,
+				5C9B13F548604463AA2A1CBB33B81AF6 /* Pragma.swift in Sources */,
+				25F87752AFB1F3692DC3352F345F061A /* Property.swift in Sources */,
+				5253A5A13AD9217F4A6D962982016F24 /* Recyclable.swift in Sources */,
+				7BFEC7A885716EF738132187F3D6E8B4 /* RecyclableCore.swift in Sources */,
+				541ABFAD60FE4CCF0E04C294742060A0 /* Redirectable.swift in Sources */,
+				B7DAADF119C813387EE275612F979CC9 /* RowSelect.swift in Sources */,
+				8DD2A2F22AC74D04A0F3310C0B4477CA /* RWLock.swift in Sources */,
+				B992BD920F062A98DB76CAA57CC65016 /* Select.swift in Sources */,
+				AE37BAF478BDC3ECE38CA8E7CBEBBC80 /* Selectable.swift in Sources */,
+				41057DCF05FEA8754E5BBEC9D03D2C9D /* SQLite-Bridging.c in Sources */,
+				013C49983F0EECA1D8A34DA533D54FDA /* SQLite-Bridging.swift in Sources */,
+				E77E7B2339FF313F9E403D38E13AC970 /* Statement.swift in Sources */,
+				411540B926330F2B4C0CD1A0B73C7970 /* StatementAlterTable.swift in Sources */,
+				BB45D150EA5D8F723BE7B917E33CDA40 /* StatementAttach.swift in Sources */,
+				84863242E71D9D5EBD62788E0E2463F1 /* StatementCreateIndex.swift in Sources */,
+				4226345D7B0904E0CDCBCBF8BDBAA85B /* StatementCreateTable.swift in Sources */,
+				108CEB813AC77900FA27318731EAB7E7 /* StatementCreateVirtualTable.swift in Sources */,
+				057F01C39FB58FF22E03AFFBB607460B /* StatementDelete.swift in Sources */,
+				1158B3A7F7B13FE1B18B20E798F9C037 /* StatementDetach.swift in Sources */,
+				EC3A07095422AFD616641F8B09AB759D /* StatementDropIndex.swift in Sources */,
+				8ADD29697D81A1508C5A436306F5404A /* StatementDropTable.swift in Sources */,
+				935B19477DBCFD792B7DA59BAB5E5987 /* StatementExplain.swift in Sources */,
+				B641AC664B036BDFA8B4D32FC40C3038 /* StatementInsert.swift in Sources */,
+				2D733EC011ADC52E59FC1B434469A9C4 /* StatementPragma.swift in Sources */,
+				3081896F89A0CEAF2A6DFA5D27A71D30 /* StatementReindex.swift in Sources */,
+				C0E494FF213635338AEC64E3A2F2902B /* StatementRelease.swift in Sources */,
+				9894E474B1A3C23EDBF953CCF7C09721 /* StatementRollback.swift in Sources */,
+				EDF37404F21B1CA75000D2FD87315797 /* StatementSavepoint.swift in Sources */,
+				C569E19DB5C136C106A9980145994EC6 /* StatementSelect.swift in Sources */,
+				4D8872457636DC7DE18B1EDD8FF1F68D /* StatementTransaction.swift in Sources */,
+				0CE6D870E82E92DAC1D268BD09384182 /* StatementUpdate.swift in Sources */,
+				CABCF14E49BA41994954081BF8ABE15C /* StatementVacuum.swift in Sources */,
+				027FBB30386906CB7D666487E2FF4A66 /* SteadyClock.swift in Sources */,
+				D631F583C2EA5472A16E5F7AB962CF91 /* Subquery.swift in Sources */,
+				4E45EB2AA7EE071B3AF29273757A5A20 /* Table.swift in Sources */,
+				3507771F850452E52FD00F0240FB87CC /* TableBinding.swift in Sources */,
+				B1F017764DE4DE2493F9EFBB133B1F61 /* TableCodable.swift in Sources */,
+				C2E0636249C902EAA944FD025C99F6D6 /* TableConstraint.swift in Sources */,
+				75948F0B5BECFD01391CE7784BEAADD7 /* TableConstraintBinding.swift in Sources */,
+				C0B88E4E8E5C37FDCD5FD19FF1D310E2 /* TableDecoder.swift in Sources */,
+				DA582DC413045D8D18A139F7A390F858 /* TableEncoder.swift in Sources */,
+				460B13220E63BB29C50B9A81C920E55C /* TableInterface.swift in Sources */,
+				1F99EF46B98800CDB68AF68EA1E262EB /* Tagged.swift in Sources */,
+				73EE699088AAFF42A92738A03ECE1800 /* ThreadLocal.swift in Sources */,
+				4BC70847EDB20C944B7C2A351C4C835B /* TimedQueue.swift in Sources */,
+				EBE779F57B5DB9845B4231091950A55B /* Tokenize.swift in Sources */,
+				45E6F826C2A1EB894323A3AB835DDF74 /* Tracer.swift in Sources */,
+				2742E413003BFBFFE684E5C8AFF9A033 /* Transaction.swift in Sources */,
+				9A326BB36F84A0970CDD0B04EED7FD90 /* Update.swift in Sources */,
+				7D0CAF33CD81F1786DBD53A1780F046F /* VirtualTableBinding.swift in Sources */,
+				4170027AF8D5B066446C5E63991E8CE4 /* WCDB.swift-dummy.m in Sources */,
+				35AE817FAAD12574525181BD78289CD4 /* WCDBTokenize.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		85159E469D47CE874338B22DAF9B1816 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = WCDBOptimizedSQLCipher;
+			targetProxy = B53AE04AAEE7B23EFE228ED0AFD8249C /* PBXContainerItemProxy */;
+		};
+		F884DD8FAC8AF6846C56A11D92EFBCAD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SQLiteRepairKit;
+			targetProxy = F27637A61560590496E5791936F3AD3F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2F40409524C5D9AD1790324AE7802613 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 927502B7DA546FD969269DE71CE79192 /* WCDB.swift.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/WCDB.swift/WCDB.swift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/WCDB.swift/WCDB.swift-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/WCDB.swift/WCDB.swift.modulemap";
+				PRODUCT_MODULE_NAME = WCDBSwift;
+				PRODUCT_NAME = WCDBSwift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		489C4045EB8D7AAB143886206FAC11BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F76470DDEFC667342A99BB50D821A2C /* WCDB.swift.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/WCDB.swift/WCDB.swift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/WCDB.swift/WCDB.swift-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/WCDB.swift/WCDB.swift.modulemap";
+				PRODUCT_MODULE_NAME = WCDBSwift;
+				PRODUCT_NAME = WCDBSwift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D093CE025FB8AA23185865C03B74A811 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		F3B432464B71A29BDA3865FA10236A74 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9B4A5017CADBE63A13DE5E2EE1227B13 /* Build configuration list for PBXNativeTarget "WCDB.swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				489C4045EB8D7AAB143886206FAC11BF /* Debug */,
+				2F40409524C5D9AD1790324AE7802613 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F2635CC716BC28B2A821061573912CA4 /* Build configuration list for PBXProject "WCDB.swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D093CE025FB8AA23185865C03B74A811 /* Debug */,
+				F3B432464B71A29BDA3865FA10236A74 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F986FBAAA2DD46A809EA6A4C46AFACEA /* Project object */;
+}

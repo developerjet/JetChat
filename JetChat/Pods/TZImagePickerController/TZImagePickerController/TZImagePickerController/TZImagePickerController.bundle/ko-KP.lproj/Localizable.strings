@@ -2,6 +2,7 @@
 "OK"                      = "그래";
 "Back"                    = "뒤로";
 "Done"                    = "완료";
+"Edit"                    = "편집하다";
 "Sorry"                   = "미안해요";
 "Cancel"                  = "취소";
 "Setting"                 = "설정";
@@ -12,6 +13,7 @@
 "Processing..."           = "처리...";
 "No Photos or Videos"     = "아무 사진이 나 동영상";
 "Synchronizing photos from iCloud" = "ICloud에서 사진을 동기화";
+"iCloud sync failed"    = "iCloud동기화 실패";
 "Can not use camera"      = "카메라를 사용할 수 없습니다.";
 "Can not choose both video and photo" = "비디오와 사진 둘 다를 선택할 수 없습니다.";
 "Can not choose both photo and GIF" = "사진 및 GIF를 선택할 수 없습니다.";
@@ -21,3 +23,4 @@
 "Select a minimum of %zd photos" = "최소 %zd장의 사진을 선택해 주세요.";
 "Allow %@ to access your album in \"Settings -> Privacy -> Photos\"" = "\"설정 > 개인 정보 보호 > 사진\"에서 %@이(가) 앨범에 접근할 수 있도록 허용하세요.";
 "Please allow %@ to access your camera in \"Settings -> Privacy -> Camera\"" = "\"설정 > 개인 정보 보호 > 카메라\"에서 %@이(가) 카메라에 접근할 수 있도록 허용하세요.";
+"Selected for %ld seconds" = "%ld 초 동안 선택됨";

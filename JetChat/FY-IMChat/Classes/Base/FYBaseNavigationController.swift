@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwiftTheme
 
 class FYBaseNavigationController: UINavigationController {
     
@@ -28,38 +27,47 @@ class FYBaseNavigationController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // initialize
-        makeNavigation()
-        // 设置代理
-        delegate = self
-        navigationBar.isTranslucent = false
-        interactivePopGestureRecognizer?.delegate = self
-        automaticallyAdjustsScrollViewInsets = false;
+        
+        didInitialize()
     }
     
     // 初始化导航栏
-    func makeNavigation() {
-        let navigationBar = UINavigationBar.appearance()
-        let shadow = NSShadow()
-        shadow.shadowOffset = CGSize(width: 0, height: 0)
+    func didInitialize() {
         
-        navigationBar.theme_tintColor = "Global.navBarTitleColor"
-        navigationBar.theme_barTintColor = "Global.navBarBgColor"
-        navigationBar.theme_titleTextAttributes = ThemeStringAttributesPicker(keyPath: "Global.navBarTitleColor") { value -> [NSAttributedString.Key : AnyObject]? in
-            guard let rgba = value as? String else {
-                return nil
-            }
+        self.navigationBar.shadowImage = UIImage()
+        
+        // 导航栏的背景颜色
+        self.navigationBar.backgroundColor = .colorWithHexStr("696969")
+        
+        let titleTextAttributes = [NSAttributedString.Key.font:UIFont.PingFangMedium(17),
+                                   NSAttributedString.Key.foregroundColor:UIColor.white]
+        
+        let navBackgroundColor = UIColor.colorWithHexStr("696969")
+        
+        if #available(iOS 13, *) {
+            let appearance = UINavigationBarAppearance()
+            //重置导航栏背景颜色和阴影
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = navBackgroundColor
+            appearance.shadowImage = UIImage()
+            appearance.shadowColor = nil
+            appearance.titleTextAttributes = titleTextAttributes
             
-            let color = UIColor(rgba: rgba)
-            let shadow = NSShadow(); shadow.shadowOffset = CGSize.zero
-            let titleTextAttributes = [
-                NSAttributedString.Key.foregroundColor: color,
-                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17),
-                NSAttributedString.Key.shadow: shadow
-            ]
+            self.navigationBar.standardAppearance = appearance
+            self.navigationBar.scrollEdgeAppearance = appearance
+        }else {
+            self.navigationBar.barTintColor = navBackgroundColor
+            self.navigationBar.titleTextAttributes = titleTextAttributes
             
-            return titleTextAttributes
+            let backgroundImage = UIImage.imageWithColor(navBackgroundColor)
+            self.navigationBar.setBackgroundImage(backgroundImage, for: .default)
         }
+        
+        // 设置代理
+        delegate = self
+        self.navigationBar.isTranslucent = false
+        self.interactivePopGestureRecognizer?.delegate = self
+        self.automaticallyAdjustsScrollViewInsets = false;
     }
 }
 
@@ -85,7 +93,6 @@ extension FYBaseNavigationController: UINavigationControllerDelegate, UIGestureR
     
     /// 返回&出栈
     @objc private func pop() {
-        
         self.popViewController(animated: true)
     }
 }

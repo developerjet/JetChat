@@ -57,7 +57,8 @@ typedef NS_ENUM(NSUInteger, SDImageCacheConfigExpireType) {
 /*
  * The option to control weak memory cache for images. When enable, `SDImageCache`'s memory cache will use a weak maptable to store the image at the same time when it stored to memory, and get removed at the same time.
  * However when memory warning is triggered, since the weak maptable does not hold a strong reference to image instance, even when the memory cache itself is purged, some images which are held strongly by UIImageViews or other live instances can be recovered again, to avoid later re-query from disk cache or network. This may be helpful for the case, for example, when app enter background and memory is purged, cause cell flashing after re-enter foreground.
- * Defautls to YES. You can change this option dynamically.
+ * When enabling this option, we will sync back the image from weak maptable to strong cache during next time top level `sd_setImage` function call.
+ * Defaults to NO (YES before 5.12.0 version). You can change this option dynamically.
  */
 @property (assign, nonatomic) BOOL shouldUseWeakMemoryCache;
 
@@ -66,6 +67,12 @@ typedef NS_ENUM(NSUInteger, SDImageCacheConfigExpireType) {
  * Defaults to YES.
  */
 @property (assign, nonatomic) BOOL shouldRemoveExpiredDataWhenEnterBackground;
+
+/**
+ * Whether or not to remove the expired disk data when application been terminated. This operation is processed in sync to ensure clean up.
+ * Defaults to YES.
+ */
+@property (assign, nonatomic) BOOL shouldRemoveExpiredDataWhenTerminate;
 
 /**
  * The reading options while reading cache from disk.
@@ -115,7 +122,7 @@ typedef NS_ENUM(NSUInteger, SDImageCacheConfigExpireType) {
 /**
  * The custom file manager for disk cache. Pass nil to let disk cache choose the proper file manager.
  * Defaults to nil.
- * @note This value does not support dynamic changes. Which means further modification on this value after cache initlized has no effect.
+ * @note This value does not support dynamic changes. Which means further modification on this value after cache initialized has no effect.
  * @note Since `NSFileManager` does not support `NSCopying`. We just pass this by reference during copying. So it's not recommend to set this value on `defaultCacheConfig`.
  */
 @property (strong, nonatomic, nullable) NSFileManager *fileManager;
@@ -123,14 +130,14 @@ typedef NS_ENUM(NSUInteger, SDImageCacheConfigExpireType) {
 /**
  * The custom memory cache class. Provided class instance must conform to `SDMemoryCache` protocol to allow usage.
  * Defaults to built-in `SDMemoryCache` class.
- * @note This value does not support dynamic changes. Which means further modification on this value after cache initlized has no effect.
+ * @note This value does not support dynamic changes. Which means further modification on this value after cache initialized has no effect.
  */
 @property (assign, nonatomic, nonnull) Class memoryCacheClass;
 
 /**
  * The custom disk cache class. Provided class instance must conform to `SDDiskCache` protocol to allow usage.
  * Defaults to built-in `SDDiskCache` class.
- * @note This value does not support dynamic changes. Which means further modification on this value after cache initlized has no effect.
+ * @note This value does not support dynamic changes. Which means further modification on this value after cache initialized has no effect.
  */
 @property (assign ,nonatomic, nonnull) Class diskCacheClass;
 

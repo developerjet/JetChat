@@ -32,28 +32,3 @@ extension UIViewController {
     }
 }
 
-
-extension UIViewController {
-    
-    /// 设置空页面时机(在第一个加载的时候)
-    func reloadDataBySetEmpty(_ view: UIView) {
-        if view.isKind(of: UITableView.self) {
-            if let tableView = view as? UITableView {
-                if tableView.emptyDataSetSource == nil {
-                    tableView.emptyDataSetDelegate = self as? DZNEmptyDataSetDelegate
-                    tableView.emptyDataSetSource = self as? DZNEmptyDataSetSource
-                    tableView.reloadEmptyDataSet()
-                }
-            }
-        }else if (view.isKind(of: UICollectionView.self)) {
-            if let collectionView = view as? UICollectionView {
-                if collectionView.emptyDataSetSource == nil {
-                    collectionView.emptyDataSetDelegate = self as? DZNEmptyDataSetDelegate
-                    collectionView.emptyDataSetSource = self as? DZNEmptyDataSetSource
-                    collectionView.reloadEmptyDataSet()
-                }
-            }
-        }
-    }
-}
-

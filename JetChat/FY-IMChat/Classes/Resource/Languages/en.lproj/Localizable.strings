@@ -1,5 +1,3 @@
-"zero_app_display_name" = "IMChat";
-
-"app_alert_title_confirm" = "confirm";
-"app_alert_title_cancel" = "cancel";
-"app_alert_title_reminder" = "Tips";
+"确定" = "confirm";
+"取消" = "cancel";
+"温馨提示" = "Tips";

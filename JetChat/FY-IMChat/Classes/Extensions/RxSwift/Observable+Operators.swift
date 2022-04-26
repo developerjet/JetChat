@@ -11,9 +11,9 @@ import RxSwift
 import RxCocoa
 
 extension Reactive where Base: UIView {
-//    func tap() -> Observable<Void> {
-//        return tapGesture().when(.recognized).mapToVoid()
-//    }
+    func tap() -> Observable<Void> {
+        return tap()
+    }
 }
 
 protocol OptionalType {
@@ -80,7 +80,7 @@ extension Observable where Element: Equatable {
     }
 }
 
-extension ObservableType where E == Bool {
+extension ObservableType where Element == Bool {
     /// Boolean not operator
     public func not() -> Observable<Bool> {
         return self.map(!)
@@ -94,14 +94,7 @@ extension SharedSequenceConvertibleType {
 }
 
 extension ObservableType {
-
-    func catchErrorJustComplete() -> Observable<E> {
-        return catchError { _ in
-            return Observable.empty()
-        }
-    }
-
-    func asDriverOnErrorJustComplete() -> Driver<E> {
+    func asDriverOnErrorJustComplete() -> Driver<Element> {
         return asDriver { error in
             assertionFailure("Error \(error)")
             return Driver.empty()
@@ -205,16 +198,4 @@ func <-> <T>(property: ControlProperty<T>, variable: BehaviorRelay<T>) -> Dispos
         })
 
     return Disposables.create(bindToUIDisposable, bindToVariable)
-}
-extension ObservableType {
-    
-    public func flatMapLatest<O: ObservableConvertibleType>(selector: @escaping  (Self.E) throws -> O,onError: (@escaping (Swift.Error) throws ->())) -> RxSwift.Observable<O.E> {
-        
-        return flatMapLatest({ x in
-            try selector(x).asObservable().catchError({ error in
-                try onError(error)
-                return Observable.never()
-            })
-        })
-    }
 }

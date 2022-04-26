@@ -2,6 +2,7 @@
 "OK"                      = "Хорошо";
 "Back"                    = "назад";
 "Done"                    = "Готово";
+"Edit"                    = "редактировать";
 "Sorry"                   = "сожалею";
 "Cancel"                  = "отменить";
 "Setting"                 = "настройка";
@@ -12,6 +13,7 @@
 "Processing..."           = "Обработка ...";
 "No Photos or Videos"     = "Нет фото или видео";
 "Synchronizing photos from iCloud" = "Синхронизация фотографий из iCloud";
+"iCloud sync failed"    = "iCloud сбой синхронизации";
 "Can not use camera"      = "Не могу использовать камеру";
 "Can not choose both video and photo" = "Не могу выбрать как видео,так и фото";
 "Can not choose both photo and GIF" = "Не могу выбрать фото и GIF";
@@ -21,3 +23,4 @@
 "Select a minimum of %zd photos" = "Вы можете выбрать не менее %zd изображений";
 "Allow %@ to access your album in \"Settings -> Privacy -> Photos\"" = "Разрешите доступ %@ к вашему альбому,перейдя в Настройки > Конфиденциальность > Фото";
 "Please allow %@ to access your camera in \"Settings -> Privacy -> Camera\"" = "Разрешите доступ %@ к камере вашего устройства,перейдя в Настройки > Конфиденциальность > Камера";
+"Selected for %ld seconds" = "Выбрано для %ld секунд";

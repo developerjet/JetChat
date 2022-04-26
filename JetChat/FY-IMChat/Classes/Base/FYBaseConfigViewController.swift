@@ -17,9 +17,6 @@ import Moya
 class FYBaseConfigViewController: UIViewController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        if AppThemes.lastSetedTheme() == .light {
-            return .default
-        }
         return .lightContent
     }
     
@@ -99,7 +96,7 @@ class FYBaseConfigViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.fd_prefersNavigationBarHidden = false
-        view.theme_backgroundColor = "Global.backgroundColor"
+        view.backgroundColor = UIColor.colorWithHexStr("F7F7F7")
         
         automaticallyAdjustsScrollViewInsets = false
         modalPresentationCapturesStatusBarAppearance = false

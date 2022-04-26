@@ -1,0 +1,406 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1C010105DDAEBDED0903128348301D7A /* UIView+FDCollapsibleConstraints.h in Headers */ = {isa = PBXBuildFile; fileRef = 969DA39AF015BA72212F9C847A40C920 /* UIView+FDCollapsibleConstraints.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		47AD5553090FFCD2CE658D3E3DEBF6E5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7E286CA4A5F14B5DD9A04F50E0C35F /* Foundation.framework */; };
+		972532C9608F31B1987A4AA7487C8598 /* UIView+FDCollapsibleConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = E5532F5D66F8DFBA9C87DBFBD3D03DBE /* UIView+FDCollapsibleConstraints.m */; };
+		988C9CD86D4AA046390244E14CEB241E /* UIView+FDCollapsibleConstraints-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AC1654DFB40505EC0B615B2275AB355 /* UIView+FDCollapsibleConstraints-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B740C40417952E3870D3F9739BE95A85 /* UIView+FDCollapsibleConstraints-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 46F26C23D78D58B521829731B4FF78FB /* UIView+FDCollapsibleConstraints-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		36609745833675C157CB207E2D81E252 /* UIView+FDCollapsibleConstraints-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "UIView+FDCollapsibleConstraints-Info.plist"; sourceTree = "<group>"; };
+		46F26C23D78D58B521829731B4FF78FB /* UIView+FDCollapsibleConstraints-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIView+FDCollapsibleConstraints-dummy.m"; sourceTree = "<group>"; };
+		4AC1654DFB40505EC0B615B2275AB355 /* UIView+FDCollapsibleConstraints-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIView+FDCollapsibleConstraints-umbrella.h"; sourceTree = "<group>"; };
+		5384065D3B35C59943B009536B20AE94 /* UIView+FDCollapsibleConstraints.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "UIView+FDCollapsibleConstraints.modulemap"; sourceTree = "<group>"; };
+		6E7E286CA4A5F14B5DD9A04F50E0C35F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		7EF4ED1716912F813C6E4BE0C2C44C96 /* UIView+FDCollapsibleConstraints.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "UIView+FDCollapsibleConstraints.release.xcconfig"; sourceTree = "<group>"; };
+		8DAFC143C480F429F6084E7122AFF71F /* UIView+FDCollapsibleConstraints */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "UIView+FDCollapsibleConstraints"; path = UIView_FDCollapsibleConstraints.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		969DA39AF015BA72212F9C847A40C920 /* UIView+FDCollapsibleConstraints.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+FDCollapsibleConstraints.h"; path = "Classes/UIView+FDCollapsibleConstraints.h"; sourceTree = "<group>"; };
+		B7FD4CEFB45302D8C100BA871F0FE618 /* UIView+FDCollapsibleConstraints.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "UIView+FDCollapsibleConstraints.debug.xcconfig"; sourceTree = "<group>"; };
+		DB504BB8244B74D2F0261A68F5F718FA /* UIView+FDCollapsibleConstraints-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIView+FDCollapsibleConstraints-prefix.pch"; sourceTree = "<group>"; };
+		E5532F5D66F8DFBA9C87DBFBD3D03DBE /* UIView+FDCollapsibleConstraints.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+FDCollapsibleConstraints.m"; path = "Classes/UIView+FDCollapsibleConstraints.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7717BDBAA85A3EAE87C403283B52AC97 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47AD5553090FFCD2CE658D3E3DEBF6E5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2D31B64AFA7CAE50B31E529CBC424368 = {
+			isa = PBXGroup;
+			children = (
+				D82E421E72FD536B3A6996C9C5BD708E /* Frameworks */,
+				2E2910AB20145C577898813637C3F217 /* Products */,
+				E73E9CD5081BC073E14E88BB277DBCE9 /* UIView+FDCollapsibleConstraints */,
+			);
+			sourceTree = "<group>";
+		};
+		2E2910AB20145C577898813637C3F217 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8DAFC143C480F429F6084E7122AFF71F /* UIView+FDCollapsibleConstraints */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		31AB1ACBAB796D939CCA0C500A74BC8D /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6E7E286CA4A5F14B5DD9A04F50E0C35F /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		D82E421E72FD536B3A6996C9C5BD708E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				31AB1ACBAB796D939CCA0C500A74BC8D /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E73E9CD5081BC073E14E88BB277DBCE9 /* UIView+FDCollapsibleConstraints */ = {
+			isa = PBXGroup;
+			children = (
+				969DA39AF015BA72212F9C847A40C920 /* UIView+FDCollapsibleConstraints.h */,
+				E5532F5D66F8DFBA9C87DBFBD3D03DBE /* UIView+FDCollapsibleConstraints.m */,
+				FE78FC97C32F6FEF2BDE9F30E66D9464 /* Support Files */,
+			);
+			name = "UIView+FDCollapsibleConstraints";
+			path = "UIView+FDCollapsibleConstraints";
+			sourceTree = "<group>";
+		};
+		FE78FC97C32F6FEF2BDE9F30E66D9464 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				5384065D3B35C59943B009536B20AE94 /* UIView+FDCollapsibleConstraints.modulemap */,
+				46F26C23D78D58B521829731B4FF78FB /* UIView+FDCollapsibleConstraints-dummy.m */,
+				36609745833675C157CB207E2D81E252 /* UIView+FDCollapsibleConstraints-Info.plist */,
+				DB504BB8244B74D2F0261A68F5F718FA /* UIView+FDCollapsibleConstraints-prefix.pch */,
+				4AC1654DFB40505EC0B615B2275AB355 /* UIView+FDCollapsibleConstraints-umbrella.h */,
+				B7FD4CEFB45302D8C100BA871F0FE618 /* UIView+FDCollapsibleConstraints.debug.xcconfig */,
+				7EF4ED1716912F813C6E4BE0C2C44C96 /* UIView+FDCollapsibleConstraints.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/UIView+FDCollapsibleConstraints";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		5A1C166569A71C45E808D9E1517E782D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C010105DDAEBDED0903128348301D7A /* UIView+FDCollapsibleConstraints.h in Headers */,
+				988C9CD86D4AA046390244E14CEB241E /* UIView+FDCollapsibleConstraints-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		F254007166B3EB42A09DBC736355B678 /* UIView+FDCollapsibleConstraints */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 782693A7D7D8F003751D1FC794435C57 /* Build configuration list for PBXNativeTarget "UIView+FDCollapsibleConstraints" */;
+			buildPhases = (
+				5A1C166569A71C45E808D9E1517E782D /* Headers */,
+				3920B9A4BF7D0AE71208BE9E746B2FAC /* Sources */,
+				7717BDBAA85A3EAE87C403283B52AC97 /* Frameworks */,
+				55F99CE7046FC02DB5DCE0E47B16C40A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "UIView+FDCollapsibleConstraints";
+			productName = UIView_FDCollapsibleConstraints;
+			productReference = 8DAFC143C480F429F6084E7122AFF71F /* UIView+FDCollapsibleConstraints */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5800FB358287256DB968AF2A1C0FDC49 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+			};
+			buildConfigurationList = A1ED46756FA660FF8A0800D053BEAB59 /* Build configuration list for PBXProject "UIView+FDCollapsibleConstraints" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 2D31B64AFA7CAE50B31E529CBC424368;
+			productRefGroup = 2E2910AB20145C577898813637C3F217 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F254007166B3EB42A09DBC736355B678 /* UIView+FDCollapsibleConstraints */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		55F99CE7046FC02DB5DCE0E47B16C40A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3920B9A4BF7D0AE71208BE9E746B2FAC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				972532C9608F31B1987A4AA7487C8598 /* UIView+FDCollapsibleConstraints.m in Sources */,
+				B740C40417952E3870D3F9739BE95A85 /* UIView+FDCollapsibleConstraints-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		32E80501C4B1DA3FE4E7E4878C66D833 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B7FD4CEFB45302D8C100BA871F0FE618 /* UIView+FDCollapsibleConstraints.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/UIView+FDCollapsibleConstraints/UIView+FDCollapsibleConstraints-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/UIView+FDCollapsibleConstraints/UIView+FDCollapsibleConstraints-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/UIView+FDCollapsibleConstraints/UIView+FDCollapsibleConstraints.modulemap";
+				PRODUCT_MODULE_NAME = UIView_FDCollapsibleConstraints;
+				PRODUCT_NAME = UIView_FDCollapsibleConstraints;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5256AA0DC59D0083CDE8726C8E8C26B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		654552BF04C3A1793C8250C03820F4C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7EF4ED1716912F813C6E4BE0C2C44C96 /* UIView+FDCollapsibleConstraints.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/UIView+FDCollapsibleConstraints/UIView+FDCollapsibleConstraints-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/UIView+FDCollapsibleConstraints/UIView+FDCollapsibleConstraints-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/UIView+FDCollapsibleConstraints/UIView+FDCollapsibleConstraints.modulemap";
+				PRODUCT_MODULE_NAME = UIView_FDCollapsibleConstraints;
+				PRODUCT_NAME = UIView_FDCollapsibleConstraints;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		76EB699657929BE2312FC1BE51E58EB6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		782693A7D7D8F003751D1FC794435C57 /* Build configuration list for PBXNativeTarget "UIView+FDCollapsibleConstraints" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32E80501C4B1DA3FE4E7E4878C66D833 /* Debug */,
+				654552BF04C3A1793C8250C03820F4C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1ED46756FA660FF8A0800D053BEAB59 /* Build configuration list for PBXProject "UIView+FDCollapsibleConstraints" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5256AA0DC59D0083CDE8726C8E8C26B6 /* Debug */,
+				76EB699657929BE2312FC1BE51E58EB6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5800FB358287256DB968AF2A1C0FDC49 /* Project object */;
+}

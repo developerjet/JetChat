@@ -32,7 +32,8 @@ private let sharedProcessingQueue: CallbackQueue =
 
 public struct ImageProgressive {
     
-    /// A default `ImageProgressive` could be used across.
+    /// A default `ImageProgressive` could be used across. It blurs the progressive loading with the fastest
+    /// scan enabled and scan interval as 0.
     public static let `default` = ImageProgressive(
         isBlur: true,
         isFastestScan: true,
@@ -48,7 +49,9 @@ public struct ImageProgressive {
     
     public init(isBlur: Bool,
                 isFastestScan: Bool,
-                scanInterval: TimeInterval) {
+                scanInterval: TimeInterval
+    )
+    {
         self.isBlur = isBlur
         self.isFastestScan = isFastestScan
         self.scanInterval = scanInterval
@@ -262,11 +265,15 @@ private final class ImageProgressiveDecoder {
 private final class ImageProgressiveSerialQueue {
     typealias ClosureCallback = ((@escaping () -> Void)) -> Void
     
-    private let queue: DispatchQueue = .init(label: "com.onevcat.Kingfisher.ImageProgressive.SerialQueue")
+    private let queue: DispatchQueue
     private var items: [DispatchWorkItem] = []
     private var notify: (() -> Void)?
     private var lastTime: TimeInterval?
     var count: Int { return items.count }
+
+    init() {
+        self.queue = DispatchQueue(label: "com.onevcat.Kingfisher.ImageProgressive.SerialQueue")
+    }
     
     func add(minimum interval: TimeInterval, closure: @escaping ClosureCallback) {
         let completion = { [weak self] in

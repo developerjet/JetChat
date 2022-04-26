@@ -191,14 +191,9 @@ extension UIButton {
 
 extension UIButton {
     
-    func rxTapClosure(callback:(@escaping() -> ())) {
-        self.rx.tap.throttle(0.5, scheduler: MainScheduler.instance).bind {
-            callback()
-        }.disposed(by: rx.disposeBag)
-    }
-    
-    func rxTapClosure(_ time: TimeInterval = 0.5, callback:(@escaping() -> ())) {
-        self.rx.tap.throttle(time, scheduler: MainScheduler.instance).bind {
+    func rxTapClosure(_ time: DispatchTimeInterval = .microseconds(100), callback:(@escaping() -> ())) {
+        
+        self.rx.tap.debounce(time, scheduler: MainScheduler.instance).bind {
             callback()
         }.disposed(by: rx.disposeBag)
     }

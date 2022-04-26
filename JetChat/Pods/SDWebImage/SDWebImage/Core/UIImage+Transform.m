@@ -10,7 +10,7 @@
 #import "NSImage+Compatibility.h"
 #import "SDImageGraphics.h"
 #import "SDGraphicsImageRenderer.h"
-#import "NSBezierPath+RoundedCorners.h"
+#import "NSBezierPath+SDRoundedCorners.h"
 #import <Accelerate/Accelerate.h>
 #if SD_UIKIT || SD_MAC
 #import <CoreImage/CoreImage.h>
@@ -609,7 +609,7 @@ static inline CGImageRef _Nullable SDCreateCGImageFromCIImage(CIImage * _Nonnull
         .bitmapInfo = kCGImageAlphaPremultipliedFirst | kCGBitmapByteOrder32Host, //requests a BGRA buffer.
         .version = 0,
         .decode = NULL,
-        .renderingIntent = kCGRenderingIntentDefault
+        .renderingIntent = CGImageGetRenderingIntent(imageRef)
     };
     
     vImage_Error err;

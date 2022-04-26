@@ -33,7 +33,7 @@ class FYNavDropMenuCell: UITableViewCell {
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.theme_textColor = "Global.textColor"
+        label.textColor = .black
         label.font = UIFont.PingFangRegular(15)
         return label
     }()
@@ -55,7 +55,7 @@ class FYNavDropMenuCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        self.theme_backgroundColor = "Global.backgroundColor"
+        self.backgroundColor = .white
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -69,7 +69,7 @@ class FYNavDropMenuCell: UITableViewCell {
     }
     
     func makeUI() {
-        self.theme_backgroundColor = "Global.backgroundColor"
+        self.backgroundColor = .white
         
         contentView.addSubview(leftImageView)
         contentView.addSubview(titleLabel)
@@ -91,12 +91,6 @@ class FYNavDropMenuCell: UITableViewCell {
             make.left.bottom.right.equalToSuperview()
             make.height.equalTo(0.6)
         }
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }

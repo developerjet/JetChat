@@ -12,7 +12,7 @@ public protocol TargetType {
     /// The HTTP method used in the request.
     var method: Moya.Method { get }
 
-    /// Provides stub data for use in testing.
+    /// Provides stub data for use in testing. Default is `Data()`.
     var sampleData: Data { get }
 
     /// The type of HTTP task to be performed.
@@ -28,17 +28,8 @@ public protocol TargetType {
 public extension TargetType {
 
     /// The type of validation to perform on the request. Default is `.none`.
-    var validationType: ValidationType {
-        return .none
-    }
-}
+    var validationType: ValidationType { .none }
 
-// MARK: - Deprecated
-
-extension TargetType {
-    @available(*, deprecated: 11.0, message:
-    "TargetType's validate property has been deprecated in 11.0. Please use validationType: ValidationType.")
-    var validate: Bool {
-        return false
-    }
+    /// Provides stub data for use in testing. Default is `Data()`.
+    var sampleData: Data { Data() }
 }

@@ -24,8 +24,15 @@ struct _class_rw_t {
     var ro: UInt
     // other fields we don't care
 
+    // reference: include/swift/Remote/MetadataReader.h/readObjcRODataPtr
     func class_ro_t() -> UnsafePointer<_class_ro_t>? {
-        return UnsafePointer<_class_ro_t>(bitPattern: self.ro)
+        var addr: UInt = self.ro
+        if (self.ro & UInt(1)) != 0 {
+            if let ptr = UnsafePointer<UInt>(bitPattern: self.ro ^ 1) {
+                addr = ptr.pointee
+            }
+        }
+        return UnsafePointer<_class_ro_t>(bitPattern: addr)
     }
 }
 

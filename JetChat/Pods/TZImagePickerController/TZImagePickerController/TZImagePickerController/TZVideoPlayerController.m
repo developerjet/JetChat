@@ -8,25 +8,34 @@
 
 #import "TZVideoPlayerController.h"
 #import <MediaPlayer/MediaPlayer.h>
-#import "UIView+Layout.h"
+#import "UIView+TZLayout.h"
 #import "TZImageManager.h"
 #import "TZAssetModel.h"
 #import "TZImagePickerController.h"
 #import "TZPhotoPreviewController.h"
+#import "TZVideoCropController.h"
 
 @interface TZVideoPlayerController () {
     AVPlayer *_player;
     AVPlayerLayer *_playerLayer;
     UIButton *_playButton;
+    UIImage *_playButtonNormalImage;
     UIImage *_cover;
+    NSString *_outputPath;
+    NSString *_errorMsg;
     
     UIView *_toolBar;
     UIButton *_doneButton;
+    UIButton *_editButton;
     UIProgressView *_progress;
     
     UIStatusBarStyle _originStatusBarStyle;
 }
 @property (assign, nonatomic) BOOL needShowStatusBar;
+
+// iCloud无法同步提示UI
+@property (nonatomic, strong) UIView *iCloudErrorView;
+
 @end
 
 #pragma clang diagnostic push
@@ -62,9 +71,12 @@
 
 - (void)configMoviePlayer {
     [[TZImageManager manager] getPhotoWithAsset:_model.asset completion:^(UIImage *photo, NSDictionary *info, BOOL isDegraded) {
+        BOOL iCloudSyncFailed = !photo && [TZCommonTools isICloudSyncError:info[PHImageErrorKey]];
+        self.iCloudErrorView.hidden = !iCloudSyncFailed;
         if (!isDegraded && photo) {
             self->_cover = photo;
             self->_doneButton.enabled = YES;
+            self->_editButton.enabled = YES;
         }
     }];
     [[TZImageManager manager] getVideoWithAsset:_model.asset completion:^(AVPlayerItem *playerItem, NSDictionary *info) {
@@ -125,8 +137,21 @@
     [_toolBar addSubview:_doneButton];
     [self.view addSubview:_toolBar];
     
+    if (tzImagePickerVc && tzImagePickerVc.allowEditVideo && roundf(self.model.asset.duration) > 1) {
+        _editButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        _editButton.titleLabel.font = [UIFont systemFontOfSize:16];
+        if (!_cover) {
+            _editButton.enabled = NO;
+        }
+        [_editButton addTarget:self action:@selector(editButtonClick) forControlEvents:UIControlEventTouchUpInside];
+        [_editButton setTitle:tzImagePickerVc.editBtnTitleStr forState:UIControlStateNormal];
+        [_editButton setTitleColor:tzImagePickerVc.oKButtonTitleColorNormal forState:UIControlStateNormal];
+        [_editButton setTitleColor:tzImagePickerVc.oKButtonTitleColorDisabled forState:UIControlStateDisabled];
+        [_toolBar addSubview:_editButton];
+    }
+    
     if (tzImagePickerVc.videoPreviewPageUIConfigBlock) {
-        tzImagePickerVc.videoPreviewPageUIConfigBlock(_playButton, _toolBar, _doneButton);
+        tzImagePickerVc.videoPreviewPageUIConfigBlock(_playButton, _toolBar, _editButton, _doneButton);
     }
 }
 
@@ -142,19 +167,24 @@
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
+    TZImagePickerController *tzImagePickerVc = (TZImagePickerController *)self.navigationController;
     
     BOOL isFullScreen = self.view.tz_height == [UIScreen mainScreen].bounds.size.height;
     CGFloat statusBarHeight = isFullScreen ? [TZCommonTools tz_statusBarHeight] : 0;
     CGFloat statusBarAndNaviBarHeight = statusBarHeight + self.navigationController.navigationBar.tz_height;
     _playerLayer.frame = self.view.bounds;
-    CGFloat toolBarHeight = [TZCommonTools tz_isIPhoneX] ? 44 + (83 - 49) : 44;
+    CGFloat toolBarHeight = 44 + [TZCommonTools tz_safeAreaInsets].bottom;
     _toolBar.frame = CGRectMake(0, self.view.tz_height - toolBarHeight, self.view.tz_width, toolBarHeight);
-    _doneButton.frame = CGRectMake(self.view.tz_width - 44 - 12, 0, 44, 44);
+    [_doneButton sizeToFit];
+    _doneButton.frame = CGRectMake(self.view.tz_width - _doneButton.tz_width - 12, 0, MAX(44, _doneButton.tz_width), 44);
     _playButton.frame = CGRectMake(0, statusBarAndNaviBarHeight, self.view.tz_width, self.view.tz_height - statusBarAndNaviBarHeight - toolBarHeight);
-    
-    TZImagePickerController *tzImagePickerVc = (TZImagePickerController *)self.navigationController;
+    if (tzImagePickerVc.allowEditVideo) {
+        _editButton.frame = CGRectMake(12, 0, 44, 44);
+        [_editButton sizeToFit];
+        _editButton.tz_height = 44;
+    }
     if (tzImagePickerVc.videoPreviewPageDidLayoutSubviewsBlock) {
-        tzImagePickerVc.videoPreviewPageDidLayoutSubviewsBlock(_playButton, _toolBar, _doneButton);
+        tzImagePickerVc.videoPreviewPageDidLayoutSubviewsBlock(_playButton, _toolBar, _editButton, _doneButton);
     }
 }
 
@@ -164,10 +194,12 @@
     CMTime currentTime = _player.currentItem.currentTime;
     CMTime durationTime = _player.currentItem.duration;
     if (_player.rate == 0.0f) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"TZ_VIDEO_PLAY_NOTIFICATION" object:_player];
         if (currentTime.value == durationTime.value) [_player.currentItem seekToTime:CMTimeMake(0, 1)];
         [_player play];
         [self.navigationController setNavigationBarHidden:YES];
         _toolBar.hidden = YES;
+        _playButtonNormalImage = [_playButton imageForState:UIControlStateNormal];
         [_playButton setImage:nil forState:UIControlStateNormal];
         [UIApplication sharedApplication].statusBarHidden = YES;
     } else {
@@ -175,30 +207,78 @@
     }
 }
 
+- (void)editButtonClick {
+    TZImagePickerController *imagePickerVc = (TZImagePickerController *)self.navigationController;
+    TZVideoCropController *videoCropVc = [[TZVideoCropController alloc] init];
+    videoCropVc.model = self.model;
+    videoCropVc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    videoCropVc.modalPresentationStyle = UIModalPresentationFullScreen;
+    videoCropVc.modalPresentationCapturesStatusBarAppearance = YES;
+    videoCropVc.imagePickerVc = imagePickerVc;
+    [self presentViewController:videoCropVc animated:YES completion:nil];
+}
+
 - (void)doneButtonClick {
-    if (self.navigationController) {
-        TZImagePickerController *imagePickerVc = (TZImagePickerController *)self.navigationController;
-        if (imagePickerVc.autoDismiss) {
-            [self.navigationController dismissViewControllerAnimated:YES completion:^{
-                [self callDelegateMethod];
-            }];
-        } else {
-            [self callDelegateMethod];
-        }
+    if ([[TZImageManager manager] isAssetCannotBeSelected:_model.asset]) {
+        return;
+    }
+    TZImagePickerController *imagePickerVc = (TZImagePickerController *)self.navigationController;
+    if (imagePickerVc.allowEditVideo) {
+        [imagePickerVc showProgressHUD];
+        [[TZImageManager manager] getVideoOutputPathWithAsset:_model.asset presetName:imagePickerVc.presetName success:^(NSString *outputPath) {
+            [imagePickerVc hideProgressHUD];
+            self->_outputPath = outputPath;
+            [self dismissAndCallDelegateMethod];
+        } failure:^(NSString *errorMessage, NSError *error) {
+            [imagePickerVc hideProgressHUD];
+            self->_errorMsg = errorMessage;
+            [self dismissAndCallDelegateMethod];
+        }];
     } else {
-        [self dismissViewControllerAnimated:YES completion:^{
+        [self dismissAndCallDelegateMethod];
+    }
+}
+
+- (void)dismissAndCallDelegateMethod {
+    TZImagePickerController *imagePickerVc = (TZImagePickerController *)self.navigationController;
+    if (!imagePickerVc) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+        return;
+    }
+    if (imagePickerVc.autoDismiss) {
+        [imagePickerVc dismissViewControllerAnimated:YES completion:^{
             [self callDelegateMethod];
         }];
+    } else {
+        [self callDelegateMethod];
     }
 }
 
 - (void)callDelegateMethod {
     TZImagePickerController *imagePickerVc = (TZImagePickerController *)self.navigationController;
-    if ([imagePickerVc.pickerDelegate respondsToSelector:@selector(imagePickerController:didFinishPickingVideo:sourceAssets:)]) {
-        [imagePickerVc.pickerDelegate imagePickerController:imagePickerVc didFinishPickingVideo:_cover sourceAssets:_model.asset];
-    }
-    if (imagePickerVc.didFinishPickingVideoHandle) {
-        imagePickerVc.didFinishPickingVideoHandle(_cover,_model.asset);
+    if (imagePickerVc.allowEditVideo) {
+        if (_outputPath) {
+            if ([imagePickerVc.pickerDelegate respondsToSelector:@selector(imagePickerController:didFinishPickingAndEditingVideo:outputPath:error:)]) {
+                [imagePickerVc.pickerDelegate imagePickerController:imagePickerVc didFinishPickingAndEditingVideo:self->_cover outputPath:self->_outputPath error:nil];
+            }
+            if (imagePickerVc.didFinishPickingAndEditingVideoHandle) {
+                imagePickerVc.didFinishPickingAndEditingVideoHandle(self->_cover, self->_outputPath, nil);
+            }
+        } else {
+            if ([imagePickerVc.pickerDelegate respondsToSelector:@selector(imagePickerController:didFinishPickingAndEditingVideo:outputPath:error:)]) {
+                [imagePickerVc.pickerDelegate imagePickerController:imagePickerVc didFinishPickingAndEditingVideo:nil outputPath:nil error:self->_errorMsg];
+            }
+            if (imagePickerVc.didFinishPickingAndEditingVideoHandle) {
+                imagePickerVc.didFinishPickingAndEditingVideoHandle(nil, nil, self->_errorMsg);
+            }
+        }
+    } else {
+        if ([imagePickerVc.pickerDelegate respondsToSelector:@selector(imagePickerController:didFinishPickingVideo:sourceAssets:)]) {
+            [imagePickerVc.pickerDelegate imagePickerController:imagePickerVc didFinishPickingVideo:_cover sourceAssets:_model.asset];
+        }
+        if (imagePickerVc.didFinishPickingVideoHandle) {
+            imagePickerVc.didFinishPickingVideoHandle(_cover,_model.asset);
+        }
     }
 }
 
@@ -208,11 +288,32 @@
     [_player pause];
     _toolBar.hidden = NO;
     [self.navigationController setNavigationBarHidden:NO];
-    [_playButton setImage:[UIImage tz_imageNamedFromMyBundle:@"MMVideoPreviewPlay"] forState:UIControlStateNormal];
+    UIImage *normalImage = _playButtonNormalImage ?: [UIImage tz_imageNamedFromMyBundle:@"MMVideoPreviewPlay"];
+    [_playButton setImage:normalImage forState:UIControlStateNormal];
     
     if (self.needShowStatusBar) {
         [UIApplication sharedApplication].statusBarHidden = NO;
     }
+}
+
+#pragma mark - lazy
+- (UIView *)iCloudErrorView{
+    if (!_iCloudErrorView) {
+        _iCloudErrorView = [[UIView alloc] initWithFrame:CGRectMake(0, [TZCommonTools tz_statusBarHeight] + 44 + 10, self.view.tz_width, 28)];
+        UIImageView *icloud = [[UIImageView alloc] init];
+        icloud.image = [UIImage tz_imageNamedFromMyBundle:@"iCloudError"];
+        icloud.frame = CGRectMake(20, 0, 28, 28);
+        [_iCloudErrorView addSubview:icloud];
+        UILabel *label = [[UILabel alloc] init];
+        label.frame = CGRectMake(53, 0, self.view.tz_width - 63, 28);
+        label.font = [UIFont systemFontOfSize:10];
+        label.textColor = [UIColor whiteColor];
+        label.text = [NSBundle tz_localizedStringForKey:@"iCloud sync failed"];
+        [_iCloudErrorView addSubview:label];
+        [self.view addSubview:_iCloudErrorView];
+        _iCloudErrorView.hidden = YES;
+    }
+    return _iCloudErrorView;
 }
 
 - (void)dealloc {

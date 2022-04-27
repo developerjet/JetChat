@@ -11,7 +11,7 @@ import WCDBSwift
 
 fileprivate let kGroupedChatCellIdentifier = "kGroupedChatCellIdentifier"
 
-class FYChatRoomListViewController: FYBaseConfigViewController {
+class FYChatRoomListViewController: FYBaseViewController {
 
     // MARK: - var lazy
     
@@ -19,7 +19,7 @@ class FYChatRoomListViewController: FYBaseConfigViewController {
     
     lazy var deleteButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.setTitle("删除所有群组", for: .normal)
+        button.setTitle("删除所有群组".rLocalized(), for: .normal)
         button.setTitleColor(UIColor.blue, for: .normal)
         button.sizeToFit()
         button.isHidden = true
@@ -39,7 +39,7 @@ class FYChatRoomListViewController: FYBaseConfigViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "群聊"
+        navigationItem.title = "群聊".rLocalized()
         // Do any additional setup after loading the view.
         
         makeUI()
@@ -65,7 +65,7 @@ class FYChatRoomListViewController: FYBaseConfigViewController {
         let leftBarButtonItem = UIBarButtonItem(customView: deleteButton)
         navigationItem.leftBarButtonItem = leftBarButtonItem
         
-        let rightBarButtonItem = UIBarButtonItem(title: "加入群", style: .plain, target: self, action: #selector(addGroupData))
+        let rightBarButtonItem = UIBarButtonItem(title: "加入群".rLocalized(), style: .plain, target: self, action: #selector(addGroupData))
         navigationItem.rightBarButtonItem = rightBarButtonItem
         
         
@@ -82,7 +82,7 @@ class FYChatRoomListViewController: FYBaseConfigViewController {
     }
     
     @objc private func showClearAlert() {
-        EasyAlertView.shared.customAlert(title: "确定删除全部群组吗？", message: "删除后，会话记录也将清除", confirm: "确定", cancel: "取消", vc: self, confirmBlock: {
+        EasyAlertView.shared.customAlert(title: "确定删除全部群组吗？".rLocalized(), message: "删除后，会话记录也将清除".rLocalized(), confirm: "确定".rLocalized(), cancel: "取消".rLocalized(), vc: self, confirmBlock: {
             self.removerGroupData()
         }, cancelBlock: {
             

@@ -59,24 +59,24 @@ class FYBaseTabBarController: UITabBarController {
         
         let vc1 = FYSesstionListViewController()
         addChildViewController(vc1,
-                              title: "会话",
+                               title: "会话".rLocalized(),
                               image: R.image.ic_tabbar01_normal(),
                               selectedImage: R.image.ic_tabbar01_selected())
         
         let vc2 = FYChatRoomListViewController()
         addChildViewController(vc2,
-                              title: "群组",
+                               title: "群组".rLocalized(),
                               image: R.image.ic_tabbar02_normal(),
                               selectedImage: R.image.ic_tabbar02_selected())
         
         let vc3 = FYContactsListViewController()
         addChildViewController(vc3,
-                              title: "好友",
+                               title: "好友".rLocalized(),
                               image: R.image.ic_tabbar03_normal(),
                               selectedImage: R.image.ic_tabbar03_selected())
         
         let vc4 = FYMineViewController()
-        addChildViewController(vc4, title: "我",
+        addChildViewController(vc4, title: "我".rLocalized(),
                               image: R.image.ic_tabbar04_normal(),
                               selectedImage: R.image.ic_tabbar04_selected())
     }

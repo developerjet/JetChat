@@ -169,9 +169,9 @@ class FYMessageBaseCell: UITableViewCell {
         
         self.becomeFirstResponder()
         let menu = UIMenuController.shared
-        let item1 = UIMenuItem(title: "转发", action: #selector(menuShoreAction))
-        let item2 = UIMenuItem(title: "复制", action: #selector(menuCopyAction))
-        let item3 = UIMenuItem(title: "删除", action: #selector(menuDeleteAction))
+        let item1 = UIMenuItem(title: "转发".rLocalized(), action: #selector(menuShoreAction))
+        let item2 = UIMenuItem(title: "复制".rLocalized(), action: #selector(menuCopyAction))
+        let item3 = UIMenuItem(title: "删除".rLocalized(), action: #selector(menuDeleteAction))
         menu.menuItems = [item1, item2, item3]
         // 设置箭头方向
         menu.arrowDirection = .default

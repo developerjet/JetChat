@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FYContactsInfoViewController: FYBaseConfigViewController {
+class FYContactsInfoViewController: FYBaseViewController {
 
     var chatModel: FYMessageChatModel? {
         didSet {
@@ -18,7 +18,7 @@ class FYContactsInfoViewController: FYBaseConfigViewController {
             
             headerView.chatModel = model
             if model.chatType == 1 {
-                dataSource = ["设置备注名"]
+                dataSource = ["设置备注名".rLocalized()]
             }
             
             plainTabView.reloadData()
@@ -51,7 +51,7 @@ class FYContactsInfoViewController: FYBaseConfigViewController {
     
     lazy var sendButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.setTitle("发消息", for: .normal)
+        button.setTitle("发消息".rLocalized(), for: .normal)
         button.backgroundColor = .appThemeHexColor()
         button.radius = 7
         button.rxTapClosure { [weak self] in
@@ -67,7 +67,7 @@ class FYContactsInfoViewController: FYBaseConfigViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "个人信息"
+        navigationItem.title = "个人信息".rLocalized()
         view.backgroundColor = .backGroundGrayColor()
         // Do any additional setup after loading the view.
         

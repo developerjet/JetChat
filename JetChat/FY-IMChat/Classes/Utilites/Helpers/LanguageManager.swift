@@ -20,15 +20,6 @@ public enum kLanguageType: String {
     static let alllocalizedStr = allLanguages.map { (type) -> String in
         return type.rawValue
     }
-
-    func localizedStr() -> String {
-        switch self {
-        case .kEnglish:
-            return "en"
-        default:
-            return "zh"
-        }
-    }
     
     func serverLanguage() -> String {
         switch self {
@@ -39,11 +30,7 @@ public enum kLanguageType: String {
         }
     }
     
-    func codePath() -> String {
-        return Bundle.main.path(forResource: "code_\(self.localizedStr())", ofType: "plist") ?? ""
-    }
-    
-    func languageStr() -> String {
+    func getLanguageRaw() -> String {
         switch self {
         case .kEnglish:
             return "English"
@@ -58,25 +45,20 @@ class LanguageManager: NSObject {
     /// 单利
     static let manager = LanguageManager()
     
-    var bundle: Bundle?
-    
     /// 当前已选语言
-    var selectedLanguage = kLanguageType.init(rawValue: "zh-Hans")
+    var selectedLanguage = kLanguageType(rawValue: "zh-Hans")
+
+    /// 当前所有语言
+    var currentLanguages: [String] {
+        return ["简体中文".rLocalized(), "英文".rLocalized()]
+    }
     
     override init() {}
     
     
     /// 初始化设置
     func initConfig() {
-        var languageCode = Localize.defaultLanguage()
-        
-        if languageCode.contains("zh") {
-            languageCode = "zh-Hans"
-        }
-        
-        if kLanguageType.alllocalizedStr.contains(languageCode) == false {
-            languageCode = "en"
-        }
+        let languageCode = Localize.defaultLanguage()
         
         let language = UserDefaults.standard.string(forKey: kAppLanguageUserDefaultsKey) ??
            languageCode
@@ -94,6 +76,7 @@ class LanguageManager: NSObject {
         
         UserDefaults.standard.set(languageType.rawValue, forKey: kAppLanguageUserDefaultsKey)
         UserDefaults.standard.synchronize()
+        
         LanguageManager.manager.selectedLanguage = languageType
         Localize.setCurrentLanguage(languageType.rawValue)
         
@@ -102,20 +85,24 @@ class LanguageManager: NSObject {
     }
     
     // 切换根控制器
-    func restRootController() {
-        
+    private func restRootController() {
+        let tabBar = FYBaseTabBarController()
+        UIApplication.shared.keyWindow?.rootViewController = tabBar
+        UIApplication.shared.keyWindow?.makeKeyAndVisible()
     }
 }
 
 // MARK: - R.string.localizable
 
 typealias Lca = R.string.localizable
-extension StringResource {
+
+extension String {
+    
     /// r优化的国际化语言
     ///
     /// - Returns: 对应国际化语言
     func rLocalized() -> String {
-        return self.key.localized()
+        return self.localized()
     }
 }
 

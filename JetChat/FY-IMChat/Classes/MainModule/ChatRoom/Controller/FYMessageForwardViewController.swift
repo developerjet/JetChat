@@ -14,7 +14,7 @@ enum ForwardStyle {
 }
 
 
-class FYMessageForwardViewController: FYBaseConfigViewController {
+class FYMessageForwardViewController: FYBaseViewController {
 
     // MARK: - var lazy
     
@@ -29,7 +29,7 @@ class FYMessageForwardViewController: FYBaseConfigViewController {
  
     lazy var forwardBtn: UIButton = {
         let button = UIButton(type: .custom)
-        button.setTitle("发送", for: .normal)
+        button.setTitle("发送".rLocalized(), for: .normal)
         button.setTitleColor(.colorWithHexStr("FFFFFF"), for: .normal)
         button.sizeToFit()
         button.isHidden = true
@@ -44,7 +44,7 @@ class FYMessageForwardViewController: FYBaseConfigViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "消息转发"
+        navigationItem.title = "消息转发".rLocalized()
         
         makeUI()
         loadChatBodyData(forwardStyle)

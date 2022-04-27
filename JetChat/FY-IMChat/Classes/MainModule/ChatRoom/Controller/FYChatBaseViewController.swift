@@ -21,7 +21,7 @@ private let kTextMessageCellIdentifier  = "kTextMessageCellIdentifier"
 private let kImageMessageCellIdentifier = "kImageMessageCellIdentifier"
 private let kVideoMessageCellIdentifier = "kVideoMessageCellIdentifier"
 
-class FYChatBaseViewController: FYBaseConfigViewController {
+class FYChatBaseViewController: FYBaseViewController {
     
     /// 角标数记录
     private var badge: Int = 0
@@ -110,7 +110,7 @@ class FYChatBaseViewController: FYBaseConfigViewController {
         }
         
         if chatModel?.chatType == 2 {
-            let rightBarButtonItem = UIBarButtonItem(title: "退出群", style: .plain, target: self, action: #selector(exitGroupChat))
+            let rightBarButtonItem = UIBarButtonItem(title: "退出群".rLocalized(), style: .plain, target: self, action: #selector(exitGroupChat))
             navigationItem.rightBarButtonItem = rightBarButtonItem
         }
     }
@@ -206,7 +206,7 @@ class FYChatBaseViewController: FYBaseConfigViewController {
     
     /// 退出群聊
     @objc private func exitGroupChat() {
-        EasyAlertView.shared.customAlert(title: "确定退出当前群组吗？", message: "", confirm: "确定", cancel: "取消", vc: self, confirmBlock: {
+        EasyAlertView.shared.customAlert(title: "确定退出当前群组吗？".rLocalized(), message: "", confirm: "确定".rLocalized(), cancel: "取消".rLocalized(), vc: self, confirmBlock: {
             if let uid = self.chatModel?.uid {
                 self.stopChatTimer()
                 FYDBQueryHelper.shared.deleteFromChatWithId(uid)
@@ -214,7 +214,8 @@ class FYChatBaseViewController: FYBaseConfigViewController {
                 // 退出群
                 NotificationCenter.default.post(name: .kNeedRefreshChatInfoList, object: nil)
                 
-                MBHUD.showMessage("你已退出：\(self.chatModel?.name ?? "")群聊")
+                let message = String(format: "你已退出%@群聊", self.chatModel?.name ?? "")
+                MBHUD.showMessage(message)
                 self.navigationController?.popViewController()
             }
         }, cancelBlock: {

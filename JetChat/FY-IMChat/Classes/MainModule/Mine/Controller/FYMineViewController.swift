@@ -9,16 +9,16 @@
 import UIKit
 import RxSwift
 
-class FYMineViewController: FYBaseConfigViewController {
+class FYMineViewController: FYBaseViewController {
 
     // MARK: - life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "我"
+        navigationItem.title = "我".rLocalized()
         
         // Do any additional setup after loading the view.
-        let leftBarButtonItem = UIBarButtonItem(title: "设置", style: .plain, target: self, action: #selector(settingAction))
+        let leftBarButtonItem = UIBarButtonItem(title: "设置".rLocalized(), style: .plain, target: self, action: #selector(settingAction))
         navigationItem.leftBarButtonItem = leftBarButtonItem
     }
 }

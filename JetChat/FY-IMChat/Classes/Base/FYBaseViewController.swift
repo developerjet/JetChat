@@ -1,5 +1,5 @@
 //
-//  FYBaseConfigViewController.swift
+//  FYBaseViewController.swift
 //  FY-IMChat
 //
 //  Created by iOS.Jet on 2019/2/28.
@@ -14,7 +14,7 @@ import RxCocoa
 import Moya
 
 
-class FYBaseConfigViewController: UIViewController {
+class FYBaseViewController: UIViewController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -118,7 +118,7 @@ class FYBaseConfigViewController: UIViewController {
 
 // MARK:- Action
 
-extension FYBaseConfigViewController {
+extension FYBaseViewController {
     
     /// 基类方法 - 返回上一个控制器
     @objc func popLastVC() {

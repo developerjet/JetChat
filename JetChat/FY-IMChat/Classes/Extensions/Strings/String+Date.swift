@@ -250,7 +250,7 @@ extension String {
                 minute = "0\(minute)"
             }
             
-            return "今天 \(hour):\(minute)"
+            return "今天".rLocalized() + " \(hour):\(minute)"
             
         }else if calender.isDateInYesterday(confromTimeDate) {
             if hour.doubleValue < 10 {
@@ -260,10 +260,16 @@ extension String {
                 minute = "0\(minute)"
             }
             
-            return "昨天 \(hour):\(minute)"
+            return "昨天".rLocalized() + " \(hour):\(minute)"
             
         }else if timeWeek == systimeWeek {
-            let weeks = ["星期日", "星期一", "星期二","星期三","星期四","星期五","星期六"]
+            let weeks = ["星期日".rLocalized(),
+                         "星期一".rLocalized(),
+                         "星期二".rLocalized(),
+                         "星期三".rLocalized(),
+                         "星期四".rLocalized(),
+                         "星期五".rLocalized(),
+                         "星期六".rLocalized()]
             let i = calender.ordinality(of: .weekday, in: .weekOfYear, for: confromTimeDate)
             //此处一定要记得减1
             return weeks[i!-1]

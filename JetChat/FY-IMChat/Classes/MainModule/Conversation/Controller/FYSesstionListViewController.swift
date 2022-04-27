@@ -10,14 +10,15 @@ import UIKit
 
 private let kSessionsCellReuseIdentifier = "kSessionsCellReuseIdentifier"
 
-class FYSesstionListViewController: FYBaseConfigViewController {
+class FYSesstionListViewController: FYBaseViewController {
     
     var dataSource: [FYMessageItem] = []
     
     private lazy var clearButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.setTitle("全部已读", for: .normal)
+        button.setTitle("全部已读".rLocalized(), for: .normal)
         button.setTitleColor(.blue, for: .normal)
+        button.isHidden = true
         button.sizeToFit()
         button.rxTapClosure { [weak self] in
             self?.readAllAction()
@@ -27,10 +28,10 @@ class FYSesstionListViewController: FYBaseConfigViewController {
     
     lazy var menuList: [CommonMenuConfig] = {
         let items = [
-            CommonMenuConfig(title: "发起单聊", image: "ic_tabbar01_selected", isShow: true),
-            CommonMenuConfig(title: "发起群聊", image: "ic_tabbar02_selected", isShow: true),
-            CommonMenuConfig(title: "添加朋友", image: "ic_tabbar03_selected", isShow: true),
-            CommonMenuConfig(title: "扫一扫", image: "ic_tabbar04_selected", isShow: false)
+            CommonMenuConfig(title: "发起单聊".rLocalized(), image: "ic_tabbar01_selected", isShow: true),
+            CommonMenuConfig(title: "发起群聊".rLocalized(), image: "ic_tabbar02_selected", isShow: true),
+            CommonMenuConfig(title: "添加朋友".rLocalized(), image: "ic_tabbar03_selected", isShow: true),
+            CommonMenuConfig(title: "扫一扫".rLocalized(), image: "ic_tabbar04_selected", isShow: false)
         ]
         return items
     }()
@@ -39,7 +40,7 @@ class FYSesstionListViewController: FYBaseConfigViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "会话";
+        navigationItem.title = "会话".rLocalized();
         
         makeUI()
         reloadSesstionData()
@@ -92,7 +93,7 @@ class FYSesstionListViewController: FYBaseConfigViewController {
             }
             
             reloadSesstionData()
-            MBHUD.showSuccess(" 已清除全部未读消息数 ")
+            MBHUD.showSuccess("已清除全部未读消息数".rLocalized())
         }
     }
 

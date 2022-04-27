@@ -66,7 +66,6 @@
 		271C02F623929B3A0041617F /* WeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 271C02A223929B3A0041617F /* WeakProxy.m */; };
 		271C02F723929B3A0041617F /* FPSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271C02A323929B3A0041617F /* FPSLabel.swift */; };
 		271C02FB23929B3A0041617F /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271C02AB23929B3A0041617F /* LanguageManager.swift */; };
-		271C02FC23929B3A0041617F /* AnalyticsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271C02AC23929B3A0041617F /* AnalyticsHelper.swift */; };
 		271C02FD23929B3A0041617F /* CountDownHandy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271C02AD23929B3A0041617F /* CountDownHandy.swift */; };
 		271C02FE23929B3A0041617F /* FYDBQueryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271C02B123929B3A0041617F /* FYDBQueryHelper.swift */; };
 		271C02FF23929B3A0041617F /* WCDataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271C02B223929B3A0041617F /* WCDataBaseManager.swift */; };
@@ -102,7 +101,7 @@
 		2743401D238D70D5004D5E3D /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27433F6F238D70D4004D5E3D /* BaseViewModel.swift */; };
 		2743401E238D70D5004D5E3D /* FYBaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27433F70238D70D4004D5E3D /* FYBaseTabBarController.swift */; };
 		27434022238D70D5004D5E3D /* FYBaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27433F75238D70D4004D5E3D /* FYBaseNavigationController.swift */; };
-		27434024238D70D5004D5E3D /* FYBaseConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27433F78238D70D4004D5E3D /* FYBaseConfigViewController.swift */; };
+		27434024238D70D5004D5E3D /* FYBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27433F78238D70D4004D5E3D /* FYBaseViewController.swift */; };
 		27434029238D70D5004D5E3D /* AppCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27433F7F238D70D4004D5E3D /* AppCommon.swift */; };
 		27434032238D70D5004D5E3D /* FYNavDropListMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27433F92238D70D4004D5E3D /* FYNavDropListMenu.swift */; };
 		27434033238D70D5004D5E3D /* FYNavDropMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27433F94238D70D4004D5E3D /* FYNavDropMenuCell.swift */; };
@@ -118,6 +117,17 @@
 		2ECBFDC822269BF400871913 /* FY_IMChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECBFDC722269BF400871913 /* FY_IMChatTests.swift */; };
 		2ECBFDD322269BF400871913 /* FY_IMChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECBFDD222269BF400871913 /* FY_IMChatUITests.swift */; };
 		2EF014772230FC6D00681D4F /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EF014762230FC6D00681D4F /* WebKit.framework */; };
+		4C4A1A272818DABA00CDD3B1 /* BottomPopupUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4A1A1E2818DABA00CDD3B1 /* BottomPopupUtils.swift */; };
+		4C4A1A282818DABA00CDD3B1 /* BottomPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4A1A1F2818DABA00CDD3B1 /* BottomPopupViewController.swift */; };
+		4C4A1A292818DABA00CDD3B1 /* BottomPopupDismissInteractionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4A1A202818DABA00CDD3B1 /* BottomPopupDismissInteractionController.swift */; };
+		4C4A1A2A2818DABA00CDD3B1 /* BottomPopupNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4A1A212818DABA00CDD3B1 /* BottomPopupNavigationController.swift */; };
+		4C4A1A2B2818DABA00CDD3B1 /* BottomPopupDismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4A1A222818DABA00CDD3B1 /* BottomPopupDismissAnimator.swift */; };
+		4C4A1A2C2818DABA00CDD3B1 /* BottomPopupPresentAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4A1A232818DABA00CDD3B1 /* BottomPopupPresentAnimator.swift */; };
+		4C4A1A2D2818DABA00CDD3B1 /* CSBottomPopupNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4A1A242818DABA00CDD3B1 /* CSBottomPopupNavigationController.swift */; };
+		4C4A1A2E2818DABA00CDD3B1 /* BottomPopupTransitionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4A1A252818DABA00CDD3B1 /* BottomPopupTransitionHandler.swift */; };
+		4C4A1A2F2818DABA00CDD3B1 /* BottomPopupPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4A1A262818DABA00CDD3B1 /* BottomPopupPresentationController.swift */; };
+		4C4A1A332818DB7200CDD3B1 /* PGTableViewTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4A1A312818DB7200CDD3B1 /* PGTableViewTitleCell.swift */; };
+		4C4A1A342818DB7200CDD3B1 /* PGActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4A1A322818DB7200CDD3B1 /* PGActionSheet.swift */; };
 		4C5579622817C3C3006D8A09 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5579612817C3C3006D8A09 /* ActivityIndicator.swift */; };
 		4C75A40A2817C8FF00E9EF54 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C75A4092817C8FF00E9EF54 /* R.generated.swift */; };
 		4C75A40D2817CA3300E9EF54 /* CommonMenuConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C75A40C2817CA3300E9EF54 /* CommonMenuConfig.swift */; };
@@ -226,7 +236,6 @@
 		271C02A323929B3A0041617F /* FPSLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPSLabel.swift; sourceTree = "<group>"; };
 		271C02A423929B3A0041617F /* WeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeakProxy.h; sourceTree = "<group>"; };
 		271C02AB23929B3A0041617F /* LanguageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
-		271C02AC23929B3A0041617F /* AnalyticsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsHelper.swift; sourceTree = "<group>"; };
 		271C02AD23929B3A0041617F /* CountDownHandy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountDownHandy.swift; sourceTree = "<group>"; };
 		271C02B123929B3A0041617F /* FYDBQueryHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYDBQueryHelper.swift; sourceTree = "<group>"; };
 		271C02B223929B3A0041617F /* WCDataBaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WCDataBaseManager.swift; sourceTree = "<group>"; };
@@ -264,7 +273,7 @@
 		27433F6F238D70D4004D5E3D /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		27433F70238D70D4004D5E3D /* FYBaseTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYBaseTabBarController.swift; sourceTree = "<group>"; };
 		27433F75238D70D4004D5E3D /* FYBaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYBaseNavigationController.swift; sourceTree = "<group>"; };
-		27433F78238D70D4004D5E3D /* FYBaseConfigViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYBaseConfigViewController.swift; sourceTree = "<group>"; };
+		27433F78238D70D4004D5E3D /* FYBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYBaseViewController.swift; sourceTree = "<group>"; };
 		27433F7F238D70D4004D5E3D /* AppCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCommon.swift; sourceTree = "<group>"; };
 		27433F92238D70D4004D5E3D /* FYNavDropListMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYNavDropListMenu.swift; sourceTree = "<group>"; };
 		27433F94238D70D4004D5E3D /* FYNavDropMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYNavDropMenuCell.swift; sourceTree = "<group>"; };
@@ -290,6 +299,17 @@
 		2ECBFDD422269BF400871913 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2EF014762230FC6D00681D4F /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		2EF014782230FC7200681D4F /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		4C4A1A1E2818DABA00CDD3B1 /* BottomPopupUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomPopupUtils.swift; sourceTree = "<group>"; };
+		4C4A1A1F2818DABA00CDD3B1 /* BottomPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomPopupViewController.swift; sourceTree = "<group>"; };
+		4C4A1A202818DABA00CDD3B1 /* BottomPopupDismissInteractionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomPopupDismissInteractionController.swift; sourceTree = "<group>"; };
+		4C4A1A212818DABA00CDD3B1 /* BottomPopupNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomPopupNavigationController.swift; sourceTree = "<group>"; };
+		4C4A1A222818DABA00CDD3B1 /* BottomPopupDismissAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomPopupDismissAnimator.swift; sourceTree = "<group>"; };
+		4C4A1A232818DABA00CDD3B1 /* BottomPopupPresentAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomPopupPresentAnimator.swift; sourceTree = "<group>"; };
+		4C4A1A242818DABA00CDD3B1 /* CSBottomPopupNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSBottomPopupNavigationController.swift; sourceTree = "<group>"; };
+		4C4A1A252818DABA00CDD3B1 /* BottomPopupTransitionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomPopupTransitionHandler.swift; sourceTree = "<group>"; };
+		4C4A1A262818DABA00CDD3B1 /* BottomPopupPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomPopupPresentationController.swift; sourceTree = "<group>"; };
+		4C4A1A312818DB7200CDD3B1 /* PGTableViewTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PGTableViewTitleCell.swift; sourceTree = "<group>"; };
+		4C4A1A322818DB7200CDD3B1 /* PGActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PGActionSheet.swift; sourceTree = "<group>"; };
 		4C5579612817C3C3006D8A09 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		4C75A4092817C8FF00E9EF54 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		4C75A40C2817CA3300E9EF54 /* CommonMenuConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonMenuConfig.swift; sourceTree = "<group>"; };
@@ -501,7 +521,6 @@
 			isa = PBXGroup;
 			children = (
 				271C02AB23929B3A0041617F /* LanguageManager.swift */,
-				271C02AC23929B3A0041617F /* AnalyticsHelper.swift */,
 				271C02AD23929B3A0041617F /* CountDownHandy.swift */,
 			);
 			path = Helpers;
@@ -649,6 +668,7 @@
 			isa = PBXGroup;
 			children = (
 				27433F62238D70D4004D5E3D /* RxErrorTracker */,
+				4C4A1A1D2818DAB900CDD3B1 /* BottomPopupController */,
 				4C5579602817C3C3006D8A09 /* RxActivityIndicator */,
 				27433F66238D70D4004D5E3D /* NavigationHandy */,
 			);
@@ -681,7 +701,7 @@
 				27433F6E238D70D4004D5E3D /* ViewModel */,
 				27433F70238D70D4004D5E3D /* FYBaseTabBarController.swift */,
 				27433F75238D70D4004D5E3D /* FYBaseNavigationController.swift */,
-				27433F78238D70D4004D5E3D /* FYBaseConfigViewController.swift */,
+				27433F78238D70D4004D5E3D /* FYBaseViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -705,6 +725,7 @@
 		27433F80238D70D4004D5E3D /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				4C4A1A302818DB7200CDD3B1 /* ActionSheet */,
 				27433F91238D70D4004D5E3D /* NavPopListMenu */,
 				27433F95238D70D4004D5E3D /* SegmentSlider */,
 				27433F97238D70D4004D5E3D /* HUDProgress */,
@@ -849,6 +870,31 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
+		4C4A1A1D2818DAB900CDD3B1 /* BottomPopupController */ = {
+			isa = PBXGroup;
+			children = (
+				4C4A1A1E2818DABA00CDD3B1 /* BottomPopupUtils.swift */,
+				4C4A1A1F2818DABA00CDD3B1 /* BottomPopupViewController.swift */,
+				4C4A1A202818DABA00CDD3B1 /* BottomPopupDismissInteractionController.swift */,
+				4C4A1A212818DABA00CDD3B1 /* BottomPopupNavigationController.swift */,
+				4C4A1A222818DABA00CDD3B1 /* BottomPopupDismissAnimator.swift */,
+				4C4A1A232818DABA00CDD3B1 /* BottomPopupPresentAnimator.swift */,
+				4C4A1A242818DABA00CDD3B1 /* CSBottomPopupNavigationController.swift */,
+				4C4A1A252818DABA00CDD3B1 /* BottomPopupTransitionHandler.swift */,
+				4C4A1A262818DABA00CDD3B1 /* BottomPopupPresentationController.swift */,
+			);
+			path = BottomPopupController;
+			sourceTree = "<group>";
+		};
+		4C4A1A302818DB7200CDD3B1 /* ActionSheet */ = {
+			isa = PBXGroup;
+			children = (
+				4C4A1A312818DB7200CDD3B1 /* PGTableViewTitleCell.swift */,
+				4C4A1A322818DB7200CDD3B1 /* PGActionSheet.swift */,
+			);
+			path = ActionSheet;
+			sourceTree = "<group>";
+		};
 		4C5579602817C3C3006D8A09 /* RxActivityIndicator */ = {
 			isa = PBXGroup;
 			children = (
@@ -871,8 +917,8 @@
 				4C75A40F2817D0F300E9EF54 /* Contacts */,
 				4C75A4172817D0F300E9EF54 /* QrScan */,
 				4C75A41C2817D0F300E9EF54 /* ChatRoom */,
-				4C75A42C2817D0F300E9EF54 /* Mine */,
 				4C75A4322817D0F300E9EF54 /* Conversation */,
+				4C75A42C2817D0F300E9EF54 /* Mine */,
 			);
 			path = MainModule;
 			sourceTree = "<group>";
@@ -1298,6 +1344,7 @@
 				27434035238D70D5004D5E3D /* MBConfiguredHUD.swift in Sources */,
 				4C75A4452817D0F400E9EF54 /* FYMessageBaseModel.swift in Sources */,
 				4C75A43A2817D0F400E9EF54 /* FYContactsInfoView.swift in Sources */,
+				4C4A1A292818DABA00CDD3B1 /* BottomPopupDismissInteractionController.swift in Sources */,
 				271C02C023929B3A0041617F /* ChatKeyboardView+Exted.swift in Sources */,
 				271C02BF23929B3A0041617F /* ChatEmojiListView.swift in Sources */,
 				271C02BE23929B3A0041617F /* ChatMoreMenuView.swift in Sources */,
@@ -1307,7 +1354,7 @@
 				27433F9C238D70D4004D5E3D /* AppDelegate+Wcdb.swift in Sources */,
 				27433F9B238D70D4004D5E3D /* AppDelegate.swift in Sources */,
 				2743401A238D70D5004D5E3D /* UINavigationController+Extensions.m in Sources */,
-				27434024238D70D5004D5E3D /* FYBaseConfigViewController.swift in Sources */,
+				27434024238D70D5004D5E3D /* FYBaseViewController.swift in Sources */,
 				27433F9A238D70D4004D5E3D /* AppDelegate+Push.swift in Sources */,
 				27433FA7238D70D4004D5E3D /* Observable+Operators.swift in Sources */,
 				27434032238D70D5004D5E3D /* FYNavDropListMenu.swift in Sources */,
@@ -1315,24 +1362,28 @@
 				27433FAA238D70D4004D5E3D /* UIAlert+Extension.swift in Sources */,
 				4C5579622817C3C3006D8A09 /* ActivityIndicator.swift in Sources */,
 				271C02FD23929B3A0041617F /* CountDownHandy.swift in Sources */,
-				271C02FC23929B3A0041617F /* AnalyticsHelper.swift in Sources */,
 				2743401D238D70D5004D5E3D /* BaseViewModel.swift in Sources */,
 				271C02C123929B3A0041617F /* ChatMoreMenuCell.swift in Sources */,
 				271C02C623929B3A0041617F /* ChatMoreMnueConfig.swift in Sources */,
 				4C75A4492817D0F400E9EF54 /* FYMessageBaseCell.swift in Sources */,
 				27433FB5238D70D4004D5E3D /* Dictionary+Exted.swift in Sources */,
+				4C4A1A342818DB7200CDD3B1 /* PGActionSheet.swift in Sources */,
 				4C75A44B2817D0F400E9EF54 /* FYSettingViewController.swift in Sources */,
 				4C75A44A2817D0F400E9EF54 /* FYMineViewController.swift in Sources */,
 				271C02C523929B3A0041617F /* ChatEmoticon.swift in Sources */,
+				4C4A1A2C2818DABA00CDD3B1 /* BottomPopupPresentAnimator.swift in Sources */,
 				27433FAE238D70D4004D5E3D /* UIImage+Extension.swift in Sources */,
 				27433FA3238D70D4004D5E3D /* UIView+Layout.swift in Sources */,
 				2743401B238D70D5004D5E3D /* NSObject+BinAdd.m in Sources */,
+				4C4A1A2A2818DABA00CDD3B1 /* BottomPopupNavigationController.swift in Sources */,
 				27433FA8238D70D4004D5E3D /* MJRefresh+Rx.swift in Sources */,
 				4C75A43C2817D0F400E9EF54 /* ScanQRCodeViewController.swift in Sources */,
+				4C4A1A332818DB7200CDD3B1 /* PGTableViewTitleCell.swift in Sources */,
 				271C030023929B3A0041617F /* WCDataBaseTable.swift in Sources */,
 				4C75A4372817D0F400E9EF54 /* FYEditChatInfoViewController.swift in Sources */,
 				271C02F523929B3A0041617F /* ChatEmotionAttachment.swift in Sources */,
 				4C75A43F2817D0F400E9EF54 /* FYMessageViewModel.swift in Sources */,
+				4C4A1A272818DABA00CDD3B1 /* BottomPopupUtils.swift in Sources */,
 				2743401E238D70D5004D5E3D /* FYBaseTabBarController.swift in Sources */,
 				27433FB3238D70D4004D5E3D /* ConstraintArrayDSL.swift in Sources */,
 				27433FA9238D70D4004D5E3D /* Array+Extension.swift in Sources */,
@@ -1354,16 +1405,20 @@
 				271C02FF23929B3A0041617F /* WCDataBaseManager.swift in Sources */,
 				271C02F323929B3A0041617F /* ChatFindEmotion.swift in Sources */,
 				271C02F623929B3A0041617F /* WeakProxy.m in Sources */,
+				4C4A1A2E2818DABA00CDD3B1 /* BottomPopupTransitionHandler.swift in Sources */,
 				27433FA1238D70D4004D5E3D /* String+Date.swift in Sources */,
 				4C75A4472817D0F400E9EF54 /* FYImageMessageCell.swift in Sources */,
+				4C4A1A2D2818DABA00CDD3B1 /* CSBottomPopupNavigationController.swift in Sources */,
 				271C02F423929B3A0041617F /* ChatEmotionHelper.swift in Sources */,
 				27433FAB238D70D4004D5E3D /* UIlabel+Extension.swift in Sources */,
 				4C75A4412817D0F400E9EF54 /* FYMessageForwardViewController.swift in Sources */,
+				4C4A1A2F2818DABA00CDD3B1 /* BottomPopupPresentationController.swift in Sources */,
 				271C02C723929B3A0041617F /* ChatGrowingTextView.swift in Sources */,
 				4C75A4462817D0F400E9EF54 /* FYVideoMessageCell.swift in Sources */,
 				27434033238D70D5004D5E3D /* FYNavDropMenuCell.swift in Sources */,
 				27433FB4238D70D4004D5E3D /* Notification+Name.swift in Sources */,
 				27434018238D70D5004D5E3D /* ErrorTracker.swift in Sources */,
+				4C4A1A282818DABA00CDD3B1 /* BottomPopupViewController.swift in Sources */,
 				27433FB2238D70D4004D5E3D /* ConstraintArray+Extensions.swift in Sources */,
 				4C75A4402817D0F400E9EF54 /* FYChatBaseViewController.swift in Sources */,
 				4C75A4432817D0F400E9EF54 /* FYMessageItem.swift in Sources */,
@@ -1375,6 +1430,7 @@
 				271C02C423929B3A0041617F /* ChatKeyboardView.swift in Sources */,
 				4C75A4382817D0F400E9EF54 /* FYContactsInfoViewController.swift in Sources */,
 				271C02C323929B3A0041617F /* ChatAppleEmojiCell.swift in Sources */,
+				4C4A1A2B2818DABA00CDD3B1 /* BottomPopupDismissAnimator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

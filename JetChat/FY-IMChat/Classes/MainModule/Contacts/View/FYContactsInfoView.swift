@@ -17,7 +17,11 @@ class FYContactsInfoView: UIView {
             }
             
             nameLabel.text = model.name
-            nickLabel.text = "备注名：\(model.nickName ?? "")"
+            
+            if let nickName = model.nickName, nickName.length > 0 {
+                nickLabel.text = "备注名：".rLocalized() + nickName
+            }
+            
             uidLabel.text = "uid：\(model.uid ?? 1000)"
             avatarView.setImageWithURL(model.avatar!, placeholder: "ic_avatar_placeholder")
         }

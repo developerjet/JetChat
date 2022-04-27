@@ -21,9 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     public lazy var fpsLabel: FPSLabel = {
-        let label = FPSLabel.init(frame: CGRect.init(x: kScreenW - 80, y: 90, width: 70, height: 30))
-        label.textColor = .white
+        let label = FPSLabel.init(frame: CGRect.init(x: kScreenW - 80, y: 200, width: 70, height: 30))
         label.backgroundColor = .red
+        label.textColor = .white
         return label
     }()
 

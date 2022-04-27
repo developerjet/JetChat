@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 
-class FYEditChatInfoViewController: FYBaseConfigViewController {
+class FYEditChatInfoViewController: FYBaseViewController {
     
     var chatModel: FYMessageChatModel? {
         didSet {
@@ -29,7 +29,7 @@ class FYEditChatInfoViewController: FYBaseConfigViewController {
     
     lazy var saveButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.setTitle("保存", for: .normal)
+        button.setTitle("保存".rLocalized(), for: .normal)
         button.setTitleColor(.blue, for: .normal)
         button.isHidden = true
         button.sizeToFit()
@@ -42,7 +42,7 @@ class FYEditChatInfoViewController: FYBaseConfigViewController {
     lazy var myTextField: UITextField = {
         let textField = UITextField()
         let leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 40))
-        textField.placeholder = "备注名称不超过12个字"
+        textField.placeholder = "备注名称不超过12个字".rLocalized()
         textField.textColor = .black
         textField.leftView = leftView
         textField.delegate = self
@@ -65,7 +65,7 @@ class FYEditChatInfoViewController: FYBaseConfigViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "修改备注名称"
+        navigationItem.title = "修改备注名称".rLocalized()
         // Do any additional setup after loading the view.
         setupSubview()
     }
@@ -113,7 +113,7 @@ extension FYEditChatInfoViewController: UITextFieldDelegate {
         myTextField.resignFirstResponder()
         chatModel?.nickName = myTextField.text ?? ""
         if let model = chatModel, let uid = model.uid {
-            MBHUD.showStatus("正在保存...")
+            MBHUD.showStatus("正在保存...".rLocalized())
             FYDBQueryHelper.shared.updateFromChatModel(model, uid: uid)
             
             NotificationCenter.default.post(name: .kNeedRefreshSesstionList, object: nil)

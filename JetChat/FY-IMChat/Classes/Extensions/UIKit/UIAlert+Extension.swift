@@ -24,7 +24,7 @@ extension EasyAlertView {
     func sureActionAlert(title: String, message: String, vc: UIViewController) {
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
 
-        let sureAction = UIAlertAction(title: "确定", style: .default) { (UIAlertAction) in
+        let sureAction = UIAlertAction(title: "确定".rLocalized(), style: .default) { (UIAlertAction) in
             
         }
         
@@ -36,10 +36,10 @@ extension EasyAlertView {
     func confirmAlert(title: String, message: String, vc: UIViewController, source: @escaping () -> Void) {
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
 
-        let confirmAction = UIAlertAction(title: "确定", style: .default) { (UIAlertAction) in
+        let confirmAction = UIAlertAction(title: "确定".rLocalized(), style: .default) { (UIAlertAction) in
             source()
         }
-        let cancleAction = UIAlertAction(title: "取消", style: .default, handler: nil)
+        let cancleAction = UIAlertAction(title: "取消".rLocalized(), style: .default, handler: nil)
 
         alertVC.addAction(cancleAction)
         alertVC.addAction(confirmAction)
@@ -49,7 +49,7 @@ extension EasyAlertView {
     func defaultConfirm(title: String, message: String, vc: UIViewController, source: @escaping () -> Void) {
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
 
-        let confirmAction = UIAlertAction(title: "确认", style: .default) { (UIAlertAction) in
+        let confirmAction = UIAlertAction(title: "确认".rLocalized(), style: .default) { (UIAlertAction) in
             source()
         }
 
@@ -61,11 +61,11 @@ extension EasyAlertView {
     func sheetAction(title: String, message: String, vc: UIViewController, source: @escaping () -> Void) {
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
 
-        let confirmAction = UIAlertAction(title: "确定", style: .default) { (UIAlertAction) in
+        let confirmAction = UIAlertAction(title: "确定".rLocalized(), style: .default) { (UIAlertAction) in
             source()
         }
 
-        let cancleAction = UIAlertAction(title: "取消", style: .default, handler: nil)
+        let cancleAction = UIAlertAction(title: "取消".rLocalized(), style: .default, handler: nil)
         alertVC.addAction(cancleAction)
         alertVC.addAction(confirmAction)
         vc.present(alertVC, animated: true, completion: nil)
@@ -105,8 +105,8 @@ extension EasyAlertView {
             textFiled.placeholder = placeholder
         }
 
-        let cancelAction = UIAlertAction(title: "确定", style: .default, handler: nil)
-        let confirmAction = UIAlertAction(title: "取消", style: .default) { (UIAlertAction) in
+        let cancelAction = UIAlertAction(title: "确定".rLocalized(), style: .default, handler: nil)
+        let confirmAction = UIAlertAction(title: "取消".rLocalized(), style: .default) { (UIAlertAction) in
             let login = alertVC.textFields![0]
             source(login.text!)
             printLog("输入的是：\(String(describing: login.text))")

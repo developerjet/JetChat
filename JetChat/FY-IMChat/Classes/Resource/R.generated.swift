@@ -1089,12 +1089,92 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 3 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 23 localization keys.
     struct localizable {
+      /// en translation: Add Friends
+      ///
+      /// Locales: en
+      static let 添加好友 = Rswift.StringResource(key: "添加好友", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Add Friends
+      ///
+      /// Locales: en
+      static let 添加朋友 = Rswift.StringResource(key: "添加朋友", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Chinese
+      ///
+      /// Locales: en
+      static let 简体中文 = Rswift.StringResource(key: "简体中文", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Delete all
+      ///
+      /// Locales: en
+      static let 删除所有好友 = Rswift.StringResource(key: "删除所有好友", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Delete all
+      ///
+      /// Locales: en
+      static let 删除所有群组 = Rswift.StringResource(key: "删除所有群组", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Delete all
+      ///
+      /// Locales: en
+      static let 语言设置 = Rswift.StringResource(key: "语言设置", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: English
+      ///
+      /// Locales: en
+      static let 英文 = Rswift.StringResource(key: "英文", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Friends
+      ///
+      /// Locales: en
+      static let 好友 = Rswift.StringResource(key: "好友", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Group
+      ///
+      /// Locales: en
+      static let 群组 = Rswift.StringResource(key: "群组", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Group chat
+      ///
+      /// Locales: en
+      static let 发起群聊 = Rswift.StringResource(key: "发起群聊", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Is the latest version
+      ///
+      /// Locales: en
+      static let 已是最新版本 = Rswift.StringResource(key: "已是最新版本", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Join group
+      ///
+      /// Locales: en
+      static let 加入群 = Rswift.StringResource(key: "加入群", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Mine
+      ///
+      /// Locales: en
+      static let 我 = Rswift.StringResource(key: "我", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Scan
+      ///
+      /// Locales: en
+      static let 扫一扫 = Rswift.StringResource(key: "扫一扫", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Session
+      ///
+      /// Locales: en
+      static let 会话 = Rswift.StringResource(key: "会话", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Setting
+      ///
+      /// Locales: en
+      static let 设置 = Rswift.StringResource(key: "设置", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Single chat
+      ///
+      /// Locales: en
+      static let 发起单聊 = Rswift.StringResource(key: "发起单聊", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: The current network is disconnected
+      ///
+      /// Locales: en
+      static let 当前网络已断开 = Rswift.StringResource(key: "当前网络已断开", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Tips
       ///
       /// Locales: en
       static let 温馨提示 = Rswift.StringResource(key: "温馨提示", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Version
+      ///
+      /// Locales: en
+      static let 版本 = Rswift.StringResource(key: "版本", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Version number:
+      ///
+      /// Locales: en
+      static let 版本号 = Rswift.StringResource(key: "版本号:", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: cancel
       ///
       /// Locales: en
@@ -1103,6 +1183,276 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let 确定 = Rswift.StringResource(key: "确定", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+
+      /// en translation: Add Friends
+      ///
+      /// Locales: en
+      static func 添加好友(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("添加好友", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "添加好友"
+        }
+
+        return NSLocalizedString("添加好友", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Add Friends
+      ///
+      /// Locales: en
+      static func 添加朋友(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("添加朋友", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "添加朋友"
+        }
+
+        return NSLocalizedString("添加朋友", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Chinese
+      ///
+      /// Locales: en
+      static func 简体中文(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("简体中文", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "简体中文"
+        }
+
+        return NSLocalizedString("简体中文", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Delete all
+      ///
+      /// Locales: en
+      static func 删除所有好友(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("删除所有好友", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "删除所有好友"
+        }
+
+        return NSLocalizedString("删除所有好友", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Delete all
+      ///
+      /// Locales: en
+      static func 删除所有群组(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("删除所有群组", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "删除所有群组"
+        }
+
+        return NSLocalizedString("删除所有群组", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Delete all
+      ///
+      /// Locales: en
+      static func 语言设置(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("语言设置", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "语言设置"
+        }
+
+        return NSLocalizedString("语言设置", bundle: bundle, comment: "")
+      }
+
+      /// en translation: English
+      ///
+      /// Locales: en
+      static func 英文(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("英文", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "英文"
+        }
+
+        return NSLocalizedString("英文", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Friends
+      ///
+      /// Locales: en
+      static func 好友(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("好友", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "好友"
+        }
+
+        return NSLocalizedString("好友", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Group
+      ///
+      /// Locales: en
+      static func 群组(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("群组", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "群组"
+        }
+
+        return NSLocalizedString("群组", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Group chat
+      ///
+      /// Locales: en
+      static func 发起群聊(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("发起群聊", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "发起群聊"
+        }
+
+        return NSLocalizedString("发起群聊", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Is the latest version
+      ///
+      /// Locales: en
+      static func 已是最新版本(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("已是最新版本", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "已是最新版本"
+        }
+
+        return NSLocalizedString("已是最新版本", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Join group
+      ///
+      /// Locales: en
+      static func 加入群(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("加入群", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "加入群"
+        }
+
+        return NSLocalizedString("加入群", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Mine
+      ///
+      /// Locales: en
+      static func 我(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("我", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "我"
+        }
+
+        return NSLocalizedString("我", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Scan
+      ///
+      /// Locales: en
+      static func 扫一扫(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("扫一扫", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "扫一扫"
+        }
+
+        return NSLocalizedString("扫一扫", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Session
+      ///
+      /// Locales: en
+      static func 会话(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("会话", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "会话"
+        }
+
+        return NSLocalizedString("会话", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Setting
+      ///
+      /// Locales: en
+      static func 设置(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("设置", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "设置"
+        }
+
+        return NSLocalizedString("设置", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Single chat
+      ///
+      /// Locales: en
+      static func 发起单聊(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("发起单聊", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "发起单聊"
+        }
+
+        return NSLocalizedString("发起单聊", bundle: bundle, comment: "")
+      }
+
+      /// en translation: The current network is disconnected
+      ///
+      /// Locales: en
+      static func 当前网络已断开(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("当前网络已断开", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "当前网络已断开"
+        }
+
+        return NSLocalizedString("当前网络已断开", bundle: bundle, comment: "")
+      }
 
       /// en translation: Tips
       ///
@@ -1117,6 +1467,36 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("温馨提示", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Version
+      ///
+      /// Locales: en
+      static func 版本(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("版本", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "版本"
+        }
+
+        return NSLocalizedString("版本", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Version number:
+      ///
+      /// Locales: en
+      static func 版本号(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("版本号:", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "版本号:"
+        }
+
+        return NSLocalizedString("版本号:", bundle: bundle, comment: "")
       }
 
       /// en translation: cancel

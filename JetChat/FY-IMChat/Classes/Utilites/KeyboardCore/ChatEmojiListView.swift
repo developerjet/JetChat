@@ -124,7 +124,7 @@ class ChatEmojiListView: UIView {
     
     lazy var sendButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.setTitle("发送", for: .normal)
+        button.setTitle("发送".rLocalized(), for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         button.setTitleColor(.kSendColor, for: .normal)
         button.setTitleColor(.lightGray, for: .disabled)
@@ -204,7 +204,7 @@ class ChatEmojiListView: UIView {
         }
         
         weChatEmojiBtn.snp.makeConstraints { (make) in
-            make.left.equalTo(appleEmojiBtn.snp_right)
+            make.left.equalTo(appleEmojiBtn.snp.right)
             make.height.equalToSuperview()
             make.width.equalTo(appleEmojiBtn)
         }
@@ -216,14 +216,14 @@ class ChatEmojiListView: UIView {
         }
         
         pageControl.snp.makeConstraints { make in
-            make.bottom.equalTo(bottomView.snp_top)
+            make.bottom.equalTo(bottomView.snp.top)
             make.centerX.equalToSuperview()
             make.height.equalTo(20)
         }
         
         collectionView.snp.makeConstraints { make in
             make.top.left.right.equalToSuperview()
-            make.bottom.equalTo(pageControl.snp_top)
+            make.bottom.equalTo(pageControl.snp.top)
         }
     }
     

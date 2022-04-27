@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyJSON
 
-protocol ChatKeyboardViewDelegate: class {
+protocol ChatKeyboardViewDelegate: AnyObject {
     /// 输入完消息
     func keyboard(_ keyboard: ChatKeyboardView, DidFinish content: String)
     /// 键盘收起/弹出
@@ -80,7 +80,7 @@ class ChatKeyboardView: UIView {
     fileprivate lazy var chatTextView: ChatGrowingTextView = {
         let w: CGFloat = kScreenW - self.kViewWH * 2 - self.kSpace * 3 - self.kSpace
         let textView = ChatGrowingTextView(frame: CGRect(x: self.kSpace, y: self.kSpace, width: w, height: self.kViewWH))
-        textView.placeholder = "请输入..."
+        textView.placeholder = "请输入...".rLocalized()
         textView.maxNumberOfLines = 5
         textView.delegate = self
         textView.didTextChangedHeightClosure = { [weak self] height in

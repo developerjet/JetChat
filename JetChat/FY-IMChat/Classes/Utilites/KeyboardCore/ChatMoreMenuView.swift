@@ -63,16 +63,16 @@ class ChatMoreMenuView: UIView {
 
     lazy var dataSource: [ChatMoreMnueConfig] = {
         let configs = [
-            ChatMoreMnueConfig(title: "图片", image: "ic_more_album", type: .album),
-            ChatMoreMnueConfig(title: "拍照", image: "ic_more_camera", type: .camera),
-            ChatMoreMnueConfig(title: "视频", image: "ic_more_video", type: .video),
-            ChatMoreMnueConfig(title: "位置", image: "ic_more_location", type: .location),
-            ChatMoreMnueConfig(title: "语音", image: "ic_more_voice", type: .voice),
-            ChatMoreMnueConfig(title: "钱包", image: "ic_more_wallet", type: .wallet),
-            ChatMoreMnueConfig(title: "转账", image: "ic_more_pay", type: .pay),
-            ChatMoreMnueConfig(title: "名片", image: "ic_more_friendcard", type: .friendcard),
-            ChatMoreMnueConfig(title: "收藏", image: "ic_more_favorite", type: .favorite),
-            ChatMoreMnueConfig(title: "隐藏", image: "ic_more_sight", type: .sight)]
+            ChatMoreMnueConfig(title: "图片".rLocalized(), image: "ic_more_album", type: .album),
+            ChatMoreMnueConfig(title: "拍照".rLocalized(), image: "ic_more_camera", type: .camera),
+            ChatMoreMnueConfig(title: "视频".rLocalized(), image: "ic_more_video", type: .video),
+            ChatMoreMnueConfig(title: "位置".rLocalized(), image: "ic_more_location", type: .location),
+            ChatMoreMnueConfig(title: "语音".rLocalized(), image: "ic_more_voice", type: .voice),
+            ChatMoreMnueConfig(title: "钱包".rLocalized(), image: "ic_more_wallet", type: .wallet),
+            ChatMoreMnueConfig(title: "转账".rLocalized(), image: "ic_more_pay", type: .pay),
+            ChatMoreMnueConfig(title: "名片".rLocalized(), image: "ic_more_friendcard", type: .friendcard),
+            ChatMoreMnueConfig(title: "收藏".rLocalized(), image: "ic_more_favorite", type: .favorite),
+            ChatMoreMnueConfig(title: "隐藏".rLocalized(), image: "ic_more_sight", type: .sight)]
         return configs
     }()
     
@@ -130,7 +130,7 @@ class ChatMoreMenuView: UIView {
         
         collectionView.snp.makeConstraints { make in
             make.top.left.right.equalToSuperview()
-            make.bottom.equalTo(pageControl.snp_top)
+            make.bottom.equalTo(pageControl.snp.top)
         }
     }
     

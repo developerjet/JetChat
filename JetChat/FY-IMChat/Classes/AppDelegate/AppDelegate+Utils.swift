@@ -43,17 +43,16 @@ extension AppDelegate {
             printLog("Reachable via Cellular")
         case .none:
             printLog("Network not reachable")
-            showReachability("当前网络已断开")
+            showReachability("当前网络已断开".rLocalized())
         case .unavailable:
             printLog("Network not unavailable")
-            showReachability("当前网络已断开")
+            showReachability("当前网络已断开".rLocalized())
         }
     }
     
     func showReachability(_ message: String) {
         MBHUD.showImageError(message)
     }
-    
     
     // MARK:- AppearanceSetting
     func appearanceSetting() {
@@ -70,9 +69,9 @@ extension AppDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = UIColor.white
+        
         let tabBar = FYBaseTabBarController()
         AppDelegate.app.window?.rootViewController = tabBar
-        
         AppDelegate.app.window?.makeKeyAndVisible()
     }
     

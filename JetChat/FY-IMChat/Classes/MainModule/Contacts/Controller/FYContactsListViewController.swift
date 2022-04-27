@@ -10,7 +10,7 @@ import UIKit
 
 private let kContactsCellReuseIdentifier = "kContactsCellReuseIdentifier"
 
-class FYContactsListViewController: FYBaseConfigViewController {
+class FYContactsListViewController: FYBaseViewController {
 
     // MARK: - var lazy
     
@@ -18,7 +18,7 @@ class FYContactsListViewController: FYBaseConfigViewController {
     
     lazy var deleteButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.setTitle("删除所有好友", for: .normal)
+        button.setTitle("删除所有好友".rLocalized(), for: .normal)
         button.setTitleColor(.blue, for: .normal)
         button.sizeToFit()
         button.isHidden = true
@@ -38,7 +38,7 @@ class FYContactsListViewController: FYBaseConfigViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "好友"
+        navigationItem.title = "好友".rLocalized()
         // Do any additional setup after loading the view.
         
         makeUI()
@@ -64,7 +64,7 @@ class FYContactsListViewController: FYBaseConfigViewController {
         let leftBarButtonItem = UIBarButtonItem(customView: deleteButton)
         navigationItem.leftBarButtonItem = leftBarButtonItem
         
-        let rightBarButtonItem = UIBarButtonItem(title: "添加好友", style: .plain, target: self, action: #selector(addUserData))
+        let rightBarButtonItem = UIBarButtonItem(title: "添加好友".rLocalized(), style: .plain, target: self, action: #selector(addUserData))
         navigationItem.rightBarButtonItem = rightBarButtonItem
         
         
@@ -81,7 +81,7 @@ class FYContactsListViewController: FYBaseConfigViewController {
     }
     
     @objc private func showDeleteAlert() {
-        EasyAlertView.shared.customAlert(title: "确定删除全部好友吗？", message: "删除后，会话记录也将清除", confirm: "确定", cancel: "取消", vc: self, confirmBlock: {
+        EasyAlertView.shared.customAlert(title: "确定删除全部好友吗？".rLocalized(), message: "删除后，会话记录也将清除".rLocalized(), confirm: "确定".rLocalized(), cancel: "取消".rLocalized(), vc: self, confirmBlock: {
             self.removerUserData()
         }, cancelBlock: {
             
@@ -96,7 +96,7 @@ class FYContactsListViewController: FYBaseConfigViewController {
         
         let chat = FYMessageChatModel()
         chat.uid = uid
-        chat.name = "用户名：\(uid)"
+        chat.name = "用户名：" + "\(uid)"
         
         chat.avatar = "http://img.duoziwang.com/2019/02/04232036664241.jpg"
         chat.isShowName = true

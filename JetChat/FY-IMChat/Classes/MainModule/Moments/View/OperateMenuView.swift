@@ -7,15 +7,17 @@
 //
 
 import SnapKit
+import UIKit
 
 /// 赞｜评论菜单
 class OperateMenuView: UIView {
     
     fileprivate lazy var thumbupBtn: UIButton = {
         let btn = UIButton(type: .custom)
-        btn.setImage(UIImage(named: "ico-点赞"), for: .normal)
-        btn.setTitle("赞", for: .normal)
-        btn.setTitle("取消", for: .selected)
+        btn.setImage(R.image.ic_star_normal(), for: .normal)
+        btn.titleEdgeInsets = UIEdgeInsets(top: 0, left: 3, bottom: 0, right: 0)
+        btn.setTitle("赞".rLocalized(), for: .normal)
+        btn.setTitle("取消".rLocalized(), for: .selected)
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         btn.setTitleColor(.white, for: .normal)
         btn.addTarget(self, action: #selector(click(_:)), for: .touchUpInside)
@@ -24,8 +26,9 @@ class OperateMenuView: UIView {
     
     fileprivate lazy var commentBtn: UIButton = {
         let btn = UIButton(type: .custom)
-        btn.setImage(UIImage(named: "ico-评论"), for: .normal)
-        btn.setTitle("评论", for: .normal)
+        btn.setImage(R.image.ic_comment_normal(), for: .normal)
+        btn.setTitle("评论".rLocalized(), for: .normal)
+        btn.titleEdgeInsets = UIEdgeInsets(top: 0, left: 3, bottom: 0, right: 0)
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         btn.setTitleColor(.white, for: .normal)
         btn.addTarget(self, action: #selector(click(_:)), for: .touchUpInside)

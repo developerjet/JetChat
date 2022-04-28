@@ -39,7 +39,7 @@ class FYSettingViewController: FYBaseViewController {
             make.height.equalTo(50)
         })
         
-        _ = FYFastGridListView().config { (view) in
+        let version = FYFastGridListView().config { (view) in
             view.isHiddenArrow(isHidden: false)
                 .title(text: "版本".rLocalized())
                 .content(text: "版本号:".rLocalized() + majorVersion)
@@ -54,8 +54,26 @@ class FYSettingViewController: FYBaseViewController {
             make.left.right.equalTo(self.view)
             make.height.equalTo(language)
         })
+        
+        let cacheSize = FYFileSizeManager.manager.cacheSize()
+        _ = FYFastGridListView().config { (view) in
+            view.isHiddenArrow(isHidden: false)
+                .title(text: "清除缓存".rLocalized())
+                .content(text: cacheSize)
+                .contentState(state: .normal)
+                .clickClosure({ [weak self] in
+                    self?.beginClearCaches()
+                }).last(isLine: true)
+        }
+        .adhere(toSuperView: self.view)
+        .layout(snapKitMaker: { make in
+            make.top.equalTo(version.snp.bottom)
+            make.left.right.equalTo(self.view)
+            make.height.equalTo(version)
+        })
     }
     
+    // MARK: - Action
     
     private func showLanguageAction() {
         
@@ -70,6 +88,16 @@ class FYSettingViewController: FYBaseViewController {
                 LanguageManager.manager.setCurrentLanguage(.kEnglish)
             }
             self.navigationController?.popViewController(animated: false)
+        }
+    }
+    
+    private func beginClearCaches() {
+        MBHUD.show()
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.0) {
+            FYFileSizeManager.manager.clearImageCaches {
+                MBHUD.showSuccess("清除成功".rLocalized())
+            }
         }
     }
 }

@@ -79,13 +79,13 @@ class FYMomentsViewController: FYBaseIGListViewController {
         
         collectionView.mj_footer = MJRefreshAutoNormalFooter(refreshingBlock: {[weak self] in
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                self?.loadData("data2")
+                self?.loadData("moments2")
                 self?.collectionView.mj_footer?.endRefreshing()
             }
         })
     }
     
-    private func loadData(_ resource: String = "data1") {
+    private func loadData(_ resource: String = "moments1") {
         do {
             let url = Bundle.main.url(forResource: resource, withExtension: "json")!
             do {

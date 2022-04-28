@@ -131,6 +131,7 @@
 		4C5579622817C3C3006D8A09 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5579612817C3C3006D8A09 /* ActivityIndicator.swift */; };
 		4C5FB429281A974C001F70E3 /* FYLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5FB427281A974C001F70E3 /* FYLabel.swift */; };
 		4C5FB42A281A974C001F70E3 /* FYLabelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5FB428281A974C001F70E3 /* FYLabelType.swift */; };
+		4C5FB42D281AA7DD001F70E3 /* FYFileSizeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5FB42C281AA7DD001F70E3 /* FYFileSizeManager.swift */; };
 		4C75A40A2817C8FF00E9EF54 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C75A4092817C8FF00E9EF54 /* R.generated.swift */; };
 		4C75A40D2817CA3300E9EF54 /* CommonMenuConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C75A40C2817CA3300E9EF54 /* CommonMenuConfig.swift */; };
 		4C75A4372817D0F400E9EF54 /* FYEditChatInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C75A4112817D0F300E9EF54 /* FYEditChatInfoViewController.swift */; };
@@ -178,8 +179,8 @@
 		4CF856B5281A433700F48D4D /* FYTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF856B4281A433700F48D4D /* FYTextView.swift */; };
 		4CF856B8281A456700F48D4D /* FYMomentBindingSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF856B7281A456700F48D4D /* FYMomentBindingSection.swift */; };
 		4CF856BB281A490300F48D4D /* FYMomentHeaderRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF856BA281A490300F48D4D /* FYMomentHeaderRefresh.swift */; };
-		4CF856BF281A4D2800F48D4D /* data1.json in Resources */ = {isa = PBXBuildFile; fileRef = 4CF856BD281A4D2800F48D4D /* data1.json */; };
-		4CF856C0281A4D2800F48D4D /* data2.json in Resources */ = {isa = PBXBuildFile; fileRef = 4CF856BE281A4D2800F48D4D /* data2.json */; };
+		4CF856BF281A4D2800F48D4D /* moments1.json in Resources */ = {isa = PBXBuildFile; fileRef = 4CF856BD281A4D2800F48D4D /* moments1.json */; };
+		4CF856C0281A4D2800F48D4D /* moments2.json in Resources */ = {isa = PBXBuildFile; fileRef = 4CF856BE281A4D2800F48D4D /* moments2.json */; };
 		B8766C51931F201D9A764FC9 /* Pods_FY_IMChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E374D4E527160347F32F8B70 /* Pods_FY_IMChat.framework */; };
 /* End PBXBuildFile section */
 
@@ -338,6 +339,7 @@
 		4C5579612817C3C3006D8A09 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		4C5FB427281A974C001F70E3 /* FYLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYLabel.swift; sourceTree = "<group>"; };
 		4C5FB428281A974C001F70E3 /* FYLabelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYLabelType.swift; sourceTree = "<group>"; };
+		4C5FB42C281AA7DD001F70E3 /* FYFileSizeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FYFileSizeManager.swift; sourceTree = "<group>"; };
 		4C75A4092817C8FF00E9EF54 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		4C75A40C2817CA3300E9EF54 /* CommonMenuConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonMenuConfig.swift; sourceTree = "<group>"; };
 		4C75A4112817D0F300E9EF54 /* FYEditChatInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYEditChatInfoViewController.swift; sourceTree = "<group>"; };
@@ -385,8 +387,8 @@
 		4CF856B4281A433700F48D4D /* FYTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYTextView.swift; sourceTree = "<group>"; };
 		4CF856B7281A456700F48D4D /* FYMomentBindingSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FYMomentBindingSection.swift; sourceTree = "<group>"; };
 		4CF856BA281A490300F48D4D /* FYMomentHeaderRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FYMomentHeaderRefresh.swift; sourceTree = "<group>"; };
-		4CF856BD281A4D2800F48D4D /* data1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data1.json; sourceTree = "<group>"; };
-		4CF856BE281A4D2800F48D4D /* data2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data2.json; sourceTree = "<group>"; };
+		4CF856BD281A4D2800F48D4D /* moments1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = moments1.json; sourceTree = "<group>"; };
+		4CF856BE281A4D2800F48D4D /* moments2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = moments2.json; sourceTree = "<group>"; };
 		5858C5E76CAB64DDB07738CD /* Pods-FY-IMChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FY-IMChat.release.xcconfig"; path = "Target Support Files/Pods-FY-IMChat/Pods-FY-IMChat.release.xcconfig"; sourceTree = "<group>"; };
 		98E659EF05275210EC83E03D /* Pods-FY-IMChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FY-IMChat.debug.xcconfig"; path = "Target Support Files/Pods-FY-IMChat/Pods-FY-IMChat.debug.xcconfig"; sourceTree = "<group>"; };
 		E374D4E527160347F32F8B70 /* Pods_FY_IMChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FY_IMChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -422,6 +424,7 @@
 		271C025623929B3A0041617F /* Utilites */ = {
 			isa = PBXGroup;
 			children = (
+				4C5FB42B281AA7D0001F70E3 /* FileSizeManager */,
 				271C026023929B3A0041617F /* KeyboardCore */,
 				271C02A123929B3A0041617F /* FPSLabel */,
 				271C02AA23929B3A0041617F /* Helpers */,
@@ -964,6 +967,14 @@
 			path = MomentLabel;
 			sourceTree = "<group>";
 		};
+		4C5FB42B281AA7D0001F70E3 /* FileSizeManager */ = {
+			isa = PBXGroup;
+			children = (
+				4C5FB42C281AA7DD001F70E3 /* FYFileSizeManager.swift */,
+			);
+			path = FileSizeManager;
+			sourceTree = "<group>";
+		};
 		4C75A40B2817CA3300E9EF54 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -1211,8 +1222,8 @@
 		4CF856BC281A4D2800F48D4D /* JSONData */ = {
 			isa = PBXGroup;
 			children = (
-				4CF856BD281A4D2800F48D4D /* data1.json */,
-				4CF856BE281A4D2800F48D4D /* data2.json */,
+				4CF856BD281A4D2800F48D4D /* moments1.json */,
+				4CF856BE281A4D2800F48D4D /* moments2.json */,
 			);
 			path = JSONData;
 			sourceTree = "<group>";
@@ -1377,7 +1388,7 @@
 				271C02DA23929B3A0041617F /* ic_more_pay@3x.png in Resources */,
 				271C02E723929B3A0041617F /* ToolViewEmotionHL@3x.png in Resources */,
 				271C02EF23929B3A0041617F /* icon_emoji_expression@2x.png in Resources */,
-				4CF856C0281A4D2800F48D4D /* data2.json in Resources */,
+				4CF856C0281A4D2800F48D4D /* moments2.json in Resources */,
 				271C02E223929B3A0041617F /* ToolViewKeyboardHL@2x.png in Resources */,
 				271C02DE23929B3A0041617F /* ic_more_pay@2x.png in Resources */,
 				271C02E423929B3A0041617F /* ToolViewKeyboard@3x.png in Resources */,
@@ -1388,7 +1399,7 @@
 				271C02E823929B3A0041617F /* ToolViewInputVoiceHL@2x.png in Resources */,
 				271C02CE23929B3A0041617F /* ic_more_favorite@3x.png in Resources */,
 				27434036238D70D5004D5E3D /* HUDAssets.bundle in Resources */,
-				4CF856BF281A4D2800F48D4D /* data1.json in Resources */,
+				4CF856BF281A4D2800F48D4D /* moments1.json in Resources */,
 				271C02D723929B3A0041617F /* ic_more_sight@2x.png in Resources */,
 				271C02D923929B3A0041617F /* ic_more_friendcard@2x.png in Resources */,
 				271C02CA23929B3A0041617F /* Emoticons.bundle in Resources */,
@@ -1509,6 +1520,7 @@
 				4CF856AC281A40F300F48D4D /* NineImageView.swift in Sources */,
 				27434024238D70D5004D5E3D /* FYBaseViewController.swift in Sources */,
 				4CF856A7281A40D400F48D4D /* CommentContentView.swift in Sources */,
+				4C5FB42D281AA7DD001F70E3 /* FYFileSizeManager.swift in Sources */,
 				4CF856A2281A40D400F48D4D /* CommentInputView.swift in Sources */,
 				4CF85692281A3F0F00F48D4D /* FYMoUserInfo.swift in Sources */,
 				27433F9A238D70D4004D5E3D /* AppDelegate+Push.swift in Sources */,

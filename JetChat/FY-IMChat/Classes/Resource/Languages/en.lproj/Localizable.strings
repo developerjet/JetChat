@@ -70,6 +70,8 @@
 "星期六" = "Saturday";
 "星期日" = "Sunday";
 
+"清除图片缓存" = "Clear cache";
+"清除成功" = "Cleared success";
 "朋友圈" = "Wechat Moments";
 "评论" = "Comment";
 "赞" = "Star";

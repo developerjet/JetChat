@@ -29,14 +29,14 @@ class FYContactsInfoViewController: FYBaseViewController {
     
     var dataSource: [String] = []
     
-    lazy var headerView: FYContactsInfoView = {
+    private lazy var  headerView: FYContactsInfoView = {
         let view = FYContactsInfoView()
         view.backgroundColor = .white
         view.frame = CGRect(x: 0, y: 0, width: kScreenW, height: 120)
         return view
     }()
     
-    lazy var footerView: UIView = {
+    private lazy var  footerView: UIView = {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: 100))
         view.backgroundColor = .backGroundGrayColor()
         view.addSubview(sendButton)
@@ -49,7 +49,7 @@ class FYContactsInfoViewController: FYBaseViewController {
         return view
     }()
     
-    lazy var sendButton: UIButton = {
+    private lazy var  sendButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setTitle("发消息".rLocalized(), for: .normal)
         button.backgroundColor = .appThemeHexColor()
@@ -69,9 +69,6 @@ class FYContactsInfoViewController: FYBaseViewController {
         super.viewDidLoad()
         navigationItem.title = "个人信息".rLocalized()
         view.backgroundColor = .backGroundGrayColor()
-        // Do any additional setup after loading the view.
-        
-        makeUI()
     }
     
     override func makeUI() {

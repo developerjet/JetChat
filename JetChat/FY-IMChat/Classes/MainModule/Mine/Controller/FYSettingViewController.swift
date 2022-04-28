@@ -14,9 +14,8 @@ class FYSettingViewController: FYBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "设置".rLocalized()
         
-        makeUI()
+        navigationItem.title = "设置".rLocalized()
     }
     
     override func makeUI() {

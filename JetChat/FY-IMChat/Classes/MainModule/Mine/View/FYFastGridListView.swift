@@ -204,7 +204,7 @@ extension FYFastGridListView: CustomContentProtocal {
         return self
     }
     
-    //最后
+    // 最后分割线
     func last(isLine: Bool) {
         if (isLine) {
             self.lineView.isHidden = false
@@ -212,5 +212,4 @@ extension FYFastGridListView: CustomContentProtocal {
             self.lineView.isHidden = true
         }
     }
-    
 }

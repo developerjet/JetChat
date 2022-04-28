@@ -37,9 +37,8 @@ class FYBaseViewController: UIViewController {
         }
     }
     
-    
     /// 基类-普通列表
-    public lazy var plainTabView: UITableView = {
+    lazy var plainTabView: UITableView = {
         let frame = CGRect(x: 0, y: 0, width: kScreenW, height: self.view.height)
         let table = UITableView(frame: frame, style: .plain)
         table.backgroundColor = UIColor.white
@@ -57,7 +56,7 @@ class FYBaseViewController: UIViewController {
     }()
     
     /// 基类-分组列表
-    public lazy var groupTabView: UITableView = {
+    lazy var groupTabView: UITableView = {
         let frame = CGRect(x: 0, y: 0, width: kScreenW, height: self.view.height)
         let table = UITableView(frame: frame, style: .grouped)
         table.backgroundColor = UIColor.white
@@ -73,7 +72,7 @@ class FYBaseViewController: UIViewController {
         }
         return table
     }()
-    
+            
     // 解决push时界面卡住问题
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -95,11 +94,15 @@ class FYBaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.fd_prefersNavigationBarHidden = false
         view.backgroundColor = UIColor.colorWithHexStr("F7F7F7")
         
-        automaticallyAdjustsScrollViewInsets = false
-        modalPresentationCapturesStatusBarAppearance = false
+        self.fd_prefersNavigationBarHidden = false
+        self.automaticallyAdjustsScrollViewInsets = false
+        self.modalPresentationCapturesStatusBarAppearance = false
+        
+        makeUI()
+        createViewModel()
+        bindViewModel()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -109,9 +112,6 @@ class FYBaseViewController: UIViewController {
     
     // MARK:- 提供子类重写
     open func makeUI() { }
-    open func makeSubview() { }
-    open func makeLayout() { }
-    
     open func createViewModel() { }
     open func bindViewModel() { }
 }

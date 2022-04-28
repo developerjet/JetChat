@@ -105,7 +105,7 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.file` struct is generated, and contains static references to 47 files.
+  /// This `R.file` struct is generated, and contains static references to 49 files.
   struct file {
     /// Resource file `Emoticons.bundle`.
     static let emoticonsBundle = Rswift.FileResource(bundle: R.hostingBundle, name: "Emoticons", pathExtension: "bundle")
@@ -147,6 +147,10 @@ struct R: Rswift.Validatable {
     static let typeSelectorBtn_Black2xPng = Rswift.FileResource(bundle: R.hostingBundle, name: "TypeSelectorBtn_Black@2x", pathExtension: "png")
     /// Resource file `TypeSelectorBtn_Black@3x.png`.
     static let typeSelectorBtn_Black3xPng = Rswift.FileResource(bundle: R.hostingBundle, name: "TypeSelectorBtn_Black@3x", pathExtension: "png")
+    /// Resource file `data1.json`.
+    static let data1Json = Rswift.FileResource(bundle: R.hostingBundle, name: "data1", pathExtension: "json")
+    /// Resource file `data2.json`.
+    static let data2Json = Rswift.FileResource(bundle: R.hostingBundle, name: "data2", pathExtension: "json")
     /// Resource file `ic_emotion_delete@2x.png`.
     static let ic_emotion_delete2xPng = Rswift.FileResource(bundle: R.hostingBundle, name: "ic_emotion_delete@2x", pathExtension: "png")
     /// Resource file `ic_emotion_delete@3x.png`.
@@ -322,6 +326,18 @@ struct R: Rswift.Validatable {
       return fileResource.bundle.url(forResource: fileResource)
     }
 
+    /// `bundle.url(forResource: "data1", withExtension: "json")`
+    static func data1Json(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.data1Json
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "data2", withExtension: "json")`
+    static func data2Json(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.data2Json
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
     /// `bundle.url(forResource: "ic_emotion_delete@2x", withExtension: "png")`
     static func ic_emotion_delete2xPng(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.ic_emotion_delete2xPng
@@ -487,7 +503,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 59 images.
+  /// This `R.image` struct is generated, and contains static references to 68 images.
   struct image {
     /// Image `LaunchImage`.
     static let launchImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "LaunchImage")
@@ -513,8 +529,14 @@ struct R: Rswift.Validatable {
     static let typeSelectorBtnHL_Black = Rswift.ImageResource(bundle: R.hostingBundle, name: "TypeSelectorBtnHL_Black")
     /// Image `TypeSelectorBtn_Black`.
     static let typeSelectorBtn_Black = Rswift.ImageResource(bundle: R.hostingBundle, name: "TypeSelectorBtn_Black")
+    /// Image `ic_album_reflash`.
+    static let ic_album_reflash = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_album_reflash")
     /// Image `ic_avatar_placeholder`.
     static let ic_avatar_placeholder = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_avatar_placeholder")
+    /// Image `ic_comment_normal`.
+    static let ic_comment_normal = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_comment_normal")
+    /// Image `ic_comment_selected`.
+    static let ic_comment_selected = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_comment_selected")
     /// Image `ic_emotion_delete`.
     static let ic_emotion_delete = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_emotion_delete")
     /// Image `ic_group_placeholder`.
@@ -543,6 +565,12 @@ struct R: Rswift.Validatable {
     static let ic_msg_forward_n = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_msg_forward_n")
     /// Image `ic_msg_forward_s`.
     static let ic_msg_forward_s = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_msg_forward_s")
+    /// Image `ic_placeholder`.
+    static let ic_placeholder = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_placeholder")
+    /// Image `ic_star_normal`.
+    static let ic_star_normal = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_star_normal")
+    /// Image `ic_star_selected`.
+    static let ic_star_selected = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_star_selected")
     /// Image `ic_tabbar01_normal`.
     static let ic_tabbar01_normal = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_tabbar01_normal")
     /// Image `ic_tabbar01_selected`.
@@ -565,8 +593,6 @@ struct R: Rswift.Validatable {
     static let icon_emoji_expression = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_emoji_expression")
     /// Image `icon_more_add`.
     static let icon_more_add = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_more_add")
-    /// Image `icon_nav_back_white`.
-    static let icon_nav_back_white = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_nav_back_white")
     /// Image `icon_qrc_border`.
     static let icon_qrc_border = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_qrc_border")
     /// Image `icon_qrc_line`.
@@ -599,6 +625,14 @@ struct R: Rswift.Validatable {
     static let message_voice_sender_playing_2 = Rswift.ImageResource(bundle: R.hostingBundle, name: "message_voice_sender_playing_2")
     /// Image `message_voice_sender_playing_3`.
     static let message_voice_sender_playing_3 = Rswift.ImageResource(bundle: R.hostingBundle, name: "message_voice_sender_playing_3")
+    /// Image `nav_back_black`.
+    static let nav_back_black = Rswift.ImageResource(bundle: R.hostingBundle, name: "nav_back_black")
+    /// Image `nav_back_white`.
+    static let nav_back_white = Rswift.ImageResource(bundle: R.hostingBundle, name: "nav_back_white")
+    /// Image `nav_camera_black`.
+    static let nav_camera_black = Rswift.ImageResource(bundle: R.hostingBundle, name: "nav_camera_black")
+    /// Image `nav_camera_white`.
+    static let nav_camera_white = Rswift.ImageResource(bundle: R.hostingBundle, name: "nav_camera_white")
     /// Image `play_btn_normal`.
     static let play_btn_normal = Rswift.ImageResource(bundle: R.hostingBundle, name: "play_btn_normal")
     /// Image `play_btn_pressed`.
@@ -693,9 +727,30 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "ic_album_reflash", bundle: ..., traitCollection: ...)`
+    static func ic_album_reflash(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_album_reflash, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "ic_avatar_placeholder", bundle: ..., traitCollection: ...)`
     static func ic_avatar_placeholder(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.ic_avatar_placeholder, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "ic_comment_normal", bundle: ..., traitCollection: ...)`
+    static func ic_comment_normal(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_comment_normal, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "ic_comment_selected", bundle: ..., traitCollection: ...)`
+    static func ic_comment_selected(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_comment_selected, compatibleWith: traitCollection)
     }
     #endif
 
@@ -798,6 +853,27 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "ic_placeholder", bundle: ..., traitCollection: ...)`
+    static func ic_placeholder(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_placeholder, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "ic_star_normal", bundle: ..., traitCollection: ...)`
+    static func ic_star_normal(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_star_normal, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "ic_star_selected", bundle: ..., traitCollection: ...)`
+    static func ic_star_selected(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_star_selected, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "ic_tabbar01_normal", bundle: ..., traitCollection: ...)`
     static func ic_tabbar01_normal(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.ic_tabbar01_normal, compatibleWith: traitCollection)
@@ -871,13 +947,6 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "icon_more_add", bundle: ..., traitCollection: ...)`
     static func icon_more_add(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.icon_more_add, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "icon_nav_back_white", bundle: ..., traitCollection: ...)`
-    static func icon_nav_back_white(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.icon_nav_back_white, compatibleWith: traitCollection)
     }
     #endif
 
@@ -994,6 +1063,34 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "nav_back_black", bundle: ..., traitCollection: ...)`
+    static func nav_back_black(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.nav_back_black, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "nav_back_white", bundle: ..., traitCollection: ...)`
+    static func nav_back_white(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.nav_back_white, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "nav_camera_black", bundle: ..., traitCollection: ...)`
+    static func nav_camera_black(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.nav_camera_black, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "nav_camera_white", bundle: ..., traitCollection: ...)`
+    static func nav_camera_white(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.nav_camera_white, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "play_btn_normal", bundle: ..., traitCollection: ...)`
     static func play_btn_normal(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.play_btn_normal, compatibleWith: traitCollection)
@@ -1089,7 +1186,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 23 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 69 localization keys.
     struct localizable {
       /// en translation: Add Friends
       ///
@@ -1099,10 +1196,66 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let 添加朋友 = Rswift.StringResource(key: "添加朋友", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: After deletion, the session record will also be cleared
+      ///
+      /// Locales: en
+      static let 删除后会话记录也将清除 = Rswift.StringResource(key: "删除后，会话记录也将清除", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Album
+      ///
+      /// Locales: en
+      static let 图片 = Rswift.StringResource(key: "图片", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: All unread messages cleared
+      ///
+      /// Locales: en
+      static let 已清除全部未读消息数 = Rswift.StringResource(key: "已清除全部未读消息数", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Are you sure to delete all friends?
+      ///
+      /// Locales: en
+      static let 确定删除全部好友吗 = Rswift.StringResource(key: "确定删除全部好友吗？", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Are you sure to delete all groups?
+      ///
+      /// Locales: en
+      static let 确定删除全部群组吗 = Rswift.StringResource(key: "确定删除全部群组吗？", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Are you sure you want to leave the current group?
+      ///
+      /// Locales: en
+      static let 确定退出当前群组吗 = Rswift.StringResource(key: "确定退出当前群组吗？", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Camera
+      ///
+      /// Locales: en
+      static let 拍照 = Rswift.StringResource(key: "拍照", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Cancel
+      ///
+      /// Locales: en
+      static let 取消 = Rswift.StringResource(key: "取消", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Card
+      ///
+      /// Locales: en
+      static let 名片 = Rswift.StringResource(key: "名片", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Chinese
       ///
       /// Locales: en
       static let 简体中文 = Rswift.StringResource(key: "简体中文", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Collection
+      ///
+      /// Locales: en
+      static let 收藏 = Rswift.StringResource(key: "收藏", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Comment
+      ///
+      /// Locales: en
+      static let 评论 = Rswift.StringResource(key: "评论", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Confirm
+      ///
+      /// Locales: en
+      static let 确定 = Rswift.StringResource(key: "确定", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Copy
+      ///
+      /// Locales: en
+      static let 复制 = Rswift.StringResource(key: "复制", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Delete
+      ///
+      /// Locales: en
+      static let 删除 = Rswift.StringResource(key: "删除", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Delete all
       ///
       /// Locales: en
@@ -1111,14 +1264,26 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let 删除所有群组 = Rswift.StringResource(key: "删除所有群组", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
-      /// en translation: Delete all
-      ///
-      /// Locales: en
-      static let 语言设置 = Rswift.StringResource(key: "语言设置", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: English
       ///
       /// Locales: en
       static let 英文 = Rswift.StringResource(key: "英文", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Exit group
+      ///
+      /// Locales: en
+      static let 退出群 = Rswift.StringResource(key: "退出群", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Forward
+      ///
+      /// Locales: en
+      static let 消息转发 = Rswift.StringResource(key: "消息转发", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Forward
+      ///
+      /// Locales: en
+      static let 转发 = Rswift.StringResource(key: "转发", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Friday
+      ///
+      /// Locales: en
+      static let 星期五 = Rswift.StringResource(key: "星期五", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Friends
       ///
       /// Locales: en
@@ -1131,6 +1296,14 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let 发起群聊 = Rswift.StringResource(key: "发起群聊", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Group chat
+      ///
+      /// Locales: en
+      static let 群聊 = Rswift.StringResource(key: "群聊", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Hide
+      ///
+      /// Locales: en
+      static let 隐藏 = Rswift.StringResource(key: "隐藏", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Is the latest version
       ///
       /// Locales: en
@@ -1139,14 +1312,70 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let 加入群 = Rswift.StringResource(key: "加入群", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Language settings
+      ///
+      /// Locales: en
+      static let 语言设置 = Rswift.StringResource(key: "语言设置", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Location
+      ///
+      /// Locales: en
+      static let 位置 = Rswift.StringResource(key: "位置", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Mine
       ///
       /// Locales: en
       static let 我 = Rswift.StringResource(key: "我", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Modify remark name
+      ///
+      /// Locales: en
+      static let 修改备注名称 = Rswift.StringResource(key: "修改备注名称", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Monday
+      ///
+      /// Locales: en
+      static let 星期一 = Rswift.StringResource(key: "星期一", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Personal information
+      ///
+      /// Locales: en
+      static let 个人信息 = Rswift.StringResource(key: "个人信息", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Please enter...
+      ///
+      /// Locales: en
+      static let 请输入 = Rswift.StringResource(key: "请输入...", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Read all
+      ///
+      /// Locales: en
+      static let 全部已读 = Rswift.StringResource(key: "全部已读", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Remark name no more than 12 words
+      ///
+      /// Locales: en
+      static let 备注名称不超过12个字 = Rswift.StringResource(key: "备注名称不超过12个字", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Remark name:
+      ///
+      /// Locales: en
+      static let 备注名 = Rswift.StringResource(key: "备注名：", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Saturday
+      ///
+      /// Locales: en
+      static let 星期六 = Rswift.StringResource(key: "星期六", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Save
+      ///
+      /// Locales: en
+      static let 保存 = Rswift.StringResource(key: "保存", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Saving
+      ///
+      /// Locales: en
+      static let 正在保存 = Rswift.StringResource(key: "正在保存...", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Scan
       ///
       /// Locales: en
       static let 扫一扫 = Rswift.StringResource(key: "扫一扫", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Send
+      ///
+      /// Locales: en
+      static let 发送 = Rswift.StringResource(key: "发送", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Sending
+      ///
+      /// Locales: en
+      static let 发消息 = Rswift.StringResource(key: "发消息", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Session
       ///
       /// Locales: en
@@ -1155,18 +1384,50 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let 设置 = Rswift.StringResource(key: "设置", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Setting remark name
+      ///
+      /// Locales: en
+      static let 设置备注名 = Rswift.StringResource(key: "设置备注名", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Single chat
       ///
       /// Locales: en
       static let 发起单聊 = Rswift.StringResource(key: "发起单聊", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Star
+      ///
+      /// Locales: en
+      static let 赞 = Rswift.StringResource(key: "赞", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Sunday
+      ///
+      /// Locales: en
+      static let 星期日 = Rswift.StringResource(key: "星期日", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: The current network is disconnected
       ///
       /// Locales: en
       static let 当前网络已断开 = Rswift.StringResource(key: "当前网络已断开", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Thursday
+      ///
+      /// Locales: en
+      static let 星期四 = Rswift.StringResource(key: "星期四", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Tips
       ///
       /// Locales: en
       static let 温馨提示 = Rswift.StringResource(key: "温馨提示", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Today
+      ///
+      /// Locales: en
+      static let 今天 = Rswift.StringResource(key: "今天", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Transfer
+      ///
+      /// Locales: en
+      static let 转账 = Rswift.StringResource(key: "转账", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Tuesday
+      ///
+      /// Locales: en
+      static let 星期二 = Rswift.StringResource(key: "星期二", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Username:
+      ///
+      /// Locales: en
+      static let 用户名 = Rswift.StringResource(key: "用户名：", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Version
       ///
       /// Locales: en
@@ -1175,14 +1436,34 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let 版本号 = Rswift.StringResource(key: "版本号:", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
-      /// en translation: cancel
+      /// en translation: Video
       ///
       /// Locales: en
-      static let 取消 = Rswift.StringResource(key: "取消", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
-      /// en translation: confirm
+      static let 视频 = Rswift.StringResource(key: "视频", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Voice
       ///
       /// Locales: en
-      static let 确定 = Rswift.StringResource(key: "确定", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      static let 语音 = Rswift.StringResource(key: "语音", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Wallet
+      ///
+      /// Locales: en
+      static let 钱包 = Rswift.StringResource(key: "钱包", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Wechat Moments
+      ///
+      /// Locales: en
+      static let 朋友圈 = Rswift.StringResource(key: "朋友圈", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Wednesday
+      ///
+      /// Locales: en
+      static let 星期三 = Rswift.StringResource(key: "星期三", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Yesterday
+      ///
+      /// Locales: en
+      static let 昨天 = Rswift.StringResource(key: "昨天", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: You have quit %@ group chat
+      ///
+      /// Locales: en
+      static let 你已退出群聊 = Rswift.StringResource(key: "你已退出%@群聊", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
 
       /// en translation: Add Friends
       ///
@@ -1214,6 +1495,141 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("添加朋友", bundle: bundle, comment: "")
       }
 
+      /// en translation: After deletion, the session record will also be cleared
+      ///
+      /// Locales: en
+      static func 删除后会话记录也将清除(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("删除后，会话记录也将清除", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "删除后，会话记录也将清除"
+        }
+
+        return NSLocalizedString("删除后，会话记录也将清除", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Album
+      ///
+      /// Locales: en
+      static func 图片(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("图片", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "图片"
+        }
+
+        return NSLocalizedString("图片", bundle: bundle, comment: "")
+      }
+
+      /// en translation: All unread messages cleared
+      ///
+      /// Locales: en
+      static func 已清除全部未读消息数(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("已清除全部未读消息数", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "已清除全部未读消息数"
+        }
+
+        return NSLocalizedString("已清除全部未读消息数", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Are you sure to delete all friends?
+      ///
+      /// Locales: en
+      static func 确定删除全部好友吗(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("确定删除全部好友吗？", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "确定删除全部好友吗？"
+        }
+
+        return NSLocalizedString("确定删除全部好友吗？", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Are you sure to delete all groups?
+      ///
+      /// Locales: en
+      static func 确定删除全部群组吗(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("确定删除全部群组吗？", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "确定删除全部群组吗？"
+        }
+
+        return NSLocalizedString("确定删除全部群组吗？", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Are you sure you want to leave the current group?
+      ///
+      /// Locales: en
+      static func 确定退出当前群组吗(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("确定退出当前群组吗？", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "确定退出当前群组吗？"
+        }
+
+        return NSLocalizedString("确定退出当前群组吗？", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Camera
+      ///
+      /// Locales: en
+      static func 拍照(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("拍照", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "拍照"
+        }
+
+        return NSLocalizedString("拍照", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Cancel
+      ///
+      /// Locales: en
+      static func 取消(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("取消", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "取消"
+        }
+
+        return NSLocalizedString("取消", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Card
+      ///
+      /// Locales: en
+      static func 名片(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("名片", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "名片"
+        }
+
+        return NSLocalizedString("名片", bundle: bundle, comment: "")
+      }
+
       /// en translation: Chinese
       ///
       /// Locales: en
@@ -1227,6 +1643,81 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("简体中文", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Collection
+      ///
+      /// Locales: en
+      static func 收藏(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("收藏", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "收藏"
+        }
+
+        return NSLocalizedString("收藏", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Comment
+      ///
+      /// Locales: en
+      static func 评论(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("评论", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "评论"
+        }
+
+        return NSLocalizedString("评论", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Confirm
+      ///
+      /// Locales: en
+      static func 确定(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("确定", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "确定"
+        }
+
+        return NSLocalizedString("确定", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Copy
+      ///
+      /// Locales: en
+      static func 复制(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("复制", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "复制"
+        }
+
+        return NSLocalizedString("复制", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Delete
+      ///
+      /// Locales: en
+      static func 删除(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("删除", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "删除"
+        }
+
+        return NSLocalizedString("删除", bundle: bundle, comment: "")
       }
 
       /// en translation: Delete all
@@ -1259,21 +1750,6 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("删除所有群组", bundle: bundle, comment: "")
       }
 
-      /// en translation: Delete all
-      ///
-      /// Locales: en
-      static func 语言设置(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("语言设置", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
-          return "语言设置"
-        }
-
-        return NSLocalizedString("语言设置", bundle: bundle, comment: "")
-      }
-
       /// en translation: English
       ///
       /// Locales: en
@@ -1287,6 +1763,66 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("英文", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Exit group
+      ///
+      /// Locales: en
+      static func 退出群(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("退出群", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "退出群"
+        }
+
+        return NSLocalizedString("退出群", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Forward
+      ///
+      /// Locales: en
+      static func 消息转发(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("消息转发", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "消息转发"
+        }
+
+        return NSLocalizedString("消息转发", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Forward
+      ///
+      /// Locales: en
+      static func 转发(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("转发", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "转发"
+        }
+
+        return NSLocalizedString("转发", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Friday
+      ///
+      /// Locales: en
+      static func 星期五(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("星期五", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "星期五"
+        }
+
+        return NSLocalizedString("星期五", bundle: bundle, comment: "")
       }
 
       /// en translation: Friends
@@ -1334,6 +1870,36 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("发起群聊", bundle: bundle, comment: "")
       }
 
+      /// en translation: Group chat
+      ///
+      /// Locales: en
+      static func 群聊(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("群聊", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "群聊"
+        }
+
+        return NSLocalizedString("群聊", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Hide
+      ///
+      /// Locales: en
+      static func 隐藏(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("隐藏", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "隐藏"
+        }
+
+        return NSLocalizedString("隐藏", bundle: bundle, comment: "")
+      }
+
       /// en translation: Is the latest version
       ///
       /// Locales: en
@@ -1364,6 +1930,36 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("加入群", bundle: bundle, comment: "")
       }
 
+      /// en translation: Language settings
+      ///
+      /// Locales: en
+      static func 语言设置(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("语言设置", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "语言设置"
+        }
+
+        return NSLocalizedString("语言设置", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Location
+      ///
+      /// Locales: en
+      static func 位置(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("位置", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "位置"
+        }
+
+        return NSLocalizedString("位置", bundle: bundle, comment: "")
+      }
+
       /// en translation: Mine
       ///
       /// Locales: en
@@ -1379,6 +1975,156 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("我", bundle: bundle, comment: "")
       }
 
+      /// en translation: Modify remark name
+      ///
+      /// Locales: en
+      static func 修改备注名称(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("修改备注名称", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "修改备注名称"
+        }
+
+        return NSLocalizedString("修改备注名称", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Monday
+      ///
+      /// Locales: en
+      static func 星期一(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("星期一", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "星期一"
+        }
+
+        return NSLocalizedString("星期一", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Personal information
+      ///
+      /// Locales: en
+      static func 个人信息(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("个人信息", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "个人信息"
+        }
+
+        return NSLocalizedString("个人信息", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Please enter...
+      ///
+      /// Locales: en
+      static func 请输入(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("请输入...", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "请输入..."
+        }
+
+        return NSLocalizedString("请输入...", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Read all
+      ///
+      /// Locales: en
+      static func 全部已读(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("全部已读", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "全部已读"
+        }
+
+        return NSLocalizedString("全部已读", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Remark name no more than 12 words
+      ///
+      /// Locales: en
+      static func 备注名称不超过12个字(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("备注名称不超过12个字", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "备注名称不超过12个字"
+        }
+
+        return NSLocalizedString("备注名称不超过12个字", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Remark name:
+      ///
+      /// Locales: en
+      static func 备注名(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("备注名：", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "备注名："
+        }
+
+        return NSLocalizedString("备注名：", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Saturday
+      ///
+      /// Locales: en
+      static func 星期六(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("星期六", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "星期六"
+        }
+
+        return NSLocalizedString("星期六", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Save
+      ///
+      /// Locales: en
+      static func 保存(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("保存", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "保存"
+        }
+
+        return NSLocalizedString("保存", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Saving
+      ///
+      /// Locales: en
+      static func 正在保存(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("正在保存...", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "正在保存..."
+        }
+
+        return NSLocalizedString("正在保存...", bundle: bundle, comment: "")
+      }
+
       /// en translation: Scan
       ///
       /// Locales: en
@@ -1392,6 +2138,36 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("扫一扫", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Send
+      ///
+      /// Locales: en
+      static func 发送(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("发送", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "发送"
+        }
+
+        return NSLocalizedString("发送", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Sending
+      ///
+      /// Locales: en
+      static func 发消息(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("发消息", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "发消息"
+        }
+
+        return NSLocalizedString("发消息", bundle: bundle, comment: "")
       }
 
       /// en translation: Session
@@ -1424,6 +2200,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("设置", bundle: bundle, comment: "")
       }
 
+      /// en translation: Setting remark name
+      ///
+      /// Locales: en
+      static func 设置备注名(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("设置备注名", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "设置备注名"
+        }
+
+        return NSLocalizedString("设置备注名", bundle: bundle, comment: "")
+      }
+
       /// en translation: Single chat
       ///
       /// Locales: en
@@ -1437,6 +2228,36 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("发起单聊", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Star
+      ///
+      /// Locales: en
+      static func 赞(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("赞", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "赞"
+        }
+
+        return NSLocalizedString("赞", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Sunday
+      ///
+      /// Locales: en
+      static func 星期日(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("星期日", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "星期日"
+        }
+
+        return NSLocalizedString("星期日", bundle: bundle, comment: "")
       }
 
       /// en translation: The current network is disconnected
@@ -1454,6 +2275,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("当前网络已断开", bundle: bundle, comment: "")
       }
 
+      /// en translation: Thursday
+      ///
+      /// Locales: en
+      static func 星期四(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("星期四", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "星期四"
+        }
+
+        return NSLocalizedString("星期四", bundle: bundle, comment: "")
+      }
+
       /// en translation: Tips
       ///
       /// Locales: en
@@ -1467,6 +2303,66 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("温馨提示", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Today
+      ///
+      /// Locales: en
+      static func 今天(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("今天", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "今天"
+        }
+
+        return NSLocalizedString("今天", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Transfer
+      ///
+      /// Locales: en
+      static func 转账(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("转账", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "转账"
+        }
+
+        return NSLocalizedString("转账", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Tuesday
+      ///
+      /// Locales: en
+      static func 星期二(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("星期二", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "星期二"
+        }
+
+        return NSLocalizedString("星期二", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Username:
+      ///
+      /// Locales: en
+      static func 用户名(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("用户名：", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "用户名："
+        }
+
+        return NSLocalizedString("用户名：", bundle: bundle, comment: "")
       }
 
       /// en translation: Version
@@ -1499,34 +2395,111 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("版本号:", bundle: bundle, comment: "")
       }
 
-      /// en translation: cancel
+      /// en translation: Video
       ///
       /// Locales: en
-      static func 取消(preferredLanguages: [String]? = nil) -> String {
+      static func 视频(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("取消", bundle: hostingBundle, comment: "")
+          return NSLocalizedString("视频", bundle: hostingBundle, comment: "")
         }
 
         guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
-          return "取消"
+          return "视频"
         }
 
-        return NSLocalizedString("取消", bundle: bundle, comment: "")
+        return NSLocalizedString("视频", bundle: bundle, comment: "")
       }
 
-      /// en translation: confirm
+      /// en translation: Voice
       ///
       /// Locales: en
-      static func 确定(preferredLanguages: [String]? = nil) -> String {
+      static func 语音(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("确定", bundle: hostingBundle, comment: "")
+          return NSLocalizedString("语音", bundle: hostingBundle, comment: "")
         }
 
         guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
-          return "确定"
+          return "语音"
         }
 
-        return NSLocalizedString("确定", bundle: bundle, comment: "")
+        return NSLocalizedString("语音", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Wallet
+      ///
+      /// Locales: en
+      static func 钱包(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("钱包", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "钱包"
+        }
+
+        return NSLocalizedString("钱包", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Wechat Moments
+      ///
+      /// Locales: en
+      static func 朋友圈(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("朋友圈", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "朋友圈"
+        }
+
+        return NSLocalizedString("朋友圈", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Wednesday
+      ///
+      /// Locales: en
+      static func 星期三(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("星期三", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "星期三"
+        }
+
+        return NSLocalizedString("星期三", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Yesterday
+      ///
+      /// Locales: en
+      static func 昨天(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("昨天", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "昨天"
+        }
+
+        return NSLocalizedString("昨天", bundle: bundle, comment: "")
+      }
+
+      /// en translation: You have quit %@ group chat
+      ///
+      /// Locales: en
+      static func 你已退出群聊(_ value1: String, preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          let format = NSLocalizedString("你已退出%@群聊", bundle: hostingBundle, comment: "")
+          return String(format: format, locale: applicationLocale, value1)
+        }
+
+        guard let (locale, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "你已退出%@群聊"
+        }
+
+        let format = NSLocalizedString("你已退出%@群聊", bundle: bundle, comment: "")
+        return String(format: format, locale: locale, value1)
       }
 
       fileprivate init() {}

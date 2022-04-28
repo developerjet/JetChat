@@ -28,30 +28,30 @@ class FYContactsInfoView: UIView {
     }
     
     
-    // MARK: - lazy var
+    // MARK: - private lazy var
     
-    lazy var avatarView: UIImageView = {
+    private lazy var avatarView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .random
         imageView.cornerRadius = 5
         return imageView
     }()
     
-    lazy var nameLabel: UILabel = {
+    private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = .black
         return label
     }()
     
-    lazy var nickLabel: UILabel = {
+    private lazy var nickLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 13)
         label.textColor = .gray
         return label
     }()
     
-    lazy var uidLabel: UILabel = {
+    private lazy var uidLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = .gray

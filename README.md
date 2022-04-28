@@ -8,12 +8,15 @@
 [![support](https://img.shields.io/badge/support-ios%208%2B-orange.svg)](#) 
 
  ### Examples
-![image](https://github.com/tanagile/JetChat/blob/master/ScreenShot/JetChat.gif)
+| 聊天 | 朋友圈 |
+| -- | -- |
+|![image](https://github.com/tanagile/JetChat/blob/master/ScreenShot/JetChat.gif)|![image](https://github.com/tanagile/JetChat/blob/master/ScreenShot/Moments.png)|
 
 ### 主要技术运用
 - 聊天功能采用RxSwift+MVVM响应式架构设计，通过ViewModel合理过渡处理消息数据，减轻Controller层业务计算
 - UITableView+FDTemplateLayoutCell实现cell高度自适应计算和缓存，提高列表滑动顺滑
-- wcdb实现所有会话消息快速缓存
+- WCDBSwift实现所有会话消息快速缓存
+- 基于IGList数据驱动，实现高帧率朋友圈列表滑动
 - SnapKit纯代码自动布局
 - 后续开发完善中.....
 
@@ -25,6 +28,9 @@
 - 角标：单个会话未读消息数量展示，全部未读消息数量显示
 - 清除：单个消息删除，退出群，删除好友，消息会话角标清除，记录删除
 - 具体功能了解可以下载源码运行查看
+
+### 新增朋友圈列表
+- 通过IGList实现高帧率朋友圈列表滑动
 
 ### Tips
 - 如果你有更好的建议和方案请在lssues提交

@@ -27,7 +27,7 @@ class FYMessageForwardViewController: FYBaseViewController {
     
     private var selectedModel: FYMessageChatModel?
  
-    lazy var forwardBtn: UIButton = {
+    private lazy var forwardBtn: UIButton = {
         let button = UIButton(type: .custom)
         button.setTitle("发送".rLocalized(), for: .normal)
         button.setTitleColor(.colorWithHexStr("FFFFFF"), for: .normal)
@@ -46,7 +46,6 @@ class FYMessageForwardViewController: FYBaseViewController {
         super.viewDidLoad()
         navigationItem.title = "消息转发".rLocalized()
         
-        makeUI()
         loadChatBodyData(forwardStyle)
     }
     

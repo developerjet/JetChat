@@ -604,3 +604,54 @@ extension Optional where Wrapped == String {
         return self?.isBlank ?? true
     }
 }
+
+
+extension String {
+    
+    /// 获取文字的宽高 空字符串高度为字体高度
+    ///
+    /// - Parameters:
+    ///   - maxWidth: 空间的最大宽度
+    ///   - font: 文字字体
+    /// - Returns: 返回计算好的size
+    func textSize(_ maxWidth: CGFloat, font: UIFont) -> CGSize {
+        let constraint = CGSize(width: maxWidth, height: CGFloat.greatestFiniteMagnitude)
+        let rect = self.boundingRect(with: constraint, options: ([.usesLineFragmentOrigin]), attributes: [NSAttributedString.Key.font: font], context: nil)
+        return CGSize(width: ceil(rect.width), height: ceil(rect.height))
+    }
+    
+    /// 获取文字的每一行字符串 空字符串为空数组
+    ///
+    /// - Parameters:
+    ///   - maxWidth: 空间的最大宽度
+    ///   - font: 文字字体
+    /// - Returns: 返回计算好的行字符串
+    func textLines(_ maxWidth: CGFloat, font: UIFont) -> [String] {
+        let myFont = CTFontCreateWithName(font.fontName as CFString, font.pointSize, nil)
+        
+        let attStr = NSMutableAttributedString(string: self)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineBreakMode = .byCharWrapping
+        
+        attStr.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: attStr.length))
+        attStr.addAttribute(NSAttributedString.Key(kCTFontAttributeName as String), value: myFont, range: NSRange(location: 0, length: attStr.length))
+        let frameSetter = CTFramesetterCreateWithAttributedString(attStr)
+        
+        let path = CGMutablePath()
+        path.addRect(CGRect(x: 0, y: 0, width:maxWidth, height: 100000), transform: .identity)
+        
+        let frame = CTFramesetterCreateFrame(frameSetter, CFRangeMake(CFIndex(0), CFIndex(0)), path, nil)
+        let lines = CTFrameGetLines(frame) as? [AnyHashable]
+        var linesArray: [String] = []
+        
+        for line in lines ?? [] {
+            let lineRange = CTLineGetStringRange(line as! CTLine)
+            let range = NSRange(location: lineRange.location, length: lineRange.length)
+            
+            let lineString = (self as NSString).substring(with: range)
+            CFAttributedStringSetAttribute(attStr, lineRange, kCTKernAttributeName, (NSNumber(value: 0.0)))
+            linesArray.append(lineString)
+        }
+        return linesArray
+    }
+}

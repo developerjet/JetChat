@@ -17,7 +17,7 @@ class FYChatRoomListViewController: FYBaseViewController {
     
     var dataSource: [FYMessageChatModel] = []
     
-    lazy var deleteButton: UIButton = {
+    private lazy var deleteButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setTitle("删除所有群组".rLocalized(), for: .normal)
         button.setTitleColor(UIColor.blue, for: .normal)
@@ -40,9 +40,7 @@ class FYChatRoomListViewController: FYBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "群聊".rLocalized()
-        // Do any additional setup after loading the view.
         
-        makeUI()
         loadGroupData()
         registerGroupNoti()
     }
@@ -82,7 +80,7 @@ class FYChatRoomListViewController: FYBaseViewController {
     }
     
     @objc private func showClearAlert() {
-        EasyAlertView.shared.customAlert(title: "确定删除全部群组吗？".rLocalized(), message: "删除后，会话记录也将清除".rLocalized(), confirm: "确定".rLocalized(), cancel: "取消".rLocalized(), vc: self, confirmBlock: {
+        EasyAlertView.customAlert(title: "确定删除全部群组吗？".rLocalized(), message: "删除后，会话记录也将清除".rLocalized(), confirm: "确定".rLocalized(), cancel: "取消".rLocalized(), vc: self, confirmBlock: {
             self.removerGroupData()
         }, cancelBlock: {
             

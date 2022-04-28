@@ -17,5 +17,8 @@
 #import <UIView_FDCollapsibleConstraints/UIView+FDCollapsibleConstraints.h>///<xib隐藏
 #import "UINavigationController+FDFullscreenPopGesture.h" ///< 导航栏手势处理
 #import <UITableView+FDTemplateLayoutCell.h> ///< cell高度动态计算
+#import <IGListKit.h>  /// 朋友圈布局
+#import <IGListDiffKit.h>
 #import "WeakProxy.h"
+
 #endif /* FYObjcBridge_h */

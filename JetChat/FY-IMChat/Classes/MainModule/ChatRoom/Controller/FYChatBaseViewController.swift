@@ -86,9 +86,7 @@ class FYChatBaseViewController: FYBaseViewController {
         view.backgroundColor = .backGroundGrayColor()
         setupNavBar()
         
-        makeUI()
         loadCacheData()
-        bindViewModel()
     }
     
     /// 构造聊天会话
@@ -206,7 +204,7 @@ class FYChatBaseViewController: FYBaseViewController {
     
     /// 退出群聊
     @objc private func exitGroupChat() {
-        EasyAlertView.shared.customAlert(title: "确定退出当前群组吗？".rLocalized(), message: "", confirm: "确定".rLocalized(), cancel: "取消".rLocalized(), vc: self, confirmBlock: {
+        EasyAlertView.customAlert(title: "确定退出当前群组吗？".rLocalized(), message: "", confirm: "确定".rLocalized(), cancel: "取消".rLocalized(), vc: self, confirmBlock: {
             if let uid = self.chatModel?.uid {
                 self.stopChatTimer()
                 FYDBQueryHelper.shared.deleteFromChatWithId(uid)

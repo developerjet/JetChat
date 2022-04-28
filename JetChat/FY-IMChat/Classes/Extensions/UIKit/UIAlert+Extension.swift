@@ -10,18 +10,11 @@ import UIKit
 
 
 class EasyAlertView: NSObject {
-    /// 单利
-    static let shared = EasyAlertView()
     
-    private override init() {}
-}
-
-
-// MARK:- 自定义Alert样式
-extension EasyAlertView {
+    override init() { }
     
     /// 点击不响应提示框
-    func sureActionAlert(title: String, message: String, vc: UIViewController) {
+    class func sureActionAlert(title: String, message: String, vc: UIViewController) {
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
 
         let sureAction = UIAlertAction(title: "确定".rLocalized(), style: .default) { (UIAlertAction) in
@@ -33,7 +26,7 @@ extension EasyAlertView {
     }
 
     /// 默认带确认&取消事件响应的提示框
-    func confirmAlert(title: String, message: String, vc: UIViewController, source: @escaping () -> Void) {
+    class func confirmAlert(title: String, message: String, vc: UIViewController, source: @escaping () -> Void) {
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
 
         let confirmAction = UIAlertAction(title: "确定".rLocalized(), style: .default) { (UIAlertAction) in
@@ -46,7 +39,7 @@ extension EasyAlertView {
         vc.present(alertVC, animated: true, completion: nil)
     }
 
-    func defaultConfirm(title: String, message: String, vc: UIViewController, source: @escaping () -> Void) {
+    class func defaultConfirm(title: String, message: String, vc: UIViewController, source: @escaping () -> Void) {
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
 
         let confirmAction = UIAlertAction(title: "确认".rLocalized(), style: .default) { (UIAlertAction) in
@@ -58,7 +51,7 @@ extension EasyAlertView {
     }
 
     /// 默认只带确认事件响应的提示框
-    func sheetAction(title: String, message: String, vc: UIViewController, source: @escaping () -> Void) {
+    class func sheetAction(title: String, message: String, vc: UIViewController, source: @escaping () -> Void) {
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
 
         let confirmAction = UIAlertAction(title: "确定".rLocalized(), style: .default) { (UIAlertAction) in
@@ -72,7 +65,7 @@ extension EasyAlertView {
     }
 
     /// 完全自定义样式的Alert
-    func customAlert(title: String, message: String, confirm: String, cancel: String, vc: UIViewController, confirmBlock: @escaping () -> Void, cancelBlock: @escaping () -> Void) {
+    class func customAlert(title: String, message: String, confirm: String, cancel: String, vc: UIViewController, confirmBlock: @escaping () -> Void, cancelBlock: @escaping () -> Void) {
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let confirmAction = UIAlertAction(title: confirm, style: .default) { (UIAlertAction) in
             confirmBlock()
@@ -86,7 +79,7 @@ extension EasyAlertView {
         vc.present(alertVC, animated: true, completion: nil)
     }
 
-    func customConfirm(title: String, message: String, confirm: String, vc: UIViewController, source: @escaping () -> Void) {
+    class func customConfirm(title: String, message: String, confirm: String, vc: UIViewController, source: @escaping () -> Void) {
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
 
         let confirmAction = UIAlertAction(title: confirm, style: .default) { (UIAlertAction) in

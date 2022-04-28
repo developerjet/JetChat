@@ -2,6 +2,9 @@ PODS:
   - Alamofire (5.6.1)
   - FDFullscreenPopGesture (1.1)
   - HandyJSON (5.0.2)
+  - IGListDiffKit (4.0.0)
+  - IGListKit (4.0.0):
+    - IGListDiffKit (= 4.0.0)
   - IQKeyboardManagerSwift (6.5.9)
   - Kingfisher (6.3.1)
   - Localize-Swift (3.2.0):
@@ -10,6 +13,7 @@ PODS:
   - Localize-Swift/LocalizeSwiftCore (3.2.0)
   - Localize-Swift/UIKit (3.2.0):
     - Localize-Swift/LocalizeSwiftCore
+  - LookinServer (1.0.5)
   - MBProgressHUD (1.2.0)
   - MJRefresh (3.7.5)
   - Moya/Core (15.0.0):
@@ -84,9 +88,11 @@ PODS:
 DEPENDENCIES:
   - FDFullscreenPopGesture (= 1.1)
   - HandyJSON
+  - IGListKit
   - IQKeyboardManagerSwift
   - Kingfisher
   - Localize-Swift
+  - LookinServer
   - MBProgressHUD
   - MJRefresh
   - Moya/RxSwift
@@ -112,9 +118,12 @@ SPEC REPOS:
     - Alamofire
     - FDFullscreenPopGesture
     - HandyJSON
+    - IGListDiffKit
+    - IGListKit
     - IQKeyboardManagerSwift
     - Kingfisher
     - Localize-Swift
+    - LookinServer
     - MBProgressHUD
     - MJRefresh
     - Moya
@@ -144,9 +153,12 @@ SPEC CHECKSUMS:
   Alamofire: 87bd8c952f9a4454320fce00d9cc3de57bcadaf5
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
+  IGListDiffKit: 665d6cf43ce726e676013db9c7d6c4294259b6b2
+  IGListKit: fd5a5d21935298f5849fa49d426843cff97b77c7
   IQKeyboardManagerSwift: 6e839c575c4aa1078d58a596e41244e77abe918f
   Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
   Localize-Swift: 6f4475136bdb0d7b2882ea3d4ea919d70142b232
+  LookinServer: 3d9a02529ed94a6a08154440c26f6d7f453bb1e7
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
@@ -172,6 +184,6 @@ SPEC CHECKSUMS:
   YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 6ad6deef2f22d90059ad643812438edece026b71
+PODFILE CHECKSUM: 2ef7e7529878d33fdb225f4959f0c05aa65b92f8
 
 COCOAPODS: 1.11.2

@@ -26,7 +26,7 @@ class FYSesstionListViewController: FYBaseViewController {
         return button
     }()
     
-    lazy var menuList: [CommonMenuConfig] = {
+    private lazy var menuList: [CommonMenuConfig] = {
         let items = [
             CommonMenuConfig(title: "发起单聊".rLocalized(), image: "ic_tabbar01_selected", isShow: true),
             CommonMenuConfig(title: "发起群聊".rLocalized(), image: "ic_tabbar02_selected", isShow: true),
@@ -42,7 +42,6 @@ class FYSesstionListViewController: FYBaseViewController {
         super.viewDidLoad()
         navigationItem.title = "会话".rLocalized();
         
-        makeUI()
         reloadSesstionData()
         registerSessionNoti()
     }

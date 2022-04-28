@@ -31,12 +31,12 @@ class FYContactsTableViewCell: UITableViewCell {
     
     var didAvatarCallClosure : ((FYMessageChatModel)->Void)?
     
-    lazy var tap: UITapGestureRecognizer = {
+    private lazy var tap: UITapGestureRecognizer = {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(avatarAction))
         return gesture
     }()
     
-    lazy var avatarView: UIImageView = {
+    private lazy var avatarView: UIImageView = {
         let imageView = UIImageView()
         imageView.isUserInteractionEnabled = true
         imageView.addGestureRecognizer(tap)
@@ -44,14 +44,14 @@ class FYContactsTableViewCell: UITableViewCell {
         return imageView
     }()
     
-    lazy var nameLabel: UILabel = {
+    private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15)
         label.textColor = .black
         return label
     }()
     
-    lazy var uidLabel: UILabel = {
+    private lazy var uidLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = .lightGray

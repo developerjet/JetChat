@@ -27,7 +27,7 @@ class FYEditChatInfoViewController: FYBaseViewController {
     
     // MARK: - var lazy
     
-    lazy var saveButton: UIButton = {
+    private lazy var saveButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setTitle("保存".rLocalized(), for: .normal)
         button.setTitleColor(.blue, for: .normal)
@@ -39,7 +39,7 @@ class FYEditChatInfoViewController: FYBaseViewController {
         return button
     }()
     
-    lazy var myTextField: UITextField = {
+    private lazy var myTextField: UITextField = {
         let textField = UITextField()
         let leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 40))
         textField.placeholder = "备注名称不超过12个字".rLocalized()
@@ -65,12 +65,13 @@ class FYEditChatInfoViewController: FYBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         navigationItem.title = "修改备注名称".rLocalized()
-        // Do any additional setup after loading the view.
-        setupSubview()
     }
     
-    func setupSubview() {
+    override func makeUI() {
+        super.makeUI()
+        
         let rightBarButtonItem = UIBarButtonItem(customView: saveButton)
         navigationItem.rightBarButtonItem = rightBarButtonItem
         

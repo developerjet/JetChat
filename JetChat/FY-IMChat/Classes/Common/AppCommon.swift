@@ -92,9 +92,14 @@ public let kDeviceUUID = { () -> String in
 }
 
 
-
 // MARK:- 屏幕适配375 | 6s尺寸
 func kFitScale(AT: CGFloat) -> CGFloat {
     return (UIScreen.main.bounds.width / 375) * AT
 }
 
+// MARK: - 朋友圈
+let mBlackColor = UIColor.colorWithHexStr("444444")
+let mDarkBlueColor = UIColor.colorWithHexStr("375793")
+let mCoverColor = UIColor(red: 104, green: 114, blue: 140)
+
+let mImageW = (kScreenW - 156) / 3

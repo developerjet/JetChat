@@ -16,7 +16,7 @@ class FYContactsListViewController: FYBaseViewController {
     
     var dataSource: [FYMessageChatModel] = []
     
-    lazy var deleteButton: UIButton = {
+    private lazy var deleteButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setTitle("删除所有好友".rLocalized(), for: .normal)
         button.setTitleColor(.blue, for: .normal)
@@ -39,9 +39,7 @@ class FYContactsListViewController: FYBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "好友".rLocalized()
-        // Do any additional setup after loading the view.
         
-        makeUI()
         reloadUserData()
         registerUsersNoti()
     }
@@ -81,7 +79,7 @@ class FYContactsListViewController: FYBaseViewController {
     }
     
     @objc private func showDeleteAlert() {
-        EasyAlertView.shared.customAlert(title: "确定删除全部好友吗？".rLocalized(), message: "删除后，会话记录也将清除".rLocalized(), confirm: "确定".rLocalized(), cancel: "取消".rLocalized(), vc: self, confirmBlock: {
+        EasyAlertView.customAlert(title: "确定删除全部好友吗？".rLocalized(), message: "删除后，会话记录也将清除".rLocalized(), confirm: "确定".rLocalized(), cancel: "取消".rLocalized(), vc: self, confirmBlock: {
             self.removerUserData()
         }, cancelBlock: {
             
@@ -185,7 +183,7 @@ extension FYContactsListViewController: UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
-        return "删除"
+        return "删除".rLocalized()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -195,7 +193,7 @@ extension FYContactsListViewController: UITableViewDataSource, UITableViewDelega
     
     /// 删除好友
     @objc private func deleteChatFriend(_ row: Int) {
-        EasyAlertView.shared.customAlert(title: "确定删除该好友吗？", message: "", confirm: "确定", cancel: "取消", vc: self, confirmBlock: {
+        EasyAlertView.customAlert(title: "确定删除该好友吗？".rLocalized(), message: "", confirm: "确定".rLocalized(), cancel: "取消".rLocalized(), vc: self, confirmBlock: {
             self.handleDeleteContactsAtRow(row)
         }, cancelBlock: {
             

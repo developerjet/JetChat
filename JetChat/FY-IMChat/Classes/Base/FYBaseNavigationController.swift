@@ -14,10 +14,10 @@ class FYBaseNavigationController: UINavigationController {
         return .lightContent
     }
     
-    lazy var backButton: UIButton = {
+    private lazy var backButton: UIButton = {
         let button = UIButton(type: .custom)
         button.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
-        button.setImage(UIImage(named: "icon_nav_back_white"), for: .normal)
+        button.setImage(R.image.nav_back_white(), for: .normal)
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left:-20, bottom: 0, right: 0)
         button.addTarget(self, action: #selector(pop), for: .touchUpInside)
         return button

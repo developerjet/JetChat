@@ -31,25 +31,12 @@ class FYDBQueryHelper: NSObject {
     func qureyFromMessagesWithChatId(_ chatId: Int) -> [FYMessageItem] {
         var sesstions: [FYMessageItem] = []
         let query = FYMessageItem.Properties.chatId == chatId
-        if let dbData = WCDataBaseManager.shared.qureyFromDb(fromTable: kTABLE.message, cls: FYMessageItem.self, where: query) {
+        if let dbData = WCDataBaseManager.shared.qureyObjectsFromDb(fromTable: kTABLE.message, cls: FYMessageItem.self, where: query) {
             sesstions.append(contentsOf: dbData)
         }
         return sesstions
     }
-    
-    /// 查询单个消息
-    /// - Parameter sesstionId: 消息id
-    func qureyFromMessageId(_ messageId: Int) -> FYMessageItem {
-        var sesstion = FYMessageItem()
-        let query = FYMessageItem.Properties.messageId == messageId
-        if let dbData = WCDataBaseManager.shared.qureyFromDb(fromTable: kTABLE.message, cls: FYMessageItem.self, where: query) {
-            if (dbData.count > 0) {
-                sesstion = dbData.map{ $0 }.first!
-            }
-        }
-        return sesstion
-    }
-    
+        
     /// 删除单个消息
     /// - Parameter messageId: 消息id
     func deleteFromMessageId(_ messageId: Int) {
@@ -58,13 +45,28 @@ class FYDBQueryHelper: NSObject {
     }
     
     
-    /// 更新某个消息
+    /// 更新某个聊天体
     /// - Parameters:
     ///   - message: 消息
     ///   - messageId: 消息id
-    func updateFromMessageWithId(_ message: FYMessageItem, messageId: Int) {
+    func updateChatWithMsgId(_ message: FYMessageItem, messageId: Int) {
         let query = FYMessageItem.Properties.messageId == messageId
         WCDataBaseManager.shared.updateToDb(table: kTABLE.chat, on: FYMessageChatModel.Properties.all, with: message, where: query)
+    }
+    
+    /// 更新单个消息
+    /// - Parameter messageId: 消息id
+    func updateMessageWithMsgId(message: FYMessageItem, messageId: Int) {
+        let query = FYMessageItem.Properties.messageId == messageId
+        WCDataBaseManager.shared.updateToDb(table: kTABLE.message, on: FYMessageItem.Properties.all, with: message, where: query)
+    }
+    
+    
+    /// 查询单个消息
+    /// - Parameter messageId: 消息id
+    func queryMessageWithMsgId(_ messageId: Int) -> FYMessageItem? {
+        let query = FYMessageItem.Properties.messageId == messageId
+        return WCDataBaseManager.shared.qureyObjectFromDb(fromTable: kTABLE.message, cls: FYMessageItem.self, where: query)
     }
     
     /// 根据聊天类型删除消息列表
@@ -163,7 +165,7 @@ class FYDBQueryHelper: NSObject {
     func qureyFromChatsWithType(_ chatType: Int) -> [FYMessageChatModel] {
         var sesstions: [FYMessageChatModel] = []
         let query = FYMessageChatModel.Properties.chatType == chatType
-        if let dbData = WCDataBaseManager.shared.qureyFromDb(fromTable: kTABLE.chat, cls: FYMessageChatModel.self, where: query) {
+        if let dbData = WCDataBaseManager.shared.qureyObjectsFromDb(fromTable: kTABLE.chat, cls: FYMessageChatModel.self, where: query) {
             sesstions.append(contentsOf: dbData)
         }
         return sesstions
@@ -173,7 +175,17 @@ class FYDBQueryHelper: NSObject {
     func queryFromAllChats() -> [FYMessageChatModel] {
         var sesstions: [FYMessageChatModel] = []
         let query = FYMessageChatModel.Properties.all.count
-        if let dbData = WCDataBaseManager.shared.qureyFromDb(fromTable: kTABLE.chat, cls: FYMessageChatModel.self, where: query) {
+        if let dbData = WCDataBaseManager.shared.qureyObjectsFromDb(fromTable: kTABLE.chat, cls: FYMessageChatModel.self, where: query) {
+            sesstions.append(contentsOf: dbData)
+        }
+        return sesstions
+    }
+    
+    /// 根据uid查询当前好友所有聊天记录
+    func queryChatFromAllChats(_ uid: Int) -> [FYMessageChatModel] {
+        var sesstions: [FYMessageChatModel] = []
+        let query = FYMessageChatModel.Properties.uid == uid
+        if let dbData = WCDataBaseManager.shared.qureyObjectsFromDb(fromTable: kTABLE.chat, cls: FYMessageChatModel.self, where: query) {
             sesstions.append(contentsOf: dbData)
         }
         return sesstions
@@ -185,7 +197,7 @@ class FYDBQueryHelper: NSObject {
     func qureyFromChatId(_ uid: Int) -> FYMessageChatModel {
         var chat = FYMessageChatModel()
         let query = FYMessageChatModel.Properties.uid == uid
-        if let dbData = WCDataBaseManager.shared.qureyFromDb(fromTable: kTABLE.chat, cls: FYMessageChatModel.self, where: query) {
+        if let dbData = WCDataBaseManager.shared.qureyObjectsFromDb(fromTable: kTABLE.chat, cls: FYMessageChatModel.self, where: query) {
             if dbData.count > 0 {
                 chat = dbData.map{ $0 }.first!
             }

@@ -125,6 +125,7 @@ fileprivate extension OperateMenuView {
             self.contentView.frame.size.width = width
         }
     }
+    
     @objc func hide() {
         UIView.animate(withDuration: 0.25) {
             self.alpha = 0

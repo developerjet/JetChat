@@ -84,15 +84,13 @@ class MomentHeaderCell: UICollectionViewCell {
     var viewModel: FYMomentInfo?
     
     
-    func browserImages(_ images: [String], index: Int, sourceView: UIView?) {
+    func browserImages(_ images: [String], index: Int, sourceView: UIView? = nil) {
         guard images.count > 0 else { return }
-        guard let projectiveView = sourceView else { return }
         
         var imageDatas: [YBIBImageData] = []
         for imageUrl in images {
             let data = YBIBImageData()
             data.imageURL = URL(string: imageUrl)
-            data.projectiveView = projectiveView
             imageDatas.append(data)
         }
         

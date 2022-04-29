@@ -11,17 +11,17 @@ target 'FY-IMChat' do
 	pod 'SnapKit'
 	pod 'RxSwift'
 	pod 'RxCocoa'
+  pod 'NSObject+Rx'
 	pod 'Moya/RxSwift'
 	pod 'HandyJSON'
 	pod 'ReachabilitySwift'
-        pod 'Localize-Swift'
+  pod 'Localize-Swift'
 	pod 'Kingfisher'
 	pod 'R.swift'
 	pod 'WCDB.swift' #本地数据库缓存
 	pod 'SwifterSwift'
 	pod 'SwiftDate'
-        pod 'NSObject+Rx'
-
+  
 
   # *********************************************** Objective-C ***********************************************
 
@@ -32,10 +32,10 @@ target 'FY-IMChat' do
 	pod 'IQKeyboardManagerSwift'
 	pod 'MBProgressHUD'
 	pod 'MJRefresh'
-        pod 'YBImageBrowser'
+  pod 'YBImageBrowser'
 	pod 'YBImageBrowser/Video'
 	pod 'LookinServer', :configurations => ['Debug'] #UI层级调试
-        pod 'IGListKit'
+  pod 'IGListKit' #朋友圈列表布局
  	pod 'YYText'
      
 end

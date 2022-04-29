@@ -113,9 +113,22 @@ extension FYEditChatInfoViewController: UITextFieldDelegate {
     @objc func editDidAction() {
         myTextField.resignFirstResponder()
         chatModel?.nickName = myTextField.text ?? ""
+        
         if let model = chatModel, let uid = model.uid {
-            MBHUD.showStatus("正在保存...".rLocalized())
             FYDBQueryHelper.shared.updateFromChatModel(model, uid: uid)
+            
+            let messages = FYDBQueryHelper.shared.qureyFromMessagesWithChatId(uid)
+            
+            for msgItem in messages {
+                if msgItem.sendType == 1 {
+                    if let message = FYDBQueryHelper.shared.queryMessageWithMsgId(msgItem.messageId!) {
+                        message.nickName = myTextField.text ?? ""
+                        FYDBQueryHelper.shared.updateMessageWithMsgId(message: message, messageId: message.messageId!)
+                    }
+                }
+            }
+            
+            MBHUD.showStatus("正在保存...".rLocalized())
             
             NotificationCenter.default.post(name: .kNeedRefreshSesstionList, object: nil)
             NotificationCenter.default.post(name: .kNeedRefreshChatInfoList, object: nil)

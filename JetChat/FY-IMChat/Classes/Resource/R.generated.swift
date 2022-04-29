@@ -147,10 +147,6 @@ struct R: Rswift.Validatable {
     static let typeSelectorBtn_Black2xPng = Rswift.FileResource(bundle: R.hostingBundle, name: "TypeSelectorBtn_Black@2x", pathExtension: "png")
     /// Resource file `TypeSelectorBtn_Black@3x.png`.
     static let typeSelectorBtn_Black3xPng = Rswift.FileResource(bundle: R.hostingBundle, name: "TypeSelectorBtn_Black@3x", pathExtension: "png")
-    /// Resource file `data1.json`.
-    static let data1Json = Rswift.FileResource(bundle: R.hostingBundle, name: "data1", pathExtension: "json")
-    /// Resource file `data2.json`.
-    static let data2Json = Rswift.FileResource(bundle: R.hostingBundle, name: "data2", pathExtension: "json")
     /// Resource file `ic_emotion_delete@2x.png`.
     static let ic_emotion_delete2xPng = Rswift.FileResource(bundle: R.hostingBundle, name: "ic_emotion_delete@2x", pathExtension: "png")
     /// Resource file `ic_emotion_delete@3x.png`.
@@ -205,6 +201,10 @@ struct R: Rswift.Validatable {
     static let icon_qrc_line3xPng = Rswift.FileResource(bundle: R.hostingBundle, name: "icon_qrc_line@3x", pathExtension: "png")
     /// Resource file `localVideo0.mp4`.
     static let localVideo0Mp4 = Rswift.FileResource(bundle: R.hostingBundle, name: "localVideo0", pathExtension: "mp4")
+    /// Resource file `moments1.json`.
+    static let moments1Json = Rswift.FileResource(bundle: R.hostingBundle, name: "moments1", pathExtension: "json")
+    /// Resource file `moments2.json`.
+    static let moments2Json = Rswift.FileResource(bundle: R.hostingBundle, name: "moments2", pathExtension: "json")
 
     /// `bundle.url(forResource: "Emoticons", withExtension: "bundle")`
     static func emoticonsBundle(_: Void = ()) -> Foundation.URL? {
@@ -323,18 +323,6 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "TypeSelectorBtn_Black@3x", withExtension: "png")`
     static func typeSelectorBtn_Black3xPng(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.typeSelectorBtn_Black3xPng
-      return fileResource.bundle.url(forResource: fileResource)
-    }
-
-    /// `bundle.url(forResource: "data1", withExtension: "json")`
-    static func data1Json(_: Void = ()) -> Foundation.URL? {
-      let fileResource = R.file.data1Json
-      return fileResource.bundle.url(forResource: fileResource)
-    }
-
-    /// `bundle.url(forResource: "data2", withExtension: "json")`
-    static func data2Json(_: Void = ()) -> Foundation.URL? {
-      let fileResource = R.file.data2Json
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -497,6 +485,18 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "localVideo0", withExtension: "mp4")`
     static func localVideo0Mp4(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.localVideo0Mp4
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "moments1", withExtension: "json")`
+    static func moments1Json(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.moments1Json
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "moments2", withExtension: "json")`
+    static func moments2Json(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.moments2Json
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -1186,7 +1186,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 69 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 71 localization keys.
     struct localizable {
       /// en translation: Add Friends
       ///
@@ -1236,6 +1236,14 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let 简体中文 = Rswift.StringResource(key: "简体中文", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Clear cache
+      ///
+      /// Locales: en
+      static let 清除图片缓存 = Rswift.StringResource(key: "清除图片缓存", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Cleared success
+      ///
+      /// Locales: en
+      static let 清除成功 = Rswift.StringResource(key: "清除成功", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Collection
       ///
       /// Locales: en
@@ -1643,6 +1651,36 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("简体中文", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Clear cache
+      ///
+      /// Locales: en
+      static func 清除图片缓存(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("清除图片缓存", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "清除图片缓存"
+        }
+
+        return NSLocalizedString("清除图片缓存", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Cleared success
+      ///
+      /// Locales: en
+      static func 清除成功(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("清除成功", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "清除成功"
+        }
+
+        return NSLocalizedString("清除成功", bundle: bundle, comment: "")
       }
 
       /// en translation: Collection

@@ -70,7 +70,6 @@
 		271C02FE23929B3A0041617F /* FYDBQueryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271C02B123929B3A0041617F /* FYDBQueryHelper.swift */; };
 		271C02FF23929B3A0041617F /* WCDataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271C02B223929B3A0041617F /* WCDataBaseManager.swift */; };
 		271C030023929B3A0041617F /* WCDataBaseTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271C02B323929B3A0041617F /* WCDataBaseTable.swift */; };
-		27433F9A238D70D4004D5E3D /* AppDelegate+Push.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27433EA6238D70D3004D5E3D /* AppDelegate+Push.swift */; };
 		27433F9B238D70D4004D5E3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27433EA7238D70D3004D5E3D /* AppDelegate.swift */; };
 		27433F9C238D70D4004D5E3D /* AppDelegate+Wcdb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27433EA8238D70D3004D5E3D /* AppDelegate+Wcdb.swift */; };
 		27433F9D238D70D4004D5E3D /* AppDelegate+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27433EA9238D70D3004D5E3D /* AppDelegate+Utils.swift */; };
@@ -103,8 +102,6 @@
 		27434022238D70D5004D5E3D /* FYBaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27433F75238D70D4004D5E3D /* FYBaseNavigationController.swift */; };
 		27434024238D70D5004D5E3D /* FYBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27433F78238D70D4004D5E3D /* FYBaseViewController.swift */; };
 		27434029238D70D5004D5E3D /* AppCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27433F7F238D70D4004D5E3D /* AppCommon.swift */; };
-		27434032238D70D5004D5E3D /* FYNavDropListMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27433F92238D70D4004D5E3D /* FYNavDropListMenu.swift */; };
-		27434033238D70D5004D5E3D /* FYNavDropMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27433F94238D70D4004D5E3D /* FYNavDropMenuCell.swift */; };
 		27434034238D70D5004D5E3D /* SegmentSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27433F96238D70D4004D5E3D /* SegmentSlider.swift */; };
 		27434035238D70D5004D5E3D /* MBConfiguredHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27433F98238D70D4004D5E3D /* MBConfiguredHUD.swift */; };
 		27434036238D70D5004D5E3D /* HUDAssets.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 27433F99238D70D4004D5E3D /* HUDAssets.bundle */; };
@@ -158,6 +155,8 @@
 		4C75A44C2817D0F400E9EF54 /* FYFastGridListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C75A4312817D0F300E9EF54 /* FYFastGridListView.swift */; };
 		4C75A44D2817D0F400E9EF54 /* FYSesstionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C75A4342817D0F400E9EF54 /* FYSesstionListViewController.swift */; };
 		4C75A44E2817D0F400E9EF54 /* FYConversationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C75A4362817D0F400E9EF54 /* FYConversationCell.swift */; };
+		4CBE2B28281B937900FDB081 /* FYNavPopuListMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBE2B25281B937900FDB081 /* FYNavPopuListMenu.swift */; };
+		4CBE2B29281B937900FDB081 /* FYNavDropMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBE2B27281B937900FDB081 /* FYNavDropMenuCell.swift */; };
 		4CF85630281A2FFA00F48D4D /* FYMomentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF8562F281A2FFA00F48D4D /* FYMomentsViewController.swift */; };
 		4CF8568C281A34C200F48D4D /* FYMomentNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF8568B281A34C200F48D4D /* FYMomentNavBar.swift */; };
 		4CF8568E281A3B8400F48D4D /* FYBaseIGListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF8568D281A3B8400F48D4D /* FYBaseIGListViewController.swift */; };
@@ -266,7 +265,6 @@
 		271C02B123929B3A0041617F /* FYDBQueryHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYDBQueryHelper.swift; sourceTree = "<group>"; };
 		271C02B223929B3A0041617F /* WCDataBaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WCDataBaseManager.swift; sourceTree = "<group>"; };
 		271C02B323929B3A0041617F /* WCDataBaseTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WCDataBaseTable.swift; sourceTree = "<group>"; };
-		27433EA6238D70D3004D5E3D /* AppDelegate+Push.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Push.swift"; sourceTree = "<group>"; };
 		27433EA7238D70D3004D5E3D /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27433EA8238D70D3004D5E3D /* AppDelegate+Wcdb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Wcdb.swift"; sourceTree = "<group>"; };
 		27433EA9238D70D3004D5E3D /* AppDelegate+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Utils.swift"; sourceTree = "<group>"; };
@@ -301,8 +299,6 @@
 		27433F75238D70D4004D5E3D /* FYBaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYBaseNavigationController.swift; sourceTree = "<group>"; };
 		27433F78238D70D4004D5E3D /* FYBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYBaseViewController.swift; sourceTree = "<group>"; };
 		27433F7F238D70D4004D5E3D /* AppCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCommon.swift; sourceTree = "<group>"; };
-		27433F92238D70D4004D5E3D /* FYNavDropListMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYNavDropListMenu.swift; sourceTree = "<group>"; };
-		27433F94238D70D4004D5E3D /* FYNavDropMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYNavDropMenuCell.swift; sourceTree = "<group>"; };
 		27433F96238D70D4004D5E3D /* SegmentSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentSlider.swift; sourceTree = "<group>"; };
 		27433F98238D70D4004D5E3D /* MBConfiguredHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBConfiguredHUD.swift; sourceTree = "<group>"; };
 		27433F99238D70D4004D5E3D /* HUDAssets.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = HUDAssets.bundle; sourceTree = "<group>"; };
@@ -366,6 +362,8 @@
 		4C75A4312817D0F300E9EF54 /* FYFastGridListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYFastGridListView.swift; sourceTree = "<group>"; };
 		4C75A4342817D0F400E9EF54 /* FYSesstionListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYSesstionListViewController.swift; sourceTree = "<group>"; };
 		4C75A4362817D0F400E9EF54 /* FYConversationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYConversationCell.swift; sourceTree = "<group>"; };
+		4CBE2B25281B937900FDB081 /* FYNavPopuListMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYNavPopuListMenu.swift; sourceTree = "<group>"; };
+		4CBE2B27281B937900FDB081 /* FYNavDropMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYNavDropMenuCell.swift; sourceTree = "<group>"; };
 		4CF8562F281A2FFA00F48D4D /* FYMomentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FYMomentsViewController.swift; sourceTree = "<group>"; };
 		4CF8568B281A34C200F48D4D /* FYMomentNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FYMomentNavBar.swift; sourceTree = "<group>"; };
 		4CF8568D281A3B8400F48D4D /* FYBaseIGListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FYBaseIGListViewController.swift; sourceTree = "<group>"; };
@@ -610,7 +608,6 @@
 			isa = PBXGroup;
 			children = (
 				27433EA7238D70D3004D5E3D /* AppDelegate.swift */,
-				27433EA6238D70D3004D5E3D /* AppDelegate+Push.swift */,
 				27433EA8238D70D3004D5E3D /* AppDelegate+Wcdb.swift */,
 				27433EA9238D70D3004D5E3D /* AppDelegate+Utils.swift */,
 			);
@@ -779,30 +776,13 @@
 		27433F80238D70D4004D5E3D /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				4CBE2B24281B937900FDB081 /* NavPopup */,
 				4CF856B9281A48EB00F48D4D /* RefreshingView */,
 				4C4A1A302818DB7200CDD3B1 /* ActionSheet */,
-				27433F91238D70D4004D5E3D /* NavPopListMenu */,
 				27433F95238D70D4004D5E3D /* SegmentSlider */,
 				27433F97238D70D4004D5E3D /* HUDProgress */,
 			);
 			path = Libraries;
-			sourceTree = "<group>";
-		};
-		27433F91238D70D4004D5E3D /* NavPopListMenu */ = {
-			isa = PBXGroup;
-			children = (
-				27433F92238D70D4004D5E3D /* FYNavDropListMenu.swift */,
-				27433F93238D70D4004D5E3D /* Cell */,
-			);
-			path = NavPopListMenu;
-			sourceTree = "<group>";
-		};
-		27433F93238D70D4004D5E3D /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				27433F94238D70D4004D5E3D /* FYNavDropMenuCell.swift */,
-			);
-			path = Cell;
 			sourceTree = "<group>";
 		};
 		27433F95238D70D4004D5E3D /* SegmentSlider */ = {
@@ -1141,6 +1121,23 @@
 				4C75A4362817D0F400E9EF54 /* FYConversationCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		4CBE2B24281B937900FDB081 /* NavPopup */ = {
+			isa = PBXGroup;
+			children = (
+				4CBE2B25281B937900FDB081 /* FYNavPopuListMenu.swift */,
+				4CBE2B26281B937900FDB081 /* Cell */,
+			);
+			path = NavPopup;
+			sourceTree = "<group>";
+		};
+		4CBE2B26281B937900FDB081 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				4CBE2B27281B937900FDB081 /* FYNavDropMenuCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		4CF8562B281A2F8900F48D4D /* Moments */ = {
@@ -1523,9 +1520,7 @@
 				4C5FB42D281AA7DD001F70E3 /* FYFileSizeManager.swift in Sources */,
 				4CF856A2281A40D400F48D4D /* CommentInputView.swift in Sources */,
 				4CF85692281A3F0F00F48D4D /* FYMoUserInfo.swift in Sources */,
-				27433F9A238D70D4004D5E3D /* AppDelegate+Push.swift in Sources */,
 				27433FA7238D70D4004D5E3D /* Observable+Operators.swift in Sources */,
-				27434032238D70D5004D5E3D /* FYNavDropListMenu.swift in Sources */,
 				27433FAD238D70D4004D5E3D /* UIImageView+Kingfisher.swift in Sources */,
 				27433FAA238D70D4004D5E3D /* UIAlert+Extension.swift in Sources */,
 				4C5579622817C3C3006D8A09 /* ActivityIndicator.swift in Sources */,
@@ -1534,7 +1529,9 @@
 				2743401D238D70D5004D5E3D /* BaseViewModel.swift in Sources */,
 				271C02C123929B3A0041617F /* ChatMoreMenuCell.swift in Sources */,
 				271C02C623929B3A0041617F /* ChatMoreMnueConfig.swift in Sources */,
+				4CBE2B28281B937900FDB081 /* FYNavPopuListMenu.swift in Sources */,
 				4C75A4492817D0F400E9EF54 /* FYMessageBaseCell.swift in Sources */,
+				4CBE2B29281B937900FDB081 /* FYNavDropMenuCell.swift in Sources */,
 				27433FB5238D70D4004D5E3D /* Dictionary+Exted.swift in Sources */,
 				4C4A1A342818DB7200CDD3B1 /* PGActionSheet.swift in Sources */,
 				4C5FB429281A974C001F70E3 /* FYLabel.swift in Sources */,
@@ -1595,7 +1592,6 @@
 				4C4A1A2F2818DABA00CDD3B1 /* BottomPopupPresentationController.swift in Sources */,
 				271C02C723929B3A0041617F /* ChatGrowingTextView.swift in Sources */,
 				4C75A4462817D0F400E9EF54 /* FYVideoMessageCell.swift in Sources */,
-				27434033238D70D5004D5E3D /* FYNavDropMenuCell.swift in Sources */,
 				27433FB4238D70D4004D5E3D /* Notification+Name.swift in Sources */,
 				27434018238D70D5004D5E3D /* ErrorTracker.swift in Sources */,
 				4C4A1A282818DABA00CDD3B1 /* BottomPopupViewController.swift in Sources */,

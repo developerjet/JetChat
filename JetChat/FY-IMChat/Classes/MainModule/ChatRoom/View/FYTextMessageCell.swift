@@ -98,8 +98,8 @@ class FYTextMessageCell: FYMessageBaseCell {
             avatarView.setImageWithURL(imageURL, placeholder: "ic_avatar_placeholder")
         }
         
-        if model?.nickName.isBlank == false {
-            nameLabel.text = model?.nickName
+        if let nickName = model?.nickName, nickName.length > 0 {
+            nameLabel.text = nickName
         }else {
             nameLabel.text = model?.name
         }

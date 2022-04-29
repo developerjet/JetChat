@@ -77,11 +77,23 @@ class WCDataBaseManager: NSObject {
     }
     
     ///查询
-    func qureyFromDb<T: TableDecodable>(fromTable: String, cls cName: T.Type, where condition: Condition? = nil, orderBy orderList:[OrderBy]? = nil) -> [T]? {
+    func qureyObjectsFromDb<T: TableDecodable>(fromTable: String, cls cName: T.Type, where condition: Condition? = nil, orderBy orderList:[OrderBy]? = nil) -> [T]? {
         do {
             let allObjects: [T] = try (dataBase?.getObjects(fromTable: fromTable, where:condition, orderBy:orderList))!
             debugPrint("\(allObjects)");
             return allObjects
+        } catch let error {
+            debugPrint("no data find \(error.localizedDescription)")
+        }
+        return nil
+    }
+    
+    ///查询单个
+    func qureyObjectFromDb<T: TableDecodable>(fromTable: String, cls cName: T.Type, where condition: Condition? = nil, orderBy orderList:[OrderBy]? = nil) -> T? {
+        do {
+            let object: T = try (dataBase?.getObject(fromTable: fromTable, where:condition, orderBy:orderList))!
+            debugPrint("\(object)");
+            return object
         } catch let error {
             debugPrint("no data find \(error.localizedDescription)")
         }

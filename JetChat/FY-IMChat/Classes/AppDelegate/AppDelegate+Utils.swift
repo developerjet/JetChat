@@ -92,6 +92,13 @@ extension AppDelegate {
         IQKeyboardManager.shared.toolbarManageBehaviour = .byPosition
     }
     
+    // FPS
+    func setupFPSStatus() {
+#if DEBUG
+        UIApplication.shared.keyWindow?.addSubview(fpsLabel)
+#endif
+    }
+    
     func appInitializes() {
         keyboardManager()
         appearanceSetting()

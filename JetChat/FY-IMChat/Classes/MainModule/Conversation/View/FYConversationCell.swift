@@ -10,26 +10,28 @@ import UIKit
 
 class FYConversationCell: UITableViewCell {
 
+    var avatarOnClick: (()->Void)?
+    
     var model: FYMessageItem? {
         didSet {
-            guard model != nil else {
+            guard let msgItem = model else {
                 return
             }
             
-            if model?.nickName.isBlank == false {
-                nameLabel.text = model?.nickName
+            if msgItem.nickName.isBlank == false {
+                nameLabel.text = msgItem.nickName
             }else {
-                nameLabel.text = model?.name
+                nameLabel.text = msgItem.name
             }
             
-            messageLabel.text = model?.message
+            messageLabel.text = msgItem.message
             
-            if let doubleDate = model?.date?.stringToTimeStamp().doubleValue {
-                dateLabel.text = model?.date?.detailDate24Week(time: doubleDate * 1000)
+            if let doubleDate = msgItem.date?.stringToTimeStamp().doubleValue {
+                dateLabel.text = msgItem.date?.detailDate24Week(time: doubleDate * 1000)
             }
             avatarView.setImageWithURL(model!.avatar!, placeholder: "ic_avatar_placeholder")
             
-            if let unReadCount = model?.unReadCount, unReadCount > 0 {
+            if let unReadCount = msgItem.unReadCount, unReadCount > 0 {
                 if unReadCount <= 99 {
                     badgeLabel.text = "\(unReadCount)"
                 }else {
@@ -45,20 +47,20 @@ class FYConversationCell: UITableViewCell {
     
     // MARK: - var lazy
     
-    lazy var avatarView: UIImageView = {
+    private lazy var avatarView: UIImageView = {
         let imageView = UIImageView()
         imageView.cornerRadius = 7
         return imageView
     }()
     
-    lazy var nameLabel: UILabel = {
+    private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15)
         label.textColor = .black
         return label
     }()
     
-    lazy var badgeLabel: UILabel = {
+    private lazy var badgeLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = .red
         label.textColor = .white
@@ -69,14 +71,14 @@ class FYConversationCell: UITableViewCell {
         return label
     }()
     
-    lazy var messageLabel: UILabel = {
+    private lazy var messageLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = .lightGray
         return label
     }()
     
-    lazy var dateLabel: UILabel = {
+    private lazy var dateLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12)
         label.textAlignment = .right
@@ -113,6 +115,10 @@ class FYConversationCell: UITableViewCell {
         contentView.addSubview(messageLabel)
         contentView.addSubview(badgeLabel)
         
+        let tap = UITapGestureRecognizer.init(target: self, action: #selector(avatarTapAction))
+        avatarView.isUserInteractionEnabled = true
+        avatarView.addGestureRecognizer(tap)
+        
         avatarView.snp.makeConstraints { (make) in
             make.left.equalToSuperview().offset(14)
             make.centerY.equalToSuperview()
@@ -143,10 +149,12 @@ class FYConversationCell: UITableViewCell {
         }
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    // MARK: - Action
+    
+    @objc
+    func avatarTapAction() {
+        if avatarOnClick != nil {
+            avatarOnClick!()
+        }
     }
-
 }

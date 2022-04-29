@@ -89,6 +89,9 @@ class LanguageManager: NSObject {
         let tabBar = FYBaseTabBarController()
         UIApplication.shared.keyWindow?.rootViewController = tabBar
         UIApplication.shared.keyWindow?.makeKeyAndVisible()
+        
+        // FPS
+        AppDelegate.app.setupFPSStatus()
     }
 }
 

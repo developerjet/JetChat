@@ -1,5 +1,5 @@
 //
-//  FYNavDropListMenu.swift
+//  FYNavPopuListMenu.swift
 //  PopMenu
 //
 //  Created by iOS.Jet on 2019/2/20.
@@ -17,7 +17,7 @@ extension FYPopListMenuDelegate {
     func menu(_ model: CommonMenuConfig, didSelectRowAt index: Int) {}
 }
 
-class FYNavDropListMenu: UIView {
+class FYNavPopuListMenu: UIView {
     
     let kMaxCount: CGFloat = 6
     let kRowHeight: CGFloat = 50
@@ -44,13 +44,13 @@ class FYNavDropListMenu: UIView {
     
     // MARK:- var lazy
     
-    lazy var tapGesture: UITapGestureRecognizer = {
+    private lazy var tapGesture: UITapGestureRecognizer = {
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(dismiss))
         tap.numberOfTapsRequired = 1
         return tap
     }()
 
-    lazy var menuMaskView: UIView = {
+    private lazy var menuMaskView: UIView = {
         let maskView = UIView.init()
         maskView.isUserInteractionEnabled = true
         maskView.addGestureRecognizer(tapGesture)
@@ -59,7 +59,7 @@ class FYNavDropListMenu: UIView {
         return maskView
     }()
     
-    lazy var tableView: UITableView = {
+    private lazy var tableView: UITableView = {
         let table = UITableView.init()
         table.delegate = self
         table.dataSource = self
@@ -75,7 +75,7 @@ class FYNavDropListMenu: UIView {
         return table
     }()
     
-    lazy var contentView: UIView = {
+    private lazy var contentView: UIView = {
         let content = UIView.init()
         content.backgroundColor = UIColor.clear
         content.makeLayerShadowCorner()
@@ -154,7 +154,7 @@ class FYNavDropListMenu: UIView {
 
 // MARK:- Action
 
-extension FYNavDropListMenu {
+extension FYNavPopuListMenu {
     
     func show() {
         self.contentView.alpha   = 1.0
@@ -190,7 +190,7 @@ extension FYNavDropListMenu {
 
 // MARK:- UITableViewDataSource && Delegate
 
-extension FYNavDropListMenu: UITableViewDataSource, UITableViewDelegate {
+extension FYNavPopuListMenu: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.count

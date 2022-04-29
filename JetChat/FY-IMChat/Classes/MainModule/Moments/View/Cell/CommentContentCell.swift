@@ -50,6 +50,7 @@ class CommentContentCell: UITableViewCell {
             }
         }
     }
+    
     var onClick: ((CommentContentClickAction)->Void)?
     var onTextClick: (()->Void)?
     

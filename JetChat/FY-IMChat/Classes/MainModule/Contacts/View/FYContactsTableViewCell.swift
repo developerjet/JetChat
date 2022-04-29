@@ -12,18 +12,18 @@ class FYContactsTableViewCell: UITableViewCell {
 
     var model: FYMessageChatModel? {
         didSet {
-            guard model != nil else {
+            guard let chatModel = model else {
                 return
             }
 
-            if model?.nickName.isBlank == false {
-                nameLabel.text = model?.nickName
+            if chatModel.nickName.isBlank == false {
+                nameLabel.text = chatModel.nickName
             }else {
-                nameLabel.text = model?.name
+                nameLabel.text = chatModel.name
             }
             
-            uidLabel.text = "uid：\(model?.uid ?? 1000)"
-            avatarView.setImageWithURL(model!.avatar!, placeholder: "ic_avatar_placeholder")
+            uidLabel.text = "uid：\(chatModel.uid ?? 1000)"
+            avatarView.setImageWithURL(chatModel.avatar ?? "", placeholder: R.image.ic_avatar_placeholder()!)
         }
     }
     

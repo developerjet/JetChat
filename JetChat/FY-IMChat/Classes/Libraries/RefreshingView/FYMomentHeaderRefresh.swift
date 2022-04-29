@@ -53,7 +53,7 @@ class FYMomentHeaderRefresh: MJRefreshHeader {
             self.mj_y = marginY ;
         }
         
-        UIView.animate(withDuration: 1.5) {
+        UIView.animate(withDuration: 1.25) {
             self.rotateImageView.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2).concatenating(self.rotateImageView.transform)
         }
     }

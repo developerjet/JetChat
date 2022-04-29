@@ -77,7 +77,7 @@ class FYSesstionListViewController: FYBaseViewController {
     }
     
     @objc func showPopMenu() {
-        let popView = FYNavDropListMenu(dataSource: menuList)
+        let popView = FYNavPopuListMenu(dataSource: menuList)
         popView.delegate = self
         popView.show()
     }
@@ -175,6 +175,9 @@ extension FYSesstionListViewController: UITableViewDataSource, UITableViewDelega
         let cell = tableView.dequeueReusableCell(withIdentifier: kSessionsCellReuseIdentifier) as! FYConversationCell
         if let model = dataSource[safe: indexPath.row] {
             cell.model = model
+            cell.avatarOnClick = { [weak self] in
+                self?.pushChatInfo(model)
+            }
         }
         clearButton.isHidden = FYDBQueryHelper.shared.queryFromSesstionsUnReadCount() <= 0
         return cell
@@ -198,7 +201,7 @@ extension FYSesstionListViewController: UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
-        return "删除"
+        return "删除".rLocalized()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -219,6 +222,13 @@ extension FYSesstionListViewController: UITableViewDataSource, UITableViewDelega
                 reloadSesstionData()
             }
         }
+    }
+    
+    func pushChatInfo(_ model: FYMessageItem) {
+        let userModel = FYDBQueryHelper.shared.qureyFromChatId(model.chatId!)
+        let infoVC = FYContactsInfoViewController()
+        infoVC.chatModel = userModel
+        navigationController?.pushViewController(infoVC)
     }
 }
 

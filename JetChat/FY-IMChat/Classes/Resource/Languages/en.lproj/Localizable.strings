@@ -32,6 +32,7 @@
 "已清除全部未读消息数" = "All unread messages cleared";
 "全部已读" = "Read all";
 "群聊" = "Group chat";
+"确定删除该好友吗？" = "Are you sure to delete this friend?";
 
 "保存" = "Save";
 "备注名称不超过12个字" = "Remark name no more than 12 words";

@@ -9,7 +9,7 @@
 import UIKit
 
 class FYSettingViewController: FYBaseViewController {
-
+    
     // MARK: - life cycle
     
     override func viewDidLoad() {
@@ -22,7 +22,6 @@ class FYSettingViewController: FYBaseViewController {
         super.makeUI()
         
         let languageCode = LanguageManager.manager.selectedLanguage
-        
         let language = FYFastGridListView().config { (view) in
             view.isHiddenArrow(isHidden: false)
                 .title(text: "语言设置".rLocalized())
@@ -38,6 +37,7 @@ class FYSettingViewController: FYBaseViewController {
             make.left.right.equalTo(self.view)
             make.height.equalTo(50)
         })
+        
         
         let version = FYFastGridListView().config { (view) in
             view.isHiddenArrow(isHidden: false)
@@ -55,11 +55,11 @@ class FYSettingViewController: FYBaseViewController {
             make.height.equalTo(language)
         })
         
-        let cacheSize = FYFileSizeManager.manager.cacheSize()
+        let imageCache = FYFileSizeManager.manager.cacheSize()
         _ = FYFastGridListView().config { (view) in
             view.isHiddenArrow(isHidden: false)
-                .title(text: "清除缓存".rLocalized())
-                .content(text: cacheSize)
+                .title(text: "清除图片缓存".rLocalized())
+                .content(text: imageCache)
                 .contentState(state: .normal)
                 .clickClosure({ [weak self] in
                     self?.beginClearCaches()

@@ -15,7 +15,7 @@ extension Array {
         return (0..<count).contains(index) ? self[index] : nil
     }
     
-    func toJSonString() -> String {
+    func toJSONString() -> String {
         let data = try? JSONSerialization.data(withJSONObject: self, options: JSONSerialization.WritingOptions.prettyPrinted)
         let strJson = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
         return strJson! as String

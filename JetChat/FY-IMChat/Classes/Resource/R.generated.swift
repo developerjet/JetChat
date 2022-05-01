@@ -503,7 +503,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 68 images.
+  /// This `R.image` struct is generated, and contains static references to 69 images.
   struct image {
     /// Image `LaunchImage`.
     static let launchImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "LaunchImage")
@@ -541,6 +541,8 @@ struct R: Rswift.Validatable {
     static let ic_emotion_delete = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_emotion_delete")
     /// Image `ic_group_placeholder`.
     static let ic_group_placeholder = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_group_placeholder")
+    /// Image `ic_list_selection`.
+    static let ic_list_selection = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_list_selection")
     /// Image `ic_more_album`.
     static let ic_more_album = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_more_album")
     /// Image `ic_more_camera`.
@@ -765,6 +767,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "ic_group_placeholder", bundle: ..., traitCollection: ...)`
     static func ic_group_placeholder(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.ic_group_placeholder, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "ic_list_selection", bundle: ..., traitCollection: ...)`
+    static func ic_list_selection(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_list_selection, compatibleWith: traitCollection)
     }
     #endif
 
@@ -1186,7 +1195,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 71 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 75 localization keys.
     struct localizable {
       /// en translation: Add Friends
       ///
@@ -1216,6 +1225,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let 确定删除全部群组吗 = Rswift.StringResource(key: "确定删除全部群组吗？", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Are you sure to delete this friend?
+      ///
+      /// Locales: en
+      static let 确定删除该好友吗 = Rswift.StringResource(key: "确定删除该好友吗？", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Are you sure you want to leave the current group?
       ///
       /// Locales: en
@@ -1272,6 +1285,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let 删除所有群组 = Rswift.StringResource(key: "删除所有群组", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Drak
+      ///
+      /// Locales: en
+      static let 黑夜模式 = Rswift.StringResource(key: "黑夜模式", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: English
       ///
       /// Locales: en
@@ -1324,6 +1341,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let 语言设置 = Rswift.StringResource(key: "语言设置", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Light
+      ///
+      /// Locales: en
+      static let 白天模式 = Rswift.StringResource(key: "白天模式", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Location
       ///
       /// Locales: en
@@ -1412,6 +1433,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let 当前网络已断开 = Rswift.StringResource(key: "当前网络已断开", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Theme mode
+      ///
+      /// Locales: en
+      static let 主题模式 = Rswift.StringResource(key: "主题模式", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Thursday
       ///
       /// Locales: en
@@ -1576,6 +1601,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("确定删除全部群组吗？", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Are you sure to delete this friend?
+      ///
+      /// Locales: en
+      static func 确定删除该好友吗(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("确定删除该好友吗？", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "确定删除该好友吗？"
+        }
+
+        return NSLocalizedString("确定删除该好友吗？", bundle: bundle, comment: "")
       }
 
       /// en translation: Are you sure you want to leave the current group?
@@ -1788,6 +1828,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("删除所有群组", bundle: bundle, comment: "")
       }
 
+      /// en translation: Drak
+      ///
+      /// Locales: en
+      static func 黑夜模式(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("黑夜模式", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "黑夜模式"
+        }
+
+        return NSLocalizedString("黑夜模式", bundle: bundle, comment: "")
+      }
+
       /// en translation: English
       ///
       /// Locales: en
@@ -1981,6 +2036,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("语言设置", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Light
+      ///
+      /// Locales: en
+      static func 白天模式(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("白天模式", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "白天模式"
+        }
+
+        return NSLocalizedString("白天模式", bundle: bundle, comment: "")
       }
 
       /// en translation: Location
@@ -2311,6 +2381,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("当前网络已断开", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Theme mode
+      ///
+      /// Locales: en
+      static func 主题模式(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("主题模式", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "主题模式"
+        }
+
+        return NSLocalizedString("主题模式", bundle: bundle, comment: "")
       }
 
       /// en translation: Thursday

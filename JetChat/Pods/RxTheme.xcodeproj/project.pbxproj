@@ -1,0 +1,546 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00B84B318B557C6FBEEBF93CCD3FFAC2 /* UITabBar+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8498CC0610306A664CF6E29F899E6A7 /* UITabBar+Theme.swift */; };
+		08A96A7F15147B644D310FB5F53CB2AF /* UIPageControl+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAAC55E3F5C56C23E3A4DC734E4D833 /* UIPageControl+Theme.swift */; };
+		217B3A81C9FF516123ECDC81D0D1931C /* UITAbleViewCell+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB86599CCFD30B09FB5F0E0386520F6 /* UITAbleViewCell+Theme.swift */; };
+		2CB28D014C90911F998DD0F7032C4612 /* UIButton+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A59FB7A48F8265B6F48E398E1949CDF /* UIButton+Theme.swift */; };
+		2F262E8B22AC4941DBB619D72C5D17D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CFB604C62428DD1BD44F8E8B1C49A20 /* Foundation.framework */; };
+		2F5CCB13CF68E8B2DFE046325DD72844 /* UILabel+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54BDFBBFA99CDB9DA3D4CA9CAB4E932 /* UILabel+Theme.swift */; };
+		371658CC3D0B27EECF6C41A49C9A0356 /* ThemeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB68C57A1F09FE0F012E0649841259 /* ThemeService.swift */; };
+		4C5253F41E2F04A743BAFC584A120F79 /* UISlider+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C80F87DBB44255AD7E8044E7628138 /* UISlider+Theme.swift */; };
+		53DB00A4BF49DDAB413CF803A1C22CC5 /* UIActivityIndicatorView+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A49B18663AD3A09556FA2A514DE56FD /* UIActivityIndicatorView+Theme.swift */; };
+		544838644EDACB9C3AC73180143830F8 /* ThemeAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9A67CD92DA395C33A66ED044C8CE31 /* ThemeAttribute.swift */; };
+		5CCDEF7998E2E9A56DA13DD4C35B507E /* UISearchBar+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5B6A3665B70A7A16B624E3DAF8BDAC /* UISearchBar+Theme.swift */; };
+		6856517DC92C0326AE7FD1AF3530C384 /* UINavigationBar+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4240B289FB2E1875EA651526EFAE854 /* UINavigationBar+Theme.swift */; };
+		68F2BC365AD82A3F647310D4DC2945AC /* UIView+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9131ADA29D82ECB74C8B1F0F369E680E /* UIView+Theme.swift */; };
+		7294B17266217C97F2434CAC471542B7 /* UIBarButtonItem+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281229955878CC6E9FFAABD8040AAC73 /* UIBarButtonItem+Theme.swift */; };
+		769E6A700479C79226AAE7ED7F9960F7 /* RxTheme-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C03B870E83DC105A3516F950D5CDD684 /* RxTheme-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		872AB6046CDF2C85A7CE788BAEA3855B /* CALayer+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FCC7C49D3DC396D948C7CA2243BB6C /* CALayer+Theme.swift */; };
+		888EFEC02EC754211EDB9BED24F06F87 /* UIToolbar+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F59B970B56DAD6B62AAA3B69BB842C /* UIToolbar+Theme.swift */; };
+		8BA4FA5476F4FA6AC728C302F0C9DF08 /* UITextField+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD129E00B4180D4BF3AF9DE6D815364 /* UITextField+Theme.swift */; };
+		8F9DB0DFCC179F81F6A45F89B900FB06 /* UITextView+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A211A5E00C31BCECC30A84C61406313 /* UITextView+Theme.swift */; };
+		A4617FA3355A95E0AE7846101D1E4211 /* UISegmentedControl+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9FE339E1607184E0AA50BACCD53219 /* UISegmentedControl+Theme.swift */; };
+		B46AE523F0439679A39E280E807D5F04 /* UISwitch+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE997806C86D5AB33DD0A8B19ADCDAC /* UISwitch+Theme.swift */; };
+		BA8F061E5255A2279A5A7FAEA81FCCC4 /* UIProgressView+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA7E984EFB59FEB771934DCD59A67C0 /* UIProgressView+Theme.swift */; };
+		C13A0798B2906D41DFAA7F9414A84C90 /* CAShapeLayer+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3C1A8030662798A88BFC076DB1F6CB /* CAShapeLayer+Theme.swift */; };
+		C45A8867D2D90C6713F2B386E572B153 /* RxTheme-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AB43521140EF0FD565BE8D5FA58DEF82 /* RxTheme-dummy.m */; };
+		DBF4E1954FCE7F40BCC5670680DB9256 /* ThemeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53204E56A6E77185E1AE712C9D9E53D4 /* ThemeProvider.swift */; };
+		E88F3F12A7A8F6986B64E89C592D8750 /* ThemeProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D856F0F5BF817B964DF8BC27BC796B3 /* ThemeProxy.swift */; };
+		F19ACA69AC33C3AC40E991B319C94110 /* UITableView+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17718BEA95AA0B2AD2AAD2EF0DE5798 /* UITableView+Theme.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		84F1C2E63D63DE25AC1D535F20EB2CC9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 88BF26F3D3FEEFD3CC0043324EDDE9F7 /* RxSwift.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F0179EE061353B7A322F596E97844774;
+			remoteInfo = RxSwift;
+		};
+		8F755E43B587B5DDF678B5C8EC1FBA26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 726EF7675FACE7ADB88CC6ADB7F2D253 /* RxCocoa.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BC5183FBB16A06C1D86620B00CFE6269;
+			remoteInfo = RxCocoa;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0EA7E984EFB59FEB771934DCD59A67C0 /* UIProgressView+Theme.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIProgressView+Theme.swift"; path = "Sources/Extensions/UIProgressView+Theme.swift"; sourceTree = "<group>"; };
+		1E3C1A8030662798A88BFC076DB1F6CB /* CAShapeLayer+Theme.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CAShapeLayer+Theme.swift"; path = "Sources/Extensions/CAShapeLayer+Theme.swift"; sourceTree = "<group>"; };
+		281229955878CC6E9FFAABD8040AAC73 /* UIBarButtonItem+Theme.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIBarButtonItem+Theme.swift"; path = "Sources/Extensions/UIBarButtonItem+Theme.swift"; sourceTree = "<group>"; };
+		2CFB604C62428DD1BD44F8E8B1C49A20 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		3DFB68C57A1F09FE0F012E0649841259 /* ThemeService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ThemeService.swift; path = Sources/ThemeService.swift; sourceTree = "<group>"; };
+		462680FD13598CC1D5228119E707954B /* RxTheme.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RxTheme.debug.xcconfig; sourceTree = "<group>"; };
+		4D856F0F5BF817B964DF8BC27BC796B3 /* ThemeProxy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ThemeProxy.swift; path = Sources/ThemeProxy.swift; sourceTree = "<group>"; };
+		53204E56A6E77185E1AE712C9D9E53D4 /* ThemeProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ThemeProvider.swift; path = Sources/ThemeProvider.swift; sourceTree = "<group>"; };
+		5A211A5E00C31BCECC30A84C61406313 /* UITextView+Theme.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UITextView+Theme.swift"; path = "Sources/Extensions/UITextView+Theme.swift"; sourceTree = "<group>"; };
+		5E559FEB032D5416FEE1577B066ECE72 /* RxTheme */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = RxTheme; path = RxTheme.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A49B18663AD3A09556FA2A514DE56FD /* UIActivityIndicatorView+Theme.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIActivityIndicatorView+Theme.swift"; path = "Sources/Extensions/UIActivityIndicatorView+Theme.swift"; sourceTree = "<group>"; };
+		726EF7675FACE7ADB88CC6ADB7F2D253 /* RxCocoa */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RxCocoa; path = RxCocoa.xcodeproj; sourceTree = "<group>"; };
+		785775A614F58B074D4AF455BB8382F2 /* RxTheme-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RxTheme-prefix.pch"; sourceTree = "<group>"; };
+		7BB86599CCFD30B09FB5F0E0386520F6 /* UITAbleViewCell+Theme.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UITAbleViewCell+Theme.swift"; path = "Sources/Extensions/UITAbleViewCell+Theme.swift"; sourceTree = "<group>"; };
+		84C80F87DBB44255AD7E8044E7628138 /* UISlider+Theme.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UISlider+Theme.swift"; path = "Sources/Extensions/UISlider+Theme.swift"; sourceTree = "<group>"; };
+		86F59B970B56DAD6B62AAA3B69BB842C /* UIToolbar+Theme.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIToolbar+Theme.swift"; path = "Sources/Extensions/UIToolbar+Theme.swift"; sourceTree = "<group>"; };
+		88BF26F3D3FEEFD3CC0043324EDDE9F7 /* RxSwift */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RxSwift; path = RxSwift.xcodeproj; sourceTree = "<group>"; };
+		88FCC7C49D3DC396D948C7CA2243BB6C /* CALayer+Theme.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CALayer+Theme.swift"; path = "Sources/Extensions/CALayer+Theme.swift"; sourceTree = "<group>"; };
+		8A59FB7A48F8265B6F48E398E1949CDF /* UIButton+Theme.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIButton+Theme.swift"; path = "Sources/Extensions/UIButton+Theme.swift"; sourceTree = "<group>"; };
+		8BD129E00B4180D4BF3AF9DE6D815364 /* UITextField+Theme.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UITextField+Theme.swift"; path = "Sources/Extensions/UITextField+Theme.swift"; sourceTree = "<group>"; };
+		9131ADA29D82ECB74C8B1F0F369E680E /* UIView+Theme.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+Theme.swift"; path = "Sources/Extensions/UIView+Theme.swift"; sourceTree = "<group>"; };
+		A8498CC0610306A664CF6E29F899E6A7 /* UITabBar+Theme.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UITabBar+Theme.swift"; path = "Sources/Extensions/UITabBar+Theme.swift"; sourceTree = "<group>"; };
+		AB43521140EF0FD565BE8D5FA58DEF82 /* RxTheme-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RxTheme-dummy.m"; sourceTree = "<group>"; };
+		AC5B6A3665B70A7A16B624E3DAF8BDAC /* UISearchBar+Theme.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UISearchBar+Theme.swift"; path = "Sources/Extensions/UISearchBar+Theme.swift"; sourceTree = "<group>"; };
+		AF918B3A1D0CAF364DD367AE08C53C65 /* RxTheme.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = RxTheme.modulemap; sourceTree = "<group>"; };
+		B17718BEA95AA0B2AD2AAD2EF0DE5798 /* UITableView+Theme.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UITableView+Theme.swift"; path = "Sources/Extensions/UITableView+Theme.swift"; sourceTree = "<group>"; };
+		B4240B289FB2E1875EA651526EFAE854 /* UINavigationBar+Theme.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UINavigationBar+Theme.swift"; path = "Sources/Extensions/UINavigationBar+Theme.swift"; sourceTree = "<group>"; };
+		C03B870E83DC105A3516F950D5CDD684 /* RxTheme-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RxTheme-umbrella.h"; sourceTree = "<group>"; };
+		CD9A67CD92DA395C33A66ED044C8CE31 /* ThemeAttribute.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ThemeAttribute.swift; path = Sources/ThemeAttribute.swift; sourceTree = "<group>"; };
+		D54BDFBBFA99CDB9DA3D4CA9CAB4E932 /* UILabel+Theme.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UILabel+Theme.swift"; path = "Sources/Extensions/UILabel+Theme.swift"; sourceTree = "<group>"; };
+		DD3DA3914C320EEF3A39BC9487419C4B /* RxTheme.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RxTheme.release.xcconfig; sourceTree = "<group>"; };
+		DDE997806C86D5AB33DD0A8B19ADCDAC /* UISwitch+Theme.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UISwitch+Theme.swift"; path = "Sources/Extensions/UISwitch+Theme.swift"; sourceTree = "<group>"; };
+		EDBBE5F25AECCDA3AC27ECABFC7ECAF6 /* RxTheme-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "RxTheme-Info.plist"; sourceTree = "<group>"; };
+		EEAAC55E3F5C56C23E3A4DC734E4D833 /* UIPageControl+Theme.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIPageControl+Theme.swift"; path = "Sources/Extensions/UIPageControl+Theme.swift"; sourceTree = "<group>"; };
+		EF9FE339E1607184E0AA50BACCD53219 /* UISegmentedControl+Theme.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UISegmentedControl+Theme.swift"; path = "Sources/Extensions/UISegmentedControl+Theme.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		81E19BB9B96949EACFBCCFF452CE525F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F262E8B22AC4941DBB619D72C5D17D2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2A5F9C658E049C7B2CC4A4B18DA945BE /* RxTheme */ = {
+			isa = PBXGroup;
+			children = (
+				88FCC7C49D3DC396D948C7CA2243BB6C /* CALayer+Theme.swift */,
+				1E3C1A8030662798A88BFC076DB1F6CB /* CAShapeLayer+Theme.swift */,
+				CD9A67CD92DA395C33A66ED044C8CE31 /* ThemeAttribute.swift */,
+				53204E56A6E77185E1AE712C9D9E53D4 /* ThemeProvider.swift */,
+				4D856F0F5BF817B964DF8BC27BC796B3 /* ThemeProxy.swift */,
+				3DFB68C57A1F09FE0F012E0649841259 /* ThemeService.swift */,
+				6A49B18663AD3A09556FA2A514DE56FD /* UIActivityIndicatorView+Theme.swift */,
+				281229955878CC6E9FFAABD8040AAC73 /* UIBarButtonItem+Theme.swift */,
+				8A59FB7A48F8265B6F48E398E1949CDF /* UIButton+Theme.swift */,
+				D54BDFBBFA99CDB9DA3D4CA9CAB4E932 /* UILabel+Theme.swift */,
+				B4240B289FB2E1875EA651526EFAE854 /* UINavigationBar+Theme.swift */,
+				EEAAC55E3F5C56C23E3A4DC734E4D833 /* UIPageControl+Theme.swift */,
+				0EA7E984EFB59FEB771934DCD59A67C0 /* UIProgressView+Theme.swift */,
+				AC5B6A3665B70A7A16B624E3DAF8BDAC /* UISearchBar+Theme.swift */,
+				EF9FE339E1607184E0AA50BACCD53219 /* UISegmentedControl+Theme.swift */,
+				84C80F87DBB44255AD7E8044E7628138 /* UISlider+Theme.swift */,
+				DDE997806C86D5AB33DD0A8B19ADCDAC /* UISwitch+Theme.swift */,
+				A8498CC0610306A664CF6E29F899E6A7 /* UITabBar+Theme.swift */,
+				B17718BEA95AA0B2AD2AAD2EF0DE5798 /* UITableView+Theme.swift */,
+				7BB86599CCFD30B09FB5F0E0386520F6 /* UITAbleViewCell+Theme.swift */,
+				8BD129E00B4180D4BF3AF9DE6D815364 /* UITextField+Theme.swift */,
+				5A211A5E00C31BCECC30A84C61406313 /* UITextView+Theme.swift */,
+				86F59B970B56DAD6B62AAA3B69BB842C /* UIToolbar+Theme.swift */,
+				9131ADA29D82ECB74C8B1F0F369E680E /* UIView+Theme.swift */,
+				E2E87F271DB01AD7EF878BD37A2F55CE /* Support Files */,
+			);
+			name = RxTheme;
+			path = RxTheme;
+			sourceTree = "<group>";
+		};
+		7033A78EF492E311BA8544293528331E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5E559FEB032D5416FEE1577B066ECE72 /* RxTheme */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		88AEEA9F2A9070333BD7F023B3FD62A8 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				2CFB604C62428DD1BD44F8E8B1C49A20 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		99ABCF3FF11004064B395683E5D1AF41 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				88AEEA9F2A9070333BD7F023B3FD62A8 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A28C4BD307997C9615286455C8A85CA5 = {
+			isa = PBXGroup;
+			children = (
+				DB8A8CB5D1CC8FF157A165B425071707 /* Dependencies */,
+				99ABCF3FF11004064B395683E5D1AF41 /* Frameworks */,
+				7033A78EF492E311BA8544293528331E /* Products */,
+				2A5F9C658E049C7B2CC4A4B18DA945BE /* RxTheme */,
+			);
+			sourceTree = "<group>";
+		};
+		DB8A8CB5D1CC8FF157A165B425071707 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				726EF7675FACE7ADB88CC6ADB7F2D253 /* RxCocoa */,
+				88BF26F3D3FEEFD3CC0043324EDDE9F7 /* RxSwift */,
+			);
+			name = Dependencies;
+			sourceTree = "<group>";
+		};
+		E2E87F271DB01AD7EF878BD37A2F55CE /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				AF918B3A1D0CAF364DD367AE08C53C65 /* RxTheme.modulemap */,
+				AB43521140EF0FD565BE8D5FA58DEF82 /* RxTheme-dummy.m */,
+				EDBBE5F25AECCDA3AC27ECABFC7ECAF6 /* RxTheme-Info.plist */,
+				785775A614F58B074D4AF455BB8382F2 /* RxTheme-prefix.pch */,
+				C03B870E83DC105A3516F950D5CDD684 /* RxTheme-umbrella.h */,
+				462680FD13598CC1D5228119E707954B /* RxTheme.debug.xcconfig */,
+				DD3DA3914C320EEF3A39BC9487419C4B /* RxTheme.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/RxTheme";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D7E2CF69CECFF1544F1A93463C0BBC1F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				769E6A700479C79226AAE7ED7F9960F7 /* RxTheme-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		642CE8A56D477528D9E8BCDD0A6FEBB8 /* RxTheme */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EAF08A90A54CFEA6AE3672BF4E2B39BB /* Build configuration list for PBXNativeTarget "RxTheme" */;
+			buildPhases = (
+				D7E2CF69CECFF1544F1A93463C0BBC1F /* Headers */,
+				66E5990EA34E609A3B19506FC6811C28 /* Sources */,
+				81E19BB9B96949EACFBCCFF452CE525F /* Frameworks */,
+				0D7BFBA19E9DEDE3F2DA12FA7754B9BD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CA4DC747C9E5CB7918553DCB8E1B72C1 /* PBXTargetDependency */,
+				867EFB1DA3E9F7155A73DDA7B4D5630D /* PBXTargetDependency */,
+			);
+			name = RxTheme;
+			productName = RxTheme;
+			productReference = 5E559FEB032D5416FEE1577B066ECE72 /* RxTheme */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0CC1EDB73ECD05CC39ACDDE89EE78FF5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+			};
+			buildConfigurationList = 7927FE4B2BEC21F1A143A6F3AD8B5A11 /* Build configuration list for PBXProject "RxTheme" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = A28C4BD307997C9615286455C8A85CA5;
+			productRefGroup = 7033A78EF492E311BA8544293528331E /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProjectRef = 88BF26F3D3FEEFD3CC0043324EDDE9F7 /* RxSwift */;
+				},
+				{
+					ProjectRef = 726EF7675FACE7ADB88CC6ADB7F2D253 /* RxCocoa */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				642CE8A56D477528D9E8BCDD0A6FEBB8 /* RxTheme */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0D7BFBA19E9DEDE3F2DA12FA7754B9BD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		66E5990EA34E609A3B19506FC6811C28 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				872AB6046CDF2C85A7CE788BAEA3855B /* CALayer+Theme.swift in Sources */,
+				C13A0798B2906D41DFAA7F9414A84C90 /* CAShapeLayer+Theme.swift in Sources */,
+				C45A8867D2D90C6713F2B386E572B153 /* RxTheme-dummy.m in Sources */,
+				544838644EDACB9C3AC73180143830F8 /* ThemeAttribute.swift in Sources */,
+				DBF4E1954FCE7F40BCC5670680DB9256 /* ThemeProvider.swift in Sources */,
+				E88F3F12A7A8F6986B64E89C592D8750 /* ThemeProxy.swift in Sources */,
+				371658CC3D0B27EECF6C41A49C9A0356 /* ThemeService.swift in Sources */,
+				53DB00A4BF49DDAB413CF803A1C22CC5 /* UIActivityIndicatorView+Theme.swift in Sources */,
+				7294B17266217C97F2434CAC471542B7 /* UIBarButtonItem+Theme.swift in Sources */,
+				2CB28D014C90911F998DD0F7032C4612 /* UIButton+Theme.swift in Sources */,
+				2F5CCB13CF68E8B2DFE046325DD72844 /* UILabel+Theme.swift in Sources */,
+				6856517DC92C0326AE7FD1AF3530C384 /* UINavigationBar+Theme.swift in Sources */,
+				08A96A7F15147B644D310FB5F53CB2AF /* UIPageControl+Theme.swift in Sources */,
+				BA8F061E5255A2279A5A7FAEA81FCCC4 /* UIProgressView+Theme.swift in Sources */,
+				5CCDEF7998E2E9A56DA13DD4C35B507E /* UISearchBar+Theme.swift in Sources */,
+				A4617FA3355A95E0AE7846101D1E4211 /* UISegmentedControl+Theme.swift in Sources */,
+				4C5253F41E2F04A743BAFC584A120F79 /* UISlider+Theme.swift in Sources */,
+				B46AE523F0439679A39E280E807D5F04 /* UISwitch+Theme.swift in Sources */,
+				00B84B318B557C6FBEEBF93CCD3FFAC2 /* UITabBar+Theme.swift in Sources */,
+				F19ACA69AC33C3AC40E991B319C94110 /* UITableView+Theme.swift in Sources */,
+				217B3A81C9FF516123ECDC81D0D1931C /* UITAbleViewCell+Theme.swift in Sources */,
+				8BA4FA5476F4FA6AC728C302F0C9DF08 /* UITextField+Theme.swift in Sources */,
+				8F9DB0DFCC179F81F6A45F89B900FB06 /* UITextView+Theme.swift in Sources */,
+				888EFEC02EC754211EDB9BED24F06F87 /* UIToolbar+Theme.swift in Sources */,
+				68F2BC365AD82A3F647310D4DC2945AC /* UIView+Theme.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		867EFB1DA3E9F7155A73DDA7B4D5630D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RxSwift;
+			targetProxy = 84F1C2E63D63DE25AC1D535F20EB2CC9 /* PBXContainerItemProxy */;
+		};
+		CA4DC747C9E5CB7918553DCB8E1B72C1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RxCocoa;
+			targetProxy = 8F755E43B587B5DDF678B5C8EC1FBA26 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2154572BF5149D71D8055999DA472720 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD3DA3914C320EEF3A39BC9487419C4B /* RxTheme.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/RxTheme/RxTheme-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/RxTheme/RxTheme-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/RxTheme/RxTheme.modulemap";
+				PRODUCT_MODULE_NAME = RxTheme;
+				PRODUCT_NAME = RxTheme;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		9DEF81265B981A6BA1A1C0FC80EE8EAF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		CD9A16A606B1EAF6D7791279DBEA0C0B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 462680FD13598CC1D5228119E707954B /* RxTheme.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/RxTheme/RxTheme-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/RxTheme/RxTheme-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/RxTheme/RxTheme.modulemap";
+				PRODUCT_MODULE_NAME = RxTheme;
+				PRODUCT_NAME = RxTheme;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		DEDF5F48B0C7899FF02E08BE1B80CF9E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7927FE4B2BEC21F1A143A6F3AD8B5A11 /* Build configuration list for PBXProject "RxTheme" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DEDF5F48B0C7899FF02E08BE1B80CF9E /* Debug */,
+				9DEF81265B981A6BA1A1C0FC80EE8EAF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EAF08A90A54CFEA6AE3672BF4E2B39BB /* Build configuration list for PBXNativeTarget "RxTheme" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD9A16A606B1EAF6D7791279DBEA0C0B /* Debug */,
+				2154572BF5149D71D8055999DA472720 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0CC1EDB73ECD05CC39ACDDE89EE78FF5 /* Project object */;
+}

@@ -83,9 +83,9 @@ class FYChatBaseViewController: FYBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .backGroundGrayColor()
-        setupNavBar()
+        view.theme.backgroundColor = themed { $0.FYColor_BackgroundColor_V2 }
         
+        setupNavBar()
         loadCacheData()
     }
     

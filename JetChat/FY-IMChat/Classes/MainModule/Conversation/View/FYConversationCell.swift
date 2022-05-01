@@ -56,7 +56,7 @@ class FYConversationCell: UITableViewCell {
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15)
-        label.textColor = .black
+        label.theme.textColor = themed { $0.FYColor_Main_TextColor_V1 }
         return label
     }()
     
@@ -74,7 +74,7 @@ class FYConversationCell: UITableViewCell {
     private lazy var messageLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = .lightGray
+        label.theme.textColor = themed { $0.FYColor_Main_TextColor_V10 }
         return label
     }()
     
@@ -82,7 +82,7 @@ class FYConversationCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12)
         label.textAlignment = .right
-        label.textColor = .colorWithHexStr("AAAAAA")
+        label.theme.textColor = themed { $0.FYColor_Main_TextColor_V2 }
         return label
     }()
     
@@ -106,8 +106,8 @@ class FYConversationCell: UITableViewCell {
     }
     
     func setupSubview() {
-        backgroundColor = .white
         selectionStyle = .none
+        self.theme.backgroundColor = themed { $0.FYColor_BackgroundColor_V5 }
         
         contentView.addSubview(avatarView)
         contentView.addSubview(nameLabel)

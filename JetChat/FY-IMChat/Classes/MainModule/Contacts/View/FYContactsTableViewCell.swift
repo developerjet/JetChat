@@ -47,14 +47,14 @@ class FYContactsTableViewCell: UITableViewCell {
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15)
-        label.textColor = .black
+        label.theme.textColor = themed { $0.FYColor_Main_TextColor_V1 }
         return label
     }()
     
     private lazy var uidLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = .lightGray
+        label.theme.textColor = themed { $0.FYColor_Main_TextColor_V10 }
         return label
     }()
     
@@ -84,8 +84,8 @@ class FYContactsTableViewCell: UITableViewCell {
     }
     
     func setupSubview() {
-        backgroundColor = .white
         selectionStyle = .none
+        theme.backgroundColor = themed { $0.FYColor_BackgroundColor_V5 }
         
         contentView.addSubview(avatarView)
         contentView.addSubview(nameLabel)

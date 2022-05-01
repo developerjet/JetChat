@@ -8,6 +8,8 @@
 
 import UIKit
 import SnapKit
+import RxTheme
+import RxSwift
 
 extension UIView {
     
@@ -354,5 +356,17 @@ extension UIView {
         return viewImage
     }
     
+}
+
+
+public extension ThemeProxy where Base: UITextField {
+    
+    /// (set only) bind a stream to borderColor
+    var placeholderColor: ThemeAttribute<UIColor?> {
+        get { fatalError("set only") }
+        set {
+            base.setPlaceHolderTextColor(newValue.value ?? UIColor.lightGray)
+        }
+    }
 }
 

@@ -12,7 +12,7 @@ class FYNavDropMenuCell: UITableViewCell {
 
     // MARK: - var lazy
     
-    var model: CommonMenuConfig? {
+    var model: FYCellDataConfig? {
         didSet {
             guard let model = model else {
                 return
@@ -31,22 +31,21 @@ class FYNavDropMenuCell: UITableViewCell {
         }
     }
     
-    lazy var titleLabel: UILabel = {
+    private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.theme.textColor = themed { $0.FYColor_Main_TextColor_V1 }
         label.font = UIFont.PingFangRegular(15)
         return label
     }()
     
-    lazy var leftImageView: UIImageView = {
+    private lazy var leftImageView: UIImageView = {
         let imageView = UIImageView()
         return imageView
     }()
     
-    lazy var lineView: UIView = {
+    private lazy var lineView: UIView = {
         let view = UIView()
-        //view.theme_backgroundColor = "Global.lineColor"
-        view.backgroundColor = .colorWithHexStr("D8D8D8")
+        view.theme.backgroundColor = themed { $0.FYColor_BorderColor_V1 }
         return view
     }()
     
@@ -55,7 +54,7 @@ class FYNavDropMenuCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        self.backgroundColor = .white
+        self.theme.backgroundColor = themed { $0.FYColor_BackgroundColor_V12 }
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -69,7 +68,7 @@ class FYNavDropMenuCell: UITableViewCell {
     }
     
     func makeUI() {
-        self.backgroundColor = .white
+        self.theme.backgroundColor = themed { $0.FYColor_BackgroundColor_V12 }
         
         contentView.addSubview(leftImageView)
         contentView.addSubview(titleLabel)

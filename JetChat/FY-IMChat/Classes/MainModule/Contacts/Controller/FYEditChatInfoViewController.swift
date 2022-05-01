@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import RxTheme
 
 class FYEditChatInfoViewController: FYBaseViewController {
     
@@ -25,12 +26,13 @@ class FYEditChatInfoViewController: FYBaseViewController {
         }
     }
     
-    // MARK: - var lazy
+    // MARK: - lazy var
     
     private lazy var saveButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setTitle("保存".rLocalized(), for: .normal)
-        button.setTitleColor(.blue, for: .normal)
+        button.theme.titleColor(from: themed { $0.FYColor_Main_TextColor_V11 }, for: .normal)
+        button.titleLabel?.font = .PingFangRegular(16)
         button.isHidden = true
         button.sizeToFit()
         button.rxTapClosure { [weak self] in
@@ -43,14 +45,15 @@ class FYEditChatInfoViewController: FYBaseViewController {
         let textField = UITextField()
         let leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 40))
         textField.placeholder = "备注名称不超过12个字".rLocalized()
-        textField.textColor = .black
+        textField.theme.textColor = themed { $0.FYColor_Main_TextColor_V1 }
         textField.leftView = leftView
         textField.delegate = self
         textField.leftViewMode = .always
+        textField.theme.placeholderColor = themed { $0.FYColor_Placeholder_Color_V1 }
         textField.clearButtonMode = .whileEditing
         textField.font = .PingFangRegular(15)
         textField.cornerRadius = 5
-        textField.borderColor = UIColor.boardLineColor()
+        textField.layer.theme.borderColor = themed { $0.FYColor_BorderColor_V1.cgColor }
         textField.borderWidth = 1
         return textField
     }()

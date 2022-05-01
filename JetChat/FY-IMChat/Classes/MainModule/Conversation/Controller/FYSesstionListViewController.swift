@@ -17,7 +17,8 @@ class FYSesstionListViewController: FYBaseViewController {
     private lazy var clearButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setTitle("全部已读".rLocalized(), for: .normal)
-        button.setTitleColor(.blue, for: .normal)
+        button.theme.titleColor(from: themed { $0.FYColor_Main_TextColor_V11 }, for: .normal)
+        button.titleLabel?.font = .PingFangRegular(16)
         button.isHidden = true
         button.sizeToFit()
         button.rxTapClosure { [weak self] in
@@ -26,12 +27,12 @@ class FYSesstionListViewController: FYBaseViewController {
         return button
     }()
     
-    private lazy var menuList: [CommonMenuConfig] = {
+    private lazy var menuList: [FYCellDataConfig] = {
         let items = [
-            CommonMenuConfig(title: "发起单聊".rLocalized(), image: "ic_tabbar01_selected", isShow: true),
-            CommonMenuConfig(title: "发起群聊".rLocalized(), image: "ic_tabbar02_selected", isShow: true),
-            CommonMenuConfig(title: "添加朋友".rLocalized(), image: "ic_tabbar03_selected", isShow: true),
-            CommonMenuConfig(title: "扫一扫".rLocalized(), image: "ic_tabbar04_selected", isShow: false)
+            FYCellDataConfig(title: "发起单聊".rLocalized(), image: "ic_tabbar01_selected", isShow: true),
+            FYCellDataConfig(title: "发起群聊".rLocalized(), image: "ic_tabbar02_selected", isShow: true),
+            FYCellDataConfig(title: "添加朋友".rLocalized(), image: "ic_tabbar03_selected", isShow: true),
+            FYCellDataConfig(title: "扫一扫".rLocalized(), image: "ic_tabbar04_selected", isShow: false)
         ]
         return items
     }()
@@ -142,7 +143,7 @@ class FYSesstionListViewController: FYBaseViewController {
 
 extension FYSesstionListViewController: FYPopListMenuDelegate {
     
-    func menu(_ model: CommonMenuConfig, didSelectRowAt index: Int) {
+    func menu(_ model: FYCellDataConfig, didSelectRowAt index: Int) {
         if index == 0 || index == 2 {
             UIViewController.currentViewController()?.tabBarController?.selectedIndex = 2
         }else if index == 1 {

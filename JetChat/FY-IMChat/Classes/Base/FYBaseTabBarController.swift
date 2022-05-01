@@ -26,7 +26,7 @@ class FYBaseTabBarController: UITabBarController {
     private func didInitialize() {
         let tabBar = UITabBar.appearance()
         tabBar.isTranslucent = false
-        
+
         if #available(iOS 13, *) {
             let normalAttr = [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 10),
                               NSAttributedString.Key.foregroundColor : UIColor.tabBarTitleNormalColor()]
@@ -41,6 +41,11 @@ class FYBaseTabBarController: UITabBarController {
             
             let selected = appearance.stackedLayoutAppearance.selected
             selected.titleTextAttributes = selectedAttr
+            
+            // 官方文档写的是 重置背景和阴影为透明
+            appearance.configureWithTransparentBackground()
+            appearance.configureWithOpaqueBackground()
+            // 设置
             self.tabBar.standardAppearance = appearance
             
         }else {
@@ -53,6 +58,9 @@ class FYBaseTabBarController: UITabBarController {
             tabBarItem.setTitleTextAttributes(normalAttr, for: .normal)
             tabBarItem.setTitleTextAttributes(selectedAttr, for: .selected)
         }
+        
+        // 设置背景颜色
+        self.tabBar.theme.backgroundColor = themed{ $0.FYColor_Tab_BackgroundColor }
     }
     
     private func createChildVc() {

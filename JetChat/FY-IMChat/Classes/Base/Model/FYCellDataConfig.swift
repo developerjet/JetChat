@@ -1,5 +1,5 @@
 //
-//  CommonMenuConfig.swift
+//  FYCellDataConfig.swift
 //  FY-IMChat
 //
 //  Created by iOS.Jet on 2019/11/2.
@@ -8,7 +8,7 @@
 
 import HandyJSON
 
-class CommonMenuConfig: NSObject, HandyJSON {
+class FYCellDataConfig: NSObject, HandyJSON {
     var title: String?
     var subtitle: String?
     var image: String?

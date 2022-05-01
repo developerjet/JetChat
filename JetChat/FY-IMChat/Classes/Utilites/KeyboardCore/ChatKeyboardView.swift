@@ -81,6 +81,7 @@ class ChatKeyboardView: UIView {
         let w: CGFloat = kScreenW - self.kViewWH * 2 - self.kSpace * 3 - self.kSpace
         let textView = ChatGrowingTextView(frame: CGRect(x: self.kSpace, y: self.kSpace, width: w, height: self.kViewWH))
         textView.placeholder = "请输入...".rLocalized()
+        textView.theme.textColor = themed { $0.FYColor_Main_TextColor_V1 }
         textView.maxNumberOfLines = 5
         textView.delegate = self
         textView.didTextChangedHeightClosure = { [weak self] height in

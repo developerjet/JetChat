@@ -20,7 +20,8 @@ class FYChatRoomListViewController: FYBaseViewController {
     private lazy var deleteButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setTitle("删除所有群组".rLocalized(), for: .normal)
-        button.setTitleColor(UIColor.blue, for: .normal)
+        button.theme.titleColor(from: themed { $0.FYColor_Main_TextColor_V11 }, for: .normal)
+        button.titleLabel?.font = .PingFangRegular(16)
         button.sizeToFit()
         button.isHidden = true
         button.rxTapClosure { [weak self] in

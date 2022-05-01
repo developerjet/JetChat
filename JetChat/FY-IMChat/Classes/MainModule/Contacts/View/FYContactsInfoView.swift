@@ -40,21 +40,21 @@ class FYContactsInfoView: UIView {
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = .black
+        label.theme.textColor = themed { $0.FYColor_Main_TextColor_V1 }
         return label
     }()
     
     private lazy var nickLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 13)
-        label.textColor = .gray
+        label.theme.textColor = themed { $0.FYColor_Main_TextColor_V2 }
         return label
     }()
     
     private lazy var uidLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12)
-        label.textColor = .gray
+        label.theme.textColor = themed { $0.FYColor_Main_TextColor_V2 }
         return label
     }()
     
@@ -79,23 +79,23 @@ class FYContactsInfoView: UIView {
         self.addSubview(uidLabel)
         
         avatarView.snp.remakeConstraints { (make) in
-            make.width.height.equalTo(80)
+            make.width.height.equalTo(60)
             make.left.equalToSuperview().offset(10)
             make.centerY.equalToSuperview()
         }
         
         nameLabel.snp.remakeConstraints { (make) in
-            make.top.equalTo(avatarView).offset(10)
-            make.left.equalTo(avatarView.snp.right).offset(5)
+            make.top.equalTo(avatarView).offset(2)
+            make.left.equalTo(avatarView.snp.right).offset(10)
         }
         
         nickLabel.snp.remakeConstraints { (make) in
             make.left.equalTo(nameLabel)
-            make.top.equalTo(nameLabel.snp.bottom).offset(2)
+            make.top.equalTo(nameLabel.snp.bottom).offset(5)
         }
         
         uidLabel.snp.remakeConstraints { (make) in
-            make.bottom.equalTo(avatarView).offset(-10)
+            make.bottom.equalTo(avatarView).offset(-2)
             make.left.equalTo(nameLabel)
         }
     }

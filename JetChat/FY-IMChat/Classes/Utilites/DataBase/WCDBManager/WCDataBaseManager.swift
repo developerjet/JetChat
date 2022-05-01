@@ -32,7 +32,7 @@ class WCDataBaseManager: NSObject {
         dataBase = createDb()
     }
     
-    ///创建表
+    ///创建库
     private func createDb() -> Database {
         debugPrint("数据库路径==\(dataBasePath.absoluteString)")
         return Database(withFileURL: dataBasePath)
@@ -76,7 +76,7 @@ class WCDataBaseManager: NSObject {
         }
     }
     
-    ///查询
+    ///查询多个
     func qureyObjectsFromDb<T: TableDecodable>(fromTable: String, cls cName: T.Type, where condition: Condition? = nil, orderBy orderList:[OrderBy]? = nil) -> [T]? {
         do {
             let allObjects: [T] = try (dataBase?.getObjects(fromTable: fromTable, where:condition, orderBy:orderList))!

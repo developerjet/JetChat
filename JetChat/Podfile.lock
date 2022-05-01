@@ -33,6 +33,9 @@ PODS:
   - RxRelay (6.5.0):
     - RxSwift (= 6.5.0)
   - RxSwift (6.5.0)
+  - RxTheme (6.0.0):
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
   - SDWebImage (5.12.5):
     - SDWebImage/Core (= 5.12.5)
   - SDWebImage/Core (5.12.5)
@@ -101,6 +104,7 @@ DEPENDENCIES:
   - ReachabilitySwift
   - RxCocoa
   - RxSwift
+  - RxTheme
   - SnapKit
   - SwiftDate
   - SwifterSwift
@@ -134,6 +138,7 @@ SPEC REPOS:
     - RxCocoa
     - RxRelay
     - RxSwift
+    - RxTheme
     - SDWebImage
     - SnapKit
     - SQLiteRepairKit
@@ -169,6 +174,7 @@ SPEC CHECKSUMS:
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
+  RxTheme: be60cb14e0544b3cbd574cc37fed35ba9d61aa1f
   SDWebImage: 0905f1b7760fc8ac4198cae0036600d67478751e
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SQLiteRepairKit: 35aaae5a8838adb85f5b1eb4d796055be6060a4b
@@ -184,6 +190,6 @@ SPEC CHECKSUMS:
   YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 2ef7e7529878d33fdb225f4959f0c05aa65b92f8
+PODFILE CHECKSUM: ca925736075a6b3878ed36ab26c915bfcc6b6acb
 
 COCOAPODS: 1.11.2

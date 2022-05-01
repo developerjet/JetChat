@@ -97,8 +97,6 @@ class LanguageManager: NSObject {
 
 // MARK: - R.string.localizable
 
-typealias Lca = R.string.localizable
-
 extension String {
     
     /// r优化的国际化语言

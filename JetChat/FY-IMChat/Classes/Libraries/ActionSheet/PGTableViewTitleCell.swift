@@ -39,22 +39,22 @@ class PGTableViewTitleCell: UITableViewCell {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.textColor = .black
+        label.theme.textColor = themed { $0.FYColor_Main_TextColor_V1 }
         label.font = .PingFangRegular(14)
         return label
     }()
     
     private lazy var lineView: UIView = {
          let view = UIView()
-        view.backgroundColor = .colorWithHexStr("e5e5e5")
+        view.theme.backgroundColor = themed { $0.FYColor_BorderColor_V1 }
          return view
      }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.selectionStyle = .none
-        self.backgroundColor = .white
-        self.contentView.backgroundColor = .white
+        theme.backgroundColor = themed { $0.FYColor_BackgroundColor_V12 }
+        contentView.theme.backgroundColor = themed { $0.FYColor_BackgroundColor_V12 }
         
         buildUI()
     }

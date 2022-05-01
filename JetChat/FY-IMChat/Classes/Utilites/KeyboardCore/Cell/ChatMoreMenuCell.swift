@@ -61,7 +61,7 @@ class ChatMoreMenuCell: UICollectionViewCell {
         
         titleLabel.snp.makeConstraints { (make) in
             make.left.right.equalToSuperview()
-            make.top.equalTo(imageView.snp_bottom)
+            make.top.equalTo(imageView.snp.bottom)
             make.height.equalTo(21)
         }
     }

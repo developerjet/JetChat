@@ -20,7 +20,7 @@ enum MenuShowStyle {
     case delete
 }
 
-protocol FYMessageBaseCellDelegate: class {
+protocol FYMessageBaseCellDelegate: AnyObject {
     func cell(_ cell: FYMessageBaseCell, didMenu style: MenuShowStyle, model: FYMessageItem)
     func cell(_ cell: FYMessageBaseCell, didTapAvatarAt model: FYMessageItem)
     func cell(_ cell: FYMessageBaseCell, didTapPictureAt model: FYMessageItem)
@@ -73,7 +73,7 @@ class FYMessageBaseCell: UITableViewCell {
     lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15)
-        label.textColor = .black
+        label.theme.textColor = themed { $0.FYColor_Main_TextColor_V2 }
         return label
     }()
     
@@ -109,6 +109,7 @@ class FYMessageBaseCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
+        backgroundColor = .clear
         
         contentView.addSubview(dateGroudView)
         contentView.addSubview(dateLabel)

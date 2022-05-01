@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 let kChatScreenW: CGFloat = UIScreen.main.bounds.size.width
 let kChatScreenH: CGFloat = UIScreen.main.bounds.size.height
@@ -25,17 +26,70 @@ public extension NSNotification.Name {
 
 public extension UIColor {
     
-    static let kLineColor = UIColor(red: 230.0 / 255.0, green: 230 / 255.0, blue: 230.0 / 255.0, alpha: 1.0)
+    static var kSendColor: UIColor {
+        switch themeService.type {
+        case .light:
+            return .Color_Blue_0000FF
+        default:
+            return .Color_White_FFFFFF
+        }
+    }
     
-    static let kPlaceholderColor = UIColor(red: 191.0 / 255.0, green: 191.0 / 255.0, blue: 191.0 / 255.0, alpha: 1.0)
+    static var kContentColor: UIColor {
+        switch themeService.type {
+        case .light:
+            return .Color_Gray_F8F8F8
+        default:
+            return .Color_Black_272D34
+        }
+    }
     
-    static let kTextColor = UIColor.colorWithHexStr("333333")
+    static var kLineColor: UIColor {
+        switch themeService.type {
+        case .light:
+            return Color_Gray_E5E5E5
+        default:
+            return .Color_Black_2C363E
+        }
+    }
     
-    static let kSendColor = UIColor.colorWithHexStr("0000FF")
+    static var kPlaceholderColor: UIColor {
+        switch themeService.type {
+        case .light:
+            return UIColor(red: 191.0 / 255.0, green: 191.0 / 255.0, blue: 191.0 / 255.0, alpha: 1.0)
+        default:
+            return .Color_Gray_6D777C
+        }
+    }
     
-    static let kContentColor = UIColor.colorWithHexStr("f8f8f8")
+    static var kTextColor: UIColor {
+        switch themeService.type {
+        case .light:
+            return .Color_Black_333333
+        default:
+            return .Color_White_FFFFFF
+        }
+    }
     
-    static let kKeyboardColor = UIColor(red: 0.96, green: 0.96, blue: 0.96, alpha: 1.0)
+    static var kKeyboardColor: UIColor {
+        
+        switch themeService.type {
+        case .light:
+            return UIColor(red: 0.96, green: 0.96, blue: 0.96, alpha: 1.0)
+        default:
+            return .Color_Black_272D34
+        }
+    }
+    
+    static var kUnSelectedColor: UIColor {
+        
+        switch themeService.type {
+        case .light:
+            return UIColor(red: 0.96, green: 0.96, blue: 0.96, alpha: 1.0)
+        default:
+            return .Color_Black_030303
+        }
+    }
 }
 
 // MARK: - Emoji URL

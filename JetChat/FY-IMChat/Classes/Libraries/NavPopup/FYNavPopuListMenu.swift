@@ -10,11 +10,11 @@ import UIKit
 
 /// 声明代理方法
 protocol FYPopListMenuDelegate : Any {
-    func menu(_ model: CommonMenuConfig, didSelectRowAt index: Int)
+    func menu(_ model: FYCellDataConfig, didSelectRowAt index: Int)
 }
 
 extension FYPopListMenuDelegate {
-    func menu(_ model: CommonMenuConfig, didSelectRowAt index: Int) {}
+    func menu(_ model: FYCellDataConfig, didSelectRowAt index: Int) {}
 }
 
 class FYNavPopuListMenu: UIView {
@@ -31,9 +31,9 @@ class FYNavPopuListMenu: UIView {
     
     var didClosedClosure : (()->Void)?
     
-    var didSelectedClosure : ((Int, CommonMenuConfig)->Void)?
+    var didSelectedClosure : ((Int, FYCellDataConfig)->Void)?
     
-    var dataSource: [CommonMenuConfig] = []
+    var dataSource: [FYCellDataConfig] = []
     
     /// 设置代理
     var delegate: FYPopListMenuDelegate?
@@ -86,7 +86,7 @@ class FYNavPopuListMenu: UIView {
     
     // MARK:- Life cycle
     
-    convenience init(dataSource: [CommonMenuConfig], ySpace: CGFloat = kNavigaH + 1) {
+    convenience init(dataSource: [FYCellDataConfig], ySpace: CGFloat = kNavigaH + 1) {
         self.init()
         self.ySpace = ySpace
         self.dataSource = dataSource
@@ -133,7 +133,7 @@ class FYNavPopuListMenu: UIView {
         if triangleView == nil {
             triangleView = UIView()
             triangleView?.alpha = 0.0
-            triangleView?.backgroundColor = .white
+            triangleView?.theme.backgroundColor = themed { $0.FYColor_BackgroundColor_V12 }
             contentView.addSubview(triangleView!)
         }
         

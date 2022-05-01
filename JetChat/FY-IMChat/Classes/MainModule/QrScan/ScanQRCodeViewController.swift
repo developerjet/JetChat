@@ -7,8 +7,6 @@
 //
 
 import UIKit
-
-import UIKit
 import AVFoundation
 
 class ScanQRCodeViewController: UIViewController {
@@ -18,7 +16,7 @@ class ScanQRCodeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "扫一扫"
+        navigationItem.title = "扫一扫".rLocalized()
         view.backgroundColor = .white
         
         let authStatus = AVCaptureDevice.authorizationStatus(for: AVMediaType(rawValue: convertFromAVMediaType(AVMediaType.video)))
@@ -199,16 +197,6 @@ extension ScanQRCodeViewController: AVCaptureMetadataOutputObjectsDelegate {
                 let username = userInfo["username"] as! String
                 let appkey = userInfo["appkey"] as! String
                 session.stopRunning()
-                
-//                JMSGUser.userInfoArray(withUsernameArray: [username], appKey: appkey, completionHandler: { (result, error) in
-//                    if error == nil {
-//                        let users = result as! [JMSGUser]
-//                        let user = users.first
-//                        let vc = JCUserInfoViewController()
-//                        vc.user = user
-//                        self.navigationController?.pushViewController(vc, animated: true)
-//                    }
-//                })
             }
         }
     }
@@ -229,7 +217,7 @@ extension ScanQRCodeViewController: AVCaptureMetadataOutputObjectsDelegate {
 extension ScanQRCodeViewController: UIAlertViewDelegate {
     func alertView(_ alertView: UIAlertView, clickedButtonAt buttonIndex: Int) {
         if buttonIndex == 1 {
-            //JCAppManager.openAppSetter()
+            
         }
     }
 }

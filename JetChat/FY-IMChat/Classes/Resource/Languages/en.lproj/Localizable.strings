@@ -1,7 +1,7 @@
 "温馨提示" = "Tips";
 "确定" = "Confirm";
 "取消" = "Cancel";
-"设置" = "Setting";
+"设置" = "Settings";
 "会话" = "Session";
 "群组" = "Group";
 "好友" = "Friends";
@@ -76,3 +76,7 @@
 "朋友圈" = "Wechat Moments";
 "评论" = "Comment";
 "赞" = "Star";
+
+"主题模式" = "Theme mode";
+"白天模式" = "Light";
+"黑夜模式" = "Drak";

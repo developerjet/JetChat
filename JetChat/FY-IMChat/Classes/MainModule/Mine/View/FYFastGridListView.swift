@@ -38,19 +38,19 @@ class FYFastGridListView: UIView {
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.theme.textColor = themed { $0.FYColor_Main_TextColor_V1 }
         label.font = UIFont.PingFangRegular(14)
         return label
     }()
     
     lazy var contentLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor.colorWithHexStr("A6A6A6")
+        label.theme.textColor = themed { $0.FYColor_Main_TextColor_V2 }
         label.font = UIFont.PingFangRegular(14)
         return label
     }()
     
-    lazy var arrowView: UIImageView = {
+    lazy var rightImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = R.image.icon_arrow_right()
         return imageView
@@ -58,7 +58,7 @@ class FYFastGridListView: UIView {
     
     lazy var lineView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.colorWithHexStr("e5e5e5")
+        view.theme.backgroundColor = themed { $0.FYColor_BorderColor_V2 }
         return view
     }()
     
@@ -77,10 +77,11 @@ class FYFastGridListView: UIView {
     }
     
     func makeUI() {
-        self.backgroundColor = .white
+        self.theme.backgroundColor = themed { $0.FYColor_BackgroundColor_V5 }
+        
         self.addSubview(self.titleLabel)
         self.addSubview(self.contentLabel)
-        self.addSubview(self.arrowView)
+        self.addSubview(self.rightImageView)
         self.addSubview(self.lineView)
 
         self.titleLabel.snp.makeConstraints { (make) in
@@ -93,7 +94,7 @@ class FYFastGridListView: UIView {
             make.right.equalTo(self).offset(-30)
         }
         
-        self.arrowView.snp.makeConstraints { (make) in
+        self.rightImageView.snp.makeConstraints { (make) in
             make.centerY.equalTo(self)
             make.right.equalTo(self).offset(-15)
         }
@@ -178,7 +179,7 @@ extension FYFastGridListView: CustomContentProtocal {
     func isHiddenArrow(isHidden: Bool) -> Self {
         if (isHidden) {
             // 隐藏箭头
-            self.arrowView.isHidden = true
+            self.rightImageView.isHidden = true
             
             self.contentLabel.snp.updateConstraints{ (make) in
                 make.right.equalTo(self).offset(-15)
@@ -186,14 +187,14 @@ extension FYFastGridListView: CustomContentProtocal {
             
         }else {
             // 显示箭头
-            self.arrowView.isHidden = false
+            self.rightImageView.isHidden = false
             
             self.contentLabel.snp.updateConstraints { (make) in
                 make.centerY.equalTo(self)
                 make.right.equalTo(self).offset(-30)
             }
             
-            self.arrowView.snp.updateConstraints { (make) in
+            self.rightImageView.snp.updateConstraints { (make) in
                 make.centerY.equalTo(self)
                 make.right.equalTo(self).offset(-15)
             }

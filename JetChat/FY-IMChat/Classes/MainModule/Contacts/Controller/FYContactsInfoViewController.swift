@@ -29,16 +29,16 @@ class FYContactsInfoViewController: FYBaseViewController {
     
     var dataSource: [String] = []
     
-    private lazy var  headerView: FYContactsInfoView = {
+    private lazy var headerView: FYContactsInfoView = {
         let view = FYContactsInfoView()
-        view.backgroundColor = .white
-        view.frame = CGRect(x: 0, y: 0, width: kScreenW, height: 120)
+        view.theme.backgroundColor = themed { $0.FYColor_BackgroundColor_V5 }
+        view.frame = CGRect(x: 0, y: 0, width: kScreenW, height: 100)
         return view
     }()
     
-    private lazy var  footerView: UIView = {
+    private lazy var footerView: UIView = {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: 100))
-        view.backgroundColor = .backGroundGrayColor()
+        view.theme.backgroundColor = themed { $0.FYColor_BackgroundColor_V5 }
         view.addSubview(sendButton)
         sendButton.snp.makeConstraints { (make) in
             make.left.equalToSuperview().offset(30)
@@ -49,7 +49,7 @@ class FYContactsInfoViewController: FYBaseViewController {
         return view
     }()
     
-    private lazy var  sendButton: UIButton = {
+    private lazy var sendButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setTitle("发消息".rLocalized(), for: .normal)
         button.backgroundColor = .appThemeHexColor()
@@ -68,7 +68,7 @@ class FYContactsInfoViewController: FYBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "个人信息".rLocalized()
-        view.backgroundColor = .backGroundGrayColor()
+        view.theme.backgroundColor = themed { $0.FYColor_BackgroundColor_V10 }
     }
     
     override func makeUI() {
@@ -77,7 +77,7 @@ class FYContactsInfoViewController: FYBaseViewController {
         plainTabView.rowHeight = 50
         plainTabView.tableHeaderView = headerView
         plainTabView.tableFooterView = footerView
-        plainTabView.backgroundColor = .backGroundGrayColor()
+        
         view.addSubview(plainTabView)
         plainTabView.snp.makeConstraints { (make) in
             make.top.left.right.equalTo(self.view)
@@ -107,8 +107,9 @@ extension FYContactsInfoViewController: UITableViewDataSource, UITableViewDelega
             cell = UITableViewCell(style: .default, reuseIdentifier: kContactsInfoCellIdentifier)
             cell?.selectionStyle = .none
             cell?.textLabel?.text = dataSource[safe: indexPath.row]
+            cell?.textLabel?.theme.textColor = themed { $0.FYColor_Main_TextColor_V1 }
             cell?.accessoryView = setupAccessory()
-            cell?.backgroundColor = .white
+            cell?.theme.backgroundColor = themed { $0.FYColor_BackgroundColor_V5 }
         }
         return cell!
     }
@@ -116,17 +117,9 @@ extension FYContactsInfoViewController: UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return UIView()
     }
-    
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return UIView()
-    }
-    
+
     func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
         return 10.0
-    }
-    
-    func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
-        return 0.01
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

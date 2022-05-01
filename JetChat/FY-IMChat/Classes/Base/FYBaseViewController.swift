@@ -41,7 +41,8 @@ class FYBaseViewController: UIViewController {
     lazy var plainTabView: UITableView = {
         let frame = CGRect(x: 0, y: 0, width: kScreenW, height: self.view.height)
         let table = UITableView(frame: frame, style: .plain)
-        table.backgroundColor = UIColor.white
+        table.backgroundColor = .clear
+        table.theme.separatorColor = themed{ $0.FYColor_BorderColor_V2 }
         table.delegate = self as? UITableViewDelegate
         table.dataSource = self as? UITableViewDataSource
         table.showsVerticalScrollIndicator = false
@@ -59,7 +60,8 @@ class FYBaseViewController: UIViewController {
     lazy var groupTabView: UITableView = {
         let frame = CGRect(x: 0, y: 0, width: kScreenW, height: self.view.height)
         let table = UITableView(frame: frame, style: .grouped)
-        table.backgroundColor = UIColor.white
+        table.backgroundColor = .clear
+        table.theme.separatorColor = themed{ $0.FYColor_BorderColor_V2 }
         table.delegate = self as? UITableViewDelegate
         table.dataSource = self as? UITableViewDataSource
         table.showsVerticalScrollIndicator = false
@@ -94,7 +96,7 @@ class FYBaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.colorWithHexStr("F7F7F7")
+        view.theme.backgroundColor = themed { $0.FYColor_BackgroundColor_V2 }
         
         self.fd_prefersNavigationBarHidden = false
         self.automaticallyAdjustsScrollViewInsets = false
@@ -108,6 +110,22 @@ class FYBaseViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
         UIApplication.shared.keyWindow?.endEditing(true)
+    }
+    
+    // 系统主题变化
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        if #available(iOS 13.0, *) {
+            guard let hasUserInterfaceStyleChanged = previousTraitCollection?.hasDifferentColorAppearance(comparedTo: previousTraitCollection) else {
+                return
+            }
+            
+            userInterfaceStyleListener(isChanged: hasUserInterfaceStyleChanged)
+            
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     // MARK:- 提供子类重写
@@ -135,3 +153,21 @@ extension FYBaseViewController {
     }
 }
 
+// MARK: - UserInterfaceStyleListener
+
+extension FYBaseViewController {
+    
+    /// 监听当前系统模式
+    func userInterfaceStyleListener(isChanged: Bool) {
+        
+        if #available(iOS 13.0, *) {
+            if UITraitCollection.current.userInterfaceStyle == .dark {
+                print("System Dark mode")
+                FYThemeCenter.shared.saveSelectionTheme(mode: .drak)
+            }else {
+                print("System Light mode")
+                FYThemeCenter.shared.saveSelectionTheme(mode: .light)
+            }
+        }
+    }
+}

@@ -67,6 +67,8 @@ class ChatGrowingTextView: UITextView {
     }
     
     fileprivate func setup() {
+        theme.backgroundColor = themed { $0.FYColor_BackgroundColor_V12 }
+        
         self.isScrollEnabled = false
         self.scrollsToTop = false
         //self.contentInset = UIEdgeInsets(top: 1, left: 0, bottom: 1, right: 0)

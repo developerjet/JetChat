@@ -39,7 +39,6 @@ class ChatEmojiListView: UIView {
     // MARK: - lazy var
     
     var selectedType: Int = 0
-    var selectedBtn: UIButton!
     
     /// 设置代理
     var delegate: ChatEmojiListViewDelegate?
@@ -77,16 +76,6 @@ class ChatEmojiListView: UIView {
             pageControl.currentPageIndicatorTintColor = currentPageIndicatorTintColor
         }
     }
-    
-    lazy var selectedImage: UIImage = {
-        let image = UIImage.imageWithColor(.kKeyboardColor)
-        return image
-    }()
-    
-    lazy var unSelectImage: UIImage = {
-        let image = UIImage.imageWithColor(.white)
-        return image
-    }()
     
     lazy var emojiButtons: [UIButton] = {
         let buttons = [self.appleEmojiBtn, self.weChatEmojiBtn]
@@ -136,7 +125,7 @@ class ChatEmojiListView: UIView {
     
     lazy var bottomView: UIView = {
         let toolBar = UIView()
-        toolBar.backgroundColor = .white
+        toolBar.backgroundColor = .kContentColor
         toolBar.isUserInteractionEnabled = true
         return toolBar
     }()
@@ -144,9 +133,8 @@ class ChatEmojiListView: UIView {
     lazy var appleEmojiBtn: UIButton = {
         let button = UIButton(type: .custom)
         button.setTitle("😊", for: .normal)
-        button.setBackgroundImage(selectedImage, for: .selected)
-        button.setBackgroundImage(unSelectImage, for: .normal)
         button.addTarget(self, action: #selector(emojiAction), for: .touchUpInside)
+        button.backgroundColor = .kKeyboardColor
         button.isSelected = true
         button.tag = 1000
         return button
@@ -155,9 +143,8 @@ class ChatEmojiListView: UIView {
     lazy var weChatEmojiBtn: UIButton = {
         let button = UIButton(type: .custom)
         button.setImage(UIImage(named: "icon_emoji_expression"), for: .normal)
-        button.setBackgroundImage(selectedImage, for: .selected)
-        button.setBackgroundImage(unSelectImage, for: .normal)
         button.addTarget(self, action: #selector(emojiAction), for: .touchUpInside)
+        button.isSelected = false
         button.tag = 1001
         return button
     }()
@@ -261,15 +248,17 @@ class ChatEmojiListView: UIView {
         switch button.tag {
         case 1000:
             appleEmojiBtn.isSelected = true
+            appleEmojiBtn.backgroundColor = .kKeyboardColor
             weChatEmojiBtn.isSelected = false
+            weChatEmojiBtn.backgroundColor = .clear
             dataSource = ChatEmotionHelper.getAppleAllEmotions()
-            selectedBtn = appleEmojiBtn
             break
         default:
             weChatEmojiBtn.isSelected = true
+            weChatEmojiBtn.backgroundColor = .kKeyboardColor
             appleEmojiBtn.isSelected = false
+            appleEmojiBtn.backgroundColor = .clear
             dataSource = ChatEmotionHelper.getWeChatAllEmotions()
-            selectedBtn = weChatEmojiBtn
             break
         }
         

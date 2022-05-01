@@ -15,6 +15,7 @@ import RxSwift
 import RxCocoa
 import NSObject_Rx
 import SwifterSwift
+import RxTheme
 
 extension AppDelegate {
     
@@ -66,7 +67,6 @@ extension AppDelegate {
     
     // MARK:- 设置窗口根控制器
     func setupViewController() {
-        
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = UIColor.white
         
@@ -92,6 +92,17 @@ extension AppDelegate {
         IQKeyboardManager.shared.toolbarManageBehaviour = .byPosition
     }
     
+    func configTheme() {
+        let lastTheme = FYThemeCenter.shared.readSelectedTheme()
+        
+        switch lastTheme {
+        case .light:
+            themeService.switch(.light)
+        default:
+            themeService.switch(.dark)
+        }
+    }
+    
     // FPS
     func setupFPSStatus() {
 #if DEBUG
@@ -100,6 +111,7 @@ extension AppDelegate {
     }
     
     func appInitializes() {
+        configTheme()
         keyboardManager()
         appearanceSetting()
         networkStatusListener()

@@ -10,30 +10,30 @@ import Foundation
 
 typealias kTABLE = WCDataBaseTable
 
-class WCDataBaseTable: NSObject, Codable {
-    
-    /// 数据库 - 表名称
-    private enum TableName: String {
-        case chatTable    = "chatTable"
-        case messageTable = "messageTable"
-        case sessionTable = "sessionTable"
-    }
+/// 数据库 - 表名称
+enum WCDataBaseTable: String {
+    case chatTable    = "chatTable"
+    case messageTable = "messageTable"
+    case sessionTable = "sessionTable"
+}
+
+extension WCDataBaseTable {
     
     static var chat : String {
         get {
-            return TableName.chatTable.rawValue
+            return self.chatTable.rawValue
         }
     }
     
     static var message : String {
         get {
-            return TableName.messageTable.rawValue
+            return self.messageTable.rawValue
         }
     }
     
     static var session : String {
         get {
-            return TableName.sessionTable.rawValue
+            return self.sessionTable.rawValue
         }
     }
 }

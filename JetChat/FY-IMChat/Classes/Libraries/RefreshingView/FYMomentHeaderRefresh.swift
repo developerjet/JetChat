@@ -36,7 +36,7 @@ class FYMomentHeaderRefresh: MJRefreshHeader {
         self.rotateImageView.frame = CGRect(x: 30, y: 30, width: 30, height: 30)
     }
     
-    // MARK: - scrollViewPanStateDidChange
+    // MARK: - ScrollViewPanStateDidChange
     
     override func scrollViewPanStateDidChange(_ change: [AnyHashable : Any]?) {
         super.scrollViewPanStateDidChange(change)
@@ -53,7 +53,7 @@ class FYMomentHeaderRefresh: MJRefreshHeader {
             self.mj_y = marginY ;
         }
         
-        UIView.animate(withDuration: 1.25) {
+        UIView.animate(withDuration: 1.35) {
             self.rotateImageView.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2).concatenating(self.rotateImageView.transform)
         }
     }

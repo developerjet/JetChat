@@ -21,7 +21,12 @@ class FYTextMessageCell: FYMessageBaseCell {
         label.displaysAsynchronously = true;
         label.clearContentsBeforeAsynchronouslyDisplay = false;
         label.font = UIFont.systemFont(ofSize: 15)
-        label.textColor = UIColor.colorWithHexStr("000000")
+        switch themeService.type {
+        case .light:
+            label.textColor = .Color_Black_000000
+        default:
+            label.textColor = .Color_Gray_5A636D
+        }
         return label
     }()
     

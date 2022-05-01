@@ -23,6 +23,10 @@ extension NSNotification.Name {
     
     /// 退出群聊
     public static let kNeedRefreshChatInfoList = Notification.Name(rawValue:"kNeedRefreshChatInfoList")
+    
+    /// 系统主题模式改变
+    public static let kTraitCollectionDidChange = Notification.Name(rawValue:"kTraitCollectionDidChange")
+    
 }
 
 

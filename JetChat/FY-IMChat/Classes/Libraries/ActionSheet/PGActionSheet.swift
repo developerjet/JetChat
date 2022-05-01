@@ -78,16 +78,16 @@ class PGActionSheet: BottomPopupViewController {
         button.frame = CGRect(x: 0, y: bottomSpace, width: kScreenW, height: cancelHeight)
         button.setTitle("取消".rLocalized(), for: .normal)
         button.titleLabel?.font = .PingFangRegular(14)
-        button.setTitleColor(UIColor.darkGray, for: .normal)
-        button.backgroundColor = .white
+        button.theme.titleColor(from: themed { $0.FYColor_Main_TextColor_V2 }, for: .normal)
         button.addTarget(self, action: #selector(dissAction), for: .touchUpInside)
+        button.theme.backgroundColor = themed { $0.FYColor_BackgroundColor_V12 }
         return button
     }()
     
     private lazy var footerBtnView: UIView = {
         let height = bottomSpace + cancelHeight
         let footerView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: height))
-        footerView.backgroundColor = .colorWithHexStr("F7F7F7")
+        footerView.theme.backgroundColor = themed { $0.FYColor_BackgroundColor_V2 }
         footerView.addSubview(cancelBtn)
         return footerView
     }()
@@ -102,7 +102,7 @@ class PGActionSheet: BottomPopupViewController {
         tableView.tableFooterView = UIView()
         tableView.estimatedSectionHeaderHeight = 0
         tableView.estimatedSectionFooterHeight = 0
-        tableView.backgroundColor = .white
+        tableView.theme.backgroundColor = themed { $0.FYColor_BackgroundColor_V2 }
         tableView.register(cellWithClass: PGTableViewTitleCell.self)
         return tableView
     }()
@@ -122,7 +122,7 @@ class PGActionSheet: BottomPopupViewController {
     }
     
     private func buildUI() {
-        view.backgroundColor = .white
+        view.theme.backgroundColor = themed { $0.FYColor_BackgroundColor_V2 }
         if isShowCancel {
             tableView.tableFooterView = footerBtnView
         }

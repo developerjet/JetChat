@@ -36,13 +36,19 @@ class FYBaseNavigationController: UINavigationController {
         
         self.navigationBar.shadowImage = UIImage()
         
+        var navBackgroundColor: UIColor = .clear
+        switch themeService.type {
+        case .light:
+            navBackgroundColor = .Color_Gray_696969
+        default:
+            navBackgroundColor = .Color_Black_181D21
+        }
+        
         // 导航栏的背景颜色
-        self.navigationBar.backgroundColor = .colorWithHexStr("696969")
+        self.navigationBar.backgroundColor = navBackgroundColor
         
         let titleTextAttributes = [NSAttributedString.Key.font:UIFont.PingFangMedium(17),
                                    NSAttributedString.Key.foregroundColor:UIColor.white]
-        
-        let navBackgroundColor = UIColor.colorWithHexStr("696969")
         
         if #available(iOS 13, *) {
             let appearance = UINavigationBarAppearance()
@@ -62,6 +68,8 @@ class FYBaseNavigationController: UINavigationController {
             let backgroundImage = UIImage.imageWithColor(navBackgroundColor)
             self.navigationBar.setBackgroundImage(backgroundImage, for: .default)
         }
+        
+        self.navigationBar.tintColor = .Color_White_FFFFFF
         
         // 设置代理
         delegate = self

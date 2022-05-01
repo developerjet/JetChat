@@ -38,7 +38,7 @@ class FYSettingViewController: FYBaseViewController {
             make.height.equalTo(50)
         })
         
-        
+
         let version = FYFastGridListView().config { (view) in
             view.isHiddenArrow(isHidden: false)
                 .title(text: "版本".rLocalized())
@@ -56,7 +56,7 @@ class FYSettingViewController: FYBaseViewController {
         })
         
         let imageCache = FYFileSizeManager.manager.cacheSize()
-        _ = FYFastGridListView().config { (view) in
+        let caches = FYFastGridListView().config { (view) in
             view.isHiddenArrow(isHidden: false)
                 .title(text: "清除图片缓存".rLocalized())
                 .content(text: imageCache)
@@ -70,6 +70,23 @@ class FYSettingViewController: FYBaseViewController {
             make.top.equalTo(version.snp.bottom)
             make.left.right.equalTo(self.view)
             make.height.equalTo(version)
+        })
+        
+        let lastThemeMode = FYThemeCenter.shared.readSelectedTheme()
+        _ = FYFastGridListView().config { (view) in
+            view.isHiddenArrow(isHidden: false)
+                .title(text: "主题模式".rLocalized())
+                .content(text: lastThemeMode == .light ? "白天模式".rLocalized() : "黑夜模式".rLocalized())
+                .contentState(state: .normal)
+                .clickClosure({ [weak self] in
+                    self?.themeSelection()
+                }).last(isLine: true)
+        }
+        .adhere(toSuperView: self.view)
+        .layout(snapKitMaker: { make in
+            make.top.equalTo(caches.snp.bottom)
+            make.left.right.equalTo(self.view)
+            make.height.equalTo(caches)
         })
     }
     
@@ -99,6 +116,11 @@ class FYSettingViewController: FYBaseViewController {
                 MBHUD.showSuccess("清除成功".rLocalized())
             }
         }
+    }
+    
+    private func themeSelection() {
+        let themeVc = FYThemeSelectionListVC()
+        navigationController?.pushViewController(themeVc)
     }
 }
 

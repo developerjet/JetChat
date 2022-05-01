@@ -174,7 +174,7 @@ extension FYMessageViewModel {
             }
             
             msgItem.date = Date().string(withFormat: "yyyy-MM-dd HH:mm:ss")
-            msgItem.image = random % 2 == 0 ? "http://attachments.gfan.com/forum/attachments2/day_120501/1205012009f594464a3d69a145.jpg" : "http://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/aec379310a55b31905caba3b43a98226cffc1748.jpg"
+            msgItem.image = random % 2 == 0 ? "http://img2.woyaogexing.com/2022/04/27/76d9d570d2004c9ba326587045dede07!360x640.jpeg" : "http://img2.woyaogexing.com/2022/04/27/fcc7c52df7454e1680a6625cc3fea7b0.jpeg"
             msgItem.msgType = 2 //图片
             msgItem.message = "【图片】"
             msgItem.chatType = self.chatModel?.chatType
@@ -208,7 +208,7 @@ extension FYMessageViewModel {
             }
             
             msgItem.date = Date().string(withFormat: "yyyy-MM-dd HH:mm:ss")
-            msgItem.image = random % 2 == 0 ? "https://ss3.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2015696643,3638800543&fm=26&gp=0.jpg" : "https://i-3-qqxzb.qqxzb.com/2018/3/20/9b26bc6b-a037-4a93-b875-480e7253dd4c.jpg?imageView2/2/q/85"
+            msgItem.image = random % 2 == 0 ? "http://img2.woyaogexing.com/2022/04/25/e484edc5029c41fda2e0dbf1b4310818.jpeg" : "http://img2.woyaogexing.com/2022/04/28/69f49803d9ea443c84c88907e8e76879.jpeg"
             msgItem.video = random % 2 == 0 ? "localVideo0.mp4" : "https://aweme.snssdk.com/aweme/v1/playwm/?video_id=v0200ff00000bdkpfpdd2r6fb5kf6m50&line=0.mp4"
             msgItem.msgType = 3 //视频
             msgItem.message = "【视频】"

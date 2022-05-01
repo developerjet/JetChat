@@ -14,8 +14,8 @@ class FYThemeSelectionListVC: FYBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.navigationItem.title = "主题模式".rLocalized()
+        view.theme.backgroundColor = themed { $0.FYColor_BackgroundColor_V10 }
     }
     
     override func makeUI() {

@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import SafariServices
 
 class FYMineViewController: FYBaseViewController {
 
@@ -15,8 +16,8 @@ class FYMineViewController: FYBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         navigationItem.title = "我".rLocalized()
+        view.theme.backgroundColor = themed { $0.FYColor_BackgroundColor_V10 }
     }
     
     override func makeUI() {
@@ -25,7 +26,7 @@ class FYMineViewController: FYBaseViewController {
         let moments = FYFastGridListView().config { (view) in
             view.isHiddenArrow(isHidden: false)
                 .title(text: "朋友圈".rLocalized())
-                .contentState(state: .highlight)
+                .contentState(state: .normal)
                 .clickClosure({ [weak self] in
                     self?.momentsAction()
                 }).last(isLine: true)
@@ -37,19 +38,35 @@ class FYMineViewController: FYBaseViewController {
             make.height.equalTo(50)
         })
         
-        _ = FYFastGridListView().config { (view) in
+        let settings = FYFastGridListView().config { (view) in
             view.isHiddenArrow(isHidden: false)
                 .title(text: "设置".rLocalized())
-                .contentState(state: .highlight)
+                .contentState(state: .normal)
                 .clickClosure({ [weak self] in
                     self?.settingAction()
-                }).last(isLine: true)
+                }).last(isLine: false)
         }
         .adhere(toSuperView: self.view)
         .layout(snapKitMaker: { make in
             make.top.equalTo(moments.snp.bottom)
             make.left.right.equalTo(self.view)
             make.height.equalTo(moments)
+        })
+        
+        _ = FYFastGridListView().config { (view) in
+            view.isHiddenArrow(isHidden: false)
+                .title(text: "作者github".rLocalized())
+                .content(text: "Jett")
+                .contentState(state: .normal)
+                .clickClosure({ [weak self] in
+                    self?.openSafariURL(url: "https://github.com/developerjet")
+                }).last(isLine: false)
+        }
+        .adhere(toSuperView: self.view)
+        .layout(snapKitMaker: { make in
+            make.top.equalTo(settings.snp.bottom).offset(10)
+            make.left.right.equalTo(self.view)
+            make.height.equalTo(settings)
         })
     }
     
@@ -64,6 +81,14 @@ class FYMineViewController: FYBaseViewController {
     private func settingAction() {
         let settingVC = FYSettingViewController()
         navigationController?.pushViewController(settingVC)
+    }
+    
+    
+    private func openSafariURL(url: String) {
+        if let urlValue = url.URLValue {
+            let safariVC = SFSafariViewController(url: urlValue)
+            present(safariVC, animated: true, completion: nil)
+        }
     }
 }
 

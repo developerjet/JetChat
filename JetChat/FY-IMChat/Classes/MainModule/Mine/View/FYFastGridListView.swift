@@ -123,9 +123,14 @@ enum CustomContentColorState {
     func stateColor() -> UIColor {
         switch self {
         case .normal:
-            return UIColor.colorWithHexStr("A6A6A6")
+            switch themeService.type {
+            case .light:
+                return .Color_Gray_77808A
+            default:
+                return .Color_Gray_5A636D
+            }
         case .highlight:
-            return UIColor.colorWithHexStr("0000EE")
+            return .Color_Blue_1890FF
         }
     }
 }

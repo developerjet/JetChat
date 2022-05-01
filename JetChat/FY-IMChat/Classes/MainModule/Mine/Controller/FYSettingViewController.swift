@@ -16,6 +16,7 @@ class FYSettingViewController: FYBaseViewController {
         super.viewDidLoad()
         
         navigationItem.title = "设置".rLocalized()
+        view.theme.backgroundColor = themed { $0.FYColor_BackgroundColor_V10 }
     }
     
     override func makeUI() {
@@ -80,7 +81,7 @@ class FYSettingViewController: FYBaseViewController {
                 .contentState(state: .normal)
                 .clickClosure({ [weak self] in
                     self?.themeSelection()
-                }).last(isLine: true)
+                }).last(isLine: false)
         }
         .adhere(toSuperView: self.view)
         .layout(snapKitMaker: { make in

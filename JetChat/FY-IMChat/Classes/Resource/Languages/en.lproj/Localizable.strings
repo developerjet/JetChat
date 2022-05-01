@@ -15,7 +15,7 @@
 "简体中文" = "Chinese";
 "英文" = "English";
 
-"当前网络已断开" = "The current network is disconnected";
+"当前网络已断开" = "Network disconnected";
 "版本号:" = "Version number:";
 "已是最新版本" = "Is the latest version";
 "发起单聊" = "Single chat";
@@ -80,4 +80,6 @@
 "主题模式" = "Theme mode";
 "白天模式" = "Light";
 "黑夜模式" = "Drak";
+"跟随系统" = "Follow system";
+"选取后，将跟随系统设定模式" = "Follow system setting";
 "作者github" = "Author GitHub";

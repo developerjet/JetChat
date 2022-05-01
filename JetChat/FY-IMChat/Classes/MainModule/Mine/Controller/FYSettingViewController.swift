@@ -73,11 +73,21 @@ class FYSettingViewController: FYBaseViewController {
             make.height.equalTo(version)
         })
         
-        let lastThemeMode = FYThemeCenter.shared.readSelectedTheme()
+        var themeTitle: String = ""
+        let lastThemeMode = FYThemeCenter.shared.currentTheme
+        switch lastThemeMode {
+        case .light:
+            themeTitle = "白天模式".rLocalized()
+        case .dark:
+            themeTitle = "黑夜模式".rLocalized()
+        default:
+            themeTitle = "跟随系统".rLocalized()
+        }
+        
         _ = FYFastGridListView().config { (view) in
             view.isHiddenArrow(isHidden: false)
                 .title(text: "主题模式".rLocalized())
-                .content(text: lastThemeMode == .light ? "白天模式".rLocalized() : "黑夜模式".rLocalized())
+                .content(text: themeTitle )
                 .contentState(state: .normal)
                 .clickClosure({ [weak self] in
                     self?.themeSelection()

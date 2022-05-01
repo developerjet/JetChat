@@ -1,28 +1,28 @@
 <div align=center><img src="ScreenShot/JetChatSmall.png" width="934" height="168" /></div>
 
 # JetChat
-Swift5.0编写的简仿微信聊天应用，完美支持表情键盘、单聊、群聊、本地消息会话缓存、朋友圈、白天和黑夜模式<br>
+Swift5.0编写的简仿微信聊天应用，完美支持表情键盘、单聊、群聊、本地消息会话缓存、朋友圈、白天和黑夜主题模式<br>
  
 [![platform](https://img.shields.io/badge/platform-iOS-blue.svg?style=plastic)](#)
 [![languages](https://img.shields.io/badge/language-swift-blue.svg)](#) 
 [![support](https://img.shields.io/badge/support-ios%208%2B-orange.svg)](#) 
 
  ### Examples
-| 聊天 | 朋友圈 |
+| 聊天 | 朋友圈 
 | -- | -- |
 |![image](https://github.com/tanagile/JetChat/blob/master/ScreenShot/JetChat.gif)|![image](https://github.com/tanagile/JetChat/blob/master/ScreenShot/Moments.png)|
 
 | 夜间模式 | 白天模式 |
 | -- | -- |
-|![image](https://github.com/tanagile/JetChat/blob/master/ScreenShot/DrakTheme.png)|![image](https://github.com/tanagile/JetChat/blob/master/ScreenShot/LightTheme.png)|
+|![image](https://github.com/tanagile/JetChat/blob/master/ScreenShot/DarkTheme.png)|![image](https://github.com/tanagile/JetChat/blob/master/ScreenShot/LightTheme.png)|
 
 ### 主要技术运用
 - 聊天功能采用RxSwift+MVVM响应式架构设计，通过ViewModel合理过渡处理消息数据，减轻Controller层业务计算
 - UITableView+FDTemplateLayoutCell实现cell高度自适应计算和缓存，提高列表滑动顺滑
 - WCDBSwift实现所有会话消息快速缓存
 - 基于IGList数据驱动，实现高帧率朋友圈列表滑动
+- RxTheme适配夜间模式并兼容iOS13跟随系统模式设置
 - SnapKit纯代码自动布局
-- RxTheme适配夜间模式
 - 后续开发完善中.....
 
 ### 主要实现功能
@@ -36,7 +36,7 @@ Swift5.0编写的简仿微信聊天应用，完美支持表情键盘、单聊、
 
 ### 新增功能
 - 朋友圈 - 通过IGList实现高帧率朋友圈列表滑动
-- 黑夜模式 - 通过RxTheme实现白天和黑夜主题模式切换
+- 黑夜模式 - 通过RxTheme实现白天和黑夜主题模式切换并兼容iOS13跟随系统模式设置
 - 多语言切换 - 已新增简体中文、英文翻译
 
 ### Tips

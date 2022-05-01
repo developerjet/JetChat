@@ -80,7 +80,7 @@ class ChatMoreMenuView: UIView {
         let layout = ChatKeyboardFlowLayout(column: kColumnNumber, row: kRowNumber)
         // collectionView
         let collection = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
-        collection.backgroundColor = .kContentColor
+        collection.theme.backgroundColor = themed { $0.FYColor_BackgroundColor_V14 }
         collection.register(cellWithClass: ChatMoreMenuCell.self)
         collection.showsHorizontalScrollIndicator = true
         collection.showsVerticalScrollIndicator = true
@@ -93,8 +93,8 @@ class ChatMoreMenuView: UIView {
     lazy var pageControl: UIPageControl = {
         let pager = UIPageControl()
         pager.backgroundColor = .clear
-        pager.pageIndicatorTintColor = UIColor.lightGray
-        pager.currentPageIndicatorTintColor = UIColor.gray
+        pager.theme.pageIndicatorTintColor = themed { $0.FYColor_BorderColor_V1 }
+        pager.theme.currentPageIndicatorTintColor = themed { $0.FYColor_Main_TextColor_V3 }
         pager.currentPage = 0
         pager.isHidden = true
         pager.numberOfPages = self.dataSource.count / kMoreMenuCellNumberOfOnePage + (self.dataSource.count % kMoreMenuCellNumberOfOnePage == 0 ? 0 : 1)
@@ -118,7 +118,8 @@ class ChatMoreMenuView: UIView {
     }
     
     func makeUI() {
-        backgroundColor = .kContentColor
+        self.theme.backgroundColor = themed { $0.FYColor_BackgroundColor_V14 }
+        
         addSubview(pageControl)
         addSubview(collectionView)
         

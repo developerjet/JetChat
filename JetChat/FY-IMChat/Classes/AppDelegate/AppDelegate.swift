@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     public lazy var fpsLabel: FPSLabel = {
-        let label = FPSLabel.init(frame: CGRect.init(x: kScreenW - 80, y: kNavigaH + 20, width: 70, height: 30))
+        let label = FPSLabel.init(frame: CGRect.init(x: kScreenW - 80, y: (kScreenH - 30)/2, width: 70, height: 30))
         label.backgroundColor = .red
         label.textColor = .white
         return label
@@ -37,8 +37,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         createWcdbTable()
         // FPS
         setupFPSStatus()
-        
-        
         
         return true
     }

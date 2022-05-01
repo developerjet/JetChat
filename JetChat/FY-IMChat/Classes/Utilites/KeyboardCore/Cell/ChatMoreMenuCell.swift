@@ -23,15 +23,15 @@ class ChatMoreMenuCell: UICollectionViewCell {
         }
     }
     
-    lazy var titleLabel: UILabel = {
+    private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.textColor = .kTextColor
+        label.theme.textColor = themed{ $0.FYColor_Main_TextColor_V1 }
         label.font = UIFont.systemFont(ofSize: 14)
         return label
     }()
     
-    lazy var imageView: UIImageView = {
+    private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         return imageView
     }()

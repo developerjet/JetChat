@@ -14,6 +14,11 @@ class FYBaseNavigationController: UINavigationController {
         return .lightContent
     }
     
+    var titleTextAttributes: [NSAttributedString.Key : NSObject] {
+        return [NSAttributedString.Key.font:UIFont.PingFangMedium(17),
+                NSAttributedString.Key.foregroundColor:UIColor.white]
+    }
+    
     private lazy var backButton: UIButton = {
         let button = UIButton(type: .custom)
         button.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
@@ -29,6 +34,7 @@ class FYBaseNavigationController: UINavigationController {
         super.viewDidLoad()
         
         didInitialize()
+        addThemeChangedNoti()
     }
     
     // 初始化导航栏
@@ -36,46 +42,60 @@ class FYBaseNavigationController: UINavigationController {
         
         self.navigationBar.shadowImage = UIImage()
         
-        var navBackgroundColor: UIColor = .clear
-        switch themeService.type {
-        case .light:
-            navBackgroundColor = .Color_Gray_696969
-        default:
-            navBackgroundColor = .Color_Black_181D21
-        }
-        
-        // 导航栏的背景颜色
-        self.navigationBar.backgroundColor = navBackgroundColor
-        
-        let titleTextAttributes = [NSAttributedString.Key.font:UIFont.PingFangMedium(17),
-                                   NSAttributedString.Key.foregroundColor:UIColor.white]
-        
         if #available(iOS 13, *) {
-            let appearance = UINavigationBarAppearance()
-            //重置导航栏背景颜色和阴影
-            appearance.configureWithOpaqueBackground()
-            appearance.backgroundColor = navBackgroundColor
-            appearance.shadowImage = UIImage()
-            appearance.shadowColor = nil
-            appearance.titleTextAttributes = titleTextAttributes
-            
-            self.navigationBar.standardAppearance = appearance
-            self.navigationBar.scrollEdgeAppearance = appearance
+            // iOS13设置导航栏样式
+            settingNavBarStyle()
         }else {
-            self.navigationBar.barTintColor = navBackgroundColor
+            var navBackgroundColor: UIColor = .clear
+            switch themeService.type {
+            case .light:
+                navBackgroundColor = .Color_Gray_696969
+            default:
+                navBackgroundColor = .Color_Black_10171B
+            }
+            
+            self.navigationBar.theme.barTintColor = themed { $0.FYColor_Nav_BackgroundColor }
             self.navigationBar.titleTextAttributes = titleTextAttributes
             
             let backgroundImage = UIImage.imageWithColor(navBackgroundColor)
             self.navigationBar.setBackgroundImage(backgroundImage, for: .default)
+            
+            // 导航栏背景颜色
+            self.navigationBar.theme.backgroundColor = themed { $0.FYColor_Nav_BackgroundColor }
         }
         
-        self.navigationBar.tintColor = .Color_White_FFFFFF
+        navigationBar.tintColor = .Color_White_FFFFFF
+        // 设置背景色
+        self.navigationBar.theme.backgroundColor = themed { $0.FYColor_Nav_BackgroundColor }
         
         // 设置代理
         delegate = self
         self.navigationBar.isTranslucent = false
         self.interactivePopGestureRecognizer?.delegate = self
         self.automaticallyAdjustsScrollViewInsets = false;
+    }
+    
+    private func addThemeChangedNoti() {
+        NotificationCenter.default.addObserver(self, selector: #selector(settingNavBarStyle), name: .kTraitCollectionDidChange, object: nil)
+    }
+    
+    // MARK: - Notification
+    
+    @objc
+    private func settingNavBarStyle() {
+        
+        if #available(iOS 13, *) {
+            let appearance = UINavigationBarAppearance()
+            //重置导航栏背景颜色和阴影
+            appearance.configureWithOpaqueBackground()
+            appearance.shadowImage = UIImage()
+            appearance.shadowColor = nil
+            appearance.titleTextAttributes = titleTextAttributes
+            // 设置背景色
+            appearance.theme.backgroundColor = themed { $0.FYColor_Nav_BackgroundColor }
+            self.navigationBar.standardAppearance = appearance
+            self.navigationBar.scrollEdgeAppearance = appearance
+        }
     }
 }
 

@@ -92,19 +92,19 @@ class ChatKeyboardView: UIView {
     
     fileprivate lazy var topLineView: UIView = {
         let lineView1 = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: kLineHeight))
-        lineView1.backgroundColor = .kLineColor
+        lineView1.theme.backgroundColor = themed { $0.FYColor_BorderColor_V9 }
         return lineView1
     }()
     
     fileprivate lazy var bottomLineView: UIView = {
         let lineView2 = UIView(frame: CGRect(x: 0, y: self.toolBarHeight - kLineHeight, width: kScreenW, height: kLineHeight))
-        lineView2.backgroundColor = .kLineColor
+        lineView2.theme.backgroundColor = themed { $0.FYColor_BorderColor_V9 }
         return lineView2
     }()
     
     fileprivate lazy var toolBarView: UIView = {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: self.toolBarHeight))
-        view.backgroundColor = .kKeyboardColor
+        view.theme.backgroundColor = themed { $0.FYColor_BackgroundColor_V13 }
         return view
     }()
     
@@ -112,8 +112,7 @@ class ChatKeyboardView: UIView {
     fileprivate lazy var contentView: UIView = {
         let y = self.toolBarView.maxY
         let view = UIView(frame: CGRect(x: 0, y: y, width: kScreenW, height: self.contentHeight))
-        view.backgroundColor = .kContentColor
-        //view.isUserInteractionEnabled = false
+        view.theme.backgroundColor = themed { $0.FYColor_BackgroundColor_V14 }
         return view
     }()
     
@@ -121,7 +120,7 @@ class ChatKeyboardView: UIView {
     fileprivate lazy var emojiListView: ChatEmojiListView = {
         let view = ChatEmojiListView(frame: self.contentView.bounds)
         view.delegate = self
-        view.backgroundColor = .kContentColor
+        view.theme.backgroundColor = themed { $0.FYColor_BackgroundColor_V14 }
         view.isHidden = true
         return view
     }()
@@ -151,7 +150,7 @@ class ChatKeyboardView: UIView {
     }
     
     func setupKeyboardView() {
-        self.backgroundColor = .kKeyboardColor
+        self.theme.backgroundColor = themed { $0.FYColor_BackgroundColor_V13 }
         self.isUserInteractionEnabled = true
         
         addSubview(toolBarView)

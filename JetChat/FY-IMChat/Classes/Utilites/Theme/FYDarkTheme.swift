@@ -59,6 +59,15 @@ struct FYDarkTheme: Theme {
     /// 黑 -> 2C363E 白 -> FFFFFF
     var FYColor_BackgroundColor_V12 = UIColor.Color_Black_2C363E
     
+    /// 黑 -> 272D34 白 -> F7F7F7
+    var FYColor_BackgroundColor_V13 = UIColor.Color_Black_272D34
+    
+    /// 黑 -> 272D34 白 -> F8F8F8
+    var FYColor_BackgroundColor_V14 = UIColor.Color_Black_272D34
+    
+    /// 黑 -> 10171B 白 -> CCCCCC
+    var FYColor_BackgroundColor_V15 = UIColor.Color_Black_10171B
+    
     //MARK: - 边框颜色
     /// 黑 -> 1E2328 白 -> E5E5E5
     var FYColor_BorderColor_V1 = UIColor.Color_Gray_1E2328
@@ -84,6 +93,8 @@ struct FYDarkTheme: Theme {
     /// 黑 -> 12171B 白 -> E5E5E5
     var FYColor_BorderColor_V8 = UIColor.Color_Black_12171B
     
+    /// 黑 -> 2C363E 白 -> E5E5E5
+    var FYColor_BorderColor_V9 = UIColor.Color_Black_2C363E
     
     // MARK: - 文本颜色 (Placeholder)
     /// 黑 -> 919191 白 -> B4B4B4
@@ -91,6 +102,9 @@ struct FYDarkTheme: Theme {
     
     /// 黑 -> 6D777C 白 -> 999999
     var FYColor_Placeholder_Color_V2 = UIColor.Color_Gray_6D777C
+    
+    /// 黑 -> FFFFFF 白 -> 999999
+    var FYColor_Placeholder_Color_V3 = UIColor.Color_Gray_999999
     
     // MARK: - 文本颜色 (TextColor)
     /// 黑 -> FFFFFF 白 -> 000000
@@ -125,4 +139,7 @@ struct FYDarkTheme: Theme {
     
     /// 黑 -> FFFFFF 白 -> 1A1F24
     var FYColor_Main_TextColor_V11 = UIColor.Color_White_FFFFFF
+    
+    /// 黑 -> FFFFFF 白 -> 1890FF
+    var FYColor_Main_TextColor_V12 = UIColor.Color_White_FFFFFF
 }

@@ -49,7 +49,7 @@ class ChatGrowingTextView: UITextView {
         let label = UILabel(frame: frame)
         label.numberOfLines = 1
         label.text = "请输入你要发送的消息"
-        label.textColor = .kPlaceholderColor
+        label.theme.textColor = themed{ $0.FYColor_Placeholder_Color_V3 }
         label.font = UIFont.systemFont(ofSize: self.kDefultSize)
         return label
     }()
@@ -79,7 +79,7 @@ class ChatGrowingTextView: UITextView {
         
         self.layer.cornerRadius = 4
         self.layer.borderWidth = 1
-        self.layer.borderColor = UIColor.kLineColor.cgColor
+        self.layer.theme.borderColor = themed { $0.FYColor_BorderColor_V9.cgColor }
         self.layer.masksToBounds = true
         // 添加占位控件
         addSubview(self.placeholderLabel)

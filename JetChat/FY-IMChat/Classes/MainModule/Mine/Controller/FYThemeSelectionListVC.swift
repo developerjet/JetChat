@@ -21,7 +21,31 @@ class FYThemeSelectionListVC: FYBaseViewController {
     override func makeUI() {
         super.makeUI()
         
-        let lastThemeMode = FYThemeCenter.shared.readSelectedTheme()
+        var isHideSystem: Bool = true
+        var systemHeight: CGFloat = 0
+        
+        // iOS可跟随系统模式
+        if #available(iOS 13.0, *) {
+            systemHeight = 50
+            isHideSystem = false
+        }
+        
+        let lastThemeMode = FYThemeCenter.shared.currentTheme
+        let systemTheme = FYFastGridListView().config { (view) in
+            view.isHiddenArrow(isHidden: lastThemeMode == .system ? false : true)
+                .title(text: "跟随系统".rLocalized())
+                .content(text: "选取后，将跟随系统设定模式".rLocalized())
+                .contentState(state: .normal)
+                .clickClosure({ [weak self] in
+                    self?.themeSelection(mode: .system)
+                }).last(isLine: true)
+        }
+            .adhere(toSuperView: self.view)
+            .layout(snapKitMaker: { make in
+                make.top.equalTo(self.view)
+                make.left.right.equalTo(self.view)
+                make.height.equalTo(systemHeight)
+            })
         
         let lightTheme = FYFastGridListView().config { (view) in
             view.isHiddenArrow(isHidden: lastThemeMode == .light ? false : true)
@@ -33,19 +57,19 @@ class FYThemeSelectionListVC: FYBaseViewController {
         }
             .adhere(toSuperView: self.view)
             .layout(snapKitMaker: { make in
-                make.top.equalTo(self.view)
+                make.top.equalTo(systemTheme.snp.bottom)
                 make.left.right.equalTo(self.view)
                 make.height.equalTo(50)
             })
         
         
         let drakTheme = FYFastGridListView().config { (view) in
-            view.isHiddenArrow(isHidden: lastThemeMode == .drak ? false : true)
+            view.isHiddenArrow(isHidden: lastThemeMode == .dark ? false : true)
                 .title(text: "黑夜模式".rLocalized())
                 .contentState(state: .normal)
                 .clickClosure({ [weak self] in
-                    self?.themeSelection(mode: .drak)
-                }).last(isLine: true)
+                    self?.themeSelection(mode: .dark)
+                }).last(isLine: false)
         }
             .adhere(toSuperView: self.view)
             .layout(snapKitMaker: { make in
@@ -53,6 +77,9 @@ class FYThemeSelectionListVC: FYBaseViewController {
                 make.left.right.equalTo(self.view)
                 make.height.equalTo(lightTheme)
             })
+        
+        systemTheme.isHidden = isHideSystem
+        systemTheme.rightImageView.image = R.image.ic_list_selection()
         
         lightTheme.rightImageView.image = R.image.ic_list_selection()
         drakTheme.rightImageView.image = R.image.ic_list_selection()
@@ -65,10 +92,23 @@ class FYThemeSelectionListVC: FYBaseViewController {
         switch mode {
         case .light:
             themeService.switch(.light)
-        default:
+        case .dark:
             themeService.switch(.dark)
+        default:
+            if #available(iOS 13.0, *) {
+                // iOS13跟随系统
+                if UITraitCollection.current.userInterfaceStyle == .dark {
+                    print("System Dark mode")
+                    themeService.switch(.dark)
+                }else {
+                    print("System Light mode")
+                    themeService.switch(.light)
+                }
+            }
         }
 
+        FYThemeCenter.shared.saveSelectionTheme(mode: mode)
+        
         navigationController?.popToRootViewController(animated: false)
         FYThemeCenter.shared.saveSelectionTheme(mode: mode, isRestWindow: true)
     }

@@ -90,7 +90,7 @@ class ChatEmojiListView: UIView {
         let layout = ChatKeyboardFlowLayout(column: kColumnNumber, row: kRowNumber)
         // collectionView
         let collection = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
-        collection.backgroundColor = .kContentColor
+        collection.theme.backgroundColor = themed { $0.FYColor_BackgroundColor_V14 }
         collection.register(cellWithClass: ChatAppleEmojiCell.self)
         collection.showsHorizontalScrollIndicator = true
         collection.showsVerticalScrollIndicator = true
@@ -103,8 +103,8 @@ class ChatEmojiListView: UIView {
     lazy var pageControl: UIPageControl = {
         let pager = UIPageControl()
         pager.backgroundColor = .clear
-        pager.pageIndicatorTintColor = UIColor.lightGray
-        pager.currentPageIndicatorTintColor = UIColor.gray
+        pager.theme.pageIndicatorTintColor = themed { $0.FYColor_BorderColor_V1 }
+        pager.theme.currentPageIndicatorTintColor = themed { $0.FYColor_Main_TextColor_V3 }
         pager.currentPage = 0
         pager.numberOfPages = self.dataSource.count / kEmotionCellNumberOfOnePage + (self.dataSource.count % kEmotionCellNumberOfOnePage == 0 ? 0 : 1)
         pager.isHidden = true
@@ -115,9 +115,9 @@ class ChatEmojiListView: UIView {
         let button = UIButton(type: .custom)
         button.setTitle("发送".rLocalized(), for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-        button.setTitleColor(.kSendColor, for: .normal)
+        button.theme.titleColor(from: themed{ $0.FYColor_Main_TextColor_V12 }, for: .normal)
         button.setTitleColor(.lightGray, for: .disabled)
-        button.backgroundColor = .kKeyboardColor
+        button.theme.backgroundColor = themed { $0.FYColor_BackgroundColor_V13 }
         button.isEnabled = false
         button.addTarget(self, action: #selector(sendContent), for: .touchUpInside)
         return button
@@ -125,7 +125,7 @@ class ChatEmojiListView: UIView {
     
     lazy var bottomView: UIView = {
         let toolBar = UIView()
-        toolBar.backgroundColor = .kContentColor
+        toolBar.theme.backgroundColor = themed { $0.FYColor_BackgroundColor_V14 }
         toolBar.isUserInteractionEnabled = true
         return toolBar
     }()
@@ -134,8 +134,7 @@ class ChatEmojiListView: UIView {
         let button = UIButton(type: .custom)
         button.setTitle("😊", for: .normal)
         button.addTarget(self, action: #selector(emojiAction), for: .touchUpInside)
-        button.backgroundColor = .kKeyboardColor
-        button.isSelected = true
+        button.backgroundColor = .clear
         button.tag = 1000
         return button
     }()
@@ -144,9 +143,15 @@ class ChatEmojiListView: UIView {
         let button = UIButton(type: .custom)
         button.setImage(UIImage(named: "icon_emoji_expression"), for: .normal)
         button.addTarget(self, action: #selector(emojiAction), for: .touchUpInside)
-        button.isSelected = false
+        button.backgroundColor = .clear
         button.tag = 1001
         return button
+    }()
+    
+    lazy var emojiSelectView: UIView = {
+        let v = UIView()
+        v.theme.backgroundColor = themed { $0.FYColor_BackgroundColor_V15 }
+        return v
     }()
     
     // MARK: - life cycle
@@ -168,7 +173,9 @@ class ChatEmojiListView: UIView {
     }
     
     func makeUI() {
-        backgroundColor = .kContentColor
+        theme.backgroundColor = themed { $0.FYColor_BackgroundColor_V14 }
+        
+        bottomView.addSubview(emojiSelectView)
         bottomView.addSubview(appleEmojiBtn)
         bottomView.addSubview(weChatEmojiBtn)
         bottomView.addSubview(sendButton)
@@ -184,16 +191,22 @@ class ChatEmojiListView: UIView {
             make.height.equalTo(kBottomHeight)
         }
         
-        appleEmojiBtn.snp.makeConstraints { (make) in
+        emojiSelectView.snp.makeConstraints { (make) in
             make.left.equalToSuperview()
             make.height.equalToSuperview()
             make.width.equalTo(70)
         }
         
+        appleEmojiBtn.snp.makeConstraints { (make) in
+            make.left.equalToSuperview()
+            make.height.equalToSuperview()
+            make.width.equalTo(emojiSelectView)
+        }
+        
         weChatEmojiBtn.snp.makeConstraints { (make) in
             make.left.equalTo(appleEmojiBtn.snp.right)
             make.height.equalToSuperview()
-            make.width.equalTo(appleEmojiBtn)
+            make.width.equalTo(emojiSelectView)
         }
         
         sendButton.snp.makeConstraints { (make) in
@@ -247,25 +260,30 @@ class ChatEmojiListView: UIView {
     @objc func emojiAction(_ button: UIButton) {
         switch button.tag {
         case 1000:
-            appleEmojiBtn.isSelected = true
-            appleEmojiBtn.backgroundColor = .kKeyboardColor
-            weChatEmojiBtn.isSelected = false
-            weChatEmojiBtn.backgroundColor = .clear
             dataSource = ChatEmotionHelper.getAppleAllEmotions()
             break
         default:
-            weChatEmojiBtn.isSelected = true
-            weChatEmojiBtn.backgroundColor = .kKeyboardColor
-            appleEmojiBtn.isSelected = false
-            appleEmojiBtn.backgroundColor = .clear
             dataSource = ChatEmotionHelper.getWeChatAllEmotions()
             break
         }
         
+        emojiSelection(index: button.tag - 1000)
+        
         reloadData()
     }
     
-    @objc func scrollToLeft(_ animated: Bool = false) {
+    // MARK: - Action
+    
+    @objc
+    func emojiSelection(index: Int) {
+        // 选择emoji类型
+        emojiSelectView.snp.updateConstraints { make in
+            make.left.equalToSuperview().offset(70 * index)
+        }
+    }
+    
+    @objc
+    func scrollToLeft(_ animated: Bool = false) {
         collectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .centeredHorizontally, animated: animated)
     }
 }

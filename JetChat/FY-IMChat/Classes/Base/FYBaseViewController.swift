@@ -121,8 +121,9 @@ class FYBaseViewController: UIViewController {
                 return
             }
             
-            userInterfaceStyleListener(isChanged: hasUserInterfaceStyleChanged)
-            
+            DispatchQueue.main.async {
+                self.userInterfaceStyleListener(isChanged: hasUserInterfaceStyleChanged)
+            }
         } else {
             // Fallback on earlier versions
         }
@@ -159,15 +160,22 @@ extension FYBaseViewController {
     
     /// 监听当前系统模式
     func userInterfaceStyleListener(isChanged: Bool) {
+        let lastThemeMode = FYThemeCenter.shared.currentTheme
+        if (lastThemeMode != .system) {
+            return
+        }
         
         if #available(iOS 13.0, *) {
             if UITraitCollection.current.userInterfaceStyle == .dark {
                 print("System Dark mode")
-                FYThemeCenter.shared.saveSelectionTheme(mode: .drak)
+                themeService.switch(.dark)
             }else {
                 print("System Light mode")
-                FYThemeCenter.shared.saveSelectionTheme(mode: .light)
+                themeService.switch(.light)
             }
+            
+            // 发出系统主题模式改变通知
+            NotificationCenter.default.post(name: .kTraitCollectionDidChange, object: nil)
         }
     }
 }

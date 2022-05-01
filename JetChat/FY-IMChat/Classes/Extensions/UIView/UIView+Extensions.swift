@@ -358,6 +358,7 @@ extension UIView {
     
 }
 
+// MARK: - ThemeProxy
 
 public extension ThemeProxy where Base: UITextField {
     
@@ -370,3 +371,14 @@ public extension ThemeProxy where Base: UITextField {
     }
 }
 
+@available(iOS 13.0, *)
+public extension ThemeProxy where Base: UIBarAppearance {
+    
+    /// (set only) bind a stream to borderColor
+    var backgroundColor: ThemeAttribute<UIColor?> {
+        get { fatalError("set only") }
+        set {
+            base.backgroundColor = newValue.value ?? UIColor.gray
+        }
+    }
+}

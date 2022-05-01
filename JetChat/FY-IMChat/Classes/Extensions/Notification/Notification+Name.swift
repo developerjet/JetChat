@@ -26,7 +26,6 @@ extension NSNotification.Name {
     
     /// 系统主题模式改变
     public static let kTraitCollectionDidChange = Notification.Name(rawValue:"kTraitCollectionDidChange")
-    
 }
 
 

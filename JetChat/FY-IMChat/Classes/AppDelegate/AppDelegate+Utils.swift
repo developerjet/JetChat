@@ -93,13 +93,27 @@ extension AppDelegate {
     }
     
     func configTheme() {
-        let lastTheme = FYThemeCenter.shared.readSelectedTheme()
-        
-        switch lastTheme {
-        case .light:
-            themeService.switch(.light)
-        default:
-            themeService.switch(.dark)
+        // 上次所选主题
+        let lastThemeMode = FYThemeCenter.shared.currentTheme
+        if (lastThemeMode == .system) {
+            if #available(iOS 13.0, *) {
+                // iOS13可跟随系统
+                if UITraitCollection.current.userInterfaceStyle == .dark {
+                    print("System Dark mode")
+                    themeService.switch(.dark)
+                }else {
+                    print("System Light mode")
+                    themeService.switch(.light)
+                }
+            }
+        }else {
+            // 自行选择的
+            switch lastThemeMode {
+            case .light:
+                themeService.switch(.light)
+            default:
+                themeService.switch(.dark)
+            }
         }
     }
     

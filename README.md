@@ -1,7 +1,7 @@
 <div align=center><img src="ScreenShot/JetChatSmall.png" width="934" height="168" /></div>
 
 # JetChat
- Swift5.0编写的简仿微信聊天应用，完美支持表情键盘、单聊、群聊、本地消息会话缓存、朋友圈、白天和黑夜模式<br>
+> Swift5.0编写的简仿微信聊天应用，完美支持表情键盘、单聊、群聊、本地消息会话缓存、朋友圈、白天和黑夜模式
  
 [![platform](https://img.shields.io/badge/platform-iOS-blue.svg?style=plastic)](#)
 [![languages](https://img.shields.io/badge/language-swift-blue.svg)](#) 
@@ -22,6 +22,7 @@
 - WCDBSwift实现所有会话消息快速缓存
 - 基于IGList数据驱动，实现高帧率朋友圈列表滑动
 - SnapKit纯代码自动布局
+- RxTheme适配夜间模式
 - 后续开发完善中.....
 
 ### 主要实现功能
@@ -31,11 +32,12 @@
 - 会话：最近聊天会话记录，并按照最近时间排序列表展示
 - 角标：单个会话未读消息数量展示，全部未读消息数量显示
 - 清除：单个消息删除，退出群，删除好友，消息会话角标清除，记录删除
-- 具体功能了解可以下载源码运行查看
+> 具体功能了解可以下载源码运行查看
 
 ### 新增功能
 - 朋友圈 - 通过IGList实现高帧率朋友圈列表滑动
 - 黑夜模式 - 通过RxTheme实现白天和黑夜主题模式切换
+- 多语言切换 - 已新增简体中文、英文翻译
 
 ### Tips
 - 如果你有更好的建议和方案请在lssues提交

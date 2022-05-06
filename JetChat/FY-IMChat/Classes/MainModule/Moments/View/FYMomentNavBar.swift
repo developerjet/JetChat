@@ -1,9 +1,9 @@
 //
 //  FYMomentNavBar.swift
-//  FY-IMChat
+//  FY-JetChat
 //
 //  Created by Jett on 2022/4/28.
-//  Copyright © 2022 MacOsx. All rights reserved.
+//  Copyright © 2022 Jett. All rights reserved.
 //
 
 import UIKit

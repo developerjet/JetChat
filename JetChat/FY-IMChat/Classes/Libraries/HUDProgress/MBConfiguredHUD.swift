@@ -1,15 +1,13 @@
 //
 //  MBConfiguredHUD.swift
-//  FY-IMChat
+//  FY-JetChat
 //
 //  Created by iOS.Jet on 2019/2/28.
-//  Copyright © 2019 development. All rights reserved.
+//  Copyright © 2019 Jett. All rights reserved.
 //
 
 import Foundation
 
-
-/// 弹框缩写
 typealias MBHUD = MBConfiguredHUD
 
 /// 弹框显示时间
@@ -34,7 +32,7 @@ class MBConfiguredHUD: NSObject {
         return window!
     }
     
-    // MARK:- 具体样式设置
+    // MARK: - 具体样式设置
     
     /// 普通的菊花HUD(需要手动隐藏)
     class func show() {

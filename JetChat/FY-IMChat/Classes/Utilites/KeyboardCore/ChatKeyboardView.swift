@@ -1,9 +1,9 @@
 //
 //  ChatKeyboardView.swift
-//  FY-IMChat
+//  FY-JetChat
 //
 //  Created by iOS.Jet on 2019/11/14.
-//  Copyright © 2019 MacOsx. All rights reserved.
+//  Copyright © 2019 Jett. All rights reserved.
 //
 
 import UIKit
@@ -326,13 +326,9 @@ extension ChatKeyboardView {
         UIView.animate(withDuration: duration, delay: 0, options: UIView.AnimationOptions(rawValue: UIView.AnimationOptions.RawValue(option)), animations: {
             self.frame = CGRect(x: 0, y: changedY, width: kScreenW, height: self.toolBarHeight + self.contentHeight)
         }, completion: nil)
-        
     }
     
-    @objc func keyboardNeedHide(_ noti: NSNotification) {        
-//        if (isShowKeyboard || isShowEmoji) {
-//            return
-//        }
+    @objc func keyboardNeedHide(_ noti: NSNotification) {
         
         chatTextView.resignFirstResponder()
         moreMenuView.hidePageController = true
@@ -423,14 +419,14 @@ extension ChatKeyboardView {
         if (isRest) {
             if isShowEmoji {
                 isShowEmoji = false
-            }else if (isShowMore) {
+            }
+            if (isShowMore) {
                 isShowMore = false
             }
             
             changedY = kScreenH - self.toolBarHeight - kNavigaH - contentHeight - kSafeAreaBottom
         }
         
-        //let option = UIView.AnimationOptions(rawValue: UIView.AnimationOptions.RawValue(7))
         UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseOut, animations: {
             self.contentView.frame = CGRect(x: 0, y: self.toolBarView.maxY, width: kScreenW, height: self.contentHeight)
             self.emojiListView.frame = self.contentView.bounds
@@ -467,7 +463,8 @@ extension ChatKeyboardView {
         if (isShowKeyboard) {
             if isShowEmoji {
                 isShowEmoji = false
-            }else if (isShowMore) {
+            }
+            if (isShowMore) {
                 isShowMore = false
             }
             

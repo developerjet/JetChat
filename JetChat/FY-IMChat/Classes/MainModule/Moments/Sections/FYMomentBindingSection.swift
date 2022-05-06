@@ -1,9 +1,9 @@
 //
 //  FYFYMomentBindingSection.swift
-//  FY-IMChat
+//  FY-JetChat
 //
 //  Created by Jett on 2022/4/28.
-//  Copyright © 2022 MacOsx. All rights reserved.
+//  Copyright © 2022 Jett. All rights reserved.
 //
 
 import UIKit
@@ -209,6 +209,7 @@ fileprivate extension FYMomentBindingSection {
 }
 
 extension FYMomentBindingSection: MomentCommentDelegate {
+    
     func contentDidSelected(_ model: FYCommentInfo, action: CommentContentClickAction) {
         print(action, model)
         switch action {

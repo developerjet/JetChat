@@ -22,6 +22,7 @@
 "发起群聊" = "Group chat";
 "添加朋友" = "Add Friends";
 "扫一扫" = "Scan";
+"将取景框对准二维码，即可自动扫描" = "Aim the viewfinder at the QR code and it can be scanned automatically";
 
 "确定退出当前群组吗？" = "Are you sure you want to leave the current group?";
 "你已退出%@群聊" = "You have quit %@ group chat";

@@ -1,9 +1,9 @@
 //
 //  ChatKeyboardView+Exted.swift
-//  FY-IMChat
+//  FY-JetChat
 //
 //  Created by iOS.Jet on 2019/11/14.
-//  Copyright © 2019 MacOsx. All rights reserved.
+//  Copyright © 2019 Jett. All rights reserved.
 //
 
 import Foundation
@@ -54,7 +54,7 @@ public extension String {
 }
 
 
-// MARK:- 获取textView属性字符串,换成对应的表情字符串
+// MARK: - 获取textView属性字符串,换成对应的表情字符串
 
 extension UITextView {
     

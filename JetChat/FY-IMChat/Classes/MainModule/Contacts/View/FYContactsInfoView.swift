@@ -1,9 +1,9 @@
 //
 //  FYContactsInfoView.swift
-//  FY-IMChat
+//  FY-JetChat
 //
 //  Created by iOS.Jet on 2019/11/30.
-//  Copyright © 2019 MacOsx. All rights reserved.
+//  Copyright © 2019 Jett. All rights reserved.
 //
 
 import UIKit

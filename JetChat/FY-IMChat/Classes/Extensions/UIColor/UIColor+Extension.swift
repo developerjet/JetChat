@@ -84,7 +84,7 @@ extension UIColor {
     }
     
     
-    // MARK:- RGB的颜色设置
+    // MARK: - RGB的颜色设置
     class func RGB(r: CGFloat, g: CGFloat, b: CGFloat) -> UIColor {
         
         return UIColor(red: r/255.0, green: g/255.0, blue: b/255.0, alpha: 1.0)
@@ -107,30 +107,26 @@ extension UIColor {
     }
     
     
-    // MARK:- 应用控件主题颜色
-    /// 48D1CC
+    // MARK: - 应用控件主题颜色
+    /// 1FB922
     ///
-    /// - Returns: 48D1CC
+    /// - Returns: 1FB922
     class func appThemeHexColor() ->UIColor {
-        
         return colorWithHexStr("1FB922")
     }
     
-    // MARK:- HUD的背景颜色
+    // MARK: - HUD的背景颜色
     class func hudBackgroundColor() -> UIColor {
-        //return self.colorWithHexStr("000000", alpha: 0.4)
         return UIColor.black.withAlphaComponent(0.7)
     }
     
-    // MARK:- tabBar标题未选中颜色
+    // MARK: - tabBar标题未选中颜色
     class func tabBarTitleNormalColor() -> UIColor {
-        
         return colorWithHexStr("AAAAAA")
     }
     
-    // MARK:- tabBar标题已选中颜色
+    // MARK: - tabBar标题已选中颜色
     class func tabBarTitleSelectColor() -> UIColor {
-        
         return colorWithHexStr("1FB922")
     }
 }

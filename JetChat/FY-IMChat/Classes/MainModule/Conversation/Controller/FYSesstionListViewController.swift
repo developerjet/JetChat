@@ -1,9 +1,9 @@
 //
 //  FYSesstionListViewController.swift
-//  FY-IMChat
+//  FY-JetChat
 //
 //  Created by iOS.Jet on 2019/8/18.
-//  Copyright © 2019 development. All rights reserved.
+//  Copyright © 2019 Jett. All rights reserved.
 //
 
 import UIKit
@@ -37,7 +37,7 @@ class FYSesstionListViewController: FYBaseViewController {
         return items
     }()
     
-    // MARK:- Life cycle
+    // MARK: - Life cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -152,14 +152,6 @@ extension FYSesstionListViewController: FYPopListMenuDelegate {
             let scanVC = ScanQRCodeViewController()
             navigationController?.pushViewController(scanVC)
         }
-    }
-    
-    func showPicker() {
-        
-    }
-    
-    func webBrowser() {
-        
     }
 }
 

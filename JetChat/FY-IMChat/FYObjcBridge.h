@@ -1,15 +1,15 @@
 //
 //  FYObjcBridge.h
-//  FY-IMChat
+//  FY-JetChat
 //
 //  Created by iOS.Jet on 2019/3/1.
-//  Copyright © 2019 development. All rights reserved.
+//  Copyright © 2019 Jett. All rights reserved.
 //
 
 #ifndef FYObjcBridge_h
 #define FYObjcBridge_h
 
-// MARK:- Objc
+// MARK: - Objc
 #import <TZImagePickerController.h> ///<图片选择 ///<占位视图
 #import <MBProgressHUD/MBProgressHUD.h> ///<HUD
 #import <MJRefresh/MJRefresh.h>

@@ -1,6 +1,6 @@
 //
-//  PGActionSheet.swift
-//  PGActionSheet
+//  FYActionSheet.swift
+//  FYActionSheet
 //
 //  Created by piggybear on 2017/10/2.
 //  Copyright © 2017年 piggybear. All rights reserved.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class PGActionSheet: BottomPopupViewController {
+class FYActionSheet: BottomPopupViewController {
     
     // MARK: - Setter
     
@@ -34,19 +34,15 @@ class PGActionSheet: BottomPopupViewController {
         }
     }
     
-    var textColor: UIColor? {
-        didSet {
-            guard let _ = textColor else {
-                return
-            }
-        }
-    }
+    var textColor: UIColor?
     
     var cancelTextColor: UIColor? {
         didSet {
-            guard let _ = textColor else {
+            guard let titleColor = textColor else {
                 return
             }
+            
+            cancelBtn.setTitleColor(titleColor, for: .normal)
         }
     }
     
@@ -103,7 +99,7 @@ class PGActionSheet: BottomPopupViewController {
         tableView.estimatedSectionHeaderHeight = 0
         tableView.estimatedSectionFooterHeight = 0
         tableView.theme.backgroundColor = themed { $0.FYColor_BackgroundColor_V2 }
-        tableView.register(cellWithClass: PGTableViewTitleCell.self)
+        tableView.register(cellWithClass: FYActionSheetCell.self)
         return tableView
     }()
     
@@ -133,6 +129,7 @@ class PGActionSheet: BottomPopupViewController {
             make.left.right.equalToSuperview()
             make.bottom.equalToSuperview()
         }
+        
         tableView.reloadData()
     }
     
@@ -162,23 +159,24 @@ class PGActionSheet: BottomPopupViewController {
     // MARK: - Action
     
     @objc func dissAction() {
-        self.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 }
 
 // MARK: - UITableViewDataSource && UITableViewDelegate
 
-extension PGActionSheet: UITableViewDataSource, UITableViewDelegate {
+extension FYActionSheet: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withClass: PGTableViewTitleCell.self)
+        let cell = tableView.dequeueReusableCell(withClass: FYActionSheetCell.self)
         if dataSource.count > indexPath.row {
-            cell.title = dataSource[safe: indexPath.row]
+            cell.textColor = textColor
             cell.titleFont = titleFont
+            cell.title = dataSource[safe: indexPath.row]
             if indexPath.row == dataSource.count - 1 {
                 cell.hideLine = true
             }

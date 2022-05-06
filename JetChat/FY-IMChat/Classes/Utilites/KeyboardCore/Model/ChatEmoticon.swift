@@ -1,9 +1,9 @@
 //
 //  ChatEmoticon.swift
-//  FY-IMChat
+//  FY-JetChat
 //
 //  Created by iOS.Jet on 2019/11/18.
-//  Copyright © 2019 MacOsx. All rights reserved.
+//  Copyright © 2019 Jett. All rights reserved.
 //
 
 import UIKit
@@ -11,7 +11,7 @@ import UIKit
 @objcMembers
 class ChatEmoticon: NSObject {
     
-    // MARK:- 定义属性
+    // MARK: - 定义属性
     
     var type: String?
     var chs: String?

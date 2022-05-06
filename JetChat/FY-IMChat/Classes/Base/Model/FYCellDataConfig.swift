@@ -1,14 +1,14 @@
 //
 //  FYCellDataConfig.swift
-//  FY-IMChat
+//  FY-JetChat
 //
 //  Created by iOS.Jet on 2019/11/2.
-//  Copyright © 2019 MacOsx. All rights reserved.
+//  Copyright © 2019 Jett. All rights reserved.
 //
 
 import HandyJSON
 
-class FYCellDataConfig: NSObject, HandyJSON {
+class FYCellDataConfig: NSObject {
     var title: String?
     var subtitle: String?
     var image: String?
@@ -16,7 +16,7 @@ class FYCellDataConfig: NSObject, HandyJSON {
     
     var targetVC: UIViewController?
     
-    init(title: String? = "", subtitle: String? = "", image : String? = "", isShow: Bool = false, targetVC: UIViewController? = nil) {
+    public init(title: String? = "", subtitle: String? = "", image : String? = "", isShow: Bool = false, targetVC: UIViewController? = nil) {
         super.init()
         
         self.title = title
@@ -26,6 +26,4 @@ class FYCellDataConfig: NSObject, HandyJSON {
         self.isShow = isShow
         self.targetVC = targetVC
     }
-    
-    required override init() { }
 }

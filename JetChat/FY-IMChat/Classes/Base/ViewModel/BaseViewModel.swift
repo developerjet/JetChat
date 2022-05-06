@@ -1,9 +1,9 @@
 //
 //  BaseViewModel.swift
-//  FY-IMChat
+//  FY-JetChat
 //
 //  Created by fisker.zhang on 2019/3/15.
-//  Copyright © 2019 development. All rights reserved.
+//  Copyright © 2019 Jett. All rights reserved.
 //
 
 import Foundation

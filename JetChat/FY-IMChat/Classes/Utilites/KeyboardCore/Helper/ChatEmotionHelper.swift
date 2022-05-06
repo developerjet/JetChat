@@ -1,16 +1,16 @@
 //
 //  ChatEmotionHelper.swift
-//  FY-IMChat
+//  FY-JetChat
 //
 //  Created by iOS.Jet on 2019/11/21.
-//  Copyright © 2019 MacOsx. All rights reserved.
+//  Copyright © 2019 Jett. All rights reserved.
 //
 
 import UIKit
 
 class ChatEmotionHelper: NSObject {
     
-    // MARK:- 获取Apple表情模型数组
+    // MARK: - 获取Apple表情模型数组
     class func getAppleAllEmotions() -> [ChatEmoticon] {
         var emotions: [ChatEmoticon] = [ChatEmoticon]()
         let root = NSDictionary(contentsOf: .kAppleEmojiURL)

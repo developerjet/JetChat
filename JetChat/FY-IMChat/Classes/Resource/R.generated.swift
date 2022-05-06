@@ -1195,7 +1195,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 75 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 79 localization keys.
     struct localizable {
       /// en translation: Add Friends
       ///
@@ -1209,6 +1209,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let 删除后会话记录也将清除 = Rswift.StringResource(key: "删除后，会话记录也将清除", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Aim the viewfinder at the QR code and it can be scanned automatically
+      ///
+      /// Locales: en
+      static let 将取景框对准二维码即可自动扫描 = Rswift.StringResource(key: "将取景框对准二维码，即可自动扫描", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Album
       ///
       /// Locales: en
@@ -1233,6 +1237,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let 确定退出当前群组吗 = Rswift.StringResource(key: "确定退出当前群组吗？", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Author GitHub
+      ///
+      /// Locales: en
+      static let 作者github = Rswift.StringResource(key: "作者github", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Camera
       ///
       /// Locales: en
@@ -1297,6 +1305,14 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let 退出群 = Rswift.StringResource(key: "退出群", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Follow system
+      ///
+      /// Locales: en
+      static let 跟随系统 = Rswift.StringResource(key: "跟随系统", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Follow system setting
+      ///
+      /// Locales: en
+      static let 选取后将跟随系统设定模式 = Rswift.StringResource(key: "选取后，将跟随系统设定模式", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Forward
       ///
       /// Locales: en
@@ -1361,6 +1377,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let 星期一 = Rswift.StringResource(key: "星期一", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Network disconnected
+      ///
+      /// Locales: en
+      static let 当前网络已断开 = Rswift.StringResource(key: "当前网络已断开", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Personal information
       ///
       /// Locales: en
@@ -1409,14 +1429,14 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let 会话 = Rswift.StringResource(key: "会话", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
-      /// en translation: Setting
-      ///
-      /// Locales: en
-      static let 设置 = Rswift.StringResource(key: "设置", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Setting remark name
       ///
       /// Locales: en
       static let 设置备注名 = Rswift.StringResource(key: "设置备注名", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Settings
+      ///
+      /// Locales: en
+      static let 设置 = Rswift.StringResource(key: "设置", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Single chat
       ///
       /// Locales: en
@@ -1429,10 +1449,6 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let 星期日 = Rswift.StringResource(key: "星期日", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
-      /// en translation: The current network is disconnected
-      ///
-      /// Locales: en
-      static let 当前网络已断开 = Rswift.StringResource(key: "当前网络已断开", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Theme mode
       ///
       /// Locales: en
@@ -1543,6 +1559,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("删除后，会话记录也将清除", bundle: bundle, comment: "")
       }
 
+      /// en translation: Aim the viewfinder at the QR code and it can be scanned automatically
+      ///
+      /// Locales: en
+      static func 将取景框对准二维码即可自动扫描(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("将取景框对准二维码，即可自动扫描", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "将取景框对准二维码，即可自动扫描"
+        }
+
+        return NSLocalizedString("将取景框对准二维码，即可自动扫描", bundle: bundle, comment: "")
+      }
+
       /// en translation: Album
       ///
       /// Locales: en
@@ -1631,6 +1662,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("确定退出当前群组吗？", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Author GitHub
+      ///
+      /// Locales: en
+      static func 作者github(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("作者github", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "作者github"
+        }
+
+        return NSLocalizedString("作者github", bundle: bundle, comment: "")
       }
 
       /// en translation: Camera
@@ -1873,6 +1919,36 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("退出群", bundle: bundle, comment: "")
       }
 
+      /// en translation: Follow system
+      ///
+      /// Locales: en
+      static func 跟随系统(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("跟随系统", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "跟随系统"
+        }
+
+        return NSLocalizedString("跟随系统", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Follow system setting
+      ///
+      /// Locales: en
+      static func 选取后将跟随系统设定模式(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("选取后，将跟随系统设定模式", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "选取后，将跟随系统设定模式"
+        }
+
+        return NSLocalizedString("选取后，将跟随系统设定模式", bundle: bundle, comment: "")
+      }
+
       /// en translation: Forward
       ///
       /// Locales: en
@@ -2113,6 +2189,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("星期一", bundle: bundle, comment: "")
       }
 
+      /// en translation: Network disconnected
+      ///
+      /// Locales: en
+      static func 当前网络已断开(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("当前网络已断开", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "当前网络已断开"
+        }
+
+        return NSLocalizedString("当前网络已断开", bundle: bundle, comment: "")
+      }
+
       /// en translation: Personal information
       ///
       /// Locales: en
@@ -2293,21 +2384,6 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("会话", bundle: bundle, comment: "")
       }
 
-      /// en translation: Setting
-      ///
-      /// Locales: en
-      static func 设置(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("设置", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
-          return "设置"
-        }
-
-        return NSLocalizedString("设置", bundle: bundle, comment: "")
-      }
-
       /// en translation: Setting remark name
       ///
       /// Locales: en
@@ -2321,6 +2397,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("设置备注名", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Settings
+      ///
+      /// Locales: en
+      static func 设置(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("设置", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "设置"
+        }
+
+        return NSLocalizedString("设置", bundle: bundle, comment: "")
       }
 
       /// en translation: Single chat
@@ -2366,21 +2457,6 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("星期日", bundle: bundle, comment: "")
-      }
-
-      /// en translation: The current network is disconnected
-      ///
-      /// Locales: en
-      static func 当前网络已断开(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("当前网络已断开", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
-          return "当前网络已断开"
-        }
-
-        return NSLocalizedString("当前网络已断开", bundle: bundle, comment: "")
       }
 
       /// en translation: Theme mode

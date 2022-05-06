@@ -11,8 +11,9 @@ import RxSwift
 import RxCocoa
 
 extension Reactive where Base: UIView {
+    
     func tap() -> Observable<Void> {
-        return tap()
+        return base.rx.tap()
     }
 }
 

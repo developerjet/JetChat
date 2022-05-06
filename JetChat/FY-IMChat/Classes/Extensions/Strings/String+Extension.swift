@@ -4,7 +4,7 @@
 //  String+Extension
 //
 //  Created by TAN on 2017/10/18.
-//  Copyright © 2019 development. All rights reserved.
+//  Copyright © 2019 Jett. All rights reserved.
 //
 
 import Foundation
@@ -471,10 +471,10 @@ extension String{
     }
 }
 
-// MARK:- 通用正则处理
+// MARK: - 通用正则处理
 extension String {
     
-    // MARK:-  字符输入长度限制
+    // MARK: -  字符输入长度限制
     func trimAll(_ trim: String, rangeCount: Int) -> Bool {
         
         if (trim.lengthOfBytes(using: String.Encoding.utf8) == rangeCount) {
@@ -497,7 +497,7 @@ extension String {
         return phoneRegex?.firstMatch(in: self, options: [], range: NSMakeRange(0, self.length)) != nil
     }
     
-    // MARK:- 图形验证码正则表达式
+    // MARK: - 图形验证码正则表达式
     func validatePicture() -> Bool {
         let pictureCodeRegex: String = "^(?![0-9]+$)(?![a-zA-Z]+$)[a-zA-Z0-9]{4}"
         let pictureCodeTest = NSPredicate(format: "SELF MATCHES", pictureCodeRegex)
@@ -550,7 +550,7 @@ extension String {
 }
 
 
-// MARK:- 字符复制
+// MARK: - 字符复制
 
 extension String {
     

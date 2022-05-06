@@ -1,9 +1,9 @@
 //
 //  ChatMoreViewFlowLayout.swift
-//  FY-IMChat
+//  FY-JetChat
 //
 //  Created by iOS.Jet on 2019/11/16.
-//  Copyright © 2019 MacOsx. All rights reserved.
+//  Copyright © 2019 Jett. All rights reserved.
 //
 
 import UIKit
@@ -24,7 +24,7 @@ class ChatKeyboardFlowLayout: UICollectionViewFlowLayout {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK:- 重新布局
+    // MARK: - 重新布局
     override func prepare() {
         super.prepare()
         

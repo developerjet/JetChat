@@ -1,9 +1,9 @@
 //
 //  FYSettingViewController.swift
-//  FY-IMChat
+//  FY-JetChat
 //
 //  Created by iOS.Jet on 2019/11/6.
-//  Copyright © 2019 MacOsx. All rights reserved.
+//  Copyright © 2019 Jett. All rights reserved.
 //
 
 import UIKit
@@ -106,7 +106,7 @@ class FYSettingViewController: FYBaseViewController {
     private func showLanguageAction() {
         
         let titles = LanguageManager.manager.currentLanguages
-        let actionSheet = PGActionSheet(isShowCancel: true, actionTitles: titles)
+        let actionSheet = FYActionSheet(isShowCancel: true, actionTitles: titles)
         self.present(actionSheet, animated: true)
         
         actionSheet.handler = { index in

@@ -1,9 +1,9 @@
 //
 //  FYNavPopuListMenu.swift
-//  PopMenu
+//  FYNavPopuListMenu
 //
 //  Created by iOS.Jet on 2019/2/20.
-//  Copyright © 2019 iOS. All rights reserved.
+//  Copyright © 2019 Jett. All rights reserved.
 //
 
 import UIKit
@@ -42,7 +42,7 @@ class FYNavPopuListMenu: UIView {
     var triangleView: UIView?
     var triangleFrame: CGRect?
     
-    // MARK:- var lazy
+    // MARK: - var lazy
     
     private lazy var tapGesture: UITapGestureRecognizer = {
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(dismiss))
@@ -84,7 +84,7 @@ class FYNavPopuListMenu: UIView {
     }()
     
     
-    // MARK:- Life cycle
+    // MARK: - Life cycle
     
     convenience init(dataSource: [FYCellDataConfig], ySpace: CGFloat = kNavigaH + 1) {
         self.init()
@@ -152,7 +152,7 @@ class FYNavPopuListMenu: UIView {
 }
 
 
-// MARK:- Action
+// MARK: - Action
 
 extension FYNavPopuListMenu {
     
@@ -188,7 +188,7 @@ extension FYNavPopuListMenu {
     }
 }
 
-// MARK:- UITableViewDataSource && Delegate
+// MARK: - UITableViewDataSource && Delegate
 
 extension FYNavPopuListMenu: UITableViewDataSource, UITableViewDelegate {
     

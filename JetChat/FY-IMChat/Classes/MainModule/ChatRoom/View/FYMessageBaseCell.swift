@@ -1,9 +1,9 @@
 //
 //  FYMessageBaseCell.swift
-//  FY-IMChat
+//  FY-JetChat
 //
 //  Created by iOS.Jet on 2019/11/23.
-//  Copyright © 2019 MacOsx. All rights reserved.
+//  Copyright © 2019 Jett. All rights reserved.
 //
 
 import UIKit
@@ -38,7 +38,7 @@ class FYMessageBaseCell: UITableViewCell {
 
     var model: FYMessageItem? {
         didSet {
-            guard model != nil else {
+            guard let _ = model else {
                 return
             }
             
@@ -218,12 +218,6 @@ class FYMessageBaseCell: UITableViewCell {
         if #available(iOS 13.0, *) {
             UIMenuController.shared.hideMenu()
         }
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     // MARK: - Action

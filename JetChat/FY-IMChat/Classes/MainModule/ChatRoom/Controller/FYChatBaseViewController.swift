@@ -1,9 +1,9 @@
 //
 //  FYChatBaseViewController.swift
-//  FY-IMChat
+//  FY-JetChat
 //
 //  Created by iOS.Jet on 2019/11/13.
-//  Copyright © 2019 MacOsx. All rights reserved.
+//  Copyright © 2019 Jett. All rights reserved.
 //
 
 import UIKit
@@ -51,7 +51,7 @@ class FYChatBaseViewController: FYBaseViewController {
     
     var dataSource: [FYMessageItem] = []
     
-    lazy var keyboardView: ChatKeyboardView = {
+    private lazy var keyboardView: ChatKeyboardView = {
         let toolBarY = kScreenH - kNavigaH - kToolBarLastH - kSafeAreaBottom
         let view = ChatKeyboardView(frame: CGRect(x: 0, y: toolBarY, width: kScreenW, height: kToolBarLastH))
         view.delegate = self
@@ -85,7 +85,7 @@ class FYChatBaseViewController: FYBaseViewController {
         super.viewDidLoad()
         view.theme.backgroundColor = themed { $0.FYColor_BackgroundColor_V2 }
         
-        setupNavBar()
+        configNavBar()
         loadCacheData()
     }
     
@@ -100,7 +100,7 @@ class FYChatBaseViewController: FYBaseViewController {
         self.viewModel = FYMessageViewModel(chatModel: chatModel)
     }
     
-    func setupNavBar() {
+    private func configNavBar() {
         if chatModel?.nickName.isBlank == false {
             navigationItem.title = chatModel?.nickName
         }else {
@@ -204,6 +204,7 @@ class FYChatBaseViewController: FYBaseViewController {
     
     /// 退出群聊
     @objc private func exitGroupChat() {
+        
         EasyAlertView.customAlert(title: "确定退出当前群组吗？".rLocalized(), message: "", confirm: "确定".rLocalized(), cancel: "取消".rLocalized(), vc: self, confirmBlock: {
             if let uid = self.chatModel?.uid {
                 self.stopChatTimer()
@@ -247,7 +248,6 @@ extension FYChatBaseViewController: ChatKeyboardViewDelegate {
     }
     
     func keyboard(_ keyboard: ChatKeyboardView, DidObserver offsetY: CGFloat) {
-        //MBHUD.showMessage("输入框y值：\(offsetY)")
         restChatKeyboardSafeTop(offsetY)
     }
     

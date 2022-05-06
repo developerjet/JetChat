@@ -1,9 +1,9 @@
 //
 //  FYFastGridListView.swift
-//  FY-IMChat
+//  FY-JetChat
 //
 //  Created by iOS.Jet on 2019/8/18.
-//  Copyright © 2019 development. All rights reserved.
+//  Copyright © 2019 Jett. All rights reserved.
 //  快速实现列表栏
 
 import UIKit
@@ -34,7 +34,7 @@ class FYFastGridListView: UIView {
 
     fileprivate var didClickClosure : (()->Void)?
     
-    // MARK:- Lazy var
+    // MARK: - Lazy var
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -62,7 +62,7 @@ class FYFastGridListView: UIView {
         return view
     }()
     
-    // MARK:- Life cycle
+    // MARK: - Life cycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)

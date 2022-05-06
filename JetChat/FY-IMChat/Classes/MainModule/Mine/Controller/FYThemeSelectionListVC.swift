@@ -1,9 +1,9 @@
 //
 //  FYThemeSelectionListVC.swift
-//  FY-IMChat
+//  FY-JetChat
 //
 //  Created by Jett on 2022/4/30.
-//  Copyright © 2022 MacOsx. All rights reserved.
+//  Copyright © 2022 Jett. All rights reserved.
 //
 
 import UIKit
@@ -106,8 +106,6 @@ class FYThemeSelectionListVC: FYBaseViewController {
                 }
             }
         }
-
-        FYThemeCenter.shared.saveSelectionTheme(mode: mode)
         
         navigationController?.popToRootViewController(animated: false)
         FYThemeCenter.shared.saveSelectionTheme(mode: mode, isRestWindow: true)

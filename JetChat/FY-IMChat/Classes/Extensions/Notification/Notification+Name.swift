@@ -1,9 +1,9 @@
 //
 //  Notification+Name.swift
-//  FY-IMChat
+//  FY-JetChat
 //
 //  Created by iOS.Jet on 2019/10/10.
-//  Copyright © 2019 MacOsx. All rights reserved.
+//  Copyright © 2019 Jett. All rights reserved.
 //  通知便捷使用
 
 import Foundation

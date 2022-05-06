@@ -1,9 +1,9 @@
 //
 //  AppDelegate+Utils.swift
-//  FY-IMChat
+//  FY-JetChat
 //
 //  Created by iOS.Jet on 2019/2/28.
-//  Copyright © 2019 development. All rights reserved.
+//  Copyright © 2019 Jett. All rights reserved.
 //
 
 import Foundation
@@ -19,7 +19,7 @@ import RxTheme
 
 extension AppDelegate {
     
-    // MARK:- NetworkStatusListener
+    // MARK: - NetworkStatusListener
     // 开始网络连接状态监听
     func networkStatusListener() {
         // 1.设置网络状态消息监听
@@ -55,7 +55,7 @@ extension AppDelegate {
         MBHUD.showImageError(message)
     }
     
-    // MARK:- AppearanceSetting
+    // MARK: - AppearanceSetting
     func appearanceSetting() {
         // iOS 11 及其以上系统运行
         if #available(iOS 11, *) {
@@ -65,7 +65,7 @@ extension AppDelegate {
         }
     }
     
-    // MARK:- 设置窗口根控制器
+    // MARK: - 设置窗口根控制器
     func setupViewController() {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = UIColor.white
@@ -75,7 +75,7 @@ extension AppDelegate {
         AppDelegate.app.window?.makeKeyAndVisible()
     }
     
-    // MARK:- 键盘管理
+    // MARK: - 键盘管理
     func keyboardManager() {
         //开启键盘监听
         IQKeyboardManager.shared.enable = true

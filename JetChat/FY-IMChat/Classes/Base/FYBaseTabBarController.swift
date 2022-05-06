@@ -1,16 +1,16 @@
 //
 //  FYBaseTabBarController.swift
-//  FY-IMChat
+//  FY-JetChat
 //
 //  Created by iOS.Jet on 2019/2/28.
-//  Copyright © 2019 development. All rights reserved.
+//  Copyright © 2019 Jett. All rights reserved.
 //
 
 import UIKit
 
 class FYBaseTabBarController: UITabBarController {
     
-    // MARK:- life cycle
+    // MARK: - life cycle
     
     private var indexFlag: Int = 0
     
@@ -21,7 +21,7 @@ class FYBaseTabBarController: UITabBarController {
         createChildVc()
     }
     
-    // MARK:- initialize
+    // MARK: - initialize
     
     private func didInitialize() {
         let tabBar = UITabBar.appearance()

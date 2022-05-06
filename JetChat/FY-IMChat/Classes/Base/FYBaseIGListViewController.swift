@@ -1,9 +1,9 @@
 //
 //  FYBaseIGListViewController.swift
-//  FY-IMChat
+//  FY-JetChat
 //
 //  Created by Jett on 2022/4/28.
-//  Copyright © 2022 MacOsx. All rights reserved.
+//  Copyright © 2022 Jett. All rights reserved.
 //
 
 import UIKit
@@ -78,7 +78,7 @@ class FYBaseIGListViewController: UIViewController {
         UIApplication.shared.keyWindow?.endEditing(true)
     }
     
-    // MARK:- 提供子类重写
+    // MARK: - 提供子类重写
     open func makeUI() { }
     open func createViewModel() { }
     open func bindViewModel() { }

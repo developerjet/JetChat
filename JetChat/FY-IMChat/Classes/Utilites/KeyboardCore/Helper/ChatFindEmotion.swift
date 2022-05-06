@@ -1,18 +1,18 @@
 //
 //  ChatFindEmotion.swift
-//  FY-IMChat
+//  FY-JetChat
 //
 //  Created by iOS.Jet on 2019/11/22.
-//  Copyright © 2019 MacOsx. All rights reserved.
+//  Copyright © 2019 Jett. All rights reserved.
 //
 
 import UIKit
 
 class ChatFindEmotion: NSObject {
-    // MARK:- 单例
+    // MARK: - 单例
     static let shared: ChatFindEmotion = ChatFindEmotion()
     
-    // MARK:- 查找属性字符串的方法
+    // MARK: - 查找属性字符串的方法
     func findAttrStr(text: String?, font: UIFont) -> NSMutableAttributedString? {
         guard let text = text else {
             return nil

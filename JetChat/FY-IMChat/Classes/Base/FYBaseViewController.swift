@@ -1,9 +1,9 @@
 //
 //  FYBaseViewController.swift
-//  FY-IMChat
+//  FY-JetChat
 //
 //  Created by iOS.Jet on 2019/2/28.
-//  Copyright © 2019 development. All rights reserved.
+//  Copyright © 2019 Jett. All rights reserved.
 //  业务基类
 
 import UIKit
@@ -129,13 +129,13 @@ class FYBaseViewController: UIViewController {
         }
     }
     
-    // MARK:- 提供子类重写
+    // MARK: - 提供子类重写
     open func makeUI() { }
     open func createViewModel() { }
     open func bindViewModel() { }
 }
 
-// MARK:- Action
+// MARK: - Action
 
 extension FYBaseViewController {
     

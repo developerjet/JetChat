@@ -1,9 +1,9 @@
 //
 //  WCDataBaseTable.swift
-//  FY-IMChat
+//  FY-JetChat
 //
 //  Created by iOS.Jet on 2019/11/6.
-//  Copyright © 2019 MacOsx. All rights reserved.
+//  Copyright © 2019 Jett. All rights reserved.
 //  本地缓存数据库表名称
 
 import Foundation

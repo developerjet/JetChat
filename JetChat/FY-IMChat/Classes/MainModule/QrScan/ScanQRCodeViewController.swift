@@ -19,6 +19,8 @@ class ScanQRCodeViewController: UIViewController {
         navigationItem.title = "扫一扫".rLocalized()
         view.backgroundColor = .white
         
+        self.extendedLayoutIncludesOpaqueBars = true;
+        
         let authStatus = AVCaptureDevice.authorizationStatus(for: AVMediaType(rawValue: convertFromAVMediaType(AVMediaType.video)))
         if(authStatus == .restricted || authStatus == .denied){
             let alertView = UIAlertView(title: "无法访问相机", message: "请在设备的设置-趣阅中允许访问相机。",delegate: self, cancelButtonTitle: "好的", otherButtonTitles: "去设置")
@@ -42,11 +44,12 @@ class ScanQRCodeViewController: UIViewController {
         imageView.image = _getBackgroundImage()
         view.addSubview(imageView)
         
-        let tipsLabel = UILabel(frame: CGRect(x: 0, y: borderY + borderW + 17.5, width: view.width, height: 20))
+        let tipsLabel = UILabel(frame: CGRect(x: 10, y: borderY + borderW + 17.5, width: view.width - 20, height: 20))
         tipsLabel.font = UIFont.systemFont(ofSize: 14)
-        tipsLabel.text = "将取景框对准二维码，即可自动扫描"
+        tipsLabel.text = "将取景框对准二维码，即可自动扫描".rLocalized()
+        tipsLabel.textColor = .appThemeHexColor()
         tipsLabel.textAlignment = .center
-        tipsLabel.textColor = UIColor(netHex: 0x6EF8F8)
+        tipsLabel.numberOfLines = 2
         view.addSubview(tipsLabel)
         
         NotificationCenter.default.addObserver(self, selector: #selector(startQRCAnimate), name: UIApplication.didBecomeActiveNotification, object: nil)
@@ -60,7 +63,7 @@ class ScanQRCodeViewController: UIViewController {
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
     }
-    
+        
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         session.startRunning()
@@ -75,6 +78,11 @@ class ScanQRCodeViewController: UIViewController {
         navigationController?.navigationBar.shadowImage = nil
         navigationController?.navigationBar.barTintColor = UIColor(netHex: 0x2dd0cf)
         self.qrcLine.layer.removeAllAnimations()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
     }
     
     deinit {
@@ -145,6 +153,7 @@ class ScanQRCodeViewController: UIViewController {
 // MARK: - AVCaptureMetadataOutputObjectsDelegate
 
 extension ScanQRCodeViewController: AVCaptureMetadataOutputObjectsDelegate {
+    
     func metadataOutput(_ captureOutput: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         for metadataObject in metadataObjects {
             guard let object = metadataObject as? AVMetadataMachineReadableCodeObject else {
@@ -176,26 +185,26 @@ extension ScanQRCodeViewController: AVCaptureMetadataOutputObjectsDelegate {
                     return
                 }
                 
-                if let Url = URL(string: url) {
-                    if UIApplication.shared.canOpenURL(Url) {
-                        UIApplication.shared.open(Url, options: [:], completionHandler: nil)
+                if let openURL = URL(string: url) {
+                    if UIApplication.shared.canOpenURL(openURL) {
+                        UIApplication.shared.open(openURL, options: [:], completionHandler: nil)
                     } else {
-                        let newUrl = URL(string: "https://" + url)
-                        UIApplication.shared.open(Url, options: [:], completionHandler: nil)
+                        guard let safeURL = URL(string: "https://" + url) else {
+                            return
+                        }
+                        
+                        UIApplication.shared.open(safeURL, options: [:], completionHandler: nil)
                     }
                     return
                 }
-                let jsonData:Data = url.data(using: .utf8)!
+            
+                let jsonData: Data = url.data(using: .utf8)!
 
                 let dict = try? JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers)
                 guard let info = dict as? NSDictionary else {
                     return
                 }
-                guard let userInfo = info["user"] as? NSDictionary else {
-                    return
-                }
-                let username = userInfo["username"] as! String
-                let appkey = userInfo["appkey"] as! String
+
                 session.stopRunning()
             }
         }
@@ -215,6 +224,7 @@ extension ScanQRCodeViewController: AVCaptureMetadataOutputObjectsDelegate {
 }
 
 extension ScanQRCodeViewController: UIAlertViewDelegate {
+    
     func alertView(_ alertView: UIAlertView, clickedButtonAt buttonIndex: Int) {
         if buttonIndex == 1 {
             

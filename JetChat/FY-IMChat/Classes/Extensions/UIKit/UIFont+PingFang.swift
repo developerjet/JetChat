@@ -1,9 +1,9 @@
 //
 //  UIFont+PingFang.swift
-//  FY-IMChat
+//  FY-JetChat
 //
 //  Created by fisker.zhang on 2019/3/6.
-//  Copyright © 2019 development. All rights reserved.
+//  Copyright © 2019 Jett. All rights reserved.
 //
 
 import Foundation
@@ -25,7 +25,7 @@ extension UIFont {
         return UIFont(name: "PingFangSC-Semibold", size: size) ?? UIFont.systemFont(ofSize:size)
     }
     
-    /// 苹方 特粗体 PingFang-SC-Heavy
+    /// 苹方-特粗体 PingFang-SC-Heavy
     static func PingFangHeavy(_  size:CGFloat) -> UIFont {
         return UIFont(name: "PingFang-SC-Heavy", size: size) ?? UIFont.systemFont(ofSize:size)
     }

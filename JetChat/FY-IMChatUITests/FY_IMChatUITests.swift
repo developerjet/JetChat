@@ -1,9 +1,9 @@
 //
 //  MK_LWalletUITests.swift
-//  FY-IMChatUITests
+//  FY-JetChatUITests
 //
 //  Created by iOS.Jet on 2019/2/27.
-//  Copyright © 2019 iOS.Jet. All rights reserved.
+//  Copyright © 2019 Jett.Jet. All rights reserved.
 //
 
 import XCTest

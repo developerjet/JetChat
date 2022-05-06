@@ -1,17 +1,16 @@
 //
 //  AppCommon.swift
-//  FY-IMChat
+//  FY-JetChat
 //
 //  Created by iOS.Jet on 2019/2/27.
-//  Copyright © 2019 development. All rights reserved.
+//  Copyright © 2019 Jett. All rights reserved.
 //
 
 import UIKit
 import Reachability
 import SnapKit
 
-
-// MARK:- 常用距离
+// MARK: - 常用距离
 public let kScreen  = UIScreen.main.bounds
 public let kScreenW = UIScreen.main.bounds.size.width
 public let kScreenH = UIScreen.main.bounds.size.height
@@ -41,20 +40,14 @@ public let kStatusH = kWindowSafeAreaInset().top
 public let kNavigaH = 44 + kStatusH
 public let kTabBarH = 49 + kSafeAreaBottom
 
-// MARK:- 动画执行时间
+// MARK: - 动画执行时间
 let kDuration: TimeInterval = 3.0
 
-// MARK:- 偏好设置存储
+// MARK: - 偏好设置存储
 /// 应用是否首次启动
 public let kAppLaunchUserDefaultsKey = "kAppLaunchUserDefaultsKey"
 /// 应用当前语言设置
 public let kAppLanguageUserDefaultsKey = "kAppLanguageUserDefaultsKey"
-/// 用户基本信息
-public let kUserInfoSaveUserDefaultsKey = "kUserInfoSaveUserDefaultsKey"
-/// 用户名存储显示
-public let kUserAccountSaveUserDefaultsKey = "kUserAccountSaveUserDefaultsKey"
-/// 更换AppIcon
-public let kChangedAppIocnUserDefaultsKey = "kChangedAppIocnUserDefaultsKey"
 /// 白天夜间模式
 public let kThemeSettingUserDefaultKey = "kThemeSettingUserDefaultKey"
 
@@ -64,10 +57,10 @@ public let cachesURL = FileManager.default.urls(for: .cachesDirectory, in: .user
 public let libraryURL = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask)[0]
 
 
-// MARK:- 当前窗口
+// MARK: - 当前窗口
 let kCurrentWindow = UIApplication.shared.keyWindow
 
-// MARK:- 自定义打印日志
+// MARK: - 自定义打印日志
 func printLog<T>(_ message: T, fileName: String = #file, methodName: String = #function, lineNumber: Int = #line){
     //文件名、方法、行号、打印信息
     #if DEBUG
@@ -76,7 +69,7 @@ func printLog<T>(_ message: T, fileName: String = #file, methodName: String = #f
 }
 
 
-// MARK:- 系统信息相关
+// MARK: - 系统信息相关
 let infoDictionary = Bundle.main.infoDictionary!
 /// 程序名称
 let appDisplayName = infoDictionary["CFBundleDisplayName"] as! String
@@ -92,7 +85,7 @@ public let kDeviceUUID = { () -> String in
 }
 
 
-// MARK:- 屏幕适配375 | 6s尺寸
+// MARK: - 屏幕适配375 | 6s尺寸
 func kFitScale(AT: CGFloat) -> CGFloat {
     return (UIScreen.main.bounds.width / 375) * AT
 }

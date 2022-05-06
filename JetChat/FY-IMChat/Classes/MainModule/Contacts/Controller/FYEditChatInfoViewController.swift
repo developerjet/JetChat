@@ -1,14 +1,13 @@
 //
 //  FYEditChatInfoViewController.swift
-//  FY-IMChat
+//  FY-JetChat
 //
 //  Created by iOS.Jet on 2019/11/30.
-//  Copyright © 2019 MacOsx. All rights reserved.
+//  Copyright © 2019 Jett. All rights reserved.
 //
 
 import UIKit
 import RxSwift
-import RxTheme
 
 class FYEditChatInfoViewController: FYBaseViewController {
     
@@ -36,7 +35,7 @@ class FYEditChatInfoViewController: FYBaseViewController {
         button.isHidden = true
         button.sizeToFit()
         button.rxTapClosure { [weak self] in
-            self?.editDidAction()
+            self?.saveEditing()
         }
         return button
     }()
@@ -113,7 +112,9 @@ extension FYEditChatInfoViewController: UITextFieldDelegate {
         return true
     }
     
-    @objc func editDidAction() {
+    // MARK: - Action
+    
+    private func saveEditing() {
         myTextField.resignFirstResponder()
         chatModel?.nickName = myTextField.text ?? ""
         
@@ -121,7 +122,6 @@ extension FYEditChatInfoViewController: UITextFieldDelegate {
             FYDBQueryHelper.shared.updateFromChatModel(model, uid: uid)
             
             let messages = FYDBQueryHelper.shared.qureyFromMessagesWithChatId(uid)
-            
             for msgItem in messages {
                 if msgItem.sendType == 1 {
                     if let message = FYDBQueryHelper.shared.queryMessageWithMsgId(msgItem.messageId!) {
@@ -131,10 +131,10 @@ extension FYEditChatInfoViewController: UITextFieldDelegate {
                 }
             }
             
-            MBHUD.showStatus("正在保存...".rLocalized())
-            
             NotificationCenter.default.post(name: .kNeedRefreshSesstionList, object: nil)
             NotificationCenter.default.post(name: .kNeedRefreshChatInfoList, object: nil)
+            
+            MBHUD.showStatus("正在保存...".rLocalized())
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.25) {
                 MBHUD.hide()
                 self.navigationController?.popToRootViewController(animated: true)

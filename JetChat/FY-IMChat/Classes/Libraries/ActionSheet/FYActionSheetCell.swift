@@ -1,5 +1,5 @@
 //
-//  PGTableViewTitleCell.swift
+//  FYActionSheetCell.swift
 //  PGActionSheet
 //
 //  Created by piggybear on 2017/10/3.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PGTableViewTitleCell: UITableViewCell {
+class FYActionSheetCell: UITableViewCell {
     
     var title: String? {
         didSet {
@@ -23,6 +23,16 @@ class PGTableViewTitleCell: UITableViewCell {
             }
             
             titleLabel.font = font
+        }
+    }
+    
+    var textColor: UIColor? {
+        didSet {
+            guard let color = textColor else {
+                return
+            }
+            
+            titleLabel.textColor = color
         }
     }
     
@@ -45,10 +55,12 @@ class PGTableViewTitleCell: UITableViewCell {
     }()
     
     private lazy var lineView: UIView = {
-         let view = UIView()
+        let view = UIView()
         view.theme.backgroundColor = themed { $0.FYColor_BorderColor_V1 }
-         return view
-     }()
+        return view
+    }()
+    
+    // MARK: - life cycle
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

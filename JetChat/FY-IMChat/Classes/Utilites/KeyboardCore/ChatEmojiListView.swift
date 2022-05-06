@@ -1,9 +1,9 @@
 //
 //  ChatEmojiListView.swift
-//  FY-IMChat
+//  FY-JetChat
 //
 //  Created by iOS.Jet on 2019/11/14.
-//  Copyright © 2019 MacOsx. All rights reserved.
+//  Copyright © 2019 Jett. All rights reserved.
 //
 
 import UIKit
@@ -33,6 +33,7 @@ extension ChatEmojiListViewDelegate {
 
 class ChatEmojiListView: UIView {
     
+    private var selectedIndex: Int = 0
     private let kBottomMargin: CGFloat = 8
     private let kBottomHeight: CGFloat = 44
     
@@ -154,6 +155,7 @@ class ChatEmojiListView: UIView {
         return v
     }()
     
+    
     // MARK: - life cycle
     
     override init(frame: CGRect) {
@@ -258,6 +260,10 @@ class ChatEmojiListView: UIView {
     }
     
     @objc func emojiAction(_ button: UIButton) {
+        if self.selectedIndex == button.tag - 1000 {
+            return;
+        }
+        
         switch button.tag {
         case 1000:
             dataSource = ChatEmotionHelper.getAppleAllEmotions()
@@ -267,7 +273,8 @@ class ChatEmojiListView: UIView {
             break
         }
         
-        emojiSelection(index: button.tag - 1000)
+        selectedIndex = button.tag - 1000
+        emojiSelection(index: selectedIndex)
         
         reloadData()
     }
@@ -277,9 +284,13 @@ class ChatEmojiListView: UIView {
     @objc
     func emojiSelection(index: Int) {
         // 选择emoji类型
-        emojiSelectView.snp.updateConstraints { make in
-            make.left.equalToSuperview().offset(70 * index)
+        UIView.animate(withDuration: 0.25) {
+            self.emojiSelectView.snp.updateConstraints { make in
+                make.left.equalToSuperview().offset(70 * index)
+            }
         }
+        
+        emojiSelectView.superview?.layoutIfNeeded()
     }
     
     @objc
@@ -293,16 +304,23 @@ class ChatEmojiListView: UIView {
 extension ChatEmojiListView {
     
     @objc func contentDidChanged(_ noti: Notification) {
-        guard let object = noti.object as? String else {
+        if (noti.object == nil) {
             return
         }
         
-        printLog("object -- \(object)")
-        sendButton.isEnabled = object.length > 0
+        if let insertText = noti.object as? String {
+            printLog("String -- \(insertText)")
+            sendButton.isEnabled = insertText.length > 0
+        }
+        
+        if let insertAttrs = noti.object as? NSAttributedString {
+            printLog("NSAttributedString -- \(insertAttrs)")
+            sendButton.isEnabled = insertAttrs.length > 0
+        }
     }
 }
 
-// MARK:- UICollectionViewDataSource
+// MARK: - UICollectionViewDataSource
 
 extension ChatEmojiListView: UICollectionViewDataSource {
     

@@ -86,7 +86,7 @@ class FYBaseNavigationController: UINavigationController {
         
         if #available(iOS 13, *) {
             let appearance = UINavigationBarAppearance()
-            //重置导航栏背景颜色和阴影
+            // 重置导航栏背景颜色和阴影
             appearance.configureWithOpaqueBackground()
             appearance.shadowImage = UIImage()
             appearance.shadowColor = nil

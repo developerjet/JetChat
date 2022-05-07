@@ -50,6 +50,9 @@ class FYConversationCell: UITableViewCell {
     private lazy var avatarView: UIImageView = {
         let imageView = UIImageView()
         imageView.cornerRadius = 7
+        imageView.tapClosure { [weak self] in
+            self?.avatarTapAction()
+        }
         return imageView
     }()
     
@@ -62,10 +65,10 @@ class FYConversationCell: UITableViewCell {
     
     private lazy var badgeLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = .red
-        label.textColor = .white
         label.isHidden = true
-        label.font = UIFont.systemFont(ofSize: 9)
+        label.textColor = .white
+        label.backgroundColor = .red
+        label.font = .PingFangRegular(9)
         label.textAlignment = .center
         label.cornerRadius = 8
         return label
@@ -86,6 +89,11 @@ class FYConversationCell: UITableViewCell {
         return label
     }()
     
+    lazy var lineView: UIView = {
+        let v = UIView()
+        v.theme.backgroundColor = themed { $0.FYColor_BorderColor_V2 }
+        return v
+    }()
     
     // MARK: - life cycle
     
@@ -114,11 +122,8 @@ class FYConversationCell: UITableViewCell {
         contentView.addSubview(dateLabel)
         contentView.addSubview(messageLabel)
         contentView.addSubview(badgeLabel)
-        
-        let tap = UITapGestureRecognizer.init(target: self, action: #selector(avatarTapAction))
-        avatarView.isUserInteractionEnabled = true
-        avatarView.addGestureRecognizer(tap)
-        
+        contentView.addSubview(lineView)
+                
         avatarView.snp.makeConstraints { (make) in
             make.left.equalToSuperview().offset(14)
             make.centerY.equalToSuperview()
@@ -146,6 +151,12 @@ class FYConversationCell: UITableViewCell {
             make.left.equalTo(nameLabel)
             make.top.equalTo(nameLabel.snp.bottom).offset(20)
             make.right.equalToSuperview().offset(-14)
+        }
+        
+        lineView.snp.makeConstraints { make in
+            make.bottom.right.equalToSuperview()
+            make.left.equalTo(avatarView)
+            make.height.equalTo(0.7)
         }
     }
     

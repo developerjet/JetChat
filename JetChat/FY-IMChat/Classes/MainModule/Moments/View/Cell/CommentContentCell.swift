@@ -22,7 +22,7 @@ class CommentContentCell: UITableViewCell {
     
     fileprivate lazy var titleBtn: UIButton = {
         let btn = UIButton(type: .custom)
-        btn.setTitleColor(mDarkBlueColor, for: .normal)
+        btn.theme.titleColor(from: themed { $0.FYColor_Main_TextColor_V1 }, for: .normal)
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         btn.contentHorizontalAlignment = .left
         btn.addTarget(self, action: #selector(click(_:)), for: .touchUpInside)
@@ -32,7 +32,7 @@ class CommentContentCell: UITableViewCell {
     fileprivate lazy var contentLb: FYLabel = {
         let lb = FYLabel()
         lb.font = UIFont.systemFont(ofSize: 14)
-        lb.textColor = mBlackColor
+        lb.theme.textColor = themed{ $0.FYColor_Main_TextColor_V3 }
         lb.numberOfLines = 0
         return lb
     }()
@@ -63,8 +63,8 @@ class CommentContentCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        backgroundColor = .clear
-        contentView.isHidden = true
+        self.selectionStyle = .none
+        self.backgroundColor = .clear
         
         addSubview(avatarImageView)
         addSubview(titleBtn)

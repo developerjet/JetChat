@@ -91,8 +91,6 @@ func kFitScale(AT: CGFloat) -> CGFloat {
 }
 
 // MARK: - 朋友圈
-let mBlackColor = UIColor.colorWithHexStr("444444")
 let mDarkBlueColor = UIColor.colorWithHexStr("375793")
-let mCoverColor = UIColor(red: 104, green: 114, blue: 140)
 
 let mImageW = (kScreenW - 156) / 3

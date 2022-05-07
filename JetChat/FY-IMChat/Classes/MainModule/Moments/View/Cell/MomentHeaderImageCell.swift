@@ -32,7 +32,7 @@ class MomentHeaderImageCell: UICollectionViewCell {
     fileprivate lazy var usernameLb: UILabel = {
         let lb = UILabel()
         lb.frame = CGRect(x: avatarImageView.frame.maxX+10, y: avatarImageView.frame.minY+2, width: MomentHeaderCell.contentW, height: 20)
-        lb.textColor = mCoverColor
+        lb.theme.textColor = themed{ $0.FYColor_Main_TextColor_V2 }
         lb.font = UIFont.boldSystemFont(ofSize: 17)
         return lb
     }()
@@ -41,6 +41,7 @@ class MomentHeaderImageCell: UICollectionViewCell {
         let lb = FYLabel()
         lb.frame = CGRect(x: usernameLb.frame.minX, y: usernameLb.frame.maxY+5, width: MomentHeaderCell.contentW, height: 0)
         lb.font = UIFont.systemFont(ofSize: 17)
+        lb.theme.textColor = themed{ $0.FYColor_Main_TextColor_V1 }
         lb.numberOfLines = 0
         lb.showFavor = {[weak self] in
             guard let self = self else { return }
@@ -66,8 +67,8 @@ class MomentHeaderImageCell: UICollectionViewCell {
         let btn = UIButton(type: .custom)
         btn.setTitle("展开", for: .normal)
         btn.setTitle("收起", for: .selected)
-        btn.setTitleColor(.blue, for: .normal)
-        btn.setTitleColor(.blue, for: .selected)
+        btn.setTitleColor(.Color_Blue_1890FF, for: .normal)
+        btn.setTitleColor(.Color_Blue_1890FF, for: .selected)
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         btn.addTarget(self, action: #selector(click(_:)), for: .touchUpInside)
         btn.sizeToFit()
@@ -91,11 +92,14 @@ class MomentHeaderImageCell: UICollectionViewCell {
 extension MomentHeaderImageCell {
     
     func setup() {
+        self.theme.backgroundColor = themed { $0.FYColor_BackgroundColor_V5 }
+        
         addSubview(avatarImageView)
         addSubview(usernameLb)
         addSubview(contentLb)
         addSubview(singleImageView)
         addSubview(expendBtn)
+        
         setLabel()
     }
     

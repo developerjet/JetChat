@@ -42,7 +42,7 @@ class FYBaseViewController: UIViewController {
         let frame = CGRect(x: 0, y: 0, width: kScreenW, height: self.view.height)
         let table = UITableView(frame: frame, style: .plain)
         table.backgroundColor = .clear
-        table.theme.separatorColor = themed{ $0.FYColor_BorderColor_V2 }
+        table.separatorColor = .clear
         table.delegate = self as? UITableViewDelegate
         table.dataSource = self as? UITableViewDataSource
         table.showsVerticalScrollIndicator = false
@@ -61,7 +61,7 @@ class FYBaseViewController: UIViewController {
         let frame = CGRect(x: 0, y: 0, width: kScreenW, height: self.view.height)
         let table = UITableView(frame: frame, style: .grouped)
         table.backgroundColor = .clear
-        table.theme.separatorColor = themed{ $0.FYColor_BorderColor_V2 }
+        table.separatorColor = .clear
         table.delegate = self as? UITableViewDelegate
         table.dataSource = self as? UITableViewDataSource
         table.showsVerticalScrollIndicator = false

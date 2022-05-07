@@ -35,7 +35,7 @@ class MomentTopCell: UICollectionViewCell {
         let lb = UILabel()
         lb.frame = CGRect(x: 0, y: avatarImageView.frame.minY + space, width: avatarImageView.frame.minX - space, height: 30)
         lb.textAlignment = .right
-        lb.textColor = .white
+        lb.theme.textColor = themed { $0.FYColor_Placeholder_Color_V3 }
         lb.font = .PingFangSemibold(18)
         return lb
     }()
@@ -49,10 +49,14 @@ class MomentTopCell: UICollectionViewCell {
         super.init(coder: coder)
         setup()
     }
+    
     func setup() {
+        theme.backgroundColor = themed { $0.FYColor_BackgroundColor_V5 }
+        
         addSubview(bgImageView)
         addSubview(avatarImageView)
         addSubview(userNameLabel)
+        
         bgImageView.frame.origin.y -= topOffset
         avatarImageView.frame.origin.y -= topOffset
         userNameLabel.frame.origin.y -= topOffset

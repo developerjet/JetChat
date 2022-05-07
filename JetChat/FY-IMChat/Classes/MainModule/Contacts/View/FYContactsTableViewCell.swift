@@ -31,16 +31,12 @@ class FYContactsTableViewCell: UITableViewCell {
     
     var didAvatarCallClosure : ((FYMessageChatModel)->Void)?
     
-    private lazy var tap: UITapGestureRecognizer = {
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(avatarAction))
-        return gesture
-    }()
-    
     private lazy var avatarView: UIImageView = {
         let imageView = UIImageView()
-        imageView.isUserInteractionEnabled = true
-        imageView.addGestureRecognizer(tap)
         imageView.cornerRadius = 7
+        imageView.tapClosure { [weak self] in
+            self?.avatarAction()
+        }
         return imageView
     }()
     
@@ -62,6 +58,12 @@ class FYContactsTableViewCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.isHidden = true
         return imageView
+    }()
+    
+    lazy var lineView: UIView = {
+        let v = UIView()
+        v.theme.backgroundColor = themed { $0.FYColor_BorderColor_V2 }
+        return v
     }()
     
     
@@ -91,6 +93,7 @@ class FYContactsTableViewCell: UITableViewCell {
         contentView.addSubview(nameLabel)
         contentView.addSubview(uidLabel)
         contentView.addSubview(selectedView)
+        contentView.addSubview(lineView)
         
         avatarView.snp.makeConstraints { (make) in
             make.left.equalToSuperview().offset(14)
@@ -114,6 +117,12 @@ class FYContactsTableViewCell: UITableViewCell {
             make.centerY.equalToSuperview()
             make.right.equalToSuperview().offset(-14)
         }
+        
+        lineView.snp.makeConstraints { make in
+            make.bottom.right.equalToSuperview()
+            make.left.equalTo(avatarView)
+            make.height.equalTo(0.7)
+        }
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -133,5 +142,4 @@ class FYContactsTableViewCell: UITableViewCell {
             didAvatarCallClosure?(self.model!)
         }
     }
-    
 }

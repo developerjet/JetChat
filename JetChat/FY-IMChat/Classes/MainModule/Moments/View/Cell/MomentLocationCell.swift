@@ -15,7 +15,7 @@ class MomentLocationCell: UICollectionViewCell {
     fileprivate lazy var locationBtn: UIButton = {
         let btn = UIButton(type: .custom)
         btn.frame.origin = CGPoint(x: MomentHeaderCell.contentLeft, y: 0)
-        btn.setTitleColor(UIColor.colorWithHexStr("7B7F8E"), for: .normal)
+        btn.theme.titleColor(from: themed { $0.FYColor_Main_TextColor_V4 }, for: .normal)
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 13)
         btn.sizeToFit()
         btn.addTarget(self, action: #selector(click(_:)), for: .touchUpInside)
@@ -33,6 +33,8 @@ class MomentLocationCell: UICollectionViewCell {
     }
     
     func makeUI() {
+        self.theme.backgroundColor = themed { $0.FYColor_BackgroundColor_V5 }
+        
         addSubview(locationBtn)
     }
     

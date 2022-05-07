@@ -39,7 +39,7 @@ class OperateMenuView: UIView {
     fileprivate lazy var contentView: UIView = {
         let v = UIView()
         v.frame = CGRect(x: 0, y: 0, width: 160, height: 36)
-        v.backgroundColor = mBlackColor
+        v.theme.backgroundColor = themed { $0.FYColor_BackgroundColor_V6 }
         v.layer.cornerRadius = 5
         v.layer.masksToBounds = true
         return v

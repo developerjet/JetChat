@@ -25,7 +25,7 @@ class MomentBottomCell: UICollectionViewCell {
     fileprivate lazy var timeLb: UILabel = {
         let lb = UILabel()
         lb.sizeToFit()
-        lb.textColor = UIColor.colorWithHexStr("BCBBBD")
+        lb.theme.textColor = themed{ $0.FYColor_Main_TextColor_V4 }
         lb.font = UIFont.systemFont(ofSize: 13)
         return lb
     }()
@@ -34,6 +34,7 @@ class MomentBottomCell: UICollectionViewCell {
         let btn = UIButton(type: .custom)
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         btn.setTitleColor(.blue, for: .normal)
+        btn.theme.titleColor(from: themed { $0.FYColor_Main_TextColor_V12 }, for: .normal)
         btn.setTitle("删除".rLocalized(), for: .normal)
         btn.addTarget(self, action: #selector(click(_:)), for: .touchUpInside)
         btn.tag = 1
@@ -44,7 +45,7 @@ class MomentBottomCell: UICollectionViewCell {
         let btn = UIButton(type: .custom)
         btn.frame = CGRect(x: kScreenW-MomentHeaderCell.padding-30, y: 5, width: 30, height: 20)
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 20)
-        btn.setTitleColor(mCoverColor, for: .normal)
+        btn.theme.titleColor(from: themed { $0.FYColor_Main_TextColor_V2 }, for: .normal)
         btn.setTitle("··", for: .normal)
         btn.backgroundColor = .groupTableViewBackground
         btn.layer.cornerRadius = 2
@@ -79,6 +80,8 @@ class MomentBottomCell: UICollectionViewCell {
 fileprivate extension MomentBottomCell {
     
     func setup() {
+        self.theme.backgroundColor = themed { $0.FYColor_BackgroundColor_V5 }
+        
         addSubview(timeLb)
         addSubview(deleteBtn)
         addSubview(moreBtn)

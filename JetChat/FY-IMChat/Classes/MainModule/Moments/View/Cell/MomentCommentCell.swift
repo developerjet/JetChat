@@ -23,11 +23,11 @@ extension MomentCommentDelegate {
 
 class MomentCommentCell: UICollectionViewCell {
     
-    fileprivate lazy var contentV: UIView = {
+    fileprivate lazy var containerView: UIView = {
         let v = UIView()
         let x = MomentHeaderCell.padding
         v.frame = CGRect(x: x, y: 10, width: bounds.width-x*2, height: 0)
-        v.backgroundColor = UIColor.groupTableViewBackground.withAlphaComponent(0.5)
+        v.theme.backgroundColor = themed { $0.FYColor_BackgroundColor_V1 }
         v.layer.cornerRadius = 5
         v.layer.masksToBounds = true
         return v
@@ -63,16 +63,17 @@ class MomentCommentCell: UICollectionViewCell {
     
     fileprivate lazy var divisionV: UIView = {
         let v = UIView()
-        v.frame = CGRect(x: 0, y: 0, width: contentV.bounds.width, height: 1)
-        v.backgroundColor = UIColor.colorWithHexStr("e5e5e5")
+        v.frame = CGRect(x: 0, y: 0, width: containerView.bounds.width, height: 0.65)
+        v.theme.backgroundColor = themed { $0.FYColor_BorderColor_V2 }
         return v
     }()
     
     fileprivate lazy var separatorV: UIView = {
         let v = UIView(frame: bounds)
-        v.backgroundColor = UIColor.colorWithHexStr("F0F0F0")
+        v.theme.backgroundColor = themed { $0.FYColor_BorderColor_V1 }
         return v
     }()
+    
     weak var actionDelegate: MomentCommentDelegate?
     
     override init(frame: CGRect) {
@@ -86,13 +87,15 @@ class MomentCommentCell: UICollectionViewCell {
     }
     
     func setup() {
-        addSubview(contentV)
-        contentV.addSubview(thumbIcon)
-        contentV.addSubview(thumbView)
+        self.theme.backgroundColor = themed { $0.FYColor_BackgroundColor_V5 }
         
-        contentV.addSubview(divisionV)
-        contentV.addSubview(commentIcon)
-        contentV.addSubview(commentView)
+        addSubview(containerView)
+        containerView.addSubview(thumbIcon)
+        containerView.addSubview(thumbView)
+        
+        containerView.addSubview(divisionV)
+        containerView.addSubview(commentIcon)
+        containerView.addSubview(commentView)
         
         addSubview(separatorV)
         
@@ -110,10 +113,10 @@ extension MomentCommentCell: ListBindable {
     func bindViewModel(_ viewModel: Any) {
         guard let viewModel = viewModel as? FYMomentInfo else { return }
         self.viewModel = viewModel
-        contentV.frame.size.height = viewModel.contentHeight
+        containerView.frame.size.height = viewModel.contentHeight
         
         let minX = thumbIcon.frame.maxX + thumbIcon.frame.minX
-        thumbView.frame = CGRect(x: minX, y: 5, width: contentV.bounds.width-minX, height: viewModel.thumbsHeight-10)
+        thumbView.frame = CGRect(x: minX, y: 5, width: containerView.bounds.width-minX, height: viewModel.thumbsHeight-10)
         thumbView.isRounds = true
         thumbView.images = viewModel.comments.map({$0.avatar_url})
         

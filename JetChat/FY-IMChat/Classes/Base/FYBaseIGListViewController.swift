@@ -10,7 +10,7 @@ import UIKit
 import IGListKit
 import IGListDiffKit
 
-class FYBaseIGListViewController: UIViewController {
+class FYBaseIGListViewController: FYBaseViewController {
 
     // MARK: - lazy var
     
@@ -18,14 +18,14 @@ class FYBaseIGListViewController: UIViewController {
     
     /// 朋友圈-列表
     lazy var collectionView: UICollectionView = {
-        let flow = UICollectionViewFlowLayout()
-        let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: flow)
+        let flowLayout = UICollectionViewFlowLayout()
+        let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: flowLayout)
         if #available(iOS 11.0, *) {
             collectionView.contentInsetAdjustmentBehavior = .never
         } else {
             automaticallyAdjustsScrollViewInsets = false
         }
-        collectionView.backgroundColor = UIColor.white
+        collectionView.backgroundColor = .clear
         return collectionView
     }()
     
@@ -53,7 +53,7 @@ class FYBaseIGListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.white
+        view.theme.backgroundColor = themed { $0.FYColor_BackgroundColor_V5 }
         
         self.fd_prefersNavigationBarHidden = true
         self.automaticallyAdjustsScrollViewInsets = false
@@ -77,11 +77,6 @@ class FYBaseIGListViewController: UIViewController {
         view.endEditing(true)
         UIApplication.shared.keyWindow?.endEditing(true)
     }
-    
-    // MARK: - 提供子类重写
-    open func makeUI() { }
-    open func createViewModel() { }
-    open func bindViewModel() { }
 }
 
 // MARK: - <ListAdapterDataSource>

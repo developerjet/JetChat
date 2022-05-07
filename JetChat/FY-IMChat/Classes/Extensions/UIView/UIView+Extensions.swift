@@ -358,6 +358,22 @@ extension UIView {
     
 }
 
+// MARK: - Reactive Tap
+
+extension UIView {
+    
+    func tapClosure(callback:(@escaping() -> ())) {
+        let tapGesture = UITapGestureRecognizer()
+        self.isUserInteractionEnabled = true
+        self.addGestureRecognizer(tapGesture)
+        
+        // 绑定方式实现
+        tapGesture.rx.event.bind { _ in
+            callback()
+        }.disposed(by: rx.disposeBag)
+    }
+}
+
 // MARK: - ThemeProxy
 
 public extension ThemeProxy where Base: UITextField {
@@ -374,7 +390,7 @@ public extension ThemeProxy where Base: UITextField {
 @available(iOS 13.0, *)
 public extension ThemeProxy where Base: UIBarAppearance {
     
-    /// (set only) bind a stream to borderColor
+    /// (set only) bind a stream to backgroundColor
     var backgroundColor: ThemeAttribute<UIColor?> {
         get { fatalError("set only") }
         set {

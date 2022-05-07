@@ -43,10 +43,10 @@ class CommentContentView: UITableView {
     
     init(frame: CGRect) {
         super.init(frame: frame, style: .plain)
-        delegate = self
-        dataSource = self
-        backgroundColor = .clear
-        separatorColor = UIColor.colorWithHexStr("F0F0F0") 
+        self.delegate = self
+        self.dataSource = self
+        self.backgroundColor = .clear
+        
         separatorInset = UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 0)
     }
     

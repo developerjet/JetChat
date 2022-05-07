@@ -21,12 +21,12 @@ extension UIFont {
     }
     
     /// 苹方-简 中粗体 PingFangSC-Semibold
-    static func PingFangSemibold(_  size:CGFloat) -> UIFont {
+    static func PingFangSemibold(_ size:CGFloat) -> UIFont {
         return UIFont(name: "PingFangSC-Semibold", size: size) ?? UIFont.systemFont(ofSize:size)
     }
     
     /// 苹方-特粗体 PingFang-SC-Heavy
-    static func PingFangHeavy(_  size:CGFloat) -> UIFont {
+    static func PingFangHeavy(_ size:CGFloat) -> UIFont {
         return UIFont(name: "PingFang-SC-Heavy", size: size) ?? UIFont.systemFont(ofSize:size)
     }
 }

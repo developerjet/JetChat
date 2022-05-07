@@ -2,7 +2,7 @@
 //  NSArray+Extension.swift
 //  EmiotAppCode
 //
-//  Created by 张炯枫 on 2017/5/27.
+//  Created by Jett on 2017/5/27.
 //  Copyright © 2017年 Zehuihong. All rights reserved.
 //
 
@@ -28,6 +28,7 @@ extension Array {
 }
 
 extension Array where Element: Hashable {
+    
     // 数组去重处理
     var unique:[Element] {
         var uniq = Set<Element>()

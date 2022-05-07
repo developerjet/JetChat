@@ -16,11 +16,12 @@ protocol CommentInputViewDelegate: NSObjectProtocol {
     /// 点击发送
     func onSend(_ text: String) -> Void
 }
+
 class CommentInputView: UIView {
     fileprivate(set) lazy var contentView: UIView = {
         let v = UIView()
         v.frame = CGRect(x: 0, y: kScreenH, width: kScreenW, height: contentMinHeight)
-        v.backgroundColor = .groupTableViewBackground
+        v.theme.backgroundColor = themed { $0.FYColor_BackgroundColor_V13 }
         
         let layer = CALayer()
         layer.backgroundColor = UIColor.lightGray.cgColor
@@ -28,6 +29,7 @@ class CommentInputView: UIView {
         v.layer.addSublayer(layer)
         return v
     }()
+    
     /// 容器的最小高度
     fileprivate let contentMinHeight: CGFloat = 50
     /// 容器最大高度
@@ -49,8 +51,8 @@ class CommentInputView: UIView {
     
     fileprivate(set) lazy var textView: FYTextView = {
         let v = FYTextView()
-        v.backgroundColor = .white
-        v.textColor = mBlackColor
+        v.theme.backgroundColor = themed { $0.FYColor_BackgroundColor_V12 }
+        v.theme.textColor = themed { $0.FYColor_Main_TextColor_V1 }
         v.placeholder = "评论".rLocalized()
         v.lineBreak = false
         v.returnKeyType = .send

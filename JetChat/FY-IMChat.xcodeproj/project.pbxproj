@@ -119,6 +119,14 @@
 		4C4A1A2F2818DABA00CDD3B1 /* BottomPopupPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4A1A262818DABA00CDD3B1 /* BottomPopupPresentationController.swift */; };
 		4C4A1A332818DB7200CDD3B1 /* FYActionSheetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4A1A312818DB7200CDD3B1 /* FYActionSheetCell.swift */; };
 		4C4A1A342818DB7200CDD3B1 /* FYActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4A1A322818DB7200CDD3B1 /* FYActionSheet.swift */; };
+		4C509CB528267AE700CE66DF /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C509CB428267AE700CE66DF /* WidgetKit.framework */; };
+		4C509CB728267AE700CE66DF /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C509CB628267AE700CE66DF /* SwiftUI.framework */; };
+		4C509CBA28267AE700CE66DF /* JetChatWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C509CB928267AE700CE66DF /* JetChatWidget.swift */; };
+		4C509CBD28267AEA00CE66DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C509CBC28267AEA00CE66DF /* Assets.xcassets */; };
+		4C509CBF28267AEA00CE66DF /* JetChatWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 4C509CBB28267AE700CE66DF /* JetChatWidget.intentdefinition */; };
+		4C509CC028267AEA00CE66DF /* JetChatWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 4C509CBB28267AE700CE66DF /* JetChatWidget.intentdefinition */; };
+		4C509CC328267AEA00CE66DF /* JetChatWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4C509CB328267AE700CE66DF /* JetChatWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4C509CCA2826817A00CE66DF /* FYUserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C509CC92826817A00CE66DF /* FYUserDefaultManager.swift */; };
 		4C5579622817C3C3006D8A09 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5579612817C3C3006D8A09 /* ActivityIndicator.swift */; };
 		4C5E7B192824FAB000C968D3 /* FYMomentHeaderRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5E7B182824FAAF00C968D3 /* FYMomentHeaderRefresh.swift */; };
 		4C5FB429281A974C001F70E3 /* FYLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5FB427281A974C001F70E3 /* FYLabel.swift */; };
@@ -202,7 +210,28 @@
 			remoteGlobalIDString = 2ECBFDAE22269BF300871913;
 			remoteInfo = "FY-IMChat";
 		};
+		4C509CC128267AEA00CE66DF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2ECBFDA722269BF300871913 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4C509CB228267AE700CE66DF;
+			remoteInfo = JetChatWidgetExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4C509CC428267AEA00CE66DF /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				4C509CC328267AEA00CE66DF /* JetChatWidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		271C026123929B3A0041617F /* ChatMoreMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMoreMenuView.swift; sourceTree = "<group>"; };
@@ -330,6 +359,16 @@
 		4C4A1A262818DABA00CDD3B1 /* BottomPopupPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomPopupPresentationController.swift; sourceTree = "<group>"; };
 		4C4A1A312818DB7200CDD3B1 /* FYActionSheetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYActionSheetCell.swift; sourceTree = "<group>"; };
 		4C4A1A322818DB7200CDD3B1 /* FYActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYActionSheet.swift; sourceTree = "<group>"; };
+		4C509CB328267AE700CE66DF /* JetChatWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = JetChatWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C509CB428267AE700CE66DF /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		4C509CB628267AE700CE66DF /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		4C509CB928267AE700CE66DF /* JetChatWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JetChatWidget.swift; sourceTree = "<group>"; };
+		4C509CBB28267AE700CE66DF /* JetChatWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = JetChatWidget.intentdefinition; sourceTree = "<group>"; };
+		4C509CBC28267AEA00CE66DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4C509CBE28267AEA00CE66DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C509CC828267B1A00CE66DF /* JetChatWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JetChatWidgetExtension.entitlements; sourceTree = "<group>"; };
+		4C509CC92826817A00CE66DF /* FYUserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FYUserDefaultManager.swift; sourceTree = "<group>"; };
+		4C509CCB28268BC600CE66DF /* FY-IMChat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "FY-IMChat.entitlements"; sourceTree = "<group>"; };
 		4C5579612817C3C3006D8A09 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		4C5E7B182824FAAF00C968D3 /* FYMomentHeaderRefresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYMomentHeaderRefresh.swift; sourceTree = "<group>"; };
 		4C5FB427281A974C001F70E3 /* FYLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYLabel.swift; sourceTree = "<group>"; };
@@ -421,6 +460,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4C509CB028267AE700CE66DF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C509CB728267AE700CE66DF /* SwiftUI.framework in Frameworks */,
+				4C509CB528267AE700CE66DF /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -794,9 +842,11 @@
 		2ECBFDA622269BF300871913 = {
 			isa = PBXGroup;
 			children = (
+				4C509CC828267B1A00CE66DF /* JetChatWidgetExtension.entitlements */,
 				2ECBFDB122269BF300871913 /* FY-IMChat */,
 				2ECBFDC622269BF400871913 /* FY-IMChatTests */,
 				2ECBFDD122269BF400871913 /* FY-IMChatUITests */,
+				4C509CB828267AE700CE66DF /* JetChatWidget */,
 				2ECBFDB022269BF300871913 /* Products */,
 				884BB488DBE648A934939F40 /* Frameworks */,
 				2EB8E28E223745C500FD3235 /* Recovered References */,
@@ -810,6 +860,7 @@
 				2ECBFDAF22269BF300871913 /* JetChat.app */,
 				2ECBFDC322269BF400871913 /* FY-IMChatTests.xctest */,
 				2ECBFDCE22269BF400871913 /* FY-IMChatUITests.xctest */,
+				4C509CB328267AE700CE66DF /* JetChatWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -817,6 +868,7 @@
 		2ECBFDB122269BF300871913 /* FY-IMChat */ = {
 			isa = PBXGroup;
 			children = (
+				4C509CCB28268BC600CE66DF /* FY-IMChat.entitlements */,
 				2BC1B0D8229134E600A5CB54 /* Assets.xcassets */,
 				2ECBFDE022269DBF00871913 /* Classes */,
 				2B166CED22534DFB0018AF62 /* LaunchScreen.storyboard */,
@@ -895,6 +947,17 @@
 			path = ActionSheet;
 			sourceTree = "<group>";
 		};
+		4C509CB828267AE700CE66DF /* JetChatWidget */ = {
+			isa = PBXGroup;
+			children = (
+				4C509CB928267AE700CE66DF /* JetChatWidget.swift */,
+				4C509CBB28267AE700CE66DF /* JetChatWidget.intentdefinition */,
+				4C509CBC28267AEA00CE66DF /* Assets.xcassets */,
+				4C509CBE28267AEA00CE66DF /* Info.plist */,
+			);
+			path = JetChatWidget;
+			sourceTree = "<group>";
+		};
 		4C5579602817C3C3006D8A09 /* RxActivityIndicator */ = {
 			isa = PBXGroup;
 			children = (
@@ -924,6 +987,7 @@
 			isa = PBXGroup;
 			children = (
 				4C5FB42C281AA7DD001F70E3 /* FYFileSizeManager.swift */,
+				4C509CC92826817A00CE66DF /* FYUserDefaultManager.swift */,
 			);
 			path = FileSizeManager;
 			sourceTree = "<group>";
@@ -1252,6 +1316,8 @@
 				2EF014782230FC7200681D4F /* JavaScriptCore.framework */,
 				2EF014762230FC6D00681D4F /* WebKit.framework */,
 				E374D4E527160347F32F8B70 /* Pods_FY_IMChat.framework */,
+				4C509CB428267AE700CE66DF /* WidgetKit.framework */,
+				4C509CB628267AE700CE66DF /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1269,10 +1335,12 @@
 				2ECBFDAC22269BF300871913 /* Frameworks */,
 				2ECBFDAD22269BF300871913 /* Resources */,
 				2E461CF143CEEA3003A03808 /* [CP] Embed Pods Frameworks */,
+				4C509CC428267AEA00CE66DF /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4C509CC228267AEA00CE66DF /* PBXTargetDependency */,
 			);
 			name = "FY-IMChat";
 			productName = "FY-IMChat";
@@ -1315,6 +1383,23 @@
 			productReference = 2ECBFDCE22269BF400871913 /* FY-IMChatUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		4C509CB228267AE700CE66DF /* JetChatWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4C509CC728267AEA00CE66DF /* Build configuration list for PBXNativeTarget "JetChatWidgetExtension" */;
+			buildPhases = (
+				4C509CAF28267AE700CE66DF /* Sources */,
+				4C509CB028267AE700CE66DF /* Frameworks */,
+				4C509CB128267AE700CE66DF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JetChatWidgetExtension;
+			productName = JetChatWidgetExtension;
+			productReference = 4C509CB328267AE700CE66DF /* JetChatWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1325,7 +1410,7 @@
 				KnownAssetTags = (
 					launchName,
 				);
-				LastSwiftUpdateCheck = 1010;
+				LastSwiftUpdateCheck = 1330;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = Jett;
 				TargetAttributes = {
@@ -1334,13 +1419,14 @@
 					};
 					2ECBFDC222269BF400871913 = {
 						CreatedOnToolsVersion = 10.1;
-						ProvisioningStyle = Automatic;
 						TestTargetID = 2ECBFDAE22269BF300871913;
 					};
 					2ECBFDCD22269BF400871913 = {
 						CreatedOnToolsVersion = 10.1;
-						ProvisioningStyle = Automatic;
 						TestTargetID = 2ECBFDAE22269BF300871913;
+					};
+					4C509CB228267AE700CE66DF = {
+						CreatedOnToolsVersion = 13.3.1;
 					};
 				};
 			};
@@ -1361,6 +1447,7 @@
 				2ECBFDAE22269BF300871913 /* FY-IMChat */,
 				2ECBFDC222269BF400871913 /* FY-IMChatTests */,
 				2ECBFDCD22269BF400871913 /* FY-IMChatUITests */,
+				4C509CB228267AE700CE66DF /* JetChatWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -1437,6 +1524,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4C509CB128267AE700CE66DF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C509CBD28267AEA00CE66DF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1610,6 +1705,7 @@
 				4C75A4462817D0F400E9EF54 /* FYVideoMessageCell.swift in Sources */,
 				27434018238D70D5004D5E3D /* ErrorTracker.swift in Sources */,
 				4CF27C1A281CF04B00DBD7EC /* FYDarkTheme.swift in Sources */,
+				4C509CC028267AEA00CE66DF /* JetChatWidget.intentdefinition in Sources */,
 				4C4A1A282818DABA00CDD3B1 /* BottomPopupViewController.swift in Sources */,
 				27433FB2238D70D4004D5E3D /* ConstraintArray+Extensions.swift in Sources */,
 				4C75A4402817D0F400E9EF54 /* FYChatBaseViewController.swift in Sources */,
@@ -1626,6 +1722,7 @@
 				4CF856A8281A40D400F48D4D /* MomentTopCell.swift in Sources */,
 				271C02C323929B3A0041617F /* ChatAppleEmojiCell.swift in Sources */,
 				4CF856A0281A40D400F48D4D /* MomentBottomCell.swift in Sources */,
+				4C509CCA2826817A00CE66DF /* FYUserDefaultManager.swift in Sources */,
 				4C4A1A2B2818DABA00CDD3B1 /* BottomPopupDismissAnimator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1646,6 +1743,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4C509CAF28267AE700CE66DF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C509CBF28267AEA00CE66DF /* JetChatWidget.intentdefinition in Sources */,
+				4C509CBA28267AE700CE66DF /* JetChatWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1658,6 +1764,11 @@
 			isa = PBXTargetDependency;
 			target = 2ECBFDAE22269BF300871913 /* FY-IMChat */;
 			targetProxy = 2ECBFDCF22269BF400871913 /* PBXContainerItemProxy */;
+		};
+		4C509CC228267AEA00CE66DF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4C509CB228267AE700CE66DF /* JetChatWidgetExtension */;
+			targetProxy = 4C509CC128267AEA00CE66DF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1805,8 +1916,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 98E659EF05275210EC83E03D /* Pods-FY-IMChat.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = "FY-IMChat/FY-IMChat.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z3CD857XLC;
@@ -1835,8 +1948,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5858C5E76CAB64DDB07738CD /* Pods-FY-IMChat.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = "FY-IMChat/FY-IMChat.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z3CD857XLC;
@@ -1866,8 +1981,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VFBVG2DLN3;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "FY-IMChatTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1876,6 +1991,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.miku.LWallet.FY-IMChatTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FY-IMChat.app/FY-IMChat";
@@ -1887,8 +2004,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VFBVG2DLN3;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "FY-IMChatTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1897,6 +2014,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.miku.LWallet.FY-IMChatTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FY-IMChat.app/FY-IMChat";
@@ -1907,8 +2026,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VFBVG2DLN3;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "FY-IMChatUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1917,6 +2036,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.miku.LWallet.FY-IMChatUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "FY-IMChat";
@@ -1927,8 +2048,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VFBVG2DLN3;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "FY-IMChatUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1937,9 +2058,75 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.miku.LWallet.FY-IMChatUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "FY-IMChat";
+			};
+			name = Release;
+		};
+		4C509CC528267AEA00CE66DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = JetChatWidgetExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z3CD857XLC;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = JetChatWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = JetChatWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2022 Jett. All rights reserved.";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jetchat.2022.JetChatWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4C509CC628267AEA00CE66DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = JetChatWidgetExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z3CD857XLC;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = JetChatWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = JetChatWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2022 Jett. All rights reserved.";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jetchat.2022.JetChatWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -1978,6 +2165,15 @@
 			buildConfigurations = (
 				2ECBFDDE22269BF400871913 /* Debug */,
 				2ECBFDDF22269BF400871913 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4C509CC728267AEA00CE66DF /* Build configuration list for PBXNativeTarget "JetChatWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C509CC528267AEA00CE66DF /* Debug */,
+				4C509CC628267AEA00CE66DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

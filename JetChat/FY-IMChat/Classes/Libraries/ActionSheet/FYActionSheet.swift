@@ -2,8 +2,8 @@
 //  FYActionSheet.swift
 //  FYActionSheet
 //
-//  Created by piggybear on 2017/10/2.
-//  Copyright © 2017年 piggybear. All rights reserved.
+//  Created by iOS.Jet on 2019/2/28.
+//  Copyright © 2019年 Jett. All rights reserved.
 //
 
 import Foundation

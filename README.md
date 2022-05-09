@@ -32,15 +32,17 @@ Swift5.0编写的简仿微信聊天应用，完美支持表情键盘、单聊、
 - 会话：最近聊天会话记录，并按照最近时间排序列表展示
 - 角标：单个会话未读消息数量展示，全部未读消息数量显示
 - 清除：单个消息删除，退出群，删除好友，消息会话角标清除，记录删除
-> 具体功能了解可以下载源码运行查看
+
+> 具体功能了解可以下载源码运行查看 https://github.com/developerjet/JetChat
 
 ### 新增功能
 - 朋友圈 - 通过IGList实现高帧率朋友圈列表滑动
 - 黑夜模式 - 通过RxTheme实现白天和黑夜主题模式切换并兼容iOS13跟随系统模式设置
 - 多语言切换 - 已新增简体中文、英文翻译
+- Widget - 新增最近聊天小组件
 
 ### Tips
 - 如果你有更好的建议和方案请在lssues提交
 
-### Licensed under the MIT licens.
+### Licensed under the [MIT licens](https://www.mit-license.org/).
 - 如果你对IM即时通讯感兴趣或者该项目对你有一些帮助，希望可以给我点个🌟Star🌟，非常感谢<br>

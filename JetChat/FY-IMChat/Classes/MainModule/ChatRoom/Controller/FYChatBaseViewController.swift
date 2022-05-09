@@ -175,6 +175,14 @@ class FYChatBaseViewController: FYBaseViewController {
         }
     }
     
+    private func saveWidgetData(item: FYMessageItem) {
+        if let object = item.toJSON() {
+            FYUserDefaultManager.saveWidgetObject(object)
+        }
+        
+        AppDelegate.app.reloadWidgetData()
+    }
+    
     private func stopChatTimer() {
         if isTimered {
             timer?.invalidate()
@@ -304,6 +312,8 @@ extension FYChatBaseViewController: ChatKeyboardViewDelegate {
                 self.restChatKeyboardSafeTop(self.keyboardView.y)
             }
         }
+        
+        saveWidgetData(item: msgItem)
     }
 }
 

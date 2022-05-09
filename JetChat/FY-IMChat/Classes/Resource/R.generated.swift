@@ -105,6 +105,17 @@ struct R: Rswift.Validatable {
   }
   #endif
 
+  /// This `R.entitlements` struct is generated, and contains static references to 1 properties.
+  struct entitlements {
+    struct comAppleSecurityApplicationGroups {
+      static let groupComJetchat2022JetChatWidget = infoPlistString(path: ["com.apple.security.application-groups"], key: "group.com.jetchat.2022.JetChatWidget") ?? "group.com.jetchat.2022.JetChatWidget"
+
+      fileprivate init() {}
+    }
+
+    fileprivate init() {}
+  }
+
   /// This `R.file` struct is generated, and contains static references to 49 files.
   struct file {
     /// Resource file `Emoticons.bundle`.

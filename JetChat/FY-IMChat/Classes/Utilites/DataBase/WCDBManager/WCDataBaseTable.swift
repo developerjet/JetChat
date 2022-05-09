@@ -15,6 +15,7 @@ enum WCDataBaseTable: String {
     case chatTable    = "chatTable"
     case messageTable = "messageTable"
     case sessionTable = "sessionTable"
+    
 }
 
 extension WCDataBaseTable {

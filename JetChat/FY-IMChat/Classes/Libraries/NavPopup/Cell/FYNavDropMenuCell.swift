@@ -10,7 +10,7 @@ import UIKit
 
 class FYNavDropMenuCell: UITableViewCell {
 
-    // MARK: - var lazy
+    // MARK: - setter && getter
     
     var model: FYCellDataConfig? {
         didSet {

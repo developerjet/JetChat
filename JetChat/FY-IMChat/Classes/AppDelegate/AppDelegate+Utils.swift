@@ -16,6 +16,7 @@ import RxCocoa
 import NSObject_Rx
 import SwifterSwift
 import RxTheme
+import WidgetKit
 
 extension AppDelegate {
     
@@ -25,10 +26,10 @@ extension AppDelegate {
         // 1.设置网络状态消息监听
         // 2.获得网络Reachability对象
         NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged(note:)), name: .reachabilityChanged, object: reachability)
-        do{
+        do {
             // 3.开启网络状态消息监听
             try reachability.startNotifier()
-        }catch{
+        }catch {
             print("could not start reachability notifier")
         }
     }
@@ -117,6 +118,17 @@ extension AppDelegate {
         }
     }
     
+    // 刷新Widget数据
+    func reloadWidgetData() {
+        
+        if #available(iOS 14.0, *) {
+            WidgetCenter.shared.reloadAllTimelines()
+            WidgetCenter.shared.reloadTimelines(ofKind: "JetChatWidget")
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+    
     // FPS
     func setupFPSStatus() {
 #if DEBUG
@@ -130,6 +142,8 @@ extension AppDelegate {
         appearanceSetting()
         networkStatusListener()
         LanguageManager.manager.initConfig()
+        
+        reloadWidgetData()
     }
 }
 

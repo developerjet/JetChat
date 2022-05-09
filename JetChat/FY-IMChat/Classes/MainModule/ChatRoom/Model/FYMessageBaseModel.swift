@@ -8,8 +8,9 @@
 
 import UIKit
 import WCDBSwift
+import HandyJSON
 
-class FYMessageBaseModel: NSObject {
+class FYMessageBaseModel: NSObject, HandyJSON {
     
     required override init() { }
 }

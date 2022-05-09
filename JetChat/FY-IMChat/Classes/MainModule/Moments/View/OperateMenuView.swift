@@ -74,7 +74,9 @@ class OperateMenuView: UIView {
         setup()
     }
 }
+
 fileprivate extension OperateMenuView {
+    
     func setup() {
         addSubview(contentView)
         isUserInteractionEnabled = true
@@ -127,12 +129,11 @@ fileprivate extension OperateMenuView {
     }
     
     @objc func hide() {
-        UIView.animate(withDuration: 0.25) {
-            self.alpha = 0
-        }
+        
         UIView.animate(withDuration: 0.25, animations: {
             self.contentView.alpha = 0
         }) { (_) in
+            self.alpha = 0
             self.removeFromSuperview()
         }
     }

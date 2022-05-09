@@ -15,7 +15,6 @@ enum SendType: Int {
     case someone = 1
 }
 
-
 class FYMessageItem: FYMessageBaseModel, TableCodable {
     
     /// 消息id（主键 - 自增长）

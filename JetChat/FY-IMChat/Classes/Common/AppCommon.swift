@@ -74,7 +74,7 @@ let infoDictionary = Bundle.main.infoDictionary!
 /// 程序名称
 let appDisplayName = infoDictionary["CFBundleDisplayName"] as! String
 /// 主程序版本号
-let majorVersion = infoDictionary["CFBundleShortVersionString"] as! String //主程序版本号
+let majorVersion = infoDictionary["CFBundleShortVersionString"] as! String
 
 /// 设备唯一标识码
 public let kDeviceUUID = { () -> String in
@@ -91,6 +91,5 @@ func kFitScale(AT: CGFloat) -> CGFloat {
 }
 
 // MARK: - 朋友圈
-let mDarkBlueColor = UIColor.colorWithHexStr("375793")
-
 let mImageW = (kScreenW - 156) / 3
+

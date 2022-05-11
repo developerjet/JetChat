@@ -195,6 +195,7 @@ extension UIColor {
     static var Color_Blue_186DD5: UIColor { UIColor(hex: 0x186DD5) }
     static var Color_Blue_1890FF: UIColor { UIColor(hex: 0x1890FF) }
     static var Color_Blue_0000FF: UIColor { UIColor(hex: 0x0000FF) }
+    static var Color_Blue_375793: UIColor { UIColor(hex: 375793) }
 
 
     // 粉

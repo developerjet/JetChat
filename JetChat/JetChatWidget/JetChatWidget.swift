@@ -73,7 +73,7 @@ func simpleModel(_ entryDate: Date) -> SimpleEntry
 struct JetChatWidgetEntryView : View {
     var entry: Provider.Entry
     
-    let msgItem = simpleModel(.now).object as? WidgetMsgItem
+    let msgItem = simpleModel(.now).object as! WidgetMsgItem
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -83,26 +83,27 @@ struct JetChatWidgetEntryView : View {
                 .font(.title3)
                 .padding(.horizontal)
             
-            Text(msgItem!.date)
+            Text(msgItem.date)
                 .foregroundColor(Color.black)
                 .lineLimit(4)
                 .font(.title3)
                 .padding(.horizontal)
             
-            Text("\(msgItem!.nickName ?? msgItem!.name)：\(msgItem!.message)")
+            Text("\(msgItem.nickName ?? msgItem.name)：\(msgItem.message)")
                 .foregroundColor(Color.white)
                 .lineLimit(4)
                 .font(.system(size: 14))
                 .padding(.horizontal)
             
         }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .leading)
-            .padding()
+            .padding(5)
             //widget背景图片
             .background(
                 Image("icon_widget_bg")
                     .resizable()
                     .scaledToFill()
-            )
+            ).widgetURL(URL(string: String(format: "https://www.jetchat.com/chatId=%ld", msgItem.chatId ?? -1)))
+
     }
 }
 
@@ -127,6 +128,8 @@ struct JetChatWidget_Previews: PreviewProvider {
 }
 
 struct WidgetMsgItem: Codable {
+    /// 聊天会话id
+    var chatId: Int?
     /// 用户名
     var name: String = ""
     /// 最近消息

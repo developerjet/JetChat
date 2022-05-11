@@ -95,7 +95,6 @@ extension AppDelegate {
     
     func configTheme() {
         // 上次所选主题
-        let lastThemeMode = FYThemeCenter.shared.currentTheme
         if (lastThemeMode == .system) {
             if #available(iOS 13.0, *) {
                 // iOS13可跟随系统
@@ -142,7 +141,7 @@ extension AppDelegate {
         appearanceSetting()
         networkStatusListener()
         LanguageManager.manager.initConfig()
-        
+        // 刷新Widget组件数据
         reloadWidgetData()
     }
 }

@@ -29,7 +29,7 @@ class CommentContentCell: UITableViewCell {
         return btn
     }()
     
-    fileprivate lazy var contentLb: FYLabel = {
+    fileprivate lazy var contentLabel: FYLabel = {
         let lb = FYLabel()
         lb.font = UIFont.systemFont(ofSize: 14)
         lb.theme.textColor = themed{ $0.FYColor_Main_TextColor_V3 }
@@ -44,9 +44,9 @@ class CommentContentCell: UITableViewCell {
 
             let reply: String? = "--"
             if let parent = reply, !parent.isEmpty {
-                contentLb.text = "回复\(parent)：\(comment.comment)"
+                contentLabel.text = "回复\(parent)：\(comment.comment)"
             }else {
-                contentLb.text = comment.comment
+                contentLabel.text = comment.comment
             }
         }
     }
@@ -68,8 +68,8 @@ class CommentContentCell: UITableViewCell {
         
         addSubview(avatarImageView)
         addSubview(titleBtn)
-        addSubview(contentLb)
-        setMultiLabel(contentLb)
+        addSubview(contentLabel)
+        setMultiLabel(contentLabel)
         
         avatarImageView.snp.makeConstraints { (make) in
             make.width.height.equalTo(40)
@@ -84,7 +84,7 @@ class CommentContentCell: UITableViewCell {
             make.trailing.lessThanOrEqualToSuperview().offset(-5)
         }
         
-        contentLb.snp.makeConstraints { (make) in
+        contentLabel.snp.makeConstraints { (make) in
             make.leading.equalTo(titleBtn)
             make.trailing.lessThanOrEqualToSuperview().offset(-5)
             make.top.equalTo(titleBtn.snp.bottom)
@@ -93,7 +93,7 @@ class CommentContentCell: UITableViewCell {
     
     private func setMultiLabel(_ label: FYLabel) {
         let reply = FYLabelType.custom(pattern: "回复(.+)：", start: 2, tender: -1)
-        label.customColor = [reply: mDarkBlueColor]
+        label.customColor = [reply: .Color_Blue_375793]
         label.enabledTypes = [.URL, .phone, reply]
         label.handleNormalTap {[weak self] text in
             self?.onTextClick?()

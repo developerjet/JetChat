@@ -154,11 +154,11 @@ extension FYChatRoomListViewController: UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let model = dataSource[safe: indexPath.row] {
-            let group = FYDBQueryHelper.shared.qureyFromChatId(model.uid!)
-            let chatVC = FYChatBaseViewController(chatModel: group)
+            let chatModel = FYDBQueryHelper.shared.qureyFromChatId(model.uid!)
+            let chatVC = FYChatBaseViewController(chatModel: chatModel)
             navigationController?.pushViewController(chatVC, animated: true)
             // clear
-            clearCurrentBadge(group)
+            clearCurrentBadge(chatModel)
         }
     }
     

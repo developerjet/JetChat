@@ -332,8 +332,11 @@ extension FYChatBaseViewController: TZImagePickerControllerDelegate {
             }
         }
         
-        if (type == .album || type == .video) {
+        switch type {
+        case .album, .video:
             present(imagePicker!, animated: true, completion: nil)
+        default:
+            break
         }
     }
 }

@@ -50,8 +50,8 @@ class FYSesstionListViewController: FYBaseViewController {
     override func makeUI() {
         super.makeUI()
         
-        let leftBarButtonItem = UIBarButtonItem(customView: clearButton)
-        navigationItem.leftBarButtonItem = leftBarButtonItem
+        let navLeftItem = UIBarButtonItem(customView: clearButton)
+        navigationItem.leftBarButtonItem = navLeftItem
         
         let rightBarButtonItem = UIBarButtonItem(image: R.image.icon_more_add(), style: .done, target: self, action: #selector(showPopMenu))
         navigationItem.rightBarButtonItem = rightBarButtonItem

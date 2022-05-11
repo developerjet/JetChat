@@ -8,7 +8,7 @@ Swift5.0编写的简仿微信聊天应用，完美支持表情键盘、单聊、
 [![support](https://img.shields.io/badge/support-ios%208%2B-orange.svg)](#) 
 
  ### Examples
-| 聊天 | 朋友圈 
+| 聊天 | 朋友圈 |
 | -- | -- |
 |![image](https://github.com/tanagile/JetChat/blob/master/ScreenShot/JetChat.gif)|![image](https://github.com/tanagile/JetChat/blob/master/ScreenShot/Moments.png)|
 
@@ -36,10 +36,10 @@ Swift5.0编写的简仿微信聊天应用，完美支持表情键盘、单聊、
 > 具体功能了解可以下载源码运行查看 https://github.com/developerjet/JetChat
 
 ### 新增功能
-- 朋友圈 - 通过IGList实现高帧率朋友圈列表滑动
-- 黑夜模式 - 通过RxTheme实现白天和黑夜主题模式切换并兼容iOS13跟随系统模式设置
-- 多语言切换 - 已新增简体中文、英文翻译
-- Widget - 新增最近聊天小组件，Widget点击跳转聊天室
+- 朋友圈：通过IGList实现高帧率朋友圈列表滑动
+- 黑夜模式：通过RxTheme实现白天和黑夜主题模式切换并兼容iOS13跟随系统模式设置
+- 多语言切换：已新增简体中文、英文翻译
+- Widget：新增最近聊天小组件，Widget点击跳转聊天室
 
 ### Tips
 - 如果你有更好的建议和方案请在lssues提交

@@ -10,11 +10,11 @@ Swift5.0编写的简仿微信聊天应用，完美支持表情键盘、单聊、
  ### Examples
 | 聊天 | 朋友圈 |
 | -- | -- |
-|![image](https://github.com/tanagile/JetChat/blob/master/ScreenShot/JetChat.gif)|![image](https://github.com/tanagile/JetChat/blob/master/ScreenShot/Moments.png)|
+|![image](https://github.com/developerjet/JetChat/blob/master/ScreenShot/JetChat.gif)|![image](https://github.com/developerjet/JetChat/blob/master/ScreenShot/Moments.png)|
 
 | 夜间模式 | 白天模式 |
 | -- | -- |
-|![image](https://github.com/tanagile/JetChat/blob/master/ScreenShot/DarkTheme.png)|![image](https://github.com/tanagile/JetChat/blob/master/ScreenShot/LightTheme.png)|
+|![image](https://github.com/developerjet/JetChat/blob/master/ScreenShot/DarkTheme.png)|![image](https://github.com/developerjet/JetChat/blob/master/ScreenShot/LightTheme.png)|
 
 ### 主要技术运用
 - 聊天功能采用RxSwift+MVVM响应式架构设计，通过ViewModel合理过渡处理消息数据，减轻Controller层业务计算
@@ -44,5 +44,5 @@ Swift5.0编写的简仿微信聊天应用，完美支持表情键盘、单聊、
 ### Tips
 - 如果你有更好的建议和方案请在lssues提交
 
-### Licensed under the [MIT licens](https://www.mit-license.org/).
+### Licensed under the [MIT licens](https://github.com/developerjet/JetChat/blob/master/LICENSE)
 - 如果你对该项目感兴趣或者对你有一些帮助，希望可以给我点个🌟Star🌟，非常感谢<br>

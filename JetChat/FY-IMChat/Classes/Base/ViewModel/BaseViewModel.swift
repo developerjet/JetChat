@@ -10,8 +10,6 @@ import Foundation
 import RxSwift
 import RxCocoa
 import Moya
-import HandyJSON
-import SwiftyJSON
 
 protocol ViewModelType {
     associatedtype Input
@@ -30,17 +28,15 @@ class BaseViewModel: NSObject {
     let footerLoading = ActivityIndicator()
     let error = ErrorTracker()
     
-    
     override init() {
         super.init()
         
         error.asDriver().drive(onNext: { (error) in
-            printLog("ViewModel ----------->error")
+            printLog("ViewModel error：\(error.localizedDescription)")
         }).disposed(by: rx.disposeBag)
     }
     
     deinit {
         print("\(type(of: self)):Deinited")
     }
-    
 }

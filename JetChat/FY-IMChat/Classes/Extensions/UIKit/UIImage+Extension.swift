@@ -87,12 +87,8 @@ extension UIImage {
     }
     
     /// 返回不被拉伸的图片
-    class func imageWithRenderingMode(_ image: UIImage?) -> UIImage {
-        if let newImage = image {
-            return newImage.withRenderingMode(.alwaysOriginal)
-        }else {
-            return UIImage()
-        }
+    class func imageWithRenderingMode(_ originalImage: UIImage) -> UIImage {
+        return originalImage.withRenderingMode(.alwaysOriginal)
     }
     
     /**

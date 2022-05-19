@@ -71,7 +71,7 @@ class FYMomentsViewController: FYBaseIGListViewController {
     
     private func addRefreshing() {
         
-        collectionView.mj_header = FYMomentHeaderRefresh(refreshingBlock: {[weak self] in
+        collectionView.mj_header = FYMomentsHeaderRefresh(refreshingBlock: {[weak self] in
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self?.collectionView.mj_header?.endRefreshing()
             }

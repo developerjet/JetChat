@@ -1,5 +1,5 @@
 //
-//  FYMomentHeaderRefresh.swift
+//  FYMomentsHeaderRefresh.swift
 //  FY-JetChat
 //
 //  Created by Jett on 2022/4/28.
@@ -11,9 +11,9 @@ import MJRefresh
 
 fileprivate let kHeaderHeight: CGFloat = 60
 
-class FYMomentHeaderRefresh: MJRefreshHeader {
+class FYMomentsHeaderRefresh: MJRefreshHeader {
     
-    lazy var rotateImageView: UIImageView = {
+    private lazy var rotateImageView: UIImageView = {
         let imageView = UIImageView(image: R.image.ic_album_reflash())
         return imageView
     }()

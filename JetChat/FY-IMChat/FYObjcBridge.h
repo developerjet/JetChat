@@ -11,7 +11,6 @@
 
 // MARK: - Objc
 #import <TZImagePickerController.h> ///<图片选择 ///<占位视图
-#import <MBProgressHUD/MBProgressHUD.h> ///<HUD
 #import <MJRefresh/MJRefresh.h>
 #import "UINavigationController+Extensions.h" //<导航栏返回处理
 #import <UIView_FDCollapsibleConstraints/UIView+FDCollapsibleConstraints.h>///<xib隐藏

@@ -61,12 +61,10 @@ class FYChatRoomListViewController: FYBaseViewController {
     override func makeUI() {
         super.makeUI()
     
-        let leftBarButtonItem = UIBarButtonItem(customView: deleteButton)
-        navigationItem.leftBarButtonItem = leftBarButtonItem
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: deleteButton)
         
         let rightBarButtonItem = UIBarButtonItem(title: "加入群".rLocalized(), style: .plain, target: self, action: #selector(addGroupData))
         navigationItem.rightBarButtonItem = rightBarButtonItem
-        
         
         plainTabView.register(FYContactsTableViewCell.self, forCellReuseIdentifier: kGroupedChatCellIdentifier)
         view.addSubview(plainTabView)
@@ -81,6 +79,7 @@ class FYChatRoomListViewController: FYBaseViewController {
     }
     
     @objc private func showClearAlert() {
+        
         EasyAlertView.customAlert(title: "确定删除全部群组吗？".rLocalized(), message: "删除后，会话记录也将清除".rLocalized(), confirm: "确定".rLocalized(), cancel: "取消".rLocalized(), vc: self, confirmBlock: {
             self.removerGroupData()
         }, cancelBlock: {
@@ -97,7 +96,6 @@ class FYChatRoomListViewController: FYBaseViewController {
         let chat = FYMessageChatModel()
         chat.uid = uid
         chat.name = "好好学习群：\(uid)"
-        
         chat.avatar = "https://img2.woyaogexing.com/2019/11/10/c133b080fcfd43e1916e74eaea4c631b!400x400.jpeg"
         chat.isShowName = true
         chat.chatType = 2 //群聊
@@ -164,6 +162,7 @@ extension FYChatRoomListViewController: UITableViewDataSource, UITableViewDelega
     
     /// 清空角标
     private func clearCurrentBadge(_ group: FYMessageChatModel) {
+        
         if FYDBQueryHelper.shared.queryFromSesstionsUnReadCount() > 0 {
             if let uid = group.uid {
                 group.unReadCount = 0

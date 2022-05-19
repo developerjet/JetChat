@@ -10,6 +10,13 @@ import UIKit
 
 class FYSettingViewController: FYBaseViewController {
     
+    // MARK: - Private
+    
+    private var languageView: FYFastGridListView!
+    private var versionView: FYFastGridListView!
+    private var cachesView: FYFastGridListView!
+    private var themeView: FYFastGridListView!
+    
     // MARK: - life cycle
     
     override func viewDidLoad() {
@@ -23,7 +30,7 @@ class FYSettingViewController: FYBaseViewController {
         super.makeUI()
         
         let languageCode = LanguageManager.manager.selectedLanguage
-        let language = FYFastGridListView().config { (view) in
+        languageView = FYFastGridListView().config { (view) in
             view.isHiddenArrow(isHidden: false)
                 .title(text: "语言设置".rLocalized())
                 .content(text: (languageCode?.getLanguageRaw().rLocalized())!)
@@ -40,7 +47,7 @@ class FYSettingViewController: FYBaseViewController {
         })
         
 
-        let version = FYFastGridListView().config { (view) in
+        versionView = FYFastGridListView().config { (view) in
             view.isHiddenArrow(isHidden: false)
                 .title(text: "版本".rLocalized())
                 .content(text: "版本号:".rLocalized() + majorVersion)
@@ -51,16 +58,16 @@ class FYSettingViewController: FYBaseViewController {
         }
         .adhere(toSuperView: self.view)
         .layout(snapKitMaker: { make in
-            make.top.equalTo(language.snp.bottom)
+            make.top.equalTo(languageView.snp.bottom)
             make.left.right.equalTo(self.view)
-            make.height.equalTo(language)
+            make.height.equalTo(languageView)
         })
         
-        let imageCache = FYFileSizeManager.manager.cacheSize()
-        let caches = FYFastGridListView().config { (view) in
+
+        cachesView = FYFastGridListView().config { (view) in
             view.isHiddenArrow(isHidden: false)
                 .title(text: "清除图片缓存".rLocalized())
-                .content(text: imageCache)
+                .content(text: "\(fileCachesSize())")
                 .contentState(state: .normal)
                 .clickClosure({ [weak self] in
                     self?.beginClearCaches()
@@ -68,10 +75,11 @@ class FYSettingViewController: FYBaseViewController {
         }
         .adhere(toSuperView: self.view)
         .layout(snapKitMaker: { make in
-            make.top.equalTo(version.snp.bottom)
+            make.top.equalTo(versionView.snp.bottom)
             make.left.right.equalTo(self.view)
-            make.height.equalTo(version)
+            make.height.equalTo(versionView)
         })
+        
         
         var themeTitle: String = ""
         let lastThemeMode = FYThemeCenter.shared.currentTheme
@@ -84,7 +92,7 @@ class FYSettingViewController: FYBaseViewController {
             themeTitle = "跟随系统".rLocalized()
         }
         
-        _ = FYFastGridListView().config { (view) in
+        themeView = FYFastGridListView().config { (view) in
             view.isHiddenArrow(isHidden: false)
                 .title(text: "主题模式".rLocalized())
                 .content(text: themeTitle )
@@ -95,10 +103,14 @@ class FYSettingViewController: FYBaseViewController {
         }
         .adhere(toSuperView: self.view)
         .layout(snapKitMaker: { make in
-            make.top.equalTo(caches.snp.bottom)
+            make.top.equalTo(cachesView.snp.bottom)
             make.left.right.equalTo(self.view)
-            make.height.equalTo(caches)
+            make.height.equalTo(cachesView)
         })
+    }
+    
+    private func fileCachesSize() -> String {
+        return FYFileSizeManager.manager.cacheSize()
     }
     
     // MARK: - Action
@@ -125,6 +137,7 @@ class FYSettingViewController: FYBaseViewController {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.0) {
             FYFileSizeManager.manager.clearImageCaches {
                 MBHUD.showSuccess("清除成功".rLocalized())
+                self.cachesView.contentLabel.text = self.fileCachesSize()
             }
         }
     }

@@ -86,12 +86,10 @@ extension UIColor {
     
     // MARK: - RGB的颜色设置
     class func RGB(r: CGFloat, g: CGFloat, b: CGFloat) -> UIColor {
-        
         return UIColor(red: r/255.0, green: g/255.0, blue: b/255.0, alpha: 1.0)
     }
     
     class func RGBA(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat) -> UIColor {
-        
         return UIColor(red: r/255.0, green: g/255.0, blue: b/255.0, alpha: a/1.0)
     }
     

@@ -10,12 +10,6 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-extension Reactive where Base: UIView {
-    
-    func tap() -> Observable<Void> {
-        return base.rx.tap()
-    }
-}
 
 protocol OptionalType {
     associatedtype Wrapped

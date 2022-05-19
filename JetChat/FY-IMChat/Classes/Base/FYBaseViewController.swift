@@ -8,11 +8,9 @@
 
 import UIKit
 import HandyJSON
-import SwiftyJSON
 import RxSwift
 import RxCocoa
 import Moya
-
 
 class FYBaseViewController: UIViewController {
     

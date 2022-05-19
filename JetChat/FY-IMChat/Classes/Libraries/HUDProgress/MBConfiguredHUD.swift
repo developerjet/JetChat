@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import MBProgressHUD
+import UIKit
 
 typealias MBHUD = MBConfiguredHUD
 
@@ -190,7 +192,6 @@ class MBConfiguredHUD: NSObject {
             hud.bezelView.layer.masksToBounds = false;
             hud.bezelView.style = .solidColor
             hud.customView = imageView
-            //hud.minSize = CGSize(width: 231, height: 123) //弹框大小设置
             hud.isUserInteractionEnabled = false
             hud.bezelView.color = .hudBackgroundColor()
             hud.removeFromSuperViewOnHide = true

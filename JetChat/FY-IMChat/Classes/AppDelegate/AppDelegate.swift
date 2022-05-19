@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     /// fps
     public lazy var fpsLabel: FPSLabel = {
-        let label = FPSLabel.init(frame: CGRect.init(x: kScreenW - 80, y: (kScreenH - 30)/2, width: 70, height: 30))
+        let label = FPSLabel(frame: CGRect.init(x: kScreenW - 80, y: (kScreenH - 30)/2, width: 70, height: 30))
         label.backgroundColor = .red
         label.textColor = .white
         return label
@@ -42,7 +42,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         // app initialize
         appInitializes()
         // init rootViewController
@@ -98,16 +97,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guard chatId > 0 else { return }
         
         let chatModel = FYDBQueryHelper.shared.qureyFromChatId(chatId)
-        let chatVC = FYChatBaseViewController(chatModel: chatModel)
+        let chatVc = FYChatBaseViewController(chatModel: chatModel)
         
         if let tabbar = AppDelegate.app.window?.rootViewController as? UITabBarController {
             if let nav = tabbar.viewControllers?[tabbar.selectedIndex] as? UINavigationController {
-                nav.pushViewController(chatVC)
+                nav.pushViewController(chatVc, animated: false)
             }
         }
     }
     
-    // MARK: -
+    // MARK: - VisualEffect
     
     private func addWindowVisualEffect() {
         

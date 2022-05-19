@@ -15,8 +15,8 @@ public let kScreen  = UIScreen.main.bounds
 public let kScreenW = UIScreen.main.bounds.size.width
 public let kScreenH = UIScreen.main.bounds.size.height
 
-public let kMargin = kFitScale(AT: 10)
-public let kLineMargin = kFitScale(AT: 1)
+public let kMargin = kFitScale(at: 10)
+public let kLineMargin = kFitScale(at: 1)
 
 public let isIphoneX = { () -> Bool in
     var isX = false
@@ -86,8 +86,8 @@ public let kDeviceUUID = { () -> String in
 
 
 // MARK: - 屏幕适配375 | 6s尺寸
-func kFitScale(AT: CGFloat) -> CGFloat {
-    return (UIScreen.main.bounds.width / 375) * AT
+func kFitScale(at ratio: CGFloat) -> CGFloat {
+    return (UIScreen.main.bounds.width / 375) * ratio
 }
 
 // MARK: - 朋友圈

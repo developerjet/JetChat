@@ -1268,7 +1268,7 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let 简体中文 = Rswift.StringResource(key: "简体中文", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
-      /// en translation: Clear cache
+      /// en translation: Clear picture cache
       ///
       /// Locales: en
       static let 清除图片缓存 = Rswift.StringResource(key: "清除图片缓存", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
@@ -1750,7 +1750,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("简体中文", bundle: bundle, comment: "")
       }
 
-      /// en translation: Clear cache
+      /// en translation: Clear picture cache
       ///
       /// Locales: en
       static func 清除图片缓存(preferredLanguages: [String]? = nil) -> String {

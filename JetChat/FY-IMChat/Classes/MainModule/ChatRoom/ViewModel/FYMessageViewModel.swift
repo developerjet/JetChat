@@ -9,7 +9,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import SwiftyJSON
 import HandyJSON
 import YBImageBrowser
 
@@ -60,7 +59,7 @@ class FYMessageViewModel: BaseViewModel, ViewModelType {
     
     func transform(input: FYMessageViewModel.Input) -> FYMessageViewModel.Output {
         let outMessage = BehaviorRelay<FYMessageItem>(value: FYMessageItem())
-        let outBrowser = BehaviorRelay<[AnyObject]>(value: [])
+        let outBrowsers = BehaviorRelay<[AnyObject]>(value: [])
         
         // 发送消息
         input.makeMessage.flatMapLatest ({ [weak self]() -> Single<FYMessageItem> in
@@ -101,10 +100,10 @@ class FYMessageViewModel: BaseViewModel, ViewModelType {
         })
             .asObservable()
             .subscribe(onNext: { (objects) in
-                outBrowser.accept(objects)
+                outBrowsers.accept(objects)
             }).disposed(by: rx.disposeBag)
         
-        return Output(message: outMessage, browser: outBrowser)
+        return Output(message: outMessage, browser: outBrowsers)
     }
     
     // MARK: - init

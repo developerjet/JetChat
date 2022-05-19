@@ -48,7 +48,7 @@ class FYTextMessageCell: FYMessageBaseCell {
             make.height.equalTo(18)
         }
         
-        dateGroudView.snp.remakeConstraints { (make) in
+        dateGradView.snp.remakeConstraints { (make) in
             make.top.equalTo(dateLabel).offset(-1)
             make.left.equalTo(dateLabel).offset(-2)
             make.bottom.equalTo(dateLabel).offset(1)
@@ -58,7 +58,7 @@ class FYTextMessageCell: FYMessageBaseCell {
         avatarView.snp.remakeConstraints { (make) in
             make.width.height.equalTo(40)
             make.left.equalToSuperview().offset(10)
-            make.top.equalTo(dateGroudView.snp.bottom).offset(5)
+            make.top.equalTo(dateGradView.snp.bottom).offset(5)
         }
 
         nameLabel.snp.remakeConstraints { (make) in
@@ -139,7 +139,7 @@ extension FYTextMessageCell {
             avatarView.snp.remakeConstraints { (make) in
                 make.width.height.equalTo(40)
                 make.right.equalToSuperview().offset(-10)
-                make.top.equalTo(dateGroudView.snp.bottom).offset(5)
+                make.top.equalTo(dateGradView.snp.bottom).offset(5)
             }
 
             nameLabel.isHidden = true
@@ -179,7 +179,7 @@ extension FYTextMessageCell {
             avatarView.snp.remakeConstraints { (make) in
                 make.width.height.equalTo(40)
                 make.left.equalToSuperview().offset(10)
-                make.top.equalTo(dateGroudView.snp.bottom).offset(5)
+                make.top.equalTo(dateGradView.snp.bottom).offset(5)
             }
 
             nameLabel.isHidden = false

@@ -61,9 +61,7 @@ class FYActionSheet: BottomPopupViewController {
     private var dataSource: [String] = []
     private var isShowCancel: Bool = true
     
-    private var cellHeight: CGFloat {
-        return 55
-    }
+    private var cellHeight: CGFloat = 55
     
     private var tableHeight: CGFloat {
         return CGFloat(dataSource.count) * cellHeight

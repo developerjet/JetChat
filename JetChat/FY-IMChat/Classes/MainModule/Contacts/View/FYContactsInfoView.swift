@@ -10,6 +10,8 @@ import UIKit
 
 class FYContactsInfoView: UIView {
     
+    // MARK: - setter
+    
     var chatModel: FYMessageChatModel? {
         didSet {
             guard let model = chatModel else {

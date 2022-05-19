@@ -108,6 +108,8 @@
 		2ECBFDC822269BF400871913 /* FY_IMChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECBFDC722269BF400871913 /* FY_IMChatTests.swift */; };
 		2ECBFDD322269BF400871913 /* FY_IMChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECBFDD222269BF400871913 /* FY_IMChatUITests.swift */; };
 		2EF014772230FC6D00681D4F /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EF014762230FC6D00681D4F /* WebKit.framework */; };
+		4C15484D28362BDA00AD7400 /* WCDataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C15484B28362BD900AD7400 /* WCDataBaseManager.swift */; };
+		4C15484E28362BDA00AD7400 /* WCDataBaseTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C15484C28362BDA00AD7400 /* WCDataBaseTable.swift */; };
 		4C4A1A272818DABA00CDD3B1 /* BottomPopupUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4A1A1E2818DABA00CDD3B1 /* BottomPopupUtils.swift */; };
 		4C4A1A282818DABA00CDD3B1 /* BottomPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4A1A1F2818DABA00CDD3B1 /* BottomPopupViewController.swift */; };
 		4C4A1A292818DABA00CDD3B1 /* BottomPopupDismissInteractionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4A1A202818DABA00CDD3B1 /* BottomPopupDismissInteractionController.swift */; };
@@ -128,7 +130,7 @@
 		4C509CC328267AEA00CE66DF /* JetChatWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4C509CB328267AE700CE66DF /* JetChatWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4C509CCA2826817A00CE66DF /* FYUserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C509CC92826817A00CE66DF /* FYUserDefaultManager.swift */; };
 		4C5579622817C3C3006D8A09 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5579612817C3C3006D8A09 /* ActivityIndicator.swift */; };
-		4C5E7B192824FAB000C968D3 /* FYMomentHeaderRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5E7B182824FAAF00C968D3 /* FYMomentHeaderRefresh.swift */; };
+		4C5E7B192824FAB000C968D3 /* FYMomentsHeaderRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5E7B182824FAAF00C968D3 /* FYMomentsHeaderRefresh.swift */; };
 		4C5FB429281A974C001F70E3 /* FYLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5FB427281A974C001F70E3 /* FYLabel.swift */; };
 		4C5FB42A281A974C001F70E3 /* FYLabelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5FB428281A974C001F70E3 /* FYLabelType.swift */; };
 		4C5FB42D281AA7DD001F70E3 /* FYFileSizeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5FB42C281AA7DD001F70E3 /* FYFileSizeManager.swift */; };
@@ -163,8 +165,6 @@
 		4CBE2B2C281BCDE500FDB081 /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBE2B2B281BCDE500FDB081 /* Notification+Name.swift */; };
 		4CBE2B35281BCE9500FDB081 /* FYDBQueryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBE2B30281BCE9500FDB081 /* FYDBQueryHelper.swift */; };
 		4CBE2B36281BCE9500FDB081 /* FYMessageUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBE2B31281BCE9500FDB081 /* FYMessageUserModel.swift */; };
-		4CBE2B37281BCE9500FDB081 /* WCDataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBE2B32281BCE9500FDB081 /* WCDataBaseManager.swift */; };
-		4CBE2B38281BCE9500FDB081 /* WCDataBaseTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBE2B33281BCE9500FDB081 /* WCDataBaseTable.swift */; };
 		4CF27C18281CEFDC00DBD7EC /* FYThemeCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF27C17281CEFDC00DBD7EC /* FYThemeCenter.swift */; };
 		4CF27C1A281CF04B00DBD7EC /* FYDarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF27C19281CF04B00DBD7EC /* FYDarkTheme.swift */; };
 		4CF27C1C281CF05D00DBD7EC /* FYLightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF27C1B281CF05D00DBD7EC /* FYLightTheme.swift */; };
@@ -348,6 +348,8 @@
 		2ECBFDD422269BF400871913 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2EF014762230FC6D00681D4F /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		2EF014782230FC7200681D4F /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		4C15484B28362BD900AD7400 /* WCDataBaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WCDataBaseManager.swift; path = "FY-IMChat/Classes/Utilites/DataBase/WCDataBaseManager.swift"; sourceTree = SOURCE_ROOT; };
+		4C15484C28362BDA00AD7400 /* WCDataBaseTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WCDataBaseTable.swift; path = "FY-IMChat/Classes/Utilites/DataBase/WCDataBaseTable.swift"; sourceTree = SOURCE_ROOT; };
 		4C4A1A1E2818DABA00CDD3B1 /* BottomPopupUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomPopupUtils.swift; sourceTree = "<group>"; };
 		4C4A1A1F2818DABA00CDD3B1 /* BottomPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomPopupViewController.swift; sourceTree = "<group>"; };
 		4C4A1A202818DABA00CDD3B1 /* BottomPopupDismissInteractionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomPopupDismissInteractionController.swift; sourceTree = "<group>"; };
@@ -370,7 +372,7 @@
 		4C509CC92826817A00CE66DF /* FYUserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FYUserDefaultManager.swift; sourceTree = "<group>"; };
 		4C509CCB28268BC600CE66DF /* FY-IMChat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "FY-IMChat.entitlements"; sourceTree = "<group>"; };
 		4C5579612817C3C3006D8A09 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
-		4C5E7B182824FAAF00C968D3 /* FYMomentHeaderRefresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYMomentHeaderRefresh.swift; sourceTree = "<group>"; };
+		4C5E7B182824FAAF00C968D3 /* FYMomentsHeaderRefresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYMomentsHeaderRefresh.swift; sourceTree = "<group>"; };
 		4C5FB427281A974C001F70E3 /* FYLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYLabel.swift; sourceTree = "<group>"; };
 		4C5FB428281A974C001F70E3 /* FYLabelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYLabelType.swift; sourceTree = "<group>"; };
 		4C5FB42C281AA7DD001F70E3 /* FYFileSizeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FYFileSizeManager.swift; sourceTree = "<group>"; };
@@ -405,8 +407,6 @@
 		4CBE2B2B281BCDE500FDB081 /* Notification+Name.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notification+Name.swift"; sourceTree = "<group>"; };
 		4CBE2B30281BCE9500FDB081 /* FYDBQueryHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYDBQueryHelper.swift; sourceTree = "<group>"; };
 		4CBE2B31281BCE9500FDB081 /* FYMessageUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FYMessageUserModel.swift; sourceTree = "<group>"; };
-		4CBE2B32281BCE9500FDB081 /* WCDataBaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WCDataBaseManager.swift; sourceTree = "<group>"; };
-		4CBE2B33281BCE9500FDB081 /* WCDataBaseTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WCDataBaseTable.swift; sourceTree = "<group>"; };
 		4CF27C17281CEFDC00DBD7EC /* FYThemeCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FYThemeCenter.swift; sourceTree = "<group>"; };
 		4CF27C19281CF04B00DBD7EC /* FYDarkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FYDarkTheme.swift; sourceTree = "<group>"; };
 		4CF27C1B281CF05D00DBD7EC /* FYLightTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FYLightTheme.swift; sourceTree = "<group>"; };
@@ -969,7 +969,7 @@
 		4C5E7B172824FAAF00C968D3 /* Refreshing */ = {
 			isa = PBXGroup;
 			children = (
-				4C5E7B182824FAAF00C968D3 /* FYMomentHeaderRefresh.swift */,
+				4C5E7B182824FAAF00C968D3 /* FYMomentsHeaderRefresh.swift */,
 			);
 			path = Refreshing;
 			sourceTree = "<group>";
@@ -1198,8 +1198,8 @@
 			isa = PBXGroup;
 			children = (
 				4CBE2B2F281BCE9500FDB081 /* DBQuery */,
-				4CBE2B32281BCE9500FDB081 /* WCDataBaseManager.swift */,
-				4CBE2B33281BCE9500FDB081 /* WCDataBaseTable.swift */,
+				4C15484B28362BD900AD7400 /* WCDataBaseManager.swift */,
+				4C15484C28362BDA00AD7400 /* WCDataBaseTable.swift */,
 			);
 			path = WCDBManager;
 			sourceTree = "<group>";
@@ -1652,18 +1652,18 @@
 				27433FA3238D70D4004D5E3D /* UIView+Extensions.swift in Sources */,
 				4CF856A1281A40D400F48D4D /* MomentHeaderCell.swift in Sources */,
 				2743401B238D70D5004D5E3D /* NSObject+BinAdd.m in Sources */,
-				4C5E7B192824FAB000C968D3 /* FYMomentHeaderRefresh.swift in Sources */,
+				4C5E7B192824FAB000C968D3 /* FYMomentsHeaderRefresh.swift in Sources */,
 				4C4A1A2A2818DABA00CDD3B1 /* BottomPopupNavigationController.swift in Sources */,
 				27433FA8238D70D4004D5E3D /* MJRefresh+Rx.swift in Sources */,
 				4C75A43C2817D0F400E9EF54 /* ScanQRCodeViewController.swift in Sources */,
 				4C4A1A332818DB7200CDD3B1 /* FYActionSheetCell.swift in Sources */,
 				4C75A4372817D0F400E9EF54 /* FYEditChatInfoViewController.swift in Sources */,
-				4CBE2B38281BCE9500FDB081 /* WCDataBaseTable.swift in Sources */,
 				271C02F523929B3A0041617F /* ChatEmotionAttachment.swift in Sources */,
 				4C75A43F2817D0F400E9EF54 /* FYMessageViewModel.swift in Sources */,
 				4C4A1A272818DABA00CDD3B1 /* BottomPopupUtils.swift in Sources */,
 				2743401E238D70D5004D5E3D /* FYBaseTabBarController.swift in Sources */,
 				27433FB3238D70D4004D5E3D /* ConstraintArrayDSL.swift in Sources */,
+				4C15484D28362BDA00AD7400 /* WCDataBaseManager.swift in Sources */,
 				4CF85694281A3F5300F48D4D /* FYCommentInfo.swift in Sources */,
 				27433FA9238D70D4004D5E3D /* Array+Extension.swift in Sources */,
 				4CBE2B2C281BCDE500FDB081 /* Notification+Name.swift in Sources */,
@@ -1701,13 +1701,13 @@
 				4C75A4412817D0F400E9EF54 /* FYMessageForwardViewController.swift in Sources */,
 				4C4A1A2F2818DABA00CDD3B1 /* BottomPopupPresentationController.swift in Sources */,
 				271C02C723929B3A0041617F /* ChatGrowingTextView.swift in Sources */,
-				4CBE2B37281BCE9500FDB081 /* WCDataBaseManager.swift in Sources */,
 				4C75A4462817D0F400E9EF54 /* FYVideoMessageCell.swift in Sources */,
 				27434018238D70D5004D5E3D /* ErrorTracker.swift in Sources */,
 				4CF27C1A281CF04B00DBD7EC /* FYDarkTheme.swift in Sources */,
 				4C509CC028267AEA00CE66DF /* JetChatWidget.intentdefinition in Sources */,
 				4C4A1A282818DABA00CDD3B1 /* BottomPopupViewController.swift in Sources */,
 				27433FB2238D70D4004D5E3D /* ConstraintArray+Extensions.swift in Sources */,
+				4C15484E28362BDA00AD7400 /* WCDataBaseTable.swift in Sources */,
 				4C75A4402817D0F400E9EF54 /* FYChatBaseViewController.swift in Sources */,
 				4CF856A9281A40D400F48D4D /* MomentHeaderImageCell.swift in Sources */,
 				4C75A4432817D0F400E9EF54 /* FYMessageItem.swift in Sources */,

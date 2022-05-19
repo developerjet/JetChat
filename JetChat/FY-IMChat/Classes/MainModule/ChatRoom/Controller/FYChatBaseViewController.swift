@@ -462,7 +462,7 @@ extension FYChatBaseViewController: FYMessageBaseCellDelegate {
             if let message = model.message, message.length > 0 {
                 message.stringGeneral()
             }
-        }else if (style == .shore) {
+        }else if (style == .share) {
             
             messageForward(model)
         }

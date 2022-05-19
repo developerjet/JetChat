@@ -14,7 +14,7 @@ class FYBaseNavigationController: UINavigationController {
         return .lightContent
     }
     
-    var titleTextAttributes: [NSAttributedString.Key : NSObject] {
+    private var titleTextAttributes: [NSAttributedString.Key : NSObject] {
         return [NSAttributedString.Key.font:UIFont.PingFangMedium(17),
                 NSAttributedString.Key.foregroundColor:UIColor.white]
     }
@@ -64,7 +64,7 @@ class FYBaseNavigationController: UINavigationController {
             self.navigationBar.theme.backgroundColor = themed { $0.FYColor_Nav_BackgroundColor }
         }
         
-        navigationBar.tintColor = .Color_White_FFFFFF
+        self.navigationBar.tintColor = .Color_White_FFFFFF
         // 设置背景色
         self.navigationBar.theme.backgroundColor = themed { $0.FYColor_Nav_BackgroundColor }
         
@@ -110,8 +110,8 @@ extension FYBaseNavigationController: UINavigationControllerDelegate, UIGestureR
             // 隐藏tabBar
             viewController.hidesBottomBarWhenPushed = true
             
-            let leftBarButtonItem = UIBarButtonItem(customView: self.backButton)
-            viewController.navigationItem.leftBarButtonItem = leftBarButtonItem
+            let backItem = UIBarButtonItem(customView: self.backButton)
+            viewController.navigationItem.leftBarButtonItem = backItem
             // 手势可用
             self.interactivePopGestureRecognizer?.isEnabled = true
         }

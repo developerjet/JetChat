@@ -14,6 +14,11 @@ class FYBaseTabBarController: UITabBarController {
     
     private var indexFlag: Int = 0
     
+    private lazy var impactGenerator: UIImpactFeedbackGenerator = {
+        let imp = UIImpactFeedbackGenerator(style: .medium)
+        return imp
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -68,25 +73,25 @@ class FYBaseTabBarController: UITabBarController {
         let vc1 = FYSesstionListViewController()
         addChildViewController(vc1,
                                title: "会话".rLocalized(),
-                              image: R.image.ic_tabbar01_normal(),
-                              selectedImage: R.image.ic_tabbar01_selected())
+                              image: R.image.ic_tabbar01_normal()!,
+                              selectedImage: R.image.ic_tabbar01_selected()!)
         
         let vc2 = FYChatRoomListViewController()
         addChildViewController(vc2,
                                title: "群组".rLocalized(),
-                              image: R.image.ic_tabbar02_normal(),
-                              selectedImage: R.image.ic_tabbar02_selected())
+                              image: R.image.ic_tabbar02_normal()!,
+                              selectedImage: R.image.ic_tabbar02_selected()!)
         
         let vc3 = FYContactsListViewController()
         addChildViewController(vc3,
                                title: "好友".rLocalized(),
-                              image: R.image.ic_tabbar03_normal(),
-                              selectedImage: R.image.ic_tabbar03_selected())
+                              image: R.image.ic_tabbar03_normal()!,
+                              selectedImage: R.image.ic_tabbar03_selected()!)
         
         let vc4 = FYMineViewController()
         addChildViewController(vc4, title: "我".rLocalized(),
-                              image: R.image.ic_tabbar04_normal(),
-                              selectedImage: R.image.ic_tabbar04_selected())
+                              image: R.image.ic_tabbar04_normal()!,
+                              selectedImage: R.image.ic_tabbar04_selected()!)
     }
     
     /// 为tababr点击添加动画
@@ -97,7 +102,7 @@ class FYBaseTabBarController: UITabBarController {
         
         if let index = tabBar.items?.firstIndex(of: item) {
             if indexFlag != index {
-                animateWithIndex(index: index)
+                animationSelectedIndex(index: index)
             }
         }
     }
@@ -111,10 +116,10 @@ class FYBaseTabBarController: UITabBarController {
 
 extension FYBaseTabBarController {
 
-    private func addChildViewController(_ vc: UIViewController?,
+    fileprivate func addChildViewController(_ vc: UIViewController?,
                                         title: String,
-                                        image: UIImage? = UIImage(),
-                                        selectedImage: UIImage? = UIImage()) {
+                                        image: UIImage,
+                                        selectedImage: UIImage) {
         
         if let rootVC = vc {
             // configure
@@ -129,11 +134,16 @@ extension FYBaseTabBarController {
     
     
     /// 实现点击选中缩放动画
-    private func animateWithIndex(index: Int) {
-        var buttons = [UIView]()
-        for view in tabBar.subviews {
-            if view.isKind(of: NSClassFromString("UITabBarButton")!) {
-                buttons.append(view)
+    private func animationSelectedIndex(index: Int) {
+        var btnImageViews: [UIView] = []
+        
+        for tabBarButton in self.tabBar.subviews {
+            if tabBarButton.isKind(of: NSClassFromString("UITabBarButton")!) {
+                for imageView in tabBarButton.subviews {
+                    if imageView.isKind(of: NSClassFromString("UITabBarSwappableImageView")!) {
+                        btnImageViews.append(imageView)
+                    }
+                }
             }
         }
         
@@ -145,9 +155,11 @@ extension FYBaseTabBarController {
         pulse.autoreverses = true
         pulse.fromValue = NSNumber(value: 0.7)
         pulse.toValue = NSNumber(value: 1.1)
-        buttons[index].layer.add(pulse, forKey: nil)
+        
+        btnImageViews[index].layer.add(pulse, forKey: nil)
         
         indexFlag = index
+        impactGenerator.impactOccurred()
     }
 }
 

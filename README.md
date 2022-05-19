@@ -1,4 +1,4 @@
-<div align=center><img src="ScreenShot/JetChatSmall.png" width="934" height="168" /></div>
+<div align=center><img src="ScreenShot/JetChatSmall.png" width="914" height="162" /></div>
 
 # JetChat
 Swift5.0编写的简仿微信聊天应用，完美支持表情键盘、单聊、群聊、本地消息会话缓存、朋友圈、白天和黑夜主题模式<br>
@@ -23,7 +23,6 @@ Swift5.0编写的简仿微信聊天应用，完美支持表情键盘、单聊、
 - 基于IGList数据驱动，实现高帧率朋友圈列表滑动
 - RxTheme适配夜间模式并兼容iOS13跟随系统模式设置
 - SnapKit纯代码自动布局
-- 后续开发完善中.....
 
 ### 主要实现功能
 - 聊天室键盘控件封装处理，支持表情文字多行输入，支持iOS13
@@ -33,13 +32,13 @@ Swift5.0编写的简仿微信聊天应用，完美支持表情键盘、单聊、
 - 角标：单个会话未读消息数量展示，全部未读消息数量显示
 - 清除：单个消息删除，退出群，删除好友，消息会话角标清除，记录删除
 
-> 具体功能了解可以下载源码运行查看 https://github.com/developerjet/JetChat
+> 目前基础功能已完成，具体功能了解可以下载源码运行查看 https://github.com/developerjet/JetChat
 
 ### 新增功能
-- 朋友圈：通过IGList实现高帧率朋友圈列表滑动
-- 黑夜模式：通过RxTheme实现白天和黑夜主题模式切换并兼容iOS13跟随系统模式设置
-- 多语言切换：已新增简体中文、英文翻译
-- Widget：新增最近聊天小组件，Widget点击跳转聊天室
+- 朋友圈：IGList实现高帧率朋友圈列表滑动
+- 黑夜模式：RxTheme实现白天和黑夜主题模式切换并兼容iOS13跟随系统模式设置
+- Widget：新增最近聊天小组件，Widget点击跳转聊天室[注意AppGroupsID配置]
+- 多语言切换：已新增英文翻译 
 
 ### Tips
 - 如果你有更好的建议和方案请在lssues提交

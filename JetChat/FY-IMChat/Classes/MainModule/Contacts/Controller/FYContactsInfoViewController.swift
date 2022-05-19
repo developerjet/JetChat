@@ -25,9 +25,9 @@ class FYContactsInfoViewController: FYBaseViewController {
         }
     }
     
-    // MARK: - var lazy
+    // MARK: - lazy var
     
-    var dataSource: [String] = []
+    private var dataSource: [String] = []
     
     private lazy var headerView: FYContactsInfoView = {
         let view = FYContactsInfoView()
@@ -108,7 +108,7 @@ extension FYContactsInfoViewController: UITableViewDataSource, UITableViewDelega
             cell?.selectionStyle = .none
             cell?.textLabel?.text = dataSource[safe: indexPath.row]
             cell?.textLabel?.theme.textColor = themed { $0.FYColor_Main_TextColor_V1 }
-            cell?.accessoryView = setupAccessory()
+            cell?.accessoryView = createAccessoryView()
             cell?.theme.backgroundColor = themed { $0.FYColor_BackgroundColor_V5 }
         }
         return cell!
@@ -130,7 +130,7 @@ extension FYContactsInfoViewController: UITableViewDataSource, UITableViewDelega
         }
     }
     
-    private func setupAccessory() -> UIImageView {
+    private func createAccessoryView() -> UIImageView {
         let arrowView = UIImageView()
         arrowView.image = UIImage(named: "icon_arrow_right")
         arrowView.sizeToFit()

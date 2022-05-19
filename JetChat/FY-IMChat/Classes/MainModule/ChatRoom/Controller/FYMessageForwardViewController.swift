@@ -16,15 +16,13 @@ enum ForwardStyle {
 
 class FYMessageForwardViewController: FYBaseViewController {
 
-    // MARK: - var lazy
+    // MARK: - lazy var
     
     /// 转发方式
-    var forwardStyle = ForwardStyle.friend
+    public var forwardStyle = ForwardStyle.friend
+    public var messageItem: FYMessageItem?
     
-    var dataSource: [FYMessageChatModel] = []
-    
-    var messageItem: FYMessageItem?
-    
+    private var dataSource: [FYMessageChatModel] = []
     private var selectedModel: FYMessageChatModel?
  
     private lazy var forwardBtn: UIButton = {
@@ -79,6 +77,7 @@ class FYMessageForwardViewController: FYBaseViewController {
     
     // 开始转发
     private func forwardAction() {
+        
         if let model = selectedModel {
             MBHUD.showStatus("正在发送...")
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {

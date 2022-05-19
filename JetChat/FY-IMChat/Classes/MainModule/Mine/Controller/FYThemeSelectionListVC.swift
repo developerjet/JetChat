@@ -37,7 +37,7 @@ class FYThemeSelectionListVC: FYBaseViewController {
                 .content(text: "选取后，将跟随系统设定模式".rLocalized())
                 .contentState(state: .normal)
                 .clickClosure({ [weak self] in
-                    self?.themeSelection(mode: .system)
+                    self?.selectedTheme(mode: .system)
                 }).last(isLine: true)
         }
             .adhere(toSuperView: self.view)
@@ -52,7 +52,7 @@ class FYThemeSelectionListVC: FYBaseViewController {
                 .title(text: "白天模式".rLocalized())
                 .contentState(state: .highlight)
                 .clickClosure({ [weak self] in
-                    self?.themeSelection(mode: .light)
+                    self?.selectedTheme(mode: .light)
                 }).last(isLine: true)
         }
             .adhere(toSuperView: self.view)
@@ -68,7 +68,7 @@ class FYThemeSelectionListVC: FYBaseViewController {
                 .title(text: "黑夜模式".rLocalized())
                 .contentState(state: .normal)
                 .clickClosure({ [weak self] in
-                    self?.themeSelection(mode: .dark)
+                    self?.selectedTheme(mode: .dark)
                 }).last(isLine: false)
         }
             .adhere(toSuperView: self.view)
@@ -87,7 +87,7 @@ class FYThemeSelectionListVC: FYBaseViewController {
     
     // MARK: - Action
     
-    private func themeSelection(mode: FYThemeMode) {
+    private func selectedTheme(mode: FYThemeMode) {
         
         switch mode {
         case .light:

@@ -15,7 +15,7 @@ enum RootCellType {
 }
 
 enum MenuShowStyle {
-    case shore
+    case share
     case copy
     case delete
 }
@@ -57,8 +57,7 @@ class FYMessageBaseCell: UITableViewCell {
     }()
     
     lazy var avatarView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.backgroundColor = .random
+        let imageView = UIImageView(image: R.image.ic_avatar_placeholder()!)
         imageView.cornerRadius = 7
         imageView.addGestureRecognizer(self.avatarTap)
         imageView.isUserInteractionEnabled = true
@@ -84,7 +83,7 @@ class FYMessageBaseCell: UITableViewCell {
         return label
     }()
     
-    lazy var dateGroudView: UIView = {
+    lazy var dateGradView: UIView = {
         let view = UIView()
         view.cornerRadius = 5
         view.backgroundColor = .RGBA(r: 190, g: 190, b: 190, a: 0.6)
@@ -111,7 +110,7 @@ class FYMessageBaseCell: UITableViewCell {
         selectionStyle = .none
         backgroundColor = .clear
         
-        contentView.addSubview(dateGroudView)
+        contentView.addSubview(dateGradView)
         contentView.addSubview(dateLabel)
         contentView.addSubview(avatarView)
         contentView.addSubview(bubbleView)
@@ -170,7 +169,7 @@ class FYMessageBaseCell: UITableViewCell {
         
         self.becomeFirstResponder()
         let menu = UIMenuController.shared
-        let item1 = UIMenuItem(title: "转发".rLocalized(), action: #selector(menuShoreAction))
+        let item1 = UIMenuItem(title: "转发".rLocalized(), action: #selector(menuShareAction))
         let item2 = UIMenuItem(title: "复制".rLocalized(), action: #selector(menuCopyAction))
         let item3 = UIMenuItem(title: "删除".rLocalized(), action: #selector(menuDeleteAction))
         menu.menuItems = [item1, item2, item3]
@@ -195,8 +194,8 @@ class FYMessageBaseCell: UITableViewCell {
         
         self.becomeFirstResponder()
         let menu = UIMenuController.shared
-        let item1 = UIMenuItem(title: "转发", action: #selector(menuShoreAction))
-        let item3 = UIMenuItem(title: "删除", action: #selector(menuDeleteAction))
+        let item1 = UIMenuItem(title: "转发".rLocalized(), action: #selector(menuShareAction))
+        let item3 = UIMenuItem(title: "删除".rLocalized(), action: #selector(menuDeleteAction))
         menu.menuItems = [item1, item3]
         // 设置箭头方向
         menu.arrowDirection = .default
@@ -223,9 +222,9 @@ class FYMessageBaseCell: UITableViewCell {
     // MARK: - Action
     
     /// 分享
-    @objc open func menuShoreAction() {
+    @objc open func menuShareAction() {
         if let dataModel = self.model {
-            delegate?.cell(self, didMenu: .shore, model: dataModel)
+            delegate?.cell(self, didMenu: .share, model: dataModel)
         }
     }
     
@@ -257,7 +256,7 @@ class FYMessageBaseCell: UITableViewCell {
     }
 
     override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
-        if [#selector(menuShoreAction), #selector(menuCopyAction), #selector(menuDeleteAction)].contains(action) {
+        if [#selector(menuShareAction), #selector(menuCopyAction), #selector(menuDeleteAction)].contains(action) {
             return true
         }
         return false

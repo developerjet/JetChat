@@ -123,7 +123,6 @@ class FYDBQueryHelper: NSObject {
                 badge += unReadCount
             }
         }
-        
         return badge
     }
 

@@ -9,17 +9,17 @@
 import Foundation
 
 extension Dictionary {
+    
     static func += <KeyType, ValueType> ( left: inout Dictionary<KeyType, ValueType>, right: Dictionary<KeyType, ValueType>) {
         for (k, v) in right {
             left.updateValue(v, forKey: k)
         }
     }
     
-    func toJSonString() -> String {
+    func toJSONString() -> String {
         let data = try? JSONSerialization.data(withJSONObject: self, options: JSONSerialization.WritingOptions.prettyPrinted)
-        let strJson = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-        
-        return strJson! as String
+        let jsonString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+        return jsonString! as String
     }
     
     func toData() -> Data {

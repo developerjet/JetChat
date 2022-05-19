@@ -9,18 +9,18 @@
 import UIKit
 
 /// 声明代理方法
-protocol FYPopListMenuDelegate : Any {
+protocol FYPopListMenuDelegate: Any {
     func menu(_ model: FYCellDataConfig, didSelectRowAt index: Int)
 }
 
 extension FYPopListMenuDelegate {
-    func menu(_ model: FYCellDataConfig, didSelectRowAt index: Int) {}
+    func menu(_ model: FYCellDataConfig, didSelectRowAt index: Int) { }
 }
 
 class FYNavPopuListMenu: UIView {
     
     let kMaxCount: CGFloat = 6
-    let kRowHeight: CGFloat = 50
+    let kCellHeight: CGFloat = 50
     let triangleHeight: CGFloat = 12
     
     var tableH: CGFloat = 0
@@ -65,7 +65,7 @@ class FYNavPopuListMenu: UIView {
         table.dataSource = self
         table.cornerRadius = 5
         table.estimatedRowHeight = 0
-        table.rowHeight = kRowHeight
+        table.rowHeight = kCellHeight
         table.separatorStyle = .none
         table.tableFooterView = UIView()
         table.showsVerticalScrollIndicator = false
@@ -116,7 +116,7 @@ class FYNavPopuListMenu: UIView {
         self.menuMaskView.frame = self.bounds
         self.addSubview(menuMaskView)
         
-        tableH = dataSource.count > Int(kMaxCount) ? kMaxCount : CGFloat(dataSource.count) * kRowHeight
+        tableH = dataSource.count > Int(kMaxCount) ? kMaxCount : CGFloat(dataSource.count) * kCellHeight
         
         contentView.frame = CGRect(x: kScreenW - tableW - xSpace, y: ySpace, width: tableW, height: tableH + triangleHeight)
         addSubview(contentView)
@@ -217,7 +217,7 @@ extension FYNavPopuListMenu: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return kRowHeight
+        return kCellHeight
     }
 }
 

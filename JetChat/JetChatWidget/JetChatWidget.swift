@@ -43,7 +43,7 @@ struct SimpleEntry: TimelineEntry {
 }
 
 // 读取最近聊天消息
-func readWidgetMsgItem(_ widgetKey: String = "widgetKey", suiteName: String = "group.com.jetchat.2022.JetChatWidget") -> WidgetMsgItem? {
+func readWidgetMessageItem(_ widgetKey: String = "widgetKey", suiteName: String = "group.com.jetchat.2022.JetChatWidget") -> WidgetMsgItem? {
     let userDefaults = UserDefaults(suiteName: suiteName)
     if let object = userDefaults?.object(forKey: widgetKey) {
         // 将objc转成data
@@ -62,9 +62,9 @@ func readWidgetMsgItem(_ widgetKey: String = "widgetKey", suiteName: String = "g
 }
 
 //从UserDefault中取值
-func simpleModel(_ entryDate: Date) -> SimpleEntry
+func fileSimpleModel(_ entryDate: Date) -> SimpleEntry
 {
-    if let object = readWidgetMsgItem() {
+    if let object = readWidgetMessageItem() {
         return SimpleEntry(date: entryDate, object: object, configuration: .init())
     }
     return SimpleEntry(date: entryDate, object: WidgetMsgItem(), configuration: .init())
@@ -73,7 +73,7 @@ func simpleModel(_ entryDate: Date) -> SimpleEntry
 struct JetChatWidgetEntryView : View {
     var entry: Provider.Entry
     
-    let msgItem = simpleModel(.now).object as! WidgetMsgItem
+    let msgItem = fileSimpleModel(.now).object as! WidgetMsgItem
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -115,8 +115,8 @@ struct JetChatWidget: Widget {
         IntentConfiguration(kind: kind, intent: FYConfigurationIntent.self, provider: Provider()) { entry in
             JetChatWidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .configurationDisplayName("JetChat Widget")
+        .description("This is an jetchat widget.")
     }
 }
 

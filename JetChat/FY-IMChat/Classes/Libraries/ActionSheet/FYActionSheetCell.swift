@@ -10,6 +10,8 @@ import UIKit
 
 class FYActionSheetCell: UITableViewCell {
     
+    // MARK: - setter && getter
+    
     var title: String? {
         didSet {
             titleLabel.text = title ?? ""

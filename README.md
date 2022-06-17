@@ -41,7 +41,7 @@ Swift5.0编写的简仿微信聊天应用，完美支持表情键盘、单聊、
 - 多语言切换：已新增英文翻译 
 
 ### Tips
-- 如果你有更好的建议和方案请在lssues提交
+- 如果您对该项目有更好的建议和优化方案或者需要新增什么有趣的功能，请在lssues提交.
 
 ### Licensed under the [MIT licens](https://github.com/developerjet/JetChat/blob/master/LICENSE)
-- 如果你对该项目感兴趣或者对你有一些帮助，希望可以给我点个🌟Star🌟，非常感谢<br>
+- 如果你对该项目感兴趣或者对你有一些帮助，希望可以给我点个🌟Star🌟，非常感谢❤️<br>

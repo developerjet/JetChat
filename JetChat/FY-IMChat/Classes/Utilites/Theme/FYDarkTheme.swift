@@ -142,4 +142,10 @@ struct FYDarkTheme: Theme {
     
     /// 黑 -> FFFFFF 白 -> 1890FF
     var FYColor_Main_TextColor_V12 = UIColor.Color_White_FFFFFF
+    
+    
+    // MARK: - UIImage Configuration
+    
+    var nav_back_image = R.image.nav_back_white()!
+    
 }

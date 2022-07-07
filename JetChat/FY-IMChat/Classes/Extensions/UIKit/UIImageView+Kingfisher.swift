@@ -9,6 +9,9 @@
 import UIKit
 import Foundation
 import Kingfisher
+import RxTheme
+import RxCocoa
+import RxSwift
 
 enum ImageResult {
     case success(UIImage)
@@ -97,6 +100,20 @@ extension UIImageView {
     }
 }
 
+// MARK: - Theme
 
-
-
+public extension ThemeProxy where Base: UIImageView {
+    
+    /// (set only) bind a stream to backgroundColor
+    var image: ThemeAttribute<UIImage?> {
+        get { fatalError("set only") }
+        set {
+            base.image = newValue.value
+            let disposable = newValue.stream
+                .take(until: base.rx.deallocating)
+                .observe(on: MainScheduler.instance)
+                .bind(to: base.rx.image)
+            hold(disposable, for: "backgroundColor")
+        }
+    }
+}

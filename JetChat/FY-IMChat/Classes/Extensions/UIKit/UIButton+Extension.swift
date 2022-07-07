@@ -8,6 +8,8 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
+import RxTheme
 
 /// 按钮图片和文字对齐方式
 enum ButtonStyle {
@@ -187,7 +189,7 @@ extension UIButton {
 }
 
 
-// MARK: - RxSwift Tap
+// MARK: - RxSwift tap
 
 extension UIButton {
     
@@ -196,5 +198,31 @@ extension UIButton {
         self.rx.tap.debounce(time, scheduler: MainScheduler.instance).bind {
             callback()
         }.disposed(by: rx.disposeBag)
+    }
+}
+
+
+// MARK: - Theme
+
+public extension ThemeProxy where Base: UIButton {
+
+    func buttonImage(from newValue: ThemeAttribute<UIImage?>, for state: UIControl.State) {
+        base.setImage(newValue.value, for: state)
+        let disposable = newValue.stream
+            .take(until: base.rx.deallocating)
+            .observe(on: MainScheduler.instance)
+            .bind(to: base.rx.buttnImage(for: state))
+        hold(disposable, for: "buttnImage.forState.\(state.rawValue)")
+    }
+
+}
+
+extension Reactive where Base: UIButton {
+    
+    /// Bindable sink for `buttnImage` property
+    func buttnImage(for state: UIControl.State) -> Binder<UIImage?> {
+        return Binder(self.base) { view, attr in
+            view.setImage(attr, for: state)
+        }
     }
 }

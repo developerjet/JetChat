@@ -25,7 +25,7 @@ class FYBaseNavigationController: UINavigationController {
     private lazy var backButton: UIButton = {
         let button = UIButton(type: .custom)
         button.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
-        button.setImage(R.image.nav_back_white(), for: .normal)
+        button.theme.buttonImage(from: themed { $0.nav_back_image }, for: .normal)
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left:-20, bottom: 0, right: 0)
         button.addTarget(self, action: #selector(pop), for: .touchUpInside)
         return button

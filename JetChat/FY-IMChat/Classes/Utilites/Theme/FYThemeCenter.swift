@@ -151,7 +151,13 @@ protocol Theme {
     
     /// 黑 -> FFFFFF 白 -> 1890FF
     var FYColor_Main_TextColor_V12: UIColor { get }
+    
+    
+    // MARK: - UIImage Configuration
+    
+    var nav_back_image: UIImage { get }
 }
+
 
 enum ThemeType: ThemeProvider {
 

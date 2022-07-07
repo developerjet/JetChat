@@ -148,39 +148,43 @@ extension CustomContentProtocal where Self: FYFastGridListView {
 
 extension FYFastGridListView: CustomContentProtocal {
     @discardableResult
-
     func title(text: String) -> Self {
         self.titleLabel.text = text
         return self
     }
     
+    @discardableResult
     func content(text: String) -> Self {
         self.contentLabel.text = text
         return self
     }
     
+    @discardableResult
     func titleColor(color: UIColor) -> Self {
         self.titleLabel.textColor = color
         return self
     }
     
+    @discardableResult
     func contentColor(color: UIColor) -> Self {
         self.contentLabel.textColor = color
         return self
     }
     
+    @discardableResult
     func contentState(state:CustomContentColorState) -> Self {
         self.contentLabel.textColor = state.stateColor()
         return self
     }
     
-    
+    @discardableResult
     func clickClosure(_ closure:@escaping ()->Void) -> Self {
         didClickClosure = closure
         self.isUserInteractionEnabled = true
         return self
     }
     
+    @discardableResult
     func isHiddenArrow(isHidden: Bool) -> Self {
         if (isHidden) {
             // 隐藏箭头
@@ -211,6 +215,7 @@ extension FYFastGridListView: CustomContentProtocal {
     }
     
     // 最后分割线
+    @discardableResult
     func last(isLine: Bool) {
         if (isLine) {
             self.lineView.isHidden = false

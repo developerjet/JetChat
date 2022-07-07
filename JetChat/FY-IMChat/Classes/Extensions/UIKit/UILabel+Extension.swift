@@ -2,7 +2,7 @@
 //  UIlabel+Extension.swift
 //  FY-JetChat
 //
-//  Created by fisker.zhang on 2019/3/26.
+//  Created by Jett on 2019/3/26.
 //  Copyright © 2019 Jett. All rights reserved.
 //
 

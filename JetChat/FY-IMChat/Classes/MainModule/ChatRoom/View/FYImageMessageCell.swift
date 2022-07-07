@@ -84,8 +84,8 @@ class FYImageMessageCell: FYMessageBaseCell {
         pictureView.setContentHuggingPriority(.required, for: .horizontal)
     }
     
-    override func refreshMessageCell() {
-        super.refreshMessageCell()
+    override func layoutMessageCell() {
+        super.layoutMessageCell()
         guard let msgType = model?.msgType, msgType == 2 else {
             return
         }

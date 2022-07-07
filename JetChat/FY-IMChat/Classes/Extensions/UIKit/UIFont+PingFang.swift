@@ -2,7 +2,7 @@
 //  UIFont+PingFang.swift
 //  FY-JetChat
 //
-//  Created by fisker.zhang on 2019/3/6.
+//  Created by Jett on 2019/3/6.
 //  Copyright © 2019 Jett. All rights reserved.
 //
 

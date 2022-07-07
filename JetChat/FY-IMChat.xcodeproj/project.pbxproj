@@ -1935,7 +1935,7 @@
 					"-ObjC",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jetchat.2022;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jetchat.ios;
 				PRODUCT_NAME = JetChat;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "FY-IMChat/FYObjcBridge.h";
@@ -1967,7 +1967,7 @@
 					"-ObjC",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jetchat.2022;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jetchat.ios;
 				PRODUCT_NAME = JetChat;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "FY-IMChat/FYObjcBridge.h";
@@ -2089,7 +2089,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jetchat.2022.JetChatWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jetchat.ios.JetChatWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -2121,7 +2121,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jetchat.2022.JetChatWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jetchat.ios.JetChatWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;

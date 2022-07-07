@@ -97,8 +97,8 @@ class FYVideoMessageCell: FYMessageBaseCell {
         videoImageView.setContentHuggingPriority(.required, for: .horizontal)
     }
     
-    override func refreshMessageCell() {
-        super.refreshMessageCell()
+    override func layoutMessageCell() {
+        super.layoutMessageCell()
         guard let msgType = model?.msgType, msgType == 3 else {
             return
         }

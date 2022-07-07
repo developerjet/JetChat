@@ -2,7 +2,7 @@
 //  BaseViewModel.swift
 //  FY-JetChat
 //
-//  Created by fisker.zhang on 2019/3/15.
+//  Created by Jett on 2019/3/15.
 //  Copyright © 2019 Jett. All rights reserved.
 //
 

@@ -120,7 +120,7 @@ class FYMessageViewModel: BaseViewModel, ViewModelType {
 extension FYMessageViewModel {
     
     /// 文本消息
-    func makeChatTextMessage() -> Single<FYMessageItem> {
+    private func makeChatTextMessage() -> Single<FYMessageItem> {
         return Single<FYMessageItem>.create { single in
             let random = arc4random() % 9
             let msgItem = FYMessageItem()
@@ -151,7 +151,7 @@ extension FYMessageViewModel {
     
     
     /// 图片消息
-    func makeChatImageMessage() -> Single<FYMessageItem> {
+    private func makeChatImageMessage() -> Single<FYMessageItem> {
         return Single<FYMessageItem>.create { single in
             let random = arc4random() % 9
             let msgItem = FYMessageItem()
@@ -185,7 +185,7 @@ extension FYMessageViewModel {
     
     
     /// 视频消息
-    func makeChatVideoMessage() -> Single<FYMessageItem> {
+    private func makeChatVideoMessage() -> Single<FYMessageItem> {
         return Single<FYMessageItem>.create { single in
             let random = arc4random() % 9
             let msgItem = FYMessageItem()
@@ -220,8 +220,9 @@ extension FYMessageViewModel {
     }
     
     
-    /// 模拟群组群员自动发送消息
-    func makeChatGroupAutoSend() -> Single<FYMessageItem> {
+    /// 自动发送文本信息
+    private func makeChatAutoSendText() -> Single<FYMessageItem> {
+        
         return Single<FYMessageItem>.create { single in
             let random = arc4random() % 20
             let msgItem = FYMessageItem()
@@ -239,6 +240,21 @@ extension FYMessageViewModel {
             return Disposables.create()
         }
     }
+    
+
+    /// 模拟群组群员自动发送消息
+    private func makeChatGroupAutoSend() -> Single<FYMessageItem> {
+        let random = arc4random() % 3
+        
+        switch random {
+        case 0:
+            return makeChatImageMessage()
+        case 1:
+            return makeChatVideoMessage()
+        default:
+            return makeChatAutoSendText()
+        }
+    }
 }
 
 
@@ -246,7 +262,7 @@ extension FYMessageViewModel {
 
 extension FYMessageViewModel {
     
-    func makeBrowserImagesData() -> Single<[AnyObject]> {
+    private func makeBrowserImagesData() -> Single<[AnyObject]> {
         return Single<[AnyObject]>.create { single in
             var indexs: [Int: Int] = [:]
             var images: [YBIBImageData] = []
@@ -271,7 +287,7 @@ extension FYMessageViewModel {
         }
     }
     
-    func makeBrowserVideosData() -> Single<[AnyObject]> {
+    private func makeBrowserVideosData() -> Single<[AnyObject]> {
         return Single<[AnyObject]>.create { single in
             var videos: [YBIBVideoData] = []
             var indexs: [Int: Int] = [:]

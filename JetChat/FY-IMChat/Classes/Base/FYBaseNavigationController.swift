@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import RxTheme
+import RxSwift
+import RxCocoa
 
 class FYBaseNavigationController: UINavigationController {
     
@@ -34,39 +37,13 @@ class FYBaseNavigationController: UINavigationController {
         super.viewDidLoad()
         
         didInitialize()
-        addThemeChangedNoti()
     }
     
     // 初始化导航栏
     func didInitialize() {
-        
         self.navigationBar.shadowImage = UIImage()
         
-        if #available(iOS 13, *) {
-            // iOS13设置导航栏样式
-            settingNavBarStyle()
-        }else {
-            var navBackgroundColor: UIColor = .clear
-            switch themeService.type {
-            case .light:
-                navBackgroundColor = .Color_Gray_696969
-            default:
-                navBackgroundColor = .Color_Black_10171B
-            }
-            
-            self.navigationBar.theme.barTintColor = themed { $0.FYColor_Nav_BackgroundColor }
-            self.navigationBar.titleTextAttributes = titleTextAttributes
-            
-            let backgroundImage = UIImage.imageWithColor(navBackgroundColor)
-            self.navigationBar.setBackgroundImage(backgroundImage, for: .default)
-            
-            // 导航栏背景颜色
-            self.navigationBar.theme.backgroundColor = themed { $0.FYColor_Nav_BackgroundColor }
-        }
-        
-        self.navigationBar.tintColor = .Color_White_FFFFFF
-        // 设置背景色
-        self.navigationBar.theme.backgroundColor = themed { $0.FYColor_Nav_BackgroundColor }
+        settingNavBarStyle()
         
         // 设置代理
         delegate = self
@@ -78,24 +55,46 @@ class FYBaseNavigationController: UINavigationController {
     private func addThemeChangedNoti() {
         NotificationCenter.default.addObserver(self, selector: #selector(settingNavBarStyle), name: .kTraitCollectionDidChange, object: nil)
     }
-    
+
     // MARK: - Notification
     
-    @objc
-    private func settingNavBarStyle() {
+    @objc private func settingNavBarStyle() {
         
-        if #available(iOS 13, *) {
-            let appearance = UINavigationBarAppearance()
-            // 重置导航栏背景颜色和阴影
-            appearance.configureWithOpaqueBackground()
-            appearance.shadowImage = UIImage()
-            appearance.shadowColor = nil
-            appearance.titleTextAttributes = titleTextAttributes
-            // 设置背景色
-            appearance.theme.backgroundColor = themed { $0.FYColor_Nav_BackgroundColor }
-            self.navigationBar.standardAppearance = appearance
-            self.navigationBar.scrollEdgeAppearance = appearance
-        }
+        themeService.typeStream.subscribe ({ theme in
+            
+            if #available(iOS 13, *) {
+                let appearance = UINavigationBarAppearance()
+                // 重置导航栏背景颜色和阴影
+                appearance.configureWithOpaqueBackground()
+                appearance.shadowImage = UIImage()
+                appearance.shadowColor = nil
+                appearance.titleTextAttributes = self.titleTextAttributes
+                
+                switch theme.event.element {
+                case .light:
+                    // 设置背景色
+                    appearance.theme.backgroundColor = themed { $0.FYColor_Nav_BackgroundColor }
+                    self.navigationBar.standardAppearance = appearance
+                    self.navigationBar.scrollEdgeAppearance = appearance
+                    
+                default:
+                    // 设置背景色
+                    appearance.theme.backgroundColor = themed { $0.FYColor_Nav_BackgroundColor }
+                    self.navigationBar.standardAppearance = appearance
+                    self.navigationBar.scrollEdgeAppearance = appearance
+                }
+            }
+            else {
+                // 导航栏背景颜色
+                self.navigationBar.theme.backgroundColor = themed { $0.FYColor_Nav_BackgroundColor }
+            }
+            
+            self.navigationBar.theme.barTintColor = themed { $0.FYColor_Nav_BackgroundColor }
+            self.navigationBar.titleTextAttributes = self.titleTextAttributes
+            self.navigationBar.tintColor = .Color_White_FFFFFF
+            
+        }).disposed(by: rx.disposeBag)
+        
     }
 }
 

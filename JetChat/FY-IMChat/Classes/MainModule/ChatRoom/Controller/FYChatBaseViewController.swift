@@ -166,7 +166,8 @@ class FYChatBaseViewController: FYBaseViewController {
     }
     
     private func startChatTimer() {
-        if chatModel?.chatType == 2 && isTimered == false {
+        
+        if chatModel?.chatType == 2 && !self.isTimered {
             timer = Timer(timeInterval: 10, target: self, selector: #selector(makeGroupAutoSend), userInfo: nil, repeats: true)
             RunLoop.main.add(timer!, forMode: .common)
             timer?.fire() // 启动定时器

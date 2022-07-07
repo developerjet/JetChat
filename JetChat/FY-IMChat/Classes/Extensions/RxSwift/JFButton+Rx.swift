@@ -2,7 +2,7 @@
 //  JFButton+Rx.swift
 //  MK-MChain
 //
-//  Created by fisker.zhang on 2019/5/30.
+//  Created by Jett on 2019/5/30.
 //  Copyright © 2019 miku. All rights reserved.
 //
 

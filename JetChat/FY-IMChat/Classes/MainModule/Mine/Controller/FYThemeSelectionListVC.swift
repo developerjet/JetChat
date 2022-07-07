@@ -10,6 +10,12 @@ import UIKit
 
 class FYThemeSelectionListVC: FYBaseViewController {
     
+    // MARK: - lazy var
+    
+    private var systemThemeView: FYFastGridListView!
+    private var lightThemeView: FYFastGridListView!
+    private var drakThemeView: FYFastGridListView!
+    
     // MARK: - life cycle
     
     override func viewDidLoad() {
@@ -31,7 +37,7 @@ class FYThemeSelectionListVC: FYBaseViewController {
         }
         
         let lastThemeMode = FYThemeCenter.shared.currentTheme
-        let systemTheme = FYFastGridListView().config { (view) in
+        systemThemeView = FYFastGridListView().config { (view) in
             view.isHiddenArrow(isHidden: lastThemeMode == .system ? false : true)
                 .title(text: "跟随系统".rLocalized())
                 .content(text: "选取后，将跟随系统设定模式".rLocalized())
@@ -47,7 +53,7 @@ class FYThemeSelectionListVC: FYBaseViewController {
                 make.height.equalTo(systemHeight)
             })
         
-        let lightTheme = FYFastGridListView().config { (view) in
+        lightThemeView = FYFastGridListView().config { (view) in
             view.isHiddenArrow(isHidden: lastThemeMode == .light ? false : true)
                 .title(text: "白天模式".rLocalized())
                 .contentState(state: .highlight)
@@ -57,13 +63,13 @@ class FYThemeSelectionListVC: FYBaseViewController {
         }
             .adhere(toSuperView: self.view)
             .layout(snapKitMaker: { make in
-                make.top.equalTo(systemTheme.snp.bottom)
+                make.top.equalTo(systemThemeView.snp.bottom)
                 make.left.right.equalTo(self.view)
                 make.height.equalTo(50)
             })
         
         
-        let drakTheme = FYFastGridListView().config { (view) in
+        drakThemeView = FYFastGridListView().config { (view) in
             view.isHiddenArrow(isHidden: lastThemeMode == .dark ? false : true)
                 .title(text: "黑夜模式".rLocalized())
                 .contentState(state: .normal)
@@ -73,16 +79,16 @@ class FYThemeSelectionListVC: FYBaseViewController {
         }
             .adhere(toSuperView: self.view)
             .layout(snapKitMaker: { make in
-                make.top.equalTo(lightTheme.snp.bottom)
+                make.top.equalTo(lightThemeView.snp.bottom)
                 make.left.right.equalTo(self.view)
-                make.height.equalTo(lightTheme)
+                make.height.equalTo(lightThemeView)
             })
         
-        systemTheme.isHidden = isHideSystem
-        systemTheme.rightImageView.image = R.image.ic_list_selection()
+        systemThemeView.isHidden = isHideSystem
+        systemThemeView.rightImageView.image = R.image.ic_list_selection()
         
-        lightTheme.rightImageView.image = R.image.ic_list_selection()
-        drakTheme.rightImageView.image = R.image.ic_list_selection()
+        lightThemeView.rightImageView.image = R.image.ic_list_selection()
+        drakThemeView.rightImageView.image = R.image.ic_list_selection()
     }
     
     // MARK: - Action
@@ -91,9 +97,17 @@ class FYThemeSelectionListVC: FYBaseViewController {
         
         switch mode {
         case .light:
+            lightThemeView.isHiddenArrow(isHidden: false)
+            drakThemeView.isHiddenArrow(isHidden: true)
+            systemThemeView.isHiddenArrow(isHidden: true)
             themeService.switch(.light)
+            
         case .dark:
             themeService.switch(.dark)
+            drakThemeView.isHiddenArrow(isHidden: false)
+            lightThemeView.isHiddenArrow(isHidden: true)
+            systemThemeView.isHiddenArrow(isHidden: true)
+            
         default:
             if #available(iOS 13.0, *) {
                 // iOS13跟随系统
@@ -104,10 +118,13 @@ class FYThemeSelectionListVC: FYBaseViewController {
                     print("System Light mode")
                     themeService.switch(.light)
                 }
+                
+                systemThemeView.isHiddenArrow(isHidden: false)
+                lightThemeView.isHiddenArrow(isHidden: true)
+                drakThemeView.isHiddenArrow(isHidden: true)
             }
         }
-        
-        navigationController?.popToRootViewController(animated: false)
-        FYThemeCenter.shared.saveSelectionTheme(mode: mode, isRestWindow: true)
+                
+        FYThemeCenter.shared.saveSelectionTheme(mode: mode)
     }
 }

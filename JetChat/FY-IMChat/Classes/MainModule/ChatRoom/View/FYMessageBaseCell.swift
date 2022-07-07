@@ -42,7 +42,7 @@ class FYMessageBaseCell: UITableViewCell {
                 return
             }
             
-            refreshMessageCell()
+            layoutMessageCell()
         }
     }
     
@@ -119,7 +119,7 @@ class FYMessageBaseCell: UITableViewCell {
     }
     
     /// 提供子类调用
-    open func refreshMessageCell() { }
+    open func layoutMessageCell() { }
     
     /// 执行加载动画
     open func activityStartAnimating() {

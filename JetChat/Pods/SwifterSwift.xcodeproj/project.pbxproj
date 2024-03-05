@@ -530,8 +530,8 @@
 		51965990A9A124C29BB3ED953766EFC7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
 			};
 			buildConfigurationList = B035FDBAFC404E09999CF952AEF4D8D6 /* Build configuration list for PBXProject "SwifterSwift" */;
 			compatibilityVersion = "Xcode 9.3";

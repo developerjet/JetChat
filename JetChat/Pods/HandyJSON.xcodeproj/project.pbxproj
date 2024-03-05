@@ -240,8 +240,8 @@
 		4B53B2B557184E3552D624DC9F1C6561 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
 			};
 			buildConfigurationList = 1C51737069F1310749529A47BF6938C4 /* Build configuration list for PBXProject "HandyJSON" */;
 			compatibilityVersion = "Xcode 9.3";

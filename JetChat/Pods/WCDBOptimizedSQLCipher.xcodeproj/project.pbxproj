@@ -582,8 +582,8 @@
 		F789038590B81C9A16D6ABFF18F9F7E4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
 			};
 			buildConfigurationList = B89F9BE20D4D31D1A87BA57C4F35FBC2 /* Build configuration list for PBXProject "WCDBOptimizedSQLCipher" */;
 			compatibilityVersion = "Xcode 9.3";

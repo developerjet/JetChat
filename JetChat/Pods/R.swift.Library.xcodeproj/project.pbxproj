@@ -212,8 +212,8 @@
 		ABB5B165FDD7803A1A5EECC1198E8E0C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
 			};
 			buildConfigurationList = DDE7173D388F6F202D31CE4ECC5F20F7 /* Build configuration list for PBXProject "R.swift.Library" */;
 			compatibilityVersion = "Xcode 9.3";

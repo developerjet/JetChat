@@ -138,8 +138,8 @@
 		5800FB358287256DB968AF2A1C0FDC49 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
 			};
 			buildConfigurationList = A1ED46756FA660FF8A0800D053BEAB59 /* Build configuration list for PBXProject "UIView+FDCollapsibleConstraints" */;
 			compatibilityVersion = "Xcode 9.3";

@@ -458,8 +458,8 @@
 		F986FBAAA2DD46A809EA6A4C46AFACEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
 			};
 			buildConfigurationList = F2635CC716BC28B2A821061573912CA4 /* Build configuration list for PBXProject "WCDB.swift" */;
 			compatibilityVersion = "Xcode 9.3";

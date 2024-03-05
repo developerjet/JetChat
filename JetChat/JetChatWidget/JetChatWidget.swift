@@ -78,29 +78,27 @@ struct JetChatWidgetEntryView : View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             Text("最近聊天")
-                .foregroundColor(Color.white)
-                .lineLimit(4)
-                .font(.title3)
-                .padding(.horizontal)
+                .foregroundColor(Color.green)
+                .font(.system(size: 20))
+                .padding(EdgeInsets(top:10, leading: 15, bottom: 10, trailing: 15))
             
             Text(msgItem.date)
-                .foregroundColor(Color.black)
-                .lineLimit(4)
-                .font(.title3)
-                .padding(.horizontal)
+                .foregroundColor(Color.white)
+                .lineLimit(1)
+                .font(.system(size: 14))
+                .padding(EdgeInsets(top: 5, leading: 15, bottom: 5, trailing: 15))
             
             Text("\(msgItem.nickName ?? msgItem.name)：\(msgItem.message)")
                 .foregroundColor(Color.white)
                 .lineLimit(4)
-                .font(.system(size: 14))
-                .padding(.horizontal)
+                .font(.system(size: 13))
+                .padding(EdgeInsets(top:10, leading: 15, bottom: 5, trailing: 15))
             
         }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .leading)
             .padding(5)
             //widget背景图片
             .background(
                 Image("icon_widget_bg")
-                    .resizable()
                     .scaledToFill()
             ).widgetURL(URL(string: String(format: "https://www.jetchat.com/chatId=%ld", msgItem.chatId ?? -1)))
 

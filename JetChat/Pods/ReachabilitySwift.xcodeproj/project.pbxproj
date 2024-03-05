@@ -142,8 +142,8 @@
 		1708B285359A2088AFDF81A03009D27F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
 			};
 			buildConfigurationList = A51B311C4D5D3C71C913DE9FF391CD1C /* Build configuration list for PBXProject "ReachabilitySwift" */;
 			compatibilityVersion = "Xcode 9.3";

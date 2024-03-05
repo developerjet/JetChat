@@ -134,8 +134,8 @@
 		4911A93E632B377693AB135E11CC6112 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
 			};
 			buildConfigurationList = 9D09FDFF40E526AE302FDF8D4C13AE06 /* Build configuration list for PBXProject "SwiftyJSON" */;
 			compatibilityVersion = "Xcode 9.3";

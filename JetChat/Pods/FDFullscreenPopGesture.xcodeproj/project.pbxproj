@@ -138,8 +138,8 @@
 		D866A8E7E3B7C15B8CA393D72C310963 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
 			};
 			buildConfigurationList = DC8F4C97B07ED0D19369D41D6D324894 /* Build configuration list for PBXProject "FDFullscreenPopGesture" */;
 			compatibilityVersion = "Xcode 9.3";

@@ -167,8 +167,8 @@
 		ACF0932BA2A502AF6DF97FEB57C23FB9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
 			};
 			buildConfigurationList = 9234695EF8CA2CCC67C337DE7A7F64E2 /* Build configuration list for PBXProject "RxRelay" */;
 			compatibilityVersion = "Xcode 9.3";

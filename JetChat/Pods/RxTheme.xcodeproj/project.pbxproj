@@ -234,8 +234,8 @@
 		0CC1EDB73ECD05CC39ACDDE89EE78FF5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
 			};
 			buildConfigurationList = 7927FE4B2BEC21F1A143A6F3AD8B5A11 /* Build configuration list for PBXProject "RxTheme" */;
 			compatibilityVersion = "Xcode 9.3";

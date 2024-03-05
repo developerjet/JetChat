@@ -218,8 +218,8 @@
 		52B6080A2307243691D77756F64C3E23 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
 			};
 			buildConfigurationList = 546BA24C7E985C6A75116ACE8B73B720 /* Build configuration list for PBXProject "SQLiteRepairKit" */;
 			compatibilityVersion = "Xcode 9.3";

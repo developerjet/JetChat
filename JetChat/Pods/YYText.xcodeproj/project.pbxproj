@@ -327,8 +327,8 @@
 		119F75E86BE1576E3687B272C2D7534D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
 			};
 			buildConfigurationList = 3DE24A83FEDA69BCD596EAFA252F431A /* Build configuration list for PBXProject "YYText" */;
 			compatibilityVersion = "Xcode 9.3";

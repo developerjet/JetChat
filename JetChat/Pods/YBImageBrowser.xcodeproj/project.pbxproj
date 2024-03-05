@@ -480,8 +480,8 @@
 		08326DCF56FD71CEBE60EA676DDD22C3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
 			};
 			buildConfigurationList = CDD546E4123FD6EA6854FD72D4C6D847 /* Build configuration list for PBXProject "YBImageBrowser" */;
 			compatibilityVersion = "Xcode 9.3";

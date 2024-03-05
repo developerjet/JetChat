@@ -166,8 +166,8 @@
 		F452240E32906E5EF4F114447023D9FB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
 			};
 			buildConfigurationList = 293D25F2BDA86DFC063B8C0C9B5881A4 /* Build configuration list for PBXProject "Localize-Swift" */;
 			compatibilityVersion = "Xcode 9.3";

@@ -202,8 +202,8 @@
 		BC1F193CFBD76E81B1E490E1194514B4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
 			};
 			buildConfigurationList = 1D14B4819F4F3712C5F16A60334D9174 /* Build configuration list for PBXProject "YYImage" */;
 			compatibilityVersion = "Xcode 9.3";

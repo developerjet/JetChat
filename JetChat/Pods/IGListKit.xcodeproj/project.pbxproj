@@ -469,8 +469,8 @@
 		CAB46DA50D863A9116D12B2D36D7C68C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
 			};
 			buildConfigurationList = BE82EBF77FB73AAC8B39FB7783249946 /* Build configuration list for PBXProject "IGListKit" */;
 			compatibilityVersion = "Xcode 9.3";

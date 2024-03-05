@@ -231,8 +231,8 @@
 		8B76D7491E1F67A0F4D5DF287FE0F5DD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
 			};
 			buildConfigurationList = 5D29734D6ABF87BF0167C68BFC6AAC1B /* Build configuration list for PBXProject "IGListDiffKit" */;
 			compatibilityVersion = "Xcode 9.3";

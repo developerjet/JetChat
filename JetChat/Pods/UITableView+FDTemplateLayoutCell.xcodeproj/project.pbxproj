@@ -159,8 +159,8 @@
 		2EA7F5E9F6238B172DAFD82B3E4F0670 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
 			};
 			buildConfigurationList = 9E7FFA1E60A4850A886DE5D7EBAA2F29 /* Build configuration list for PBXProject "UITableView+FDTemplateLayoutCell" */;
 			compatibilityVersion = "Xcode 9.3";

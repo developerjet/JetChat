@@ -212,8 +212,8 @@
 		620DDB51B2348FFA878131EB4C01AF83 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
 			};
 			buildConfigurationList = B229E972215028783E93F53D1B10FF8F /* Build configuration list for PBXProject "IQKeyboardManagerSwift" */;
 			compatibilityVersion = "Xcode 9.3";

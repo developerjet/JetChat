@@ -5,7 +5,7 @@ Swift5.0编写的简仿微信聊天应用，完美支持表情键盘、单聊、
  
 [![platform](https://img.shields.io/badge/platform-iOS-blue.svg?style=plastic)](#)
 [![languages](https://img.shields.io/badge/language-swift-blue.svg)](#) 
-[![support](https://img.shields.io/badge/support-ios%208%2B-orange.svg)](#) 
+[![support](https://img.shields.io/badge/support-ios12-blue.svg)](#) 
 
  ### Examples
 | 聊天 | 朋友圈 |
